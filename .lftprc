@@ -1,0 +1,43 @@
+set ftp:ssl-force yes
+set ftp:ssl-protect-data yes
+set ftp:ssl-protect-fxp yes
+set ftp:use-stat-for-list true
+set ftp:fxp-force true
+set cmd:remote-completion on
+set bmk:save-passwords true
+set color:use-color true
+
+#set prompt "\[\e[1;37m\]lftp\] \[\e[0;32m\]\h\] \w\] \[\e[1;37m\]>\[\e[0m\] " 
+set prompt "\[\e[1;37m\][\[\e[1;31m\]\S\[\e[1;37m\]] \[\e[0;32m\]\u\[\e[1;37m\]@\[\e[0;32m\]\h\]\[\e[1;37m\]:\[\e[0;32m\]\w$\[\e[0m\] " 
+
+alias ll "cls \
+    --human-readable \
+    --user \
+    --group \
+    --date \
+    --size \
+    --filesize \
+    --sort=date"
+alias lll "ll | less -R"
+alias s "slot"
+alias t "mirror \
+    --continue \
+    --only-missing \
+    --no-empty-dirs \
+    --no-perms \
+    --no-umask \
+    --dereference \
+    --loop \
+    --exclude-glob='.*' \
+    --exclude-glob='*-offline' \
+    --exclude-glob='*.conflict' \
+    --exclude-glob='*.bad' \
+    --exclude-glob='*.message' \
+    --exclude-glob='*.url' \
+    --exclude-glob='*.missing' \
+    --exclude-glob='*approved*' \
+    --exclude-glob='*(?).*' \
+    --exclude-glob='*(??).*' \
+    --exclude-glob='*(???).*' \
+    --exclude='.*complete\s.*'"
+

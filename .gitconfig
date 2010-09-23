@@ -1,0 +1,7 @@
+[user]
+	name = martin
+	email = martin@pythonic.eu
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff

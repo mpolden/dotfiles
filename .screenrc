@@ -1,0 +1,8 @@
+startup_message off
+vbell off
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{W}%H %{G}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{G}][ %{W}%Y-%m-%d %c %{G}]'
+term screen-256color-bce
+defbce on
+
