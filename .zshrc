@@ -161,18 +161,29 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
+function lll {
+    ls -lh --color=always $1 | less -RN
+}
+
+function smart {
+    sudo smartctl --all --device=3ware,$1 /dev/twa0
+}
+
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -a --color=auto'
+alias up2date='sudo aptitude update && sudo aptitude safe-upgrade'
+alias pacclean='sudo pacman -Rs $(pacman -Qdt | awk '"'"'{print $1}'"'"' | xargs)'
+alias pacup='sudo pacman -Syu --ignore=kernel26'
+alias pacwipe='sudo pacman -Rns'
+alias pkg_info='dpkg --list | tail --lines=+6 | awk '\''{print $2}'\'''
 alias l4d_up='~/hlds/steam -command update -game l4d_full -dir ~/hlds'
 alias l4d_cfg='vim ~/hlds/l4d/left4dead/cfg/server.cfg'
 alias l4d_start='cd ~/hlds/l4d && ./srcds_run +ip 158.38.48.15'
 alias l4d2_up='~/hlds/steam -command update -game left4dead2 -dir ~/hlds'
 alias l4d2_cfg='vim ~/hlds/left4dead2/left4dead2/cfg/server.cfg'
 alias l4d2_start='cd ~/hlds/left4dead2 && ./srcds_run +ip 158.38.48.15'
-alias pacclean='sudo pacman -Rs $(pacman -Qdt | awk '"'"'{print $1}'"'"' | xargs)'
-alias pacup='sudo pacman -Syu --ignore=kernel26'
-alias pacwipe='sudo pacman -Rns'
 alias pftp='~/pftp/pftp.sh'
 alias iodined='sudo ~/iodine/bin/iodined -f -u nobody -t /var/empty -c -P Qu5haN8freSPeyU9 172.16.0.1 m.pythonic.eu'
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias la='ls -a --color=auto'
+alias sitebot='telnet localhost 45000'
 
