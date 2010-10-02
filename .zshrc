@@ -13,8 +13,10 @@ compinit
 
 if [[ -e "/usr/share/terminfo/x/xterm-256color" ]]; then
     TERM='xterm-256color'
-else
+elif [[ -e "/usr/share/terminfo/x/xterm-color" ]]; then
     TERM='xterm-color'
+else
+    TERM='xterm'
 fi
 
 function precmd {
