@@ -155,9 +155,9 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
-if [[ -e "/usr/share/terminfo/x/xterm-256color" ]]; then
+if [[ -e "/usr/share/terminfo/x/xterm-256color" || -e "/lib/terminfo/x/xterm-256color" ]]; then
     TERM='xterm-256color'
-elif [[ -e "/usr/share/terminfo/x/xterm-color" ]]; then
+elif [[ -e "/usr/share/terminfo/x/xterm-color" || -e "/lib/terminfo/x/xterm-color" ]]; then
     TERM='xterm-color'
 else
     TERM='xterm'
