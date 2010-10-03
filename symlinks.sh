@@ -2,10 +2,10 @@
 
 # Create symlinks for all dotfiles
 
-DOTFILES=$(ls --almost-all -1 --ignore='.git' --ignore='symlinks.sh' $PWD)
+DOTFILES=$(ls --almost-all -1 --ignore='.git' --ignore='symlinks.sh' --ignore='laptop' $PWD)
 
 for DOTFILE in $DOTFILES; do
-    ln -s $PWD/$DOTFILE $HOME/$DOTFILE
+    ln -s -f $PWD/$DOTFILE $HOME/$DOTFILE
 done
 
 exit $?
