@@ -7,7 +7,7 @@ alias colargol='ssh martinop@colargol.tihlde.org'
 alias gremlin='ssh martinop@gremlin.stud.aitel.hist.no'
 alias gw='ssh root@gw'
 
-alias up2date='sudo aptitude update && sudo aptitude safe-upgrade'
+alias up2date='sudo apt-get update && sudo apt-get upgrade'
 alias mount_mp3='sshfs -o ro,allow_other martin@wopr.tihlde.org:/glftpd/site/archive/mp3 ~/Music'
 alias umount_mp3='fusermount -uz ~/Music'
 alias backup_local='rsync --archive --delete --verbose --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
