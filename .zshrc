@@ -155,6 +155,7 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
+# Try setting a 256 color terminal
 if [[ -e "/usr/share/terminfo/x/xterm-256color" || -e "/lib/terminfo/x/xterm-256color" ]]; then
     TERM='xterm-256color'
 elif [[ -e "/usr/share/terminfo/x/xterm-color" || -e "/lib/terminfo/x/xterm-color" ]]; then
@@ -163,7 +164,12 @@ else
     TERM='xterm'
 fi
 
+# Load aliases
 if [[ -f ~/.bash_aliases ]]; then
     . ~/.bash_aliases
 fi
+
+# Fix home and end
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
