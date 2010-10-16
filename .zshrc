@@ -192,6 +192,11 @@ else
     TERM='xterm'
 fi
 
+# Set editor to vim
+if [[ -x "/usr/bin/vim" ]]; then
+    export EDITOR='vim'
+fi
+
 # Load aliases
 if [[ -f ~/.bash_aliases ]]; then
     . ~/.bash_aliases
