@@ -207,7 +207,13 @@ if [[ -f /etc/zsh_command_not_found ]]; then
     . /etc/zsh_command_not_found
 fi
 
-# Fix home and end
+# Fix home, end and delete
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+bindkey "^[[3~" delete-char
+
+# Allow comments interactive shell
+setopt interactivecomments
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
