@@ -206,3 +206,8 @@ fi
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
+# Allow comments interactive shell
+setopt interactivecomments
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
