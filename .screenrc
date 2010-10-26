@@ -6,4 +6,5 @@ hardstatus string '%{= kG}[ %{W}%H %{G}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)
 term screen-256color-bce
 defbce on
 bind s
+defnonblock on
 
