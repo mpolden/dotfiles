@@ -183,37 +183,40 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
-# Try setting a 256 color terminal
-if [[ -e "/usr/share/terminfo/x/xterm-256color" || -e "/lib/terminfo/x/xterm-256color" ]]; then
-    TERM='xterm-256color'
-elif [[ -e "/usr/share/terminfo/x/xterm-color" || -e "/lib/terminfo/x/xterm-color" ]]; then
-    TERM='xterm-color'
-else
-    TERM='xterm'
-fi
-
-# Set editor to vim
-if [[ -x "/usr/bin/vim" ]]; then
-    export EDITOR='vim'
-fi
-
-# Load aliases
-if [[ -f ~/.bash_aliases ]]; then
-    . ~/.bash_aliases
-fi
-
-# Suggest package for command not found
-if [[ -f /etc/zsh_command_not_found ]]; then
-    . /etc/zsh_command_not_found
-fi
-
 # Fix home, end and delete
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[4~" end-of-line
-bindkey "^[[3~" delete-char
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[3~' delete-char
 
 # Allow comments interactive shell
 setopt interactivecomments
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# Try setting a 256 color terminal
+if [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
+    export TERM='xterm-256color'
+elif [[ -e /usr/share/terminfo/x/xterm-color || -e /lib/terminfo/x/xterm-color ]]; then
+    export TERM='xterm-color'
+else
+    export TERM='xterm'
+fi
+
+# Set editor to vim
+if [[ -x /usr/bin/vim ]]; then
+    export EDITOR='vim'
+fi
+
+# Load aliases
+if [[ -s ~/.bash_aliases ]]; then
+    . ~/.bash_aliases
+fi
+
+# Suggest package for command not found
+if [[ -s /etc/zsh_command_not_found ]]; then
+    . /etc/zsh_command_not_found
+fi
+
+# Load rvm
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+    . $HOME/.rvm/scripts/rvm
+fi
 
