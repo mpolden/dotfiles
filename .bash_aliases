@@ -17,7 +17,8 @@ alias pacqdt='sudo pacman-color -Qdt'
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
 alias rsync_mp3='rsync --archive --delete --verbose martin@wopr.tihlde.org:/glftpd/site/archive/array1/mp3/ ~/Music/'
-alias rsync_bak='rsync --archive --delete --exclude=rsync --exclude=Music --exclude=.cache --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
+alias rsync_push='rsync --archive --delete --exclude=rsync --exclude=Music --exclude=.cache --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
+alias rsync_pull='rsync --archive --delete --verbose martin@sal.tihlde.org:~/rsync/hax/ ~/'
 
 # iodine
 alias iodined='sudo ~/iodine/bin/iodined -f -u nobody -t /var/empty -c -P Qu5haN8freSPeyU9 172.16.0.1 m.pythonic.eu'

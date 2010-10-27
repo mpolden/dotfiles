@@ -70,3 +70,5 @@ imap <end> <nop>
 imap <pageup> <nop>
 imap <pagedown> <nop>
 
+" disable visual and audible bell
+set vb t_vb=
