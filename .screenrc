@@ -7,4 +7,5 @@ term screen-256color-bce
 defbce on
 bind s
 defnonblock on
+defutf8 on
 
