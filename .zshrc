@@ -220,3 +220,8 @@ if [[ -s $HOME/.rvm/scripts/rvm ]]; then
     . $HOME/.rvm/scripts/rvm
 fi
 
+# Add npm to path
+if [[ -d $HOME/npm/bin ]]; then
+    export PATH=$HOME/npm/bin:$PATH
+fi
+
