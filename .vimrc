@@ -28,6 +28,9 @@ set number
 " indent new lines according to previous line
 "set smartindent
 
+" load pathogen
+call pathogen#runtime_append_all_bundles() 
+
 " better smartident
 filetype plugin indent on
 
@@ -72,3 +75,4 @@ imap <pagedown> <nop>
 
 " disable visual and audible bell
 set vb t_vb=
+

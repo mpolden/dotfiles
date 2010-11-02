@@ -13,6 +13,7 @@ alias aptup='sudo apt-get update && sudo apt-get upgrade'
 alias pacsyu='sudo pacman-color -Syu --ignore=kernel26'
 alias pacrns='sudo pacman-color -Rns'
 alias pacqdt='sudo pacman-color -Qdt'
+alias clysyu='sudo clyde -Syu --ignore=kernel26'
 
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
