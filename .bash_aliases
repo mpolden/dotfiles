@@ -14,8 +14,10 @@ alias pacsyu='sudo pacman-color -Syu --ignore=kernel26'
 alias pacrns='sudo pacman-color -Rns'
 alias pacqdt='pacman-color -Qdt'
 alias pacss='pacman-color -Ss'
+alias pacs='sudo pacman-color -S'
 alias clysyu='sudo clyde -Syu --ignore=kernel26'
 alias clyss='clyde -Ss'
+alias clys='sudo clyde -S'
 
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
@@ -49,4 +51,9 @@ alias minecraft_start='cd ~/minecraft && java -Xms512M -Xmx512M -cp minecraft-se
 # Site stuff
 alias pftp='cd ~/pftp && LD_LIBRARY_PATH=/home/martin/pftp/lib ./pftp'
 alias sitebot='telnet localhost 45000'
+
+# irssi
+alias irssi-scene='irssi'
+alias irssi-pre='irssi --home=~/.irssi2'
+alias irssi-legit='irssi --home=~/.irssi3'
 
