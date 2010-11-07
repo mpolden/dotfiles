@@ -192,7 +192,9 @@ bindkey '^[[3~' delete-char
 setopt interactivecomments
 
 # Try setting a 256 color terminal
-if [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
+if [[ -e /usr/share/terminfo/r/rxvt-unicode || -e /lib/terminfo/r/rxvt-unicode ]]; then
+    export TERM='rxvt-unicode'
+elif [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
     export TERM='xterm-256color'
 elif [[ -e /usr/share/terminfo/x/xterm-color || -e /lib/terminfo/x/xterm-color ]]; then
     export TERM='xterm-color'
