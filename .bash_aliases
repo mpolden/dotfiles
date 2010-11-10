@@ -15,7 +15,7 @@ alias pacrns='sudo pacman-color -Rns'
 alias pacqdt='pacman-color -Qdt'
 alias pacss='pacman-color -Ss'
 alias pacs='sudo pacman-color -S'
-alias clysyu='sudo clyde -Syu --ignore=kernel26'
+alias clysyu='sudo clyde -Syu --ignore=kernel26 --aur'
 alias clyss='clyde -Ss'
 alias clys='sudo clyde -S'
 
