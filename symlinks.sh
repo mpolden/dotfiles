@@ -3,7 +3,11 @@
 # Create symlinks for all dotfiles
 # Use --force to overwrite existing dotfiles
 
-DOTFILES=$(ls --almost-all -1 --ignore='.git' --ignore='symlinks.sh' $PWD)
+LS="ls"
+if [[ $(uname -s) != "Linux" ]]; then
+    LS="gnuls"
+fi
+DOTFILES=$($LS --almost-all -1 --ignore='.git' --ignore='symlinks.sh' --ignore='README.markdown' $PWD)
 
 LN_OPTS="-s"
 if [[ "$1" == "--force" ]]; then
