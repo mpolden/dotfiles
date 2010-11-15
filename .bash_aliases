@@ -6,6 +6,7 @@ alias mellow='ssh foo@debian.mellowland.net'
 alias atlantis='ssh martin@atlantis.kverka.no'
 alias colargol='ssh martinop@colargol.tihlde.org'
 alias gremlin='ssh martinop@gremlin.stud.aitel.hist.no'
+alias lv-426='ssh martin@lv-426.pythonic.eu'
 alias gw='ssh root@gw'
 
 # Package management
