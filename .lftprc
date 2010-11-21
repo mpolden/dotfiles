@@ -11,6 +11,7 @@ set color:use-color true
 set prompt "\[\e[1;37m\][\[\e[1;31m\]\S\[\e[1;37m\]] \[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;32m\]\w$\[\e[0m\] " 
 
 alias ll "cls \
+    --long \
     --human-readable \
     --user \
     --group \

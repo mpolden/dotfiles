@@ -39,6 +39,7 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias lll='ls -alF --color=always | less -R'
 
 # Gameservers
 alias l4d_up='~/hlds/steam -command update -game l4d_full -dir ~/hlds'
