@@ -225,3 +225,9 @@ if [[ -d $HOME/npm/bin ]]; then
     export PATH=$HOME/npm/bin:$PATH
 fi
 
+# Add play to path
+if [[ -d $HOME/play ]]; then
+    export PATH=$HOME/play:$PATH
+fi
+
+
