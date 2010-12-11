@@ -24,8 +24,8 @@ alias clys='sudo clyde -S'
 
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
-alias rsync_mp3='rsync --archive --delete --verbose martin@wopr.tihlde.org:/glftpd/site/archive/array1/mp3/ ~/Music/'
-alias rsync_push='rsync --archive --delete --exclude=rsync --exclude=Music --exclude=.cache --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
+alias rsync_mp3='rsync --archive --delete --verbose --prune-empty-dirs --exclude=.message --delete-excluded martin@wopr.tihlde.org:/glftpd/site/archive/array1/mp3/ ~/Music/'
+alias rsync_push='rsync --archive --delete --delete-excluded --exclude=rsync --exclude=Music --exclude=Videos --exclude=play --exclude=".*" --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
 alias rsync_pull='rsync --archive --delete --verbose martin@sal.tihlde.org:~/rsync/hax/ ~/'
 
 # iodine
