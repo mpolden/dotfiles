@@ -1,10 +1,11 @@
+# Pull in Ubuntu defaults if they exist
+if [[ -s /usr/share/base-files/dot.bashrc ]]; then
+    . /usr/share/base-files/dot.bashrc
+fi
+
 # Try setting 256 color xterm
 if [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
-    TERM='xterm-256color'
-elif [[ -e /usr/share/terminfo/x/xterm-color || -e /lib/terminfo/x/xterm-color ]]; then
-    TERM='xterm-color'
-else
-    TERM='xterm'
+    export TERM='xterm-256color'
 fi
 
 # Enable completion
@@ -18,7 +19,9 @@ if [[ -x /usr/bin/vim ]]; then
 fi
 
 # Set prompt (with colors)
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+if [[ -n "$PS1" ]]; then
+    export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+fi
 
 # Load aliases
 if [[ -s ~/.bash_aliases ]]; then
@@ -26,17 +29,17 @@ if [[ -s ~/.bash_aliases ]]; then
 fi
 
 # Load rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-    . $HOME/.rvm/scripts/rvm
+if [[ -s ~/.rvm/scripts/rvm ]]; then
+    . ~/.rvm/scripts/rvm
 fi
 
 # Add npm to path
-if [[ -d $HOME/npm/bin ]]; then
+if [[ -d ~/npm/bin ]]; then
     export PATH=$HOME/npm/bin:$PATH
 fi
 
 # Add play to path
-if [[ -d $HOME/play ]]; then
+if [[ -d ~/play ]]; then
     export PATH=$HOME/play:$PATH
 fi
 
