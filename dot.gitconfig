@@ -3,5 +3,6 @@
 	email = martin@pythonic.eu
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [merge]
 	tool = vimdiff
