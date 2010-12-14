@@ -12,8 +12,12 @@ fi
 
 for DOTFILE in $DOTFILES; do
     BASENAME=$(basename $DOTFILE)
-    TARGET="$HOME/${BASENAME/dot/}"
-    ln $LN_OPTS $DOTFILE $TARGET
+    if [[ "$BASENAME" == "dot.ssh" ]]; then
+        ln $LN_OPTS $DOTFILE/config $HOME/.ssh/config
+    else
+        TARGET="$HOME/${BASENAME/dot/}"
+        ln $LN_OPTS $DOTFILE $TARGET
+    fi
 done
 
 exit $?
