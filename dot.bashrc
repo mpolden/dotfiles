@@ -69,9 +69,9 @@ esac
 if [[ -x /usr/bin/dircolors || -x /usr/local/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     if [[ -x /usr/local/bin/gnuls ]]; then
-        alias ls='ls --color=auto'
-    else
         alias ls='gnuls --color=auto'
+    else
+        alias ls='ls --color=auto'
     fi
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
