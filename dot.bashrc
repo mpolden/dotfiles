@@ -39,7 +39,7 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [[ -x /usr/bin/tput || -x /bin/tput ]] && tput setaf 1 >&/dev/null; then
+    if [[ -x /usr/bin/tput || -x /bin/tput ]] && [[ $(uname -s) == "FreeBSD" ]] || $(tput setaf 1 >&/dev/null); then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
@@ -68,7 +68,11 @@ esac
 # enable color support of ls and also add handy aliases
 if [[ -x /usr/bin/dircolors || -x /usr/local/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    if [[ -x /usr/local/bin/gnuls ]]; then
+        alias ls='ls --color=auto'
+    else
+        alias ls='gnuls --color=auto'
+    fi
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
