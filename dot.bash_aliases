@@ -6,10 +6,12 @@ alias pacqdt='pacman-color -Qdt'
 alias pacqi='pacman-color -Qi'
 alias pacql='pacman-color -Ql'
 alias pacss='pacman-color -Ss'
+alias pacqm='pacman-color -Qm'
 alias pacs='sudo pacman-color -S'
 alias clysyu='sudo clyde -Syu --ignore=kernel26 --aur'
 alias clyss='clyde -Ss'
 alias clys='sudo clyde -S'
+alias clyqm='clyde -Qm'
 
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
