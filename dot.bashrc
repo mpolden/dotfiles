@@ -127,3 +127,7 @@ if [[ -d ~/play ]]; then
     export PATH=$HOME/play:$PATH
 fi
 
+# Add perl bin to path
+if [[ -d /usr/lib/perl5/vendor_perl/bin ]]; then
+    export PATH=/usr/lib/perl5/vendor_perl/bin/:$PATH
+fi
