@@ -16,8 +16,7 @@ alias clyqm='clyde -Qm'
 # Rsync
 alias rsync_sal='rsync --archive --delete --verbose --exclude=hlds --exclude=Steam --exclude=rtorrent martin@sal.tihlde.org:~ ~/rsync'
 alias rsync_mp3='rsync --archive --delete --verbose --prune-empty-dirs --exclude=.message --delete-excluded martin@wopr.tihlde.org:/glftpd/site/archive/array1/mp3/ ~/Music/'
-alias rsync_push='rsync --archive --delete --delete-excluded --exclude=rsync --exclude=Music --exclude=Videos --exclude=play --exclude=".*" --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
-alias rsync_pull='rsync --archive --delete --verbose martin@sal.tihlde.org:~/rsync/hax/ ~/'
+alias rsync_push='rsync --archive --delete --delete-excluded --exclude=rsync --exclude=Music --exclude=Videos --exclude=Downloads --exclude=play --exclude=".*" --verbose ~/ martin@sal.tihlde.org:~/rsync/hax'
 
 # iodine
 alias iodined='sudo ~/iodine/bin/iodined -f -u nobody -t /var/empty -c -P Qu5haN8freSPeyU9 172.16.0.1 m.pythonic.eu'
