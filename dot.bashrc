@@ -102,32 +102,21 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Try setting 256 color xterm
-if [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
-    export TERM='xterm-256color'
-fi
+# Set 256 color xterm
+[[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]] && export TERM='xterm-256color'
 
 # Set editor to vim
-if [[ -x /usr/bin/vim ]]; then
-    export EDITOR='vim'
-fi
+[[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
 # Load rvm
-if [[ -f ~/.rvm/scripts/rvm ]]; then
-    . ~/.rvm/scripts/rvm
-fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add npm to path
-if [[ -d ~/npm/bin ]]; then
-    export PATH=$HOME/npm/bin:$PATH
-fi
+[[ -d "$HOME/npm/bin" ]] && export PATH="$HOME/npm/bin:$PATH"
 
 # Add play to path
-if [[ -d ~/play ]]; then
-    export PATH=$HOME/play:$PATH
-fi
+[[ -d "$HOME/play" ]] && export PATH="$HOME/play:$PATH"
 
 # Add perl bin to path
-if [[ -d /usr/lib/perl5/vendor_perl/bin ]]; then
-    export PATH=/usr/lib/perl5/vendor_perl/bin/:$PATH
-fi
+[[ -d "/usr/lib/perl5/vendor_perl/bin" ]] && export PATH="/usr/lib/perl5/vendor_perl/bin/:$PATH"
+
