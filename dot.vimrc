@@ -72,4 +72,4 @@ set vb t_vb=
 
 " show column marker
 set colorcolumn=80
-highlight ColorColumn ctermbg=2d2d2d
+highlight ColorColumn ctermbg=235
