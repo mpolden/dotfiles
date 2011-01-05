@@ -25,9 +25,6 @@ set expandtab
 " numbered lines
 set number
 
-" indent new lines according to previous line
-"set smartindent
-
 " load pathogen
 call pathogen#runtime_append_all_bundles() 
 
@@ -40,9 +37,6 @@ syntax on
 " color scheme
 colorscheme mustang
 set background=dark
-
-" disable visual
-set mouse=
 
 " always show the status line as the second last line
 set laststatus=2
