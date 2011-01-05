@@ -35,7 +35,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme
-colorscheme mustang
+colorscheme wombat256
 set background=dark
 
 " always show the status line as the second last line
@@ -70,3 +70,6 @@ imap <pagedown> <nop>
 " disable visual and audible bell
 set vb t_vb=
 
+" show column marker
+set colorcolumn=80
+highlight ColorColumn ctermbg=2d2d2d
