@@ -71,5 +71,7 @@ imap <pagedown> <nop>
 set vb t_vb=
 
 " show column marker
-set colorcolumn=80
-highlight ColorColumn ctermbg=235
+if exists('+colorcolumn')
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=235
+endif
