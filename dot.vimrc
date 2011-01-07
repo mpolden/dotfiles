@@ -25,9 +25,6 @@ set expandtab
 " numbered lines
 set number
 
-" load pathogen
-call pathogen#runtime_append_all_bundles() 
-
 " better smartident
 filetype plugin indent on
 

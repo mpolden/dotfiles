@@ -1,1 +1,0 @@
-../plugin/vcsgit.vim
