@@ -111,12 +111,6 @@ fi
 # Load rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-# Add npm to path
-[[ -d "$HOME/npm/bin" ]] && export PATH="$HOME/npm/bin:$PATH"
-
-# Add play to path
-[[ -d "$HOME/play" ]] && export PATH="$HOME/play:$PATH"
-
-# Add perl bin to path
-[[ -d "/usr/lib/perl5/vendor_perl/bin" ]] && export PATH="/usr/lib/perl5/vendor_perl/bin/:$PATH"
+# Add $HOME/bin to path
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
