@@ -102,6 +102,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Local aliases
+[[ -s "$HOME/.bash_aliases.local" ]] && . "$HOME/.bash_aliases.local"
+
 # Set 256 color xterm
 [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]] && export TERM='xterm-256color'
 
