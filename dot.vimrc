@@ -32,7 +32,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme
-colorscheme wombat256
+colorscheme vibrantink
 set background=dark
 
 " always show the status line as the second last line
@@ -70,5 +70,5 @@ set vb t_vb=
 " show column marker
 if exists('+colorcolumn')
     set colorcolumn=80
-    highlight ColorColumn ctermbg=235
+    highlight ColorColumn ctermbg=233
 endif
