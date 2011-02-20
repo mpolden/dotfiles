@@ -32,7 +32,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme
-colorscheme vividchalk
+colorscheme vibrantink
 set background=dark
 
 " always show the status line as the second last line
