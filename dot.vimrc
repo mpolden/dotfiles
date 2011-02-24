@@ -70,5 +70,5 @@ set vb t_vb=
 " show column marker
 if exists('+colorcolumn')
     set colorcolumn=80
-    highlight ColorColumn ctermbg=233
+    highlight ColorColumn ctermbg=235
 endif

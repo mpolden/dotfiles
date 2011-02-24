@@ -1,6 +1,6 @@
 [user]
 	name = Martin Polden
-	email = martin@pythonic.eu
+	email = martin.polden@gmail.com
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
