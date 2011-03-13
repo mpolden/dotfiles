@@ -117,6 +117,9 @@ fi
 # Add $HOME/bin to path
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
+# Add $HOME/npm/bin to path
+[[ -d "$HOME/npm/bin" ]] && export PATH="$HOME/npm/bin:$PATH"
+
 # Alternative cgroup patch
 if [[ "$PS1" && -d "/dev/cgroup/cpu/user" ]]; then
     mkdir -p -m 0700 /dev/cgroup/cpu/user/$$ > /dev/null 2>&1
