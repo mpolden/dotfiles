@@ -8,9 +8,9 @@ Then you can create symlinks by running the included script
 
     ./symlinks.sh
 
-If you want to force overwrite of existing dotfiles in your $HOME, use the --force flag
+If you want to force overwrite of existing dotfiles in your $HOME, use the -f flag
 
-    ./symlinks.sh --force
+    ./symlinks.sh -f
 
 (NOTE: This will delete your existing dotfiles)
 
