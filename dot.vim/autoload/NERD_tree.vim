@@ -1,1 +1,1 @@
-../plugin/NERD_tree.vim
+../nerdtree/plugin/NERD_tree.vim
