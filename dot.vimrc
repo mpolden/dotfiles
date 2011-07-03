@@ -37,7 +37,6 @@ syntax on
 
 " color scheme
 colorscheme mustang
-set background=dark
 
 " always show the status line as the second last line
 set laststatus=2
