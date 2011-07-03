@@ -25,6 +25,10 @@ set expandtab
 " numbered lines
 set number
 
+" pathogen
+filetype off
+call pathogen#runtime_append_all_bundles() 
+
 " better smartident
 filetype plugin indent on
 
@@ -33,7 +37,6 @@ syntax on
 
 " color scheme
 colorscheme mustang
-set background=dark
 
 " always show the status line as the second last line
 set laststatus=2

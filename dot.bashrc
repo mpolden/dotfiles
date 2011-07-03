@@ -117,3 +117,6 @@ fi
 # Add $HOME/bin to path
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
+# Play bash completion
+[[ -s "/opt/play/support/play_completion" ]] && . /opt/play/support/play_completion
+
