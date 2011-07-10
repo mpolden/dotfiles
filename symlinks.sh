@@ -7,7 +7,7 @@ DOTFILES=$(ls -1 -d $PWD/dot.*)
 
 LN_OPTS="-s"
 if [[ "$1" == "-f" ]]; then
-	LN_OPTS="$LN_OPTS -f"
+    LN_OPTS="$LN_OPTS -f"
 fi
 
 for DOTFILE in $DOTFILES; do
