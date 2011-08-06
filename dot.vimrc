@@ -75,3 +75,6 @@ if exists('+colorcolumn')
     set colorcolumn=80
     highlight ColorColumn ctermbg=235
 endif
+
+" set 256 colors
+set t_Co=256
