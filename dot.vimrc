@@ -70,11 +70,11 @@ imap <pagedown> <nop>
 " disable visual and audible bell
 set vb t_vb=
 
+" set 256 colors
+set t_Co=256
+
 " show column marker
 if exists('+colorcolumn')
     set colorcolumn=80
     highlight ColorColumn ctermbg=235
 endif
-
-" set 256 colors
-set t_Co=256
