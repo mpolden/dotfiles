@@ -29,7 +29,7 @@ set number
 filetype off
 call pathogen#runtime_append_all_bundles() 
 
-" better smartident
+" filetype detection and smart indent
 filetype plugin indent on
 
 " enable syntax highlighting
@@ -73,8 +73,13 @@ set vb t_vb=
 " set 256 colors
 set t_Co=256
 
-" show column marker
+" show column marker (+option-name  Vim option that works.)
 if exists('+colorcolumn')
     set colorcolumn=80
     highlight ColorColumn ctermbg=235
+endif
+
+" show hidden files in nerdtree
+if exists(':NERDTree')
+    let NERDTreeShowHidden=1
 endif
