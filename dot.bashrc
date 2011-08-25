@@ -120,3 +120,6 @@ fi
 # Play bash completion
 [[ -s "/opt/play/support/play_completion" ]] && . /opt/play/support/play_completion
 
+# Maven
+[[ -s "/opt/maven" ]] && export M2_HOME="/opt/maven"
+
