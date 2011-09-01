@@ -1,8 +1,38 @@
-*.[oa]
-*~
+# Python
 *.py[oc]
+
+# Java
+*.class
+target
+
+# Play Framework
+eclipse
+tmp
+precompiled
+
+# vim
+.netrwhist
 *.swp
+*~
+
+# gcc
+*.[oa]
+
+# IntelliJ IDEA
+*.ipr
+*.iws
+*.iml
+.idea
+out
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# NetBeans
+nbproject
+
+# Misc
 *.log
 *.bak
-*.db
-.netrwhist
