@@ -223,6 +223,9 @@ include "/usr/share/nano/c.nanorc"
 ## HTML
 include "/usr/share/nano/html.nanorc"
 
+## PHP
+include "/usr/share/nano/php.nanorc"
+
 ## TeX
 include "/usr/share/nano/tex.nanorc"
 
