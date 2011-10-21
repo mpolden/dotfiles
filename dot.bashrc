@@ -117,9 +117,15 @@ fi
 # Add $HOME/bin to path
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
+# Java
+[[ -s "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
+
+# Ant
+[[ -s "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
+
 # Play bash completion
 [[ -s "/opt/play/support/play_completion" ]] && . /opt/play/support/play_completion
 
 # Maven
-[[ -s "/opt/maven" ]] && export M2_HOME="/opt/maven"
+[[ -s "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
