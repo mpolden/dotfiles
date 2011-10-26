@@ -129,3 +129,5 @@ fi
 # Maven
 [[ -s "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
+# npm
+[[ -s "/opt/npm/bin" ]] && export PATH="/opt/npm/bin:$PATH"
