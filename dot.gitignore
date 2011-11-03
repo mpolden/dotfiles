@@ -19,7 +19,6 @@ precompiled
 *.[oa]
 
 # IntelliJ IDEA
-*.ipr
 *.iws
 *.iml
 .idea
