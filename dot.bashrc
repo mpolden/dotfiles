@@ -118,16 +118,16 @@ fi
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 
 # Java
-[[ -s "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
+[[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
 
 # Ant
-[[ -s "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
+[[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
 
 # Play bash completion
 [[ -s "/opt/play/support/play_completion" ]] && . /opt/play/support/play_completion
 
 # Maven
-[[ -s "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
+[[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
 # npm
-[[ -s "/opt/npm/bin" ]] && export PATH="/opt/npm/bin:$PATH"
+[[ -d "/opt/npm/bin" ]] && export PATH="/opt/npm/bin:$PATH"
