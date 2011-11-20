@@ -131,3 +131,6 @@ fi
 
 # npm
 [[ -d "/opt/npm/bin" ]] && export PATH="/opt/npm/bin:$PATH"
+
+# Scala
+[[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
