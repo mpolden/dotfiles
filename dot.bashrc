@@ -135,3 +135,6 @@ fi
 
 # Scala
 [[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
+
+# Android
+[[ -d "/opt/android-sdk-linux" ]] && export ANDROID_HOME="/opt/android-sdk-linux"
