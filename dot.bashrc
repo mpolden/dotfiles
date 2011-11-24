@@ -115,10 +115,11 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add $HOME/bin to path
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && export PATH="$HOME/bin:$PATH"
 
 # Java
 [[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
+[[ -d "/usr/lib/jvm/java-6-sun" ]] && export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 
 # Ant
 [[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
