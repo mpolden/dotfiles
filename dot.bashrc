@@ -106,7 +106,10 @@ fi
 [[ -s "$HOME/.bash_aliases.local" ]] && . "$HOME/.bash_aliases.local"
 
 # Set 256 color xterm
-[[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]] && export TERM='xterm-256color'
+[[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]] && export TERM="xterm-256color"
+
+# Set tmux TERM
+[[ -n "$TMUX" ]] && export TERM="screen-256color"
 
 # Set editor to vim
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
@@ -115,8 +118,26 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add $HOME/bin to path
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && export PATH="$HOME/bin:$PATH"
+
+# Java
+[[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
+[[ -d "/usr/lib/jvm/java-6-sun" ]] && export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+
+# Ant
+[[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
 
 # Play bash completion
 [[ -s "/opt/play/support/play_completion" ]] && . /opt/play/support/play_completion
 
+# Maven
+[[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
+
+# nodejs
+[[ -d "/opt/node/bin" ]] && export PATH="/opt/node/bin:$PATH"
+
+# Scala
+[[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
+
+# Android
+[[ -d "/opt/android-sdk-linux" ]] && export ANDROID_HOME="/opt/android-sdk-linux"
