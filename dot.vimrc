@@ -83,3 +83,13 @@ endif
 if exists(':NERDTree')
     let NERDTreeShowHidden=1
 endif
+
+" highlight matches
+set hlsearch
+
+" incremental searching
+set incsearch
+
+" case insensitive search (unless atlast one capital letter is given)
+set ignorecase
+set smartcase
