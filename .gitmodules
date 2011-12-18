@@ -7,3 +7,6 @@
 [submodule "dot.vim/vim-pathogen"]
 	path = dot.vim/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "dot.vim/bundle/molokai"]
+	path = dot.vim/bundle/molokai
+	url = https://github.com/vim-scripts/molokai.git
