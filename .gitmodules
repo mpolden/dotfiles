@@ -10,3 +10,6 @@
 [submodule "dot.vim/bundle/molokai"]
 	path = dot.vim/bundle/molokai
 	url = https://github.com/vim-scripts/molokai.git
+[submodule "dot.vim/bundle/mustang2"]
+	path = dot.vim/bundle/mustang2
+	url = https://github.com/vim-scripts/Mustang2
