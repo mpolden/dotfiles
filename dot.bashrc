@@ -114,6 +114,9 @@ fi
 # Set editor to vim
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
+# keychain
+[[ -s "$HOME/.keychain/$HOSTNAME-sh" ]] && . "$HOME/.keychain/$HOSTNAME-sh"
+
 # Load rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
