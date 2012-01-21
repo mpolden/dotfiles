@@ -4,13 +4,9 @@ To use it, you need to do the following:
 
     git clone git://github.com/martinp/dotfiles.git
 
-Then you can create symlinks by running the included script
+Then you can create symlinks by running:
 
-    ./symlinks.sh
+    make install
 
-If you want to force overwrite of existing dotfiles in your $HOME, use the -f flag
-
-    ./symlinks.sh -f
-
-(NOTE: This will delete your existing dotfiles)
+NOTE: This will overwrite your existing dotfiles
 
