@@ -50,5 +50,5 @@ bindkey '^[[3~' delete-char
 setopt interactivecomments
 
 # Setup environment
-[[ -s "~/.bashrc_env" ]] && source "~/.bashrc_env"
+[[ -s "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
 

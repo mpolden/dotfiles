@@ -30,7 +30,7 @@
 [[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
 
 # Play bash completion
-[[ -f "/opt/play/support/play_completion" ]] && \
+[[ "$SHELL" == "/bin/bash" && -f "/opt/play/support/play_completion" ]] && \
     source "/opt/play/support/play_completion"
 
 # Maven
