@@ -1,5 +1,5 @@
 # Local aliases
-[[ -f "~/.bash_aliases.local" ]] && source "~/.bash_aliases.local"
+[[ -f "$HOME/.bash_aliases.local" ]] && source "$HOME/.bash_aliases.local"
 
 # Set 256 color xterm
 [[ -e "/usr/share/terminfo/x/xterm-256color" || \
@@ -12,14 +12,14 @@
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
 # keychain
-[[ -f "~/.keychain/$HOSTNAME-sh" ]] && source "~/.keychain/$HOSTNAME-sh"
+[[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && source "$HOME/.keychain/$HOSTNAME-sh"
 
 # Load rvm
-[[ -f "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm" 
+[[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-# Add ~/bin to path
-[[ -d "~/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && \
-    export PATH="~/bin:$PATH"
+# Add $HOME/bin to path
+[[ -d "$HOME/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && \
+    export PATH="$HOME/bin:$PATH"
 
 # Java
 [[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
