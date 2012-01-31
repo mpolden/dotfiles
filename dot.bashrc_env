@@ -1,0 +1,47 @@
+# Local aliases
+[[ -f "~/.bash_aliases.local" ]] && source "~/.bash_aliases.local"
+
+# Set 256 color xterm
+[[ -e "/usr/share/terminfo/x/xterm-256color" || \
+    -e "/lib/terminfo/x/xterm-256color" ]] && export TERM="xterm-256color"
+
+# Set tmux TERM
+[[ -n "$TMUX" ]] && export TERM="screen-256color"
+
+# Set editor to vim
+[[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
+
+# keychain
+[[ -f "~/.keychain/$HOSTNAME-sh" ]] && source "~/.keychain/$HOSTNAME-sh"
+
+# Load rvm
+[[ -f "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm" 
+
+# Add ~/bin to path
+[[ -d "~/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && \
+    export PATH="~/bin:$PATH"
+
+# Java
+[[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
+[[ -d "/usr/lib/jvm/java-6-sun" ]] && \
+    export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+
+# Ant
+[[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
+
+# Play bash completion
+[[ -f "/opt/play/support/play_completion" ]] && \
+    source "/opt/play/support/play_completion"
+
+# Maven
+[[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
+
+# nodejs
+[[ -d "/opt/node/bin" ]] && export PATH="/opt/node/bin:$PATH"
+
+# Scala
+[[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
+
+# Android
+[[ -d "/opt/android-sdk-linux" ]] && \
+    export ANDROID_HOME="/opt/android-sdk-linux"

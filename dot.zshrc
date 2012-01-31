@@ -49,42 +49,6 @@ bindkey '^[[3~' delete-char
 # Allow comments interactive shell
 setopt interactivecomments
 
-# Try setting a 256 color terminal
-if [[ -e /usr/share/terminfo/x/xterm-256color || -e /lib/terminfo/x/xterm-256color ]]; then
-    export TERM='xterm-256color'
-elif [[ -e /usr/share/terminfo/x/xterm-color || -e /lib/terminfo/x/xterm-color ]]; then
-    export TERM='xterm-color'
-else
-    export TERM='xterm'
-fi
-
-# Set editor to vim
-if [[ -x /usr/bin/vim ]]; then
-    export EDITOR='vim'
-fi
-
-# Load aliases
-if [[ -s ~/.bash_aliases ]]; then
-    . ~/.bash_aliases
-fi
-
-# Suggest package for command not found
-if [[ -s /etc/zsh_command_not_found ]]; then
-    . /etc/zsh_command_not_found
-fi
-
-# Load rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-    . $HOME/.rvm/scripts/rvm
-fi
-
-# Add npm to path
-if [[ -d $HOME/npm/bin ]]; then
-    export PATH=$HOME/npm/bin:$PATH
-fi
-
-# Add play to path
-if [[ -d $HOME/play ]]; then
-    export PATH=$HOME/play:$PATH
-fi
+# Setup environment
+[[ -s "~/.bashrc_env" ]] && source "~/.bashrc_env"
 
