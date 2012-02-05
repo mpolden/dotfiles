@@ -1,3 +1,8 @@
+# Add $1 to PATH
+function add_to_path {
+    [[ -d "${1}" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
+}
+
 # Local aliases
 [[ -f "$HOME/.bash_aliases.local" ]] && source "$HOME/.bash_aliases.local"
 
@@ -18,8 +23,7 @@
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # Add $HOME/bin to path
-[[ -d "$HOME/bin" && ! "$PATH" =~ (^|:)"${HOME}/bin"(:|$) ]] && \
-    export PATH="$HOME/bin:$PATH"
+add_to_path "$HOME/bin"
 
 # Java
 [[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
@@ -37,7 +41,7 @@
 [[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
 # nodejs
-[[ -d "/opt/node/bin" ]] && export PATH="/opt/node/bin:$PATH"
+add_to_path "/opt/node/bin"
 
 # Scala
 [[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
