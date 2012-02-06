@@ -79,11 +79,6 @@ if exists('+colorcolumn')
     highlight ColorColumn ctermbg=235
 endif
 
-" show hidden files in nerdtree
-if exists(':NERDTree')
-    let NERDTreeShowHidden=1
-endif
-
 " highlight matches
 set hlsearch
 
@@ -93,3 +88,19 @@ set incsearch
 " case insensitive search (unless atlast one capital letter is given)
 set ignorecase
 set smartcase
+
+" configure plugins
+function! ConfigurePlugins()
+    " nerdtree
+    if exists(':NERDTree')
+        let g:NERDTreeShowHidden = 1
+        map <F4> :NERDTree<cr>
+    endif
+
+    " fuzzyfinder
+    if exists(':FufFile')
+        let g:fuf_file_exclude = '\v\~$|\.jar$|\.swp|\.class|\.pyc$'
+        map <F7> :FufFile **/<cr>
+    endif
+endfunction
+autocmd VimEnter * :call ConfigurePlugins()
