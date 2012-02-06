@@ -1,1 +1,0 @@
-../bundle/mustang2/colors/Mustang.vim
