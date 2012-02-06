@@ -36,7 +36,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme
-colorscheme molokai
+colorscheme wombat256mod
 
 " always show the status line as the second last line
 set laststatus=2
