@@ -19,3 +19,6 @@
 [submodule "dot.vim/bundle/xoria256"]
 	path = dot.vim/bundle/xoria256
 	url = https://github.com/vim-scripts/xoria256.vim
+[submodule "dot.vim/bundle/puppet"]
+	path = dot.vim/bundle/puppet
+	url = https://github.com/vim-scripts/Puppet-Syntax-Highlighting.git
