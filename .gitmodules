@@ -13,3 +13,6 @@
 [submodule "dot.vim/bundle/mustang2"]
 	path = dot.vim/bundle/mustang2
 	url = https://github.com/vim-scripts/Mustang2
+[submodule "dot.vim/bundle/wombat256"]
+	path = dot.vim/bundle/wombat256
+	url = https://github.com/vim-scripts/wombat256.vim.git
