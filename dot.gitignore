@@ -15,6 +15,9 @@ precompiled
 *.swp
 *~
 
+# ctags
+tags
+
 # gcc
 *.[oa]
 
