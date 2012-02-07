@@ -89,6 +89,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" ctags
+set tags=tags
+map <F3> :tag 
+
 " configure plugins
 function! ConfigurePlugins()
     " nerdtree
