@@ -108,3 +108,8 @@ function! ConfigurePlugins()
     endif
 endfunction
 autocmd VimEnter * :call ConfigurePlugins()
+
+" buffer mappings
+map <leader>n :bn<cr>
+map <leader>p :bp<cr>
+map <leader>l :ls<cr>
