@@ -28,3 +28,6 @@
 [submodule "dot.vim/bundle/l9"]
 	path = dot.vim/bundle/l9
 	url = https://github.com/vim-scripts/L9.git
+[submodule "dot.oh-my-zsh"]
+	path = dot.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
