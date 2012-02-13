@@ -34,7 +34,7 @@ add_to_path "$HOME/bin"
 [[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
 
 # Play bash completion
-[[ "$0" == "bash" && -f "/opt/play/support/play_completion" ]] && \
+[[ "$0" =~ -?bash && -f "/opt/play/support/play_completion" ]] && \
     source "/opt/play/support/play_completion"
 
 # Maven
