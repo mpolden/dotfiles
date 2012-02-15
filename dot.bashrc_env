@@ -1,4 +1,3 @@
-# Add $1 to PATH
 function add_to_path {
     [[ -d "${1}" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
 }
@@ -22,8 +21,29 @@ function add_to_path {
 # Load rvm
 [[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-# Add $HOME/bin to path
+# Add directories to PATH
 add_to_path "$HOME/bin"
+add_to_path "/opt/node/bin"
+add_to_path "$HOME/p/rbenv/bin"
+
+sh=$(ps -o command= $$)
+
+# Init rbenv
+#echo "\$shell is $shell"
+if [[ -d "$HOME/.rbenv" ]]; then
+    case "$sh" in
+        bash | -bash)
+            eval "$(rbenv init -)"
+            ;;
+        zsh)
+            eval "$(rbenv init - zsh)"
+            ;;
+    esac
+fi
+
+# Play bash completion
+[[ "$shell" == "bash" && -f "/opt/play/support/play_completion" ]] && \
+    source "/opt/play/support/play_completion"
 
 # Java
 [[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
@@ -33,15 +53,8 @@ add_to_path "$HOME/bin"
 # Ant
 [[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
 
-# Play bash completion
-[[ "$0" =~ -?bash && -f "/opt/play/support/play_completion" ]] && \
-    source "/opt/play/support/play_completion"
-
 # Maven
 [[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
-
-# nodejs
-add_to_path "/opt/node/bin"
 
 # Scala
 [[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
