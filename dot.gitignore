@@ -20,6 +20,8 @@ tags
 
 # gcc
 *.[oa]
+*.out
+*.aout
 
 # IntelliJ IDEA
 *.iws
