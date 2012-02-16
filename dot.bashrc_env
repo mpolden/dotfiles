@@ -29,7 +29,6 @@ add_to_path "$HOME/p/rbenv/bin"
 sh=$(ps -o command= $$)
 
 # Init rbenv
-#echo "\$shell is $shell"
 if [[ -d "$HOME/.rbenv" ]]; then
     case "$sh" in
         bash | -bash)
@@ -42,7 +41,7 @@ if [[ -d "$HOME/.rbenv" ]]; then
 fi
 
 # Play bash completion
-[[ "$shell" == "bash" && -f "/opt/play/support/play_completion" ]] && \
+[[ "$sh" =~ -?bash && -f "/opt/play/support/play_completion" ]] && \
     source "/opt/play/support/play_completion"
 
 # Java
