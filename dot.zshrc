@@ -42,7 +42,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%}"
-PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m%{$reset_color%}:%{$fg_bold[blue]%}%(!.%1~.%~)$(git_prompt_info)%{$reset_color%}\$ '
+PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~$(git_prompt_info)%{$reset_color%}\$ '
 
 # Setup environment
 [[ -s "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
