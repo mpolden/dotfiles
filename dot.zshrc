@@ -1,16 +1,22 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt autocd
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
+# History
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
+# Emacs bindings
+bindkey -e
+
+# Change directory without cd
+setopt autocd
+
+# Completion
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+unsetopt menu_complete
+unsetopt flowcontrol
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
 
 # Fix home, end and delete
 bindkey '^[[1~' beginning-of-line
@@ -24,8 +30,19 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Prompt from http://aperiodic.net/phil/prompt/
-[[ -s "$HOME/.zshrc_prompt" ]] && source "$HOME/.zshrc_prompt"
+# Load git plugin
+[[ -s "$HOME/.zsh-git" ]] && source "$HOME/.zsh-git"
+
+# Prompt
+autoload -Uz colors
+colors
+PS1="%n@%m:%~%# "
+setopt prompt_subst
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}*"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%}"
+PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m%{$reset_color%}:%{$fg_bold[blue]%}%(!.%1~.%~)$(git_prompt_info)%{$reset_color%}\$ '
 
 # Setup environment
 [[ -s "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
