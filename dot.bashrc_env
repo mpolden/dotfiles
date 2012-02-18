@@ -23,8 +23,8 @@ function add_to_path {
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
+add_to_path "$HOME/.rbenv/bin"
 add_to_path "/opt/node/bin"
-add_to_path "$HOME/p/rbenv/bin"
 
 sh=$(ps -o command= $$)
 
