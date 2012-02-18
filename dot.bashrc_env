@@ -34,7 +34,7 @@ if [[ -d "$HOME/.rbenv" ]]; then
         bash | -bash)
             eval "$(rbenv init -)"
             ;;
-        zsh)
+        zsh | -zsh)
             eval "$(rbenv init - zsh)"
             ;;
     esac
