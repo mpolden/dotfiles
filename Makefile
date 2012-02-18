@@ -2,8 +2,8 @@ LN_FLAGS = -sf
 
 symlinks = .bash_aliases .bashrc .bashrc_env .gitconfig .gitignore .hgrc \
 		   .htoprc .lftprc .npmrc .rtorrent.rc .screenrc .tmux.conf .vimrc \
-		   .zshrc .zsh-git
-symdirs = .vim .oh-my-zsh
+		   .zshrc
+symdirs = .vim
 
 all: install
 

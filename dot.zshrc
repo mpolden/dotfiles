@@ -10,13 +10,7 @@ bindkey -e
 setopt autocd
 
 # Completion
-autoload -Uz compinit
-compinit
-unsetopt menu_complete
-unsetopt flowcontrol
-setopt auto_menu
-setopt complete_in_word
-setopt always_to_end
+autoload -Uz compinit && compinit
 
 # Fix home, end and delete
 bindkey '^[[1~' beginning-of-line
@@ -30,19 +24,15 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Load git plugin
-[[ -s "$HOME/.zsh-git" ]] && source "$HOME/.zsh-git"
-
 # Prompt
-autoload -Uz colors
-colors
-PS1="%n@%m:%~%# "
+autoload -Uz colors && colors
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
+zstyle ':vcs_info:*' enable git
+add-zsh-hook precmd vcs_info
 setopt prompt_subst
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}*"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg_bold[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%}"
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~$(git_prompt_info)%{$reset_color%}\$ '
+PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
 
 # Setup environment
 [[ -s "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
