@@ -15,11 +15,9 @@ function add_to_path {
 # Set editor to vim
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
-# keychain
+# Load keychain
+[[ -z "$HOSTNAME" ]] && HOSTNAME=$(hostname)
 [[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && source "$HOME/.keychain/$HOSTNAME-sh"
-
-# Load rvm
-[[ -f "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
