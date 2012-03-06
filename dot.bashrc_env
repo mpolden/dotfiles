@@ -29,10 +29,10 @@ sh=$(ps -o command= $$)
 # Init rbenv
 if [[ -d "$HOME/.rbenv" ]]; then
     case "$sh" in
-        bash | -bash)
+        *bash)
             eval "$(rbenv init -)"
             ;;
-        zsh | -zsh)
+        *zsh)
             eval "$(rbenv init - zsh)"
             ;;
     esac
