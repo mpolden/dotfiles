@@ -89,6 +89,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" clear search highlights
+noremap <silent><Leader>/ :nohls<cr>
+
 " ctags
 set tags=tags
 map <F3> :tag 
