@@ -25,9 +25,21 @@ set expandtab
 " numbered lines
 set number
 
-" pathogen
+" vundle
 filetype off
-call pathogen#runtime_append_all_bundles() 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" vundle bundles
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'vim-scripts/wombat256.vim'
+Bundle 'vim-scripts/molokai.git'
+Bundle 'vim-scripts/Mustang2'
+Bundle 'vim-scripts/wombat256.vim.git'
+Bundle 'vim-scripts/xoria256.vim'
+Bundle 'vim-scripts/Puppet-Syntax-Highlighting.git'
 
 " filetype detection and smart indent
 filetype plugin indent on
