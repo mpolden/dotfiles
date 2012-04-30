@@ -94,7 +94,6 @@ noremap <silent><Leader>/ :nohls<cr>
 
 " ctags
 set tags=tags
-map <F3> :tag 
 
 " configure plugins
 function! ConfigurePlugins()
@@ -102,12 +101,6 @@ function! ConfigurePlugins()
     if exists(':NERDTree')
         let g:NERDTreeShowHidden = 1
         map <F4> :NERDTree<cr>
-    endif
-
-    " fuzzyfinder
-    if exists(':FufFile')
-        let g:fuf_file_exclude = '\v\~$|\.jar$|\.swp|\.class|\.pyc$'
-        map <F7> :FufFile **/<cr>
     endif
 endfunction
 autocmd VimEnter * :call ConfigurePlugins()
