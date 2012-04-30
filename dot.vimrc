@@ -95,16 +95,6 @@ noremap <silent><Leader>/ :nohls<cr>
 " ctags
 set tags=tags
 
-" configure plugins
-function! ConfigurePlugins()
-    " nerdtree
-    if exists(':NERDTree')
-        let g:NERDTreeShowHidden = 1
-        map <F4> :NERDTree<cr>
-    endif
-endfunction
-autocmd VimEnter * :call ConfigurePlugins()
-
 " buffer mappings
 map <leader>n :bn<cr>
 map <leader>p :bp<cr>
