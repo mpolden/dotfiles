@@ -3,6 +3,8 @@
 
 # Java
 *.class
+build
+dist
 target
 
 # Play Framework
