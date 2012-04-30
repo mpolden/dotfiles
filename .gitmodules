@@ -22,12 +22,6 @@
 [submodule "dot.vim/bundle/puppet"]
 	path = dot.vim/bundle/puppet
 	url = https://github.com/vim-scripts/Puppet-Syntax-Highlighting.git
-[submodule "dot.vim/bundle/fuzzyfinder"]
-	path = dot.vim/bundle/fuzzyfinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "dot.vim/bundle/l9"]
-	path = dot.vim/bundle/l9
-	url = https://github.com/vim-scripts/L9.git
 [submodule "dot.vim/bundle/ctrlp"]
 	path = dot.vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
