@@ -40,6 +40,7 @@ Bundle 'vim-scripts/Mustang2'
 Bundle 'vim-scripts/wombat256.vim.git'
 Bundle 'vim-scripts/xoria256.vim'
 Bundle 'vim-scripts/Puppet-Syntax-Highlighting.git'
+Bundle 'Lokaltog/vim-powerline.git'
 
 " filetype detection and smart indent
 filetype plugin indent on
@@ -52,9 +53,6 @@ colorscheme wombat256mod
 
 " always show the status line as the second last line
 set laststatus=2
-
-" status line
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 " toggle paste mode
 set pastetoggle=<F10>
