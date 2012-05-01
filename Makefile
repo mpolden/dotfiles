@@ -11,14 +11,13 @@ clean:
 	rm -rf -- dot.vim/bundle/*
 
 $(symlinks):
-	@ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
+	ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
 
 $(symdirs):
-	@rm -f ~/$@
-	@ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
+	rm -f ~/$@
+	ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
 
-install: $(symlinks) $(symdirs)
-	@echo symlinks installed: $^
+install: bundle $(symlinks) $(symdirs)
 
 bundle:
 	mkdir -p dot.vim/bundle
