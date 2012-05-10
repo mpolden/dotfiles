@@ -1,9 +1,10 @@
 [user]
-	name = Martin Polden
-	email = martin.polden@gmail.com
+    name = Martin Polden
+    email = martin.polden@gmail.com
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+    editor = vim
+    excludesfile = ~/.gitignore
+    autocrlf = input
 [merge]
     tool = vimdiff
 [color]
