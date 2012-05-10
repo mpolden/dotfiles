@@ -5,6 +5,8 @@ symlinks = .bash_aliases .bashrc .bashrc_env .gitconfig .gitignore .hgrc \
 		   .zshrc
 symdirs = .vim
 
+.PHONY: $(symlinks) $(symdirs)
+
 all: install
 
 clean:
