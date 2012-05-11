@@ -7,11 +7,6 @@ build
 dist
 target
 
-# Play Framework
-eclipse
-tmp
-precompiled
-
 # vim
 .netrwhist
 *.swp
@@ -19,6 +14,12 @@ precompiled
 
 # ctags
 tags
+
+# Play Framework
+eclipse
+tmp
+precompiled
+!app/views/tags
 
 # gcc
 *.[oa]
