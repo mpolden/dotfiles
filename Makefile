@@ -19,7 +19,7 @@ $(symdirs):
 	rm -f ~/$@
 	ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
 
-install: bundle $(symlinks) $(symdirs)
+install: $(symlinks) $(symdirs) bundle
 
 bundle:
 	mkdir -p dot.vim/bundle
