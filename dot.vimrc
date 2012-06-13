@@ -32,15 +32,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " vundle bundles
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/wombat256.vim'
-Bundle 'vim-scripts/molokai.git'
-Bundle 'vim-scripts/Mustang2'
-Bundle 'vim-scripts/wombat256.vim.git'
-Bundle 'vim-scripts/xoria256.vim'
-Bundle 'vim-scripts/Puppet-Syntax-Highlighting.git'
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'Lokaltog/vim-powerline'
 
 " filetype detection and smart indent
 filetype plugin indent on
