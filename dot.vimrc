@@ -72,6 +72,9 @@ imap <end> <nop>
 imap <pageup> <nop>
 imap <pagedown> <nop>
 
+" map jj to escape
+imap jj <Esc>
+
 " disable visual and audible bell
 set vb t_vb=
 
