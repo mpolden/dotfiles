@@ -1,5 +1,6 @@
 # Python
 *.py[oc]
+venv
 
 # Java
 *.class
