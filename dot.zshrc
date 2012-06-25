@@ -50,6 +50,13 @@ add-zsh-hook precmd vcs_info
 setopt prompt_subst
 PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
 
+# Window title
+case "$TERM" in
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+esac
+
 # Command not found handler
 [[ -s "/etc/zsh_command_not_found" ]] && source "/etc/zsh_command_not_found"
 
