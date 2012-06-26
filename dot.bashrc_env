@@ -25,6 +25,7 @@ function add_to_path {
 # Add directories to PATH
 add_to_path "$HOME/bin"
 add_to_path "$HOME/.rbenv/bin"
+add_to_path "$HOME/.gem/ruby/1.9.1/bin"
 add_to_path "/opt/node/bin"
 
 sh=$(ps -o command= $$)
