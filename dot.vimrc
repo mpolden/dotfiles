@@ -76,7 +76,7 @@ imap <pagedown> <nop>
 imap jj <Esc>
 
 " reformat
-map kk gg=G
+map <leader>f gg=G
 
 " disable visual and audible bell
 set vb t_vb=
