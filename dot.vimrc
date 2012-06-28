@@ -23,7 +23,15 @@ set shiftwidth=4
 set expandtab
 
 " numbered lines
-set number
+if exists('+relativenumber')
+    set relativenumber
+    autocmd InsertEnter * :set number
+    autocmd InsertLeave * :set relativenumber
+    autocmd FocusLost * :set number
+    autocmd FocusGained * :set relativenumber
+else
+    set number
+endif
 
 " vundle
 filetype off
