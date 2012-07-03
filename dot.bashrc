@@ -102,5 +102,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+if [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
+fi
+
 # Setup environment
 [[ -f "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
