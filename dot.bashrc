@@ -106,5 +106,11 @@ if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
+# Fix this garbage
+if [[ $(uname -s) == "Darwin" ]]; then
+    alias ls='ls -G'
+    export LC_ALL='en_US.UTF-8'
+fi
+
 # Setup environment
 [[ -f "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
