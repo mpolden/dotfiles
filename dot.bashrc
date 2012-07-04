@@ -39,7 +39,7 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [[ -x /usr/bin/tput || -x /bin/tput ]] && [[ $(uname -s) == "FreeBSD" ]] || $(tput setaf 1 >&/dev/null); then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
@@ -107,10 +107,12 @@ if [ -f /usr/local/etc/bash_completion ]; then
 fi
 
 # Fix this garbage
-if [[ $(uname -s) == "Darwin" ]]; then
-    alias ls='ls -G'
-    export LC_ALL='en_US.UTF-8'
-fi
+case "$OSTYPE" in
+    darwin*)
+        alias ls='ls -G'
+        export LC_ALL='en_US.UTF-8'
+        ;;
+esac
 
 # Setup environment
 [[ -f "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
