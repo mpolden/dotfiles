@@ -27,6 +27,7 @@ add_to_path "$HOME/bin"
 add_to_path "$HOME/.rbenv/bin"
 add_to_path "$HOME/.gem/ruby/1.9.1/bin"
 add_to_path "/opt/node/bin"
+add_to_path "/usr/local/sbin"
 
 sh=$(ps -o command= $$)
 
