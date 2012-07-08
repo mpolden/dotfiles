@@ -42,10 +42,11 @@ bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 bindkey '^[[3~' delete-char
 
-# dircolor
+# dircolor and locale
 case "$OSTYPE" in
     darwin*)
         alias ls='ls -G'
+        export LC_ALL='en_US.UTF-8'
         ;;
     *)
         alias ls='ls --color=auto'
