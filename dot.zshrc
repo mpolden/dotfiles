@@ -16,7 +16,16 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+
+# Set LS_COLORS
+BREW=$(which brew)
+if [[ -x "$BREW" ]]; then
+    DIRCOLORS=$(brew --prefix coreutils)/libexec/gnubin/dircolors
+    eval "$($DIRCOLORS -b)"
+else
+    eval "$(dircolors -b)"
+fi
+
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -34,7 +43,14 @@ bindkey '^[[4~' end-of-line
 bindkey '^[[3~' delete-char
 
 # dircolor
-alias ls='ls --color=auto'
+case "$OSTYPE" in
+    darwin*)
+        alias ls='ls -G'
+        ;;
+    *)
+        alias ls='ls --color=auto'
+        ;;
+esac
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
