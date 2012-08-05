@@ -29,6 +29,7 @@ add_to_path "$HOME/.gem/ruby/1.9.1/bin"
 add_to_path "/opt/node/bin"
 add_to_path "/usr/local/sbin"
 add_to_path "$HOME/android-sdk-macosx/platform-tools"
+add_to_path "/usr/local/go/bin"
 
 sh=$(ps -o command= $$)
 
