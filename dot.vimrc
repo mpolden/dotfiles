@@ -61,30 +61,30 @@ set laststatus=2
 set pastetoggle=<F10>
 
 " disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " disable home, end, pageup, pagedown
-map <home> <nop>
-map <end> <nop>
-map <pageup> <nop>
-map <pagedown> <nop>
-imap <home> <nop>
-imap <end> <nop>
-imap <pageup> <nop>
-imap <pagedown> <nop>
+noremap <home> <nop>
+noremap <end> <nop>
+noremap <pageup> <nop>
+noremap <pagedown> <nop>
+inoremap <home> <nop>
+inoremap <end> <nop>
+inoremap <pageup> <nop>
+inoremap <pagedown> <nop>
 
 " map jj to escape
-imap jj <Esc>
+inoremap jj <Esc>
 
 " reformat
-map <leader>f gg=G
+noremap <leader>f gg=G
 
 " disable visual and audible bell
 set vb t_vb=
@@ -115,6 +115,6 @@ noremap <silent><Leader>/ :nohls<cr>
 set tags=tags
 
 " buffer mappings
-map <leader>n :bn<cr>
-map <leader>p :bp<cr>
-map <leader>l :ls<cr>
+noremap <leader>n :bn<cr>
+noremap <leader>p :bp<cr>
+noremap <leader>l :ls<cr>
