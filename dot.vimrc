@@ -44,6 +44,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/wombat256.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'spolu/dwm.vim'
 
 " filetype detection and smart indent
 filetype plugin indent on
