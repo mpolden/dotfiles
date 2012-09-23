@@ -85,6 +85,9 @@ inoremap <pagedown> <nop>
 " map jj to escape
 inoremap jj <Esc>
 
+" map leader
+let mapleader = ","
+
 " reformat
 noremap <leader>f gg=G
 
@@ -111,7 +114,7 @@ set ignorecase
 set smartcase
 
 " clear search highlights
-noremap <silent><Leader>/ :nohls<cr>
+noremap <silent><leader>/ :nohls<cr>
 
 " ctags
 set tags=tags
