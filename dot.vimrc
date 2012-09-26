@@ -45,6 +45,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/wombat256.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'spolu/dwm.vim'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
 
 " filetype detection and smart indent
