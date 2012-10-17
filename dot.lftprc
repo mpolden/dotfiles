@@ -6,8 +6,9 @@ set ftp:fxp-force true
 set cmd:remote-completion on
 set bmk:save-passwords true
 set color:use-color true
+set ssl:verify-certificate no
+debug
 
-#set prompt "\[\e[1;37m\]lftp\] \[\e[0;32m\]\h\] \w\] \[\e[1;37m\]>\[\e[0m\] " 
 set prompt "\[\e[1;37m\][\[\e[1;31m\]\S\[\e[1;37m\]] \[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;32m\]\w$\[\e[0m\] " 
 
 alias ll "cls \
