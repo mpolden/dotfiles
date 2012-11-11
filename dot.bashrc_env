@@ -24,12 +24,10 @@ function add_to_path {
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
-add_to_path "$HOME/.rbenv/bin"
-add_to_path "$HOME/.gem/ruby/1.9.1/bin"
-add_to_path "/opt/node/bin"
+# homebrew
 add_to_path "/usr/local/sbin"
-add_to_path "/usr/local/go/bin"
 add_to_path "/usr/local/share/npm/bin"
+add_to_path "/usr/local/share/python"
 
 sh=$(ps -o command= $$)
 
