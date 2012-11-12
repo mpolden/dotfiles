@@ -28,6 +28,8 @@ add_to_path "$HOME/bin"
 add_to_path "/usr/local/sbin"
 add_to_path "/usr/local/share/npm/bin"
 add_to_path "/usr/local/share/python"
+# Heroku toolbelt (Ubuntu)
+add_to_path "/usr/local/heroku/bin"
 
 sh=$(ps -o command= $$)
 
