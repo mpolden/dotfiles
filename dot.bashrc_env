@@ -50,9 +50,11 @@ fi
     source "/opt/play/support/play_completion"
 
 # Java
-[[ -d "/opt/jdk" ]] && export JAVA_HOME="/opt/jdk"
-[[ -d "/usr/lib/jvm/java-6-sun" ]] && \
+if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
+    export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+elif [[ -d "/usr/lib/jvm/java-6-sun" ]]; then
     export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+fi
 
 # Ant
 [[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
