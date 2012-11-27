@@ -128,3 +128,6 @@ noremap <leader>l :ls<cr>
 " syntastic + fish workaround
 " https://github.com/scrooloose/syntastic/issues/202
 set shell=/bin/bash
+
+" hidden buffers
+set hidden
