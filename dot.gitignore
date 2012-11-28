@@ -45,3 +45,6 @@ nbproject
 # Misc
 *.log
 *.bak
+
+# Node
+node_modules
