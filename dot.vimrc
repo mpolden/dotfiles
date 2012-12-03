@@ -131,3 +131,6 @@ set shell=/bin/bash
 
 " hidden buffers
 set hidden
+
+" syntastic jslint options
+let g:syntastic_javascript_jslint_conf = ""
