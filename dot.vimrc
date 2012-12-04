@@ -45,6 +45,7 @@ Bundle 'vim-scripts/wombat256.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
 
 " filetype detection and smart indent
 filetype plugin indent on
