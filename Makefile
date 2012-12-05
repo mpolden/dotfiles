@@ -1,8 +1,7 @@
 LN_FLAGS = -sf
 
-symlinks = .bash_aliases .bashrc .bashrc_env .gitconfig .gitignore .hgrc \
-		   .htoprc .lftprc .npmrc .rtorrent.rc .screenrc .tmux.conf .vimrc \
-		   .zshrc
+symlinks = .bashrc .gitconfig .gitignore .hgrc .lftprc .rtorrent.rc .screenrc \
+		   .sh_aliases .sh_env .tmux.conf .vimrc .zshrc
 symdirs = .vim
 
 .PHONY: $(symlinks) $(symdirs)
@@ -13,11 +12,11 @@ clean:
 	rm -rf -- dot.vim/bundle/*
 
 $(symlinks):
-	ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
+	test ! -f $(PWD)/dot$@ || ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
 
 $(symdirs):
 	rm -f ~/$@
-	ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
+	test ! -d $(PWD)/dot$@ || ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
 
 install: $(symlinks) $(symdirs) bundle
 
