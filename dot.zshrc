@@ -77,5 +77,6 @@ esac
 # Command not found handler
 [[ -s "/etc/zsh_command_not_found" ]] && source "/etc/zsh_command_not_found"
 
-# Setup environment
-[[ -s "$HOME/.bashrc_env" ]] && source "$HOME/.bashrc_env"
+# Setup aliases and environment
+[[ -s "$HOME/.sh_aliases" ]] && source "$HOME/.sh_aliases"
+[[ -s "$HOME/.sh_env" ]] && source "$HOME/.sh_env"
