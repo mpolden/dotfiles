@@ -19,4 +19,6 @@
     lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
     addheroku = "!git remote add heroku git@heroku.com:$(echo $(basename $(pwd)) | tr '.' '-').git"
 [push]
-	default = upstream
+    default = upstream
+[web]
+    browser = google-chrome
