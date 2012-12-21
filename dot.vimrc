@@ -133,3 +133,6 @@ set hidden
 
 " syntastic jslint options
 let g:syntastic_javascript_jslint_conf = ""
+
+" ignored file patterns
+set wildignore +=*/target/*
