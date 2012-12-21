@@ -136,3 +136,6 @@ let g:syntastic_javascript_jslint_conf = ""
 
 " use groovy syntax for gradle files
 au BufNewFile,BufRead *.gradle setf groovy
+
+" ignored file patterns
+set wildignore +=*/target/*
