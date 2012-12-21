@@ -22,3 +22,5 @@
     default = upstream
 [web]
     browser = google-chrome
+[branch]
+	autosetuprebase = always
