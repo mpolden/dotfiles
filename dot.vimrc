@@ -139,3 +139,4 @@ au BufNewFile,BufRead *.gradle setf groovy
 
 " ignored file patterns
 set wildignore +=*/target/*
+set wildignore +=*/node_modules/*
