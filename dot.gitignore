@@ -45,6 +45,7 @@ nbproject
 # Misc
 *.log
 *.bak
+*.lock
 
 # Node
 node_modules
