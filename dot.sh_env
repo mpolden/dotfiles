@@ -75,3 +75,6 @@ fi
 
 # nvm
 [[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
+# Default to Python 2 on Arch
+[[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
