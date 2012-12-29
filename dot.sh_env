@@ -56,9 +56,6 @@ elif [[ -d "/usr/lib/jvm/java-6-sun" ]]; then
     export JAVA_HOME="/usr/lib/jvm/java-6-sun"
 fi
 
-# Ant
-[[ -d "/opt/apache-ant" ]] && export ANT_HOME="/opt/apache-ant"
-
 # Maven
 [[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
