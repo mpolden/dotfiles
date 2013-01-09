@@ -25,28 +25,15 @@ function add_to_path {
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
-# homebrew
+# Homebrew
 add_to_path "/usr/local/sbin"
 add_to_path "/usr/local/share/npm/bin"
 add_to_path "/usr/local/share/python"
 # Heroku toolbelt (Ubuntu)
 add_to_path "/usr/local/heroku/bin"
 
-sh=$(ps -o command= $$)
-
-# Init rbenv
-if [[ -d "$HOME/.rbenv" ]]; then
-    case "$sh" in
-        *bash)
-            eval "$(rbenv init -)"
-            ;;
-        *zsh)
-            eval "$(rbenv init - zsh)"
-            ;;
-    esac
-fi
-
 # Play bash completion
+sh=$(ps -o command= $$)
 [[ "$sh" =~ -?bash && -f "/opt/play/support/play_completion" ]] && \
     source "/opt/play/support/play_completion"
 
