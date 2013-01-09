@@ -48,6 +48,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'othree/html5.vim'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'groenewege/vim-less'
 
 " filetype detection and smart indent
 filetype plugin indent on
