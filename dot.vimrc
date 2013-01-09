@@ -47,6 +47,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'othree/html5.vim'
+Bundle 'maksimr/vim-jsbeautify'
 
 " filetype detection and smart indent
 filetype plugin indent on
@@ -141,3 +142,6 @@ au BufNewFile,BufRead *.gradle setf groovy
 " ignored file patterns
 set wildignore +=*/target/*
 set wildignore +=*/node_modules/*
+
+" jsbeautify
+noremap <leader>b :call JsBeautify()<cr>
