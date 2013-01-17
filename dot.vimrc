@@ -40,6 +40,7 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'groenewege/vim-less'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'Lokaltog/vim-easymotion'
 
 " filetype detection and smart indent
 filetype plugin indent on
