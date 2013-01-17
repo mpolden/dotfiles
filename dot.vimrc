@@ -122,12 +122,6 @@ noremap <leader>l :ls<cr>
 " hidden buffers
 set hidden
 
-" syntastic jslint options
-let g:syntastic_javascript_jslint_conf = ""
-
 " ignored file patterns
 set wildignore +=*/target/*
 set wildignore +=*/node_modules/*
-
-" jsbeautify
-noremap <leader>b :call JsBeautify()<cr>
