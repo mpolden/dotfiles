@@ -92,7 +92,7 @@ set vb t_vb=
 " set 256 colors
 set t_Co=256
 
-" show column marker (+option-name  Vim option that works.)
+" show column marker
 if exists('+colorcolumn')
     set colorcolumn=80
     highlight ColorColumn ctermbg=235
@@ -104,7 +104,7 @@ set hlsearch
 " incremental searching
 set incsearch
 
-" case insensitive search (unless atlast one capital letter is given)
+" case insensitive search (unless atleast one capital letter is given)
 set ignorecase
 set smartcase
 
@@ -124,9 +124,6 @@ set hidden
 
 " syntastic jslint options
 let g:syntastic_javascript_jslint_conf = ""
-
-" use groovy syntax for gradle files
-au BufNewFile,BufRead *.gradle setf groovy
 
 " ignored file patterns
 set wildignore +=*/target/*
