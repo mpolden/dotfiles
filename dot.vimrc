@@ -22,17 +22,6 @@ set shiftwidth=4
 " insert tabs as spaces
 set expandtab
 
-" numbered lines
-if exists('+relativenumber')
-    set relativenumber
-    autocmd InsertEnter * :set number
-    autocmd InsertLeave * :set relativenumber
-    autocmd FocusLost * :set number
-    autocmd FocusGained * :set relativenumber
-else
-    set number
-endif
-
 " vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -50,6 +39,7 @@ Bundle 'othree/html5.vim'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'groenewege/vim-less'
+Bundle 'myusuf3/numbers.vim'
 
 " filetype detection and smart indent
 filetype plugin indent on
