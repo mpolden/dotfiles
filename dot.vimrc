@@ -30,7 +30,7 @@ Bundle 'gmarik/vundle'
 
 " vundle bundles
 Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/wombat256.vim'
+Bundle 'nanotech/jellybeans.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
@@ -49,7 +49,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme
-colorscheme wombat256mod
+colorscheme jellybeans
 
 " always show the status line as the second last line
 set laststatus=2
