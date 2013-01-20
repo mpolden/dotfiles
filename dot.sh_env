@@ -67,3 +67,6 @@ fi
 
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
+
+# Initialize virtualenv
+[[ -d "$PWD/venv" ]] && source "$PWD/venv/bin/activate"
