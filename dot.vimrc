@@ -125,3 +125,4 @@ set hidden
 " ignored file patterns
 set wildignore +=*/target/*
 set wildignore +=*/node_modules/*
+set wildignore +=*/venv/*
