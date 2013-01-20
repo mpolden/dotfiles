@@ -126,3 +126,6 @@ set hidden
 set wildignore +=*/target/*
 set wildignore +=*/node_modules/*
 set wildignore +=*/venv/*
+
+" directory for swap files 
+set directory=~/.vim/swap
