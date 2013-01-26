@@ -107,4 +107,5 @@ esac
 
 # Setup aliases and environment
 [[ -s "$HOME/.sh_aliases" ]] && source "$HOME/.sh_aliases"
+[[ -s "$HOME/.sh_aliases.local" ]] && source "$HOME/.sh_aliases.local"
 [[ -s "$HOME/.sh_env" ]] && source "$HOME/.sh_env"

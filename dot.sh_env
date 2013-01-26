@@ -2,12 +2,6 @@ function add_to_path {
     [[ -d "${1}" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
 }
 
-# Aliases
-[[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
-
-# Local aliases
-[[ -f "$HOME/.bash_aliases.local" ]] && source "$HOME/.bash_aliases.local"
-
 # Set 256 color xterm
 [[ -e "/usr/share/terminfo/x/xterm-256color" || \
     -e "/usr/share/terminfo/78/xterm-256color" || \
