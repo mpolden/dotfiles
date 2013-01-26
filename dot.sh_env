@@ -67,3 +67,10 @@ fi
 
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
+
+# autoenv
+if [[ -f "/usr/local/opt/autoenv/activate.sh" ]]; then
+    source "/usr/local/opt/autoenv/activate.sh"
+elif [[ -f "$HOME/.autoenv/activate.sh" ]]; then
+    source "$HOME/.autoenv/activate.sh"
+fi
