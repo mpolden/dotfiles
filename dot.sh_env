@@ -16,7 +16,8 @@ function add_to_path {
 
 # Load keychain
 [[ -z "$HOSTNAME" ]] && HOSTNAME=$(hostname)
-[[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && source "$HOME/.keychain/$HOSTNAME-sh"
+[[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && \
+    source "$HOME/.keychain/$HOSTNAME-sh"
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
@@ -26,11 +27,6 @@ add_to_path "/usr/local/share/npm/bin"
 add_to_path "/usr/local/share/python"
 # Heroku toolbelt (Ubuntu)
 add_to_path "/usr/local/heroku/bin"
-
-# Play bash completion
-sh=$(ps -o command= $$)
-[[ "$sh" =~ -?bash && -f "/opt/play/support/play_completion" ]] && \
-    source "/opt/play/support/play_completion"
 
 # Java
 if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
