@@ -64,3 +64,6 @@ if [[ -f "/usr/local/opt/autoenv/activate.sh" ]]; then
 elif [[ -f "$HOME/.autoenv/activate.sh" ]]; then
     source "$HOME/.autoenv/activate.sh"
 fi
+
+# pvm
+[[ -f "$HOME/.pvm/pvm.sh" ]] && source "$HOME/.pvm/pvm.sh"
