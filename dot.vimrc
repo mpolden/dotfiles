@@ -31,16 +31,18 @@ Bundle 'gmarik/vundle'
 " vundle bundles
 Bundle 'kien/ctrlp.vim'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
-Bundle 'othree/html5.vim'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'groenewege/vim-less'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-surround'
+
+" extra syntax
+Bundle 'othree/html5.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'groenewege/vim-less'
+Bundle 'derekwyatt/vim-scala'
 
 " filetype detection and smart indent
 filetype plugin indent on
