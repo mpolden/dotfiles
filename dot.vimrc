@@ -39,6 +39,7 @@ Bundle 'tpope/vim-surround'
 
 " extra syntax
 Bundle 'othree/html5.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'groenewege/vim-less'
