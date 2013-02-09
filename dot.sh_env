@@ -68,3 +68,11 @@ fi
 
 # pvm
 [[ -f "$HOME/.pvm/pvm.sh" ]] && source "$HOME/.pvm/pvm.sh"
+
+# rbenv
+if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
+    eval "$(${HOME}/.rbenv/bin/rbenv init -)"
+elif [[ -d "/usr/local/opt/rbenv" ]]; then
+    export RBENV_ROOT=/usr/local/opt/rbenv
+    eval "$(rbenv init -)"
+fi
