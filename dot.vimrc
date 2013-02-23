@@ -112,7 +112,7 @@ set ignorecase
 set smartcase
 
 " clear search highlights
-noremap <silent><leader>/ :nohls<cr>
+noremap <leader>q :nohlsearch<cr>
 
 " ctags
 set tags=tags
