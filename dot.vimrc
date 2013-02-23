@@ -32,6 +32,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
@@ -136,3 +137,6 @@ set directory=~/.vim/swap
 
 " ctrlp search command
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+
+" nerdtree
+noremap <silent><leader>e :NERDTreeToggle<cr>
