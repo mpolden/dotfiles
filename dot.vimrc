@@ -45,6 +45,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'groenewege/vim-less'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'vim-scripts/VimClojure'
 
 " filetype detection and smart indent
 filetype plugin indent on
