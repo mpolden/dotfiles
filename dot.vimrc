@@ -37,6 +37,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
+Bundle 'airblade/vim-gitgutter'
 
 " extra syntax
 Bundle 'othree/html5.vim'
