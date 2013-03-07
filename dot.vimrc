@@ -22,6 +22,17 @@ set shiftwidth=4
 " insert tabs as spaces
 set expandtab
 
+" numbered lines
+if exists('+relativenumber')
+    set relativenumber
+    autocmd InsertEnter * :set number
+    autocmd InsertLeave * :set relativenumber
+    autocmd FocusLost * :set number
+    autocmd FocusGained * :set relativenumber
+else
+    set number
+endif
+
 " vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -31,7 +42,6 @@ Bundle 'gmarik/vundle'
 " vundle bundles
 Bundle 'kien/ctrlp.vim'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
