@@ -46,7 +46,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-surround'
 Bundle 'airblade/vim-gitgutter'
 
 " extra syntax
@@ -55,7 +54,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'groenewege/vim-less'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'vim-scripts/VimClojure'
 
 " filetype detection and smart indent
