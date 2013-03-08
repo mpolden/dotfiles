@@ -30,6 +30,9 @@ add_to_path "/usr/local/share/python"
 # Heroku toolbelt (Ubuntu)
 add_to_path "/usr/local/heroku/bin"
 
+# Load z
+[[ -d "$HOME/.z.sh" ]] && . "$HOME/.dot.z/z.sh"
+
 # Java
 if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
     export JAVA_HOME="/usr/lib/jvm/java-7-oracle"

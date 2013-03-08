@@ -25,3 +25,11 @@ bundle:
 	test -d dot.vim/bundle/vundle || \
 		(git clone --quiet https://github.com/gmarik/vundle.git \
 		dot.vim/bundle/vundle && vim +BundleInstall +qall)
+
+z:
+	test -d ~/.dot.z || \
+		git clone --quiet https://github.com/rupa/z.git ~/.dot.z
+
+nvm:
+	test -d ~/.nvm || \
+		git clone --quiet https://github.com/creationix/nvm.git ~/.nvm
