@@ -31,7 +31,11 @@ add_to_path "/usr/local/share/python"
 add_to_path "/usr/local/heroku/bin"
 
 # Load z
-[[ -d "$HOME/.dot.z" ]] && . "$HOME/.dot.z/z.sh"
+if [[ -f "/usr/local/etc/profile.d/z.sh" ]]; then
+    source "/usr/local/etc/profile.d/z.sh"
+elif [[ -f "$HOME/.dot.z/z.sh" ]]; then
+    source "$HOME/.dot.z/z.sh"
+fi
 
 # Java
 if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
