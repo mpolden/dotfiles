@@ -12,11 +12,11 @@ clean:
 	rm -rf -- dot.vim/bundle/*
 
 $(symlinks):
-	test ! -f $(PWD)/dot$@ || ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
+	test -f $(PWD)/dot$@ && ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
 
 $(symdirs):
 	rm -f ~/$@
-	test ! -d $(PWD)/dot$@ || ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
+	test -d $(PWD)/dot$@ && ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
 
 install: $(symlinks) $(symdirs) bundle
 
