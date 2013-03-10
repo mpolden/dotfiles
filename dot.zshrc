@@ -10,6 +10,13 @@ bindkey -M viins 'jj' vi-cmd-mode
 # Change directory without cd
 setopt autocd
 
+# Set LS_COLORS
+if [[ -x "/usr/local/opt/coreutils/libexec/gnubin/dircolors" ]]; then
+    eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors -b)"
+else
+    eval "$(dircolors -b)"
+fi
+
 # Completion
 autoload -U compinit && compinit
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -17,16 +24,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-
-# Set LS_COLORS
-BREW=$(which brew)
-if [[ -x "$BREW" ]]; then
-    DIRCOLORS=$(brew --prefix coreutils)/libexec/gnubin/dircolors
-    eval "$($DIRCOLORS -b)"
-else
-    eval "$(dircolors -b)"
-fi
-
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -43,11 +40,10 @@ bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 bindkey '^[[3~' delete-char
 
-# dircolor and locale
+# Make ls and grep use colors by default
 case "$OSTYPE" in
     darwin*)
         alias ls='ls -G'
-        export LC_ALL='en_US.UTF-8'
         ;;
     *)
         alias ls='ls --color=auto'
@@ -68,7 +64,7 @@ add-zsh-hook precmd vcs_info
 setopt prompt_subst
 PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
 
-# Edit command line
+# Edit command line using editor
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
