@@ -3,8 +3,9 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Emacs bindings
-bindkey -e
+# Vim bindings
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
 
 # Change directory without cd
 setopt autocd
@@ -70,8 +71,7 @@ PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_
 # Edit command line
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Window title
 case "$TERM" in
