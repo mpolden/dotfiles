@@ -10,7 +10,7 @@ bindkey -e
 setopt autocd
 
 # Completion
-autoload -Uz compinit && compinit
+autoload -U compinit && compinit
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
@@ -58,14 +58,20 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 
 # Prompt
-autoload -Uz colors && colors
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
+autoload -U colors && colors
+autoload -U vcs_info
+autoload -U add-zsh-hook
 zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
 zstyle ':vcs_info:*' enable git
 add-zsh-hook precmd vcs_info
 setopt prompt_subst
 PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
+
+# Edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 
 # Window title
 case "$TERM" in
