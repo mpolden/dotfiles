@@ -47,9 +47,6 @@ fi
 # Maven
 [[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
 
-# Scala
-[[ -d "/opt/scala" ]] && export SCALA_HOME="/opt/scala"
-
 # Android
 [[ -d "/opt/android-sdk-linux" ]] && \
     export ANDROID_HOME="/opt/android-sdk-linux"
@@ -67,13 +64,6 @@ fi
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
 
-# autoenv
-if [[ -f "/usr/local/opt/autoenv/activate.sh" ]]; then
-    source "/usr/local/opt/autoenv/activate.sh"
-elif [[ -f "$HOME/.autoenv/activate.sh" ]]; then
-    source "$HOME/.autoenv/activate.sh"
-fi
-
 # pvm
 [[ -f "$HOME/.pvm/pvm.sh" ]] && source "$HOME/.pvm/pvm.sh"
 
@@ -81,6 +71,6 @@ fi
 if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
     eval "$(${HOME}/.rbenv/bin/rbenv init -)"
 elif [[ -d "/usr/local/opt/rbenv" ]]; then
-    export RBENV_ROOT=/usr/local/opt/rbenv
+    export RBENV_ROOT="/usr/local/opt/rbenv"
     eval "$(rbenv init -)"
 fi
