@@ -40,20 +40,6 @@ bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 bindkey '^[[3~' delete-char
 
-# Make ls and grep use colors by default
-case "$OSTYPE" in
-    darwin*)
-        alias ls='ls -G'
-        ;;
-    *)
-        alias ls='ls --color=auto'
-        ;;
-esac
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias rgrep='rgrep --color=auto'
-
 # Prompt
 autoload -U colors && colors
 autoload -U vcs_info
