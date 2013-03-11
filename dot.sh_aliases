@@ -5,9 +5,11 @@ alias heroku-cleardb='mysql $(heroku config:get CLEARDB_DATABASE_URL | sed -r -e
 case "$OSTYPE" in
     darwin*)
         alias ls='ls -G'
+        alias pgrep='pgrep -f -l -i'
         ;;
     *)
         alias ls='ls --color=auto'
+        alias pgrep='pgrep -f -a'
         ;;
 esac
 alias grep='grep --color=auto'
