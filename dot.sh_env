@@ -2,6 +2,12 @@ function add_to_path {
     [[ -d "${1}" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
 }
 
+# Locale
+if [[ "$OSTYPE" == darwin* ]]; then
+    export LANG="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
+fi
+
 # Set 256 color xterm
 [[ -e "/usr/share/terminfo/x/xterm-256color" || \
     -e "/usr/share/terminfo/78/xterm-256color" || \
