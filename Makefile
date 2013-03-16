@@ -27,8 +27,8 @@ bundle:
 		dot.vim/bundle/vundle && vim +BundleInstall +qall)
 
 z:
-	test -d ~/.dot.z || \
-		git clone --quiet https://github.com/rupa/z.git ~/.dot.z
+	test -d ~/.zcmd || \
+		git clone --quiet https://github.com/rupa/z.git ~/.zcmd
 
 nvm:
 	test -d ~/.nvm || \

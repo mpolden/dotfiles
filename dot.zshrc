@@ -74,6 +74,6 @@ esac
 # Load z
 if [[ -f "/usr/local/etc/profile.d/z.sh" ]]; then
     source "/usr/local/etc/profile.d/z.sh"
-elif [[ -f "$HOME/.dot.z/z.sh" ]]; then
-    source "$HOME/.dot.z/z.sh"
+elif [[ -f "$HOME/.zcmd/z.sh" ]]; then
+    source "$HOME/.zcmd/z.sh"
 fi
