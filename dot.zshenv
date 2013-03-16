@@ -20,6 +20,13 @@ fi
 # Set editor to vim
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
+# Set LS_COLORS
+if [[ -x "/usr/local/bin/gdircolors" ]]; then
+    eval "$(gdircolors -b)"
+else
+    eval "$(dircolors -b)"
+fi
+
 # Load keychain
 [[ -z "$HOSTNAME" ]] && HOSTNAME=$(hostname)
 [[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && \

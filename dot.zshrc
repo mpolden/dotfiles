@@ -10,13 +10,6 @@ bindkey -M viins 'jj' vi-cmd-mode
 # Change directory without cd
 setopt autocd
 
-# Set LS_COLORS
-if [[ -x "/usr/local/opt/coreutils/libexec/gnubin/dircolors" ]]; then
-    eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors -b)"
-else
-    eval "$(dircolors -b)"
-fi
-
 # Completion
 autoload -U compinit && compinit
 zstyle ':completion:*' auto-description 'specify: %d'
