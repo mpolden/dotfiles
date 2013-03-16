@@ -70,3 +70,10 @@ esac
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
+
+# Load z
+if [[ -f "/usr/local/etc/profile.d/z.sh" ]]; then
+    source "/usr/local/etc/profile.d/z.sh"
+elif [[ -f "$HOME/.dot.z/z.sh" ]]; then
+    source "$HOME/.dot.z/z.sh"
+fi
