@@ -2,16 +2,17 @@ alias aptup='sudo aptitude update && sudo aptitude upgrade'
 alias pacup='sudo pacmatic -Syu'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias heroku-cleardb='mysql $(heroku config:get CLEARDB_DATABASE_URL | sed -r -e "s/^mysql:\/\/|\?reconnect=true$//g;s/^/-u /;s/:/ -p/;s/@/ -h /;s/\// /")'
-case "$OSTYPE" in
-    darwin*)
+if [[ "$OSTYPE" == darwin* ]]; then
+    if [[ -x "/usr/local/bin/gls" ]]; then
+        alias ls='gls --color=auto'
+    else
         alias ls='ls -G'
-        alias pgrep='pgrep -f -l -i'
-        ;;
-    *)
-        alias ls='ls --color=auto'
-        alias pgrep='pgrep -f -a'
-        ;;
-esac
+    fi
+    alias pgrep='pgrep -f -l -i'
+else
+    alias ls='ls --color=auto'
+    alias pgrep='pgrep -f -a'
+fi
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
