@@ -21,7 +21,11 @@ case "$OSTYPE" in
         ;;
     *)
         alias ls='ls --color=auto'
-        alias pgrep='pgrep -f -a'
+        if [[ -f "/lib/libproc-3.2.8.so" ]]; then
+            alias pgrep='pgrep -f -l'
+        else
+            alias pgrep='pgrep -f -a'
+        fi
 esac
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
