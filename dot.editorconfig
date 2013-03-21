@@ -10,9 +10,3 @@ trim_trailing_whitespace = true
 
 [**.js]
 indent_size = 2
-vim:path=~/.vim/bundle/vim-jsbeautify/plugin/beautify.min.js
-vim:bin=node
-vim:jslint_happy=true
-vim:break_chained_methods=true
-vim:keep_array_indentation=true
-vim:preserve_newlines=true

@@ -52,10 +52,8 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'othree/html5.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
-Bundle 'maksimr/vim-jsbeautify'
 Bundle 'groenewege/vim-less'
 Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-foreplay'
 
 " filetype detection and smart indent
 filetype plugin indent on
