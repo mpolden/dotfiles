@@ -6,6 +6,7 @@ SAVEHIST=10000
 # Vim bindings
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins '^?' backward-delete-char
 
 # Change directory without cd
 setopt autocd
