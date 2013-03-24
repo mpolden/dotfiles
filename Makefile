@@ -30,12 +30,11 @@ z:
 	test -d ~/.zcmd || \
 		git clone --quiet https://github.com/rupa/z.git ~/.zcmd
 
-nvm:
-	test -d ~/.nvm || \
-		git clone --quiet https://github.com/creationix/nvm.git ~/.nvm
-
 check-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
 
 clean-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -delete
+
+update:
+	git pull --rebase
