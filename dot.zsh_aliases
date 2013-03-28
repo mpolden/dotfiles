@@ -33,3 +33,7 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias week='date +%V'
 alias zrehash='source ~/.zshrc'
+ssh-rm-host-key() {
+    [[ "$1" =~ ^[0-9]+$ ]] && sed -i -e "${1}d" ~/.ssh/known_hosts || \
+        echo "usage: $0 line-number"
+}
