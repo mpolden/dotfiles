@@ -8,12 +8,10 @@ Clone the repository:
 
     git clone git://github.com/martinp/dotfiles.git
 
-Create symlinks:
+Create symlinks (will overwrite existing files):
 
     make install
 
-...or create and configure a VM using the included `Vagrantfile`:
+or using [Vagrant](http://www.vagrantup.com):
 
     vagrant up
-
-NOTE: This will overwrite your existing dotfiles.
