@@ -6,7 +6,7 @@ $script = <<SCRIPT
   export DEBIAN_FRONTEND=noninteractive
 
   # Install packages
-  apt-get -y install git make tmux vim zsh
+  apt-get -y install git make tig tmux vim zsh
 
   # Set zsh as login shell for vagrant user
   chsh -s /bin/zsh vagrant
