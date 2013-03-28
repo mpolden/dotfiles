@@ -9,22 +9,22 @@ symdirs = .newsbeuter .vim
 all: install
 
 clean:
-	rm -rf -- dot.vim/bundle/*
+	rm -rf -- $(CURDIR)/dot.vim/bundle/*
 
 $(symlinks):
-	test -f $(PWD)/dot$@ && ln $(LN_FLAGS) $(PWD)/dot$@ ~/$@
+	test -f $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
 
 $(symdirs):
 	rm -f ~/$@
-	test -d $(PWD)/dot$@ && ln $(LN_FLAGS) $(PWD)/dot$@/ ~/$@
+	test -d $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@/ ~/$@
 
 install: $(symlinks) $(symdirs) bundle
 
 bundle:
-	mkdir -p dot.vim/bundle
-	test -d dot.vim/bundle/vundle || \
+	mkdir -p $(CURDIR)/dot.vim/bundle
+	test -d $(CURDIR)/dot.vim/bundle/vundle || \
 		(git clone --quiet https://github.com/gmarik/vundle.git \
-		dot.vim/bundle/vundle && vim +BundleInstall +qall)
+		$(CURDIR)/dot.vim/bundle/vundle && vim +BundleInstall +qall)
 
 z:
 	test -d ~/.zcmd || \
