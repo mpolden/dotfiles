@@ -61,8 +61,8 @@ filetype plugin indent on
 " enable syntax highlighting
 syntax on
 
-" color scheme
-colorscheme jellybeans
+" set color scheme (and don't complain if it doesn't exist)
+silent! colorscheme jellybeans
 
 " always show the status line as the second last line
 set laststatus=2

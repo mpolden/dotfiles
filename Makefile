@@ -24,7 +24,8 @@ bundle:
 	mkdir -p $(CURDIR)/dot.vim/bundle
 	test -d $(CURDIR)/dot.vim/bundle/vundle || \
 		(git clone --quiet https://github.com/gmarik/vundle.git \
-		$(CURDIR)/dot.vim/bundle/vundle && vim +BundleInstall +qall)
+		$(CURDIR)/dot.vim/bundle/vundle && \
+		vim +BundleInstall +qall > /dev/null)
 
 z:
 	test -d ~/.zcmd || \
