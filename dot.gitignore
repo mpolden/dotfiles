@@ -54,3 +54,6 @@ node_modules
 
 # Ruby
 !Gemfile.lock
+
+# Vagrant
+.vagrant
