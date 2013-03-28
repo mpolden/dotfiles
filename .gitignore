@@ -1,6 +1,3 @@
 dot.vim/bundle/
 dot.vim/swap/
 !dot.vim/swap/.gitkeep
-dot.newsbeuter/
-!dot.newsbeuter/config
-!dot.newsbeuter/urls

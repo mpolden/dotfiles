@@ -2,7 +2,7 @@ LN_FLAGS = -sf
 
 symlinks = .editorconfig .gitconfig .gitignore .hgrc .lftprc .screenrc \
 		   .synergy.conf .tmux.conf .vimrc .zsh_aliases .zshenv .zshrc
-symdirs = .newsbeuter .vim
+symdirs = .vim
 
 .PHONY: $(symlinks) $(symdirs)
 
