@@ -12,4 +12,8 @@ Create symlinks:
 
     make install
 
+...or create and configure a VM using the included `Vagrantfile`:
+
+    vagrant up
+
 NOTE: This will overwrite your existing dotfiles.
