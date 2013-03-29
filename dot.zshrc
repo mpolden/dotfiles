@@ -36,11 +36,15 @@ bindkey '^[[3~' delete-char
 
 # Prompt
 autoload -U colors && colors
-autoload -U vcs_info
-autoload -U add-zsh-hook
-zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
-zstyle ':vcs_info:*' enable git
-add-zsh-hook precmd vcs_info
+autoload -U is-at-least
+# vcs_info appeared in 4.3.7
+if is-at-least "4.3.7"; then
+    autoload -U vcs_info
+    autoload -U add-zsh-hook
+    zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
+    zstyle ':vcs_info:*' enable git
+    add-zsh-hook precmd vcs_info
+fi
 setopt prompt_subst
 PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
 
