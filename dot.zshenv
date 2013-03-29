@@ -70,9 +70,6 @@ fi
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
 
-# pvm
-[[ -f "$HOME/.pvm/pvm.sh" ]] && source "$HOME/.pvm/pvm.sh"
-
 # rbenv
 if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
     eval "$(${HOME}/.rbenv/bin/rbenv init -)"
