@@ -28,9 +28,7 @@ else
 fi
 
 # Load keychain
-[[ -z "$HOSTNAME" ]] && HOSTNAME=$(hostname)
-[[ -f "$HOME/.keychain/$HOSTNAME-sh" ]] && \
-    source "$HOME/.keychain/$HOSTNAME-sh"
+[[ -f "$HOME/.keychain/$HOST-sh" ]] && source "$HOME/.keychain/$HOST-sh"
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
