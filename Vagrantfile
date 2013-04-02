@@ -11,7 +11,7 @@ $script = <<SCRIPT
   apt-get -y update
 
   # Install packages
-  apt-get -y install git make tig tmux vim zsh
+  apt-get -y install git make rsync tig tmux vim zsh
 
   # Set zsh as login shell for vagrant user
   chsh -s /bin/zsh vagrant
