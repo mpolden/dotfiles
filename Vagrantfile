@@ -16,9 +16,8 @@ $script = <<SCRIPT
   # Set zsh as login shell for vagrant user
   chsh -s /bin/zsh vagrant
 
-  # Clone and install dotfiles as vagrant user
-  su -c 'git clone -q https://github.com/martinp/dotfiles.git ~/dotfiles && \
-          make -C ~/dotfiles clean install' -l vagrant
+  # Install dotfiles as vagrant user
+  su -c 'make -C /vagrant clean install' -l vagrant
 SCRIPT
 
 Vagrant.configure("2") do |config|
