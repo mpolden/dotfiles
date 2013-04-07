@@ -32,7 +32,6 @@ fi
 
 # Add directories to PATH
 add_to_path "$HOME/bin"
-add_to_path "$HOME/.gem/ruby/1.9.1/bin"
 # Homebrew
 add_to_path "/usr/local/bin"
 add_to_path "/usr/local/sbin"
@@ -75,3 +74,6 @@ elif [[ -d "/usr/local/opt/rbenv" ]]; then
     export RBENV_ROOT="/usr/local/opt/rbenv"
     eval "$(rbenv init -)"
 fi
+
+# Local environment
+[[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"

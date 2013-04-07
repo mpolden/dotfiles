@@ -82,3 +82,6 @@ if [[ -f "/usr/local/etc/profile.d/z.sh" ]]; then
 elif [[ -f "$HOME/.zcmd/z.sh" ]]; then
     source "$HOME/.zcmd/z.sh"
 fi
+
+# Local configuration
+[[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
