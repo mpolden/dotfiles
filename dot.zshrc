@@ -85,5 +85,19 @@ elif [[ -f "$HOME/.zcmd/z.sh" ]]; then
     source "$HOME/.zcmd/z.sh"
 fi
 
+# Set PATH
+path-append () {
+    [[ -d "$1" ]] && path+=($1)
+}
+path-append "$HOME/bin"
+path-append "/usr/local/bin"
+path-append "/usr/local/sbin"
+path-append "/usr/local/share/npm/bin"
+path-append "/usr/local/share/python"
+path-append "/usr/local/heroku/bin"
+
+# Ensure unique paths in PATH
+typeset -U path
+
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

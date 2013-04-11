@@ -1,7 +1,3 @@
-add_to_path () {
-    [[ -d "$1" ]] && path+=($1)
-}
-
 # Locale
 if [[ "$OSTYPE" == darwin* ]]; then
     export LANG="en_US.UTF-8"
@@ -29,16 +25,6 @@ fi
 
 # Load keychain
 [[ -f "$HOME/.keychain/$HOST-sh" ]] && source "$HOME/.keychain/$HOST-sh"
-
-# Add directories to PATH
-add_to_path "$HOME/bin"
-# Homebrew
-add_to_path "/usr/local/bin"
-add_to_path "/usr/local/sbin"
-add_to_path "/usr/local/share/npm/bin"
-add_to_path "/usr/local/share/python"
-# Heroku toolbelt (Ubuntu)
-add_to_path "/usr/local/heroku/bin"
 
 # Java
 if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
@@ -77,6 +63,3 @@ fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
-
-# Ensure unique paths in PATH
-typeset -U path
