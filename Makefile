@@ -1,7 +1,8 @@
 LN_FLAGS = -sf
 
 symlinks = .gitconfig .gitignore .hgrc .lftprc .screenrc \
-		   .synergy.conf .tmux.conf .vimrc .zsh_aliases .zshenv .zshrc
+		   .synergy.conf .tmux.conf .vimrc .zpreztorc .zsh_aliases .zshenv \
+		   .zshrc
 symdirs = .vim
 
 .PHONY: $(symlinks) $(symdirs)
@@ -18,18 +19,21 @@ $(symdirs):
 	rm -f ~/$@
 	test -d $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@/ ~/$@
 
-install: $(symlinks) $(symdirs) bundle
+install: $(symlinks) $(symdirs)
 
-bundle:
+vim-extras:
 	mkdir -p $(CURDIR)/dot.vim/bundle
 	test -d $(CURDIR)/dot.vim/bundle/vundle || \
 		(git clone --quiet https://github.com/gmarik/vundle.git \
 		$(CURDIR)/dot.vim/bundle/vundle && \
 		vim +BundleInstall +qall > /dev/null)
 
-z:
+zsh-extras:
 	test -d ~/.zcmd || \
 		git clone --quiet https://github.com/rupa/z.git ~/.zcmd
+	test -d ~/.zprezto || \
+		git clone --quiet --recursive \
+		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
 check-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
