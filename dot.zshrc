@@ -2,11 +2,6 @@
 [[ -s "$HOME/.zprezto/init.zsh" ]] && source "$HOME/.zprezto/init.zsh" && \
     prezto_loaded=1
 
-# History
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
 # Vim bindings
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
@@ -17,6 +12,11 @@ setopt autocd
 
 # Keep stuff usable if prezto isn't loaded
 if [[ "$prezto_loaded" -ne 1 ]]; then
+    # History
+    HISTFILE=$HOME/.zsh_history
+    HISTSIZE=10000
+    SAVEHIST=10000
+
     # Completion
     autoload -U compinit && compinit
     zstyle ':completion:*' auto-description 'specify: %d'
@@ -48,6 +48,13 @@ if [[ "$prezto_loaded" -ne 1 ]]; then
     fi
     setopt prompt_subst
     PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
+
+    # Window title
+    case "$TERM" in
+        xterm*)
+            precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+            ;;
+    esac
 fi
 
 # Edit command line using editor
@@ -63,13 +70,6 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-# Window title
-case "$TERM" in
-    xterm*)
-        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-        ;;
-esac
 
 # Command not found handler
 [[ -s "/etc/zsh_command_not_found" ]] && source "/etc/zsh_command_not_found"
