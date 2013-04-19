@@ -56,12 +56,20 @@ PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_
 if [[ "$TERM" == xterm* ]]; then
     precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 fi
-unset prezto_loaded
 
 # Edit command line using editor
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+# Display current edit mode
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # Command not found handler
 [[ -s "/etc/zsh_command_not_found" ]] && source "/etc/zsh_command_not_found"
