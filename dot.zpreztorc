@@ -32,7 +32,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
   'syntax-highlighting' \
   'history-substring-search'
 
@@ -118,7 +117,7 @@ zstyle ':prezto:module:prompt' theme 'steeef'
 #
 
 # Auto set the tab and window titles.
-zstyle ':prezto:module:terminal' auto-title 'yes'
+#zstyle ':prezto:module:terminal' auto-title 'yes'
 
 #
 # Tmux

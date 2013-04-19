@@ -34,27 +34,27 @@ if [[ "$prezto_loaded" -ne 1 ]]; then
     zstyle ':completion:*' verbose true
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
     zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+fi
+unset prezto_loaded
 
-    # Prompt
-    autoload -U colors && colors
-    autoload -U is-at-least
-    # vcs_info appeared in 4.3.7
-    if is-at-least "4.3.7"; then
-        autoload -U vcs_info
-        autoload -U add-zsh-hook
-        zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
-        zstyle ':vcs_info:*' enable git
-        add-zsh-hook precmd vcs_info
-    fi
-    setopt prompt_subst
-    PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
+# Prompt
+autoload -U colors && colors
+autoload -U is-at-least
+# vcs_info appeared in 4.3.7
+if is-at-least "4.3.7"; then
+    autoload -U vcs_info
+    autoload -U add-zsh-hook
+    zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
+    zstyle ':vcs_info:*' enable git
+    add-zsh-hook precmd vcs_info
+fi
+setopt prompt_subst
+PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
 
-    # Window title
-    case "$TERM" in
-        xterm*)
-            precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-            ;;
-    esac
+
+# Window title
+if [[ "$TERM" == xterm* ]]; then
+    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 fi
 unset prezto_loaded
 
