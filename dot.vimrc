@@ -34,27 +34,34 @@ else
 endif
 
 " vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+if isdirectory(expand('$HOME/.vim/bundle/vundle'))
+    filetype off
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    Bundle 'gmarik/vundle'
 
-" vundle bundles
-Bundle 'kien/ctrlp.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'rking/ag.vim'
+    " vundle bundles
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'nanotech/jellybeans.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'airblade/vim-gitgutter'
+    Bundle 'rking/ag.vim'
 
-" extra syntax
-Bundle 'othree/html5.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'groenewege/vim-less'
-Bundle 'guns/vim-clojure-static'
+    " extra syntax
+    Bundle 'othree/html5.vim'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'jnwhiteh/vim-golang'
+    Bundle 'groenewege/vim-less'
+    Bundle 'guns/vim-clojure-static'
+
+    " set color scheme (and don't complain if it doesn't exist)
+    silent! colorscheme jellybeans
+else
+    silent! colorscheme torte
+endif
 
 " filetype detection and smart indent
 filetype plugin indent on
@@ -62,8 +69,6 @@ filetype plugin indent on
 " enable syntax highlighting
 syntax on
 
-" set color scheme (and don't complain if it doesn't exist)
-silent! colorscheme jellybeans
 
 " always show the status line as the second last line
 set laststatus=2
