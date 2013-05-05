@@ -30,9 +30,13 @@ vim-extras:
 		$(CURDIR)/dot.vim/bundle/vundle && \
 		vim +BundleInstall +qall > /dev/null)
 
-zsh-extras:
+zsh-extras: z prezto
+
+z:
 	test -d ~/.zcmd || \
 		git clone --quiet https://github.com/rupa/z.git ~/.zcmd
+
+prezto:
 	test -d ~/.zprezto || \
 		git clone --quiet --recursive \
 		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
