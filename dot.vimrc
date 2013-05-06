@@ -148,6 +148,3 @@ set directory=~/.vim/swap
 
 " ctrlp search command
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-
-" nerdtree
-noremap <silent><leader>e :NERDTreeToggle<cr>
