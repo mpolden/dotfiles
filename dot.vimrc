@@ -65,7 +65,6 @@ filetype plugin indent on
 " enable syntax highlighting
 syntax on
 
-
 " always show the status line as the second last line
 set laststatus=2
 
@@ -147,4 +146,11 @@ set wildignore +=*/tmp/*
 set directory=~/.vim/swap
 
 " ctrlp search command
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git',
+            \ 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+    \ 'fallback': 'find %s -type f'
+\ }
