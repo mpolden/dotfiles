@@ -47,19 +47,8 @@ if [[ -d "/etc/etckeeper" ]]; then
     export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 fi
 
-# nvm
-[[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
-
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
-
-# rbenv
-if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
-    eval "$(${HOME}/.rbenv/bin/rbenv init -)"
-elif [[ -d "/usr/local/opt/rbenv" ]]; then
-    export RBENV_ROOT="/usr/local/opt/rbenv"
-    eval "$(rbenv init -)"
-fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"

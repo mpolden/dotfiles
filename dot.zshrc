@@ -96,18 +96,27 @@ elif [[ -f "$HOME/.zcmd/z.sh" ]]; then
 fi
 
 # Set PATH
-path-append () {
-    [[ -d "$1" ]] && path+=($1)
+path-prepend () {
+    [[ -d "$1" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
 }
-path-append "$HOME/bin"
-path-append "/usr/local/bin"
-path-append "/usr/local/sbin"
-path-append "/usr/local/share/npm/bin"
-path-append "/usr/local/share/python"
-path-append "/usr/local/heroku/bin"
+path-prepend "/usr/local/sbin"
+path-prepend "/usr/local/bin"
+path-prepend "/usr/local/share/python"
+path-prepend "$HOME/bin"
 
-# Ensure unique paths in PATH
-typeset -U path
+# nvm
+[[ -z "$NVM_DIR" && -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
+# rbenv
+if [[ -z "$RBENV_ROOT" ]]; then
+    if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
+        export RBENV_ROOT="$HOME/.rbenv"
+        eval "$(${HOME}/.rbenv/bin/rbenv init -)"
+    elif [[ -d "/usr/local/opt/rbenv" ]]; then
+        export RBENV_ROOT="/usr/local/opt/rbenv"
+        eval "$(/usr/local/opt/rbenv/bin/rbenv init -)"
+    fi
+fi
 
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
