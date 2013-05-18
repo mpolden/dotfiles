@@ -49,3 +49,13 @@ clean-dead:
 
 update:
 	git pull --rebase
+
+deps: deb-deps arch-deps
+
+deb-deps:
+	test ! -f /etc/debian_version || \
+		aptitude install --assume-yes git make rsync tig tmux vim zsh
+
+arch-deps:
+	test ! -f /etc/arch-release || \
+		pacman --sync --needed git make rsync tig tmux vim zsh
