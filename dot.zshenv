@@ -18,7 +18,7 @@ fi
 
 # Set LS_COLORS
 if [[ -x "/usr/local/bin/gdircolors" ]]; then
-    eval "$(gdircolors -b)"
+    eval "$(/usr/local/bin/gdircolors -b)"
 else
     eval "$(dircolors -b)"
 fi
