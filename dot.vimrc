@@ -23,15 +23,7 @@ set shiftwidth=4
 set expandtab
 
 " numbered lines
-if exists('+relativenumber')
-    set relativenumber
-    autocmd InsertEnter * :set number
-    autocmd InsertLeave * :set relativenumber
-    autocmd FocusLost * :set number
-    autocmd FocusGained * :set relativenumber
-else
-    set number
-endif
+set number
 
 " vundle
 if isdirectory(expand('$HOME/.vim/bundle/vundle'))
