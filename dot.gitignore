@@ -49,6 +49,7 @@ nbproject
 *.bak
 *.lock
 .DS_Store
+*.pid
 
 # Node
 node_modules
