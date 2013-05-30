@@ -1,4 +1,4 @@
-alias aptup='sudo aptitude update && sudo aptitude upgrade'
+alias aptup='sudo aptitude update && sudo aptitude safe-upgrade'
 alias pacup='sudo pacmatic -Syu'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias heroku-cleardb='mysql $(heroku config:get CLEARDB_DATABASE_URL | sed -r -e "s/^mysql:\/\/|\?reconnect=true$//g;s/^/-u /;s/:/ -p/;s/@/ -h /;s/\// /")'
