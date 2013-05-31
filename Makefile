@@ -1,27 +1,32 @@
 CURDIR ?= $(.CURDIR)
 
-LN_FLAGS = -sf
+LN_FLAGS = -sfn
 
-symlinks = .gitconfig .gitignore .hgrc .lftprc .screenrc \
-		   .synergy.conf .tmux.conf .vimrc .zpreztorc .zsh_aliases .zshenv \
+symlinks = .gitconfig \
+		   .gitignore \
+		   .hgrc \
+		   .lftprc \
+		   .screenrc \
+		   .synergy.conf \
+		   .tmux.conf \
+		   .vim \
+		   .vimrc \
+		   .zpreztorc \
+		   .zsh_aliases \
+		   .zshenv \
 		   .zshrc
-symdirs = .vim
 
-.PHONY: $(symlinks) $(symdirs)
+.PHONY: $(symlinks)
 
-all: install
+all: install vim-extras zsh-extras
 
 clean:
 	rm -rf -- $(CURDIR)/dot.vim/bundle/*
 
+install: $(symlinks)
+
 $(symlinks):
-	test -f $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
-
-$(symdirs):
-	rm -f ~/$@
-	test -d $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@/ ~/$@
-
-install: $(symlinks) $(symdirs)
+	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
 
 vim-extras:
 	mkdir -p $(CURDIR)/dot.vim/bundle
