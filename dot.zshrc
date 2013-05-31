@@ -107,8 +107,5 @@ path-prepend "$HOME/bin"
 # nvm
 [[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
-# rbenv
-[[ -x "$HOME/.rbenv/bin/rbenv" ]] && eval "$($HOME/.rbenv/bin/rbenv init -)"
-
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
