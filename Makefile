@@ -16,7 +16,14 @@ symlinks = .gitconfig \
 		   .zshenv \
 		   .zshrc
 
-.PHONY: $(symlinks)
+xsymlinks = .fonts.conf \
+			.i3 \
+			.i3status.conf \
+			.Xresources
+
+.PHONY: $(symlinks) $(xsymlinks)
+
+# Shell environment
 
 all: install vim-extras zsh-extras
 
@@ -55,12 +62,25 @@ clean-dead:
 update:
 	git pull --rebase
 
-deps: deb-deps arch-deps
+
+# X environment
+
+all-x: install-x deb-deps deb-deps-x
+
+install-x: $(xsymlinks)
+
+$(xsymlinks):
+	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
 
 deb-deps:
-	test ! -f /etc/debian_version || \
-		aptitude install --assume-yes git make rsync tig tmux vim zsh
+	test -f /etc/debian_version && \
+		aptitude install --assume-yes git htop make mosh rsync tig tmux vim zsh
+
+deb-deps-x:
+	test -f /etc/debian_version && \
+		aptitude install --assume-yes xserver-xorg x11-xserver-utils slim i3 \
+		fonts-liberation rxvt-unicode-256color
 
 arch-deps:
-	test ! -f /etc/arch-release || \
-		pacman --sync --needed git make rsync tig tmux vim zsh
+	test -f /etc/arch-release && \
+		pacman --sync --needed git htop make mosh rsync tig tmux vim zsh
