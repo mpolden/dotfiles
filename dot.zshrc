@@ -105,18 +105,10 @@ path-prepend "/usr/local/share/python"
 path-prepend "$HOME/bin"
 
 # nvm
-[[ -z "$NVM_DIR" && -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+[[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 # rbenv
-if [[ -z "$RBENV_ROOT" ]]; then
-    if [[ -x "$HOME/.rbenv/bin/rbenv" ]]; then
-        export RBENV_ROOT="$HOME/.rbenv"
-        eval "$(${HOME}/.rbenv/bin/rbenv init -)"
-    elif [[ -d "/usr/local/opt/rbenv" ]]; then
-        export RBENV_ROOT="/usr/local/opt/rbenv"
-        eval "$(/usr/local/opt/rbenv/bin/rbenv init -)"
-    fi
-fi
+[[ -x "$HOME/.rbenv/bin/rbenv" ]] && eval "$($HOME/.rbenv/bin/rbenv init -)"
 
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
