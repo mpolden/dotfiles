@@ -140,6 +140,9 @@ bar {
         position top
 }
 
+# remove border for google-chrome
+for_window [class="google-chrome"] border none
+
 # bind chrome
 bindsym $mod+c exec google-chrome
 
