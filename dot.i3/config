@@ -24,7 +24,7 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -68,7 +68,7 @@ bindsym $mod+e layout default
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -149,3 +149,6 @@ bindsym $mod+c exec google-chrome
 # use alt+tab to switch workspaces
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace previous
+
+# use $mod+space for running dmenu
+bindsym $mod+space exec dmenu_run -b
