@@ -139,4 +139,9 @@ bar {
         status_command i3status
 }
 
+# bind chrome
 bindsym $mod+c exec google-chrome
+
+# use alt+tab to switch workspaces
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace previous
