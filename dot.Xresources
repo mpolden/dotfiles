@@ -1,6 +1,4 @@
 #define FONTSIZE 10
-URxvt.background:         #000000
-URxvt.foreground:         #ffffff
 URxvt.font:               xft:Liberation Mono:size=FONTSIZE
 URxvt.boldFont:           xft:Liberation Mono:bold:size=FONTSIZE
 URxvt.italicFont:         xft:Liberation Mono:italic:size=FONTSIZE
@@ -8,34 +6,53 @@ URxvt.boldItalicFont:     xft:Liberation Mono:italic:bold:size=FONTSIZE
 URxvt.scrollBar:          false
 URxvt.letterSpace:        -1
 
-! Black
-*color0:   #000000
-*color8:   #555753
+! https://gist.github.com/bohoomil/5253661
 
-! Red
-*color1:   #cc0000
-*color9:   #ef2929
+! euphrasia fg/bg
+URxvt*background:      #090C19
+URxvt*foreground:      #E6E6E6
+URxvt*cursorColor:     #1AAA13
 
-! Green
-*color2:   #4e9a06
-*color10:  #8ae234
+! X.org apps bg/fg
+*background: #D0CECB
+*foreground: #090C19
 
-! Yellow
-*color3:   #c4a000
-*color11:  #fce94f
+! black
+*color0:  #222946
+! dark grey
+*color8:  #8C8B89
 
-! Blue
-*color4:   #3465a4
-*color12:  #729fcf
+! red
+*color1:  #B32323
+! bright red
+*color9:  #DC2C2C
 
-! Magenta
-*color5:   #75507b
-*color13:  #ad7fa8
+! green
+*color2:  #1AAA13
+! bright green
+*color10: #5DCE33
 
-! Cyan
-*color6:   #06989a
-*color14:  #34e2e2
+! yellow
+*color3:  #FF9F3E
+! bright yellow
+*color11: #E6CB29
 
-! White
-*color7:   #d3d7cf
-*color15:  #eeeeec
+! blue
+*color4:  #4957F3
+! bright blue
+*color12: #4D79FF
+
+! magenta
+*color5:  #BF3E94
+! bright magenta
+*color13: #B641CC
+
+! cyan
+*color6:  #09A5B3
+! bright cyan
+*color14: #3CB6F3
+
+! light grey
+*color7:  #AEAEAE
+! white
+*color15: #DBDDE4
