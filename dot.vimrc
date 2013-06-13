@@ -42,6 +42,7 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
 
     " extra syntax
     Bundle 'othree/html5.vim'
+    Bundle 'groenewege/vim-less'
     Bundle 'jnwhiteh/vim-golang'
     Bundle 'guns/vim-clojure-static'
 
