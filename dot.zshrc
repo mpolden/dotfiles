@@ -97,12 +97,13 @@ fi
 
 # Set PATH
 path-prepend () {
-    [[ -d "$1" && ! "$PATH" =~ (^|:)"${1}"(:|$) ]] && export PATH="$1:$PATH"
+    [[ -d "$1" ]] && path[1,0]=($1)
 }
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "/usr/local/share/python"
-path-prepend "$HOME/bin"
+path-prepend "$HOME/.local/bin"
+typeset -U path
 
 # nvm
 [[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
