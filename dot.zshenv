@@ -50,5 +50,8 @@ fi
 # Default to Python 2 on Arch
 [[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
 
+# Set prefix for n (node version manager)
+[[ -x "$HOME/.local/bin/n" ]] && export N_PREFIX="$HOME/.local"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"

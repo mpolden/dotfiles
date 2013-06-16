@@ -105,8 +105,5 @@ path-prepend "/usr/local/share/python"
 path-prepend "$HOME/.local/bin"
 typeset -U path
 
-# nvm
-[[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
-
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
