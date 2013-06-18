@@ -11,6 +11,7 @@ symlinks = .gitconfig \
 		   .tmux.conf \
 		   .vim \
 		   .vimrc \
+		   .zlogin \
 		   .zpreztorc \
 		   .zsh_aliases \
 		   .zshenv \
