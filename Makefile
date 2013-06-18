@@ -24,6 +24,38 @@ xsymlinks = .fonts.conf \
 
 .PHONY: $(symlinks) $(xsymlinks)
 
+COLOR = \033[32;01m
+NO_COLOR = \033[0m
+
+help:
+	@echo "Makefile for installing dotfiles"
+	@echo
+	@echo "Create symlinks:"
+	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
+	@echo "   $(COLOR)make install-x$(NO_COLOR)	Install X11 symlinks"
+	@echo
+	@echo "Install vim and shell extras:"
+	@echo "   $(COLOR)make vim-extras$(NO_COLOR)	Install vim bundles"
+	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)	Install prezto and z"
+	@echo "   $(COLOR)make z$(NO_COLOR)		Install z"
+	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
+	@echo
+	@echo "Install common packages:"
+	@echo "   $(COLOR)make deb-deps$(NO_COLOR)	Install Debian packages"
+	@echo "   $(COLOR)make deb-deps-x$(NO_COLOR)	Install Debian packages \
+(X11)"
+	@echo "   $(COLOR)make arch-deps$(NO_COLOR)	Install Arch Linux packages"
+	@echo
+	@echo "Maintenance:"
+	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
+	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
+	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
+	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
+	@echo
+	@echo "Useful aliases:"
+	@echo "   $(COLOR)make all$(NO_COLOR)		install vim-extras zsh-extras"
+	@echo "   $(COLOR)make all-x$(NO_COLOR)		install-x deb-deps deb-deps-x"
+
 # Shell environment
 
 all: install vim-extras zsh-extras
@@ -72,6 +104,8 @@ install-x: $(xsymlinks)
 
 $(xsymlinks):
 	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
+
+# Packages
 
 deb-deps:
 	test -f /etc/debian_version && \
