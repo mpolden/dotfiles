@@ -18,7 +18,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -152,3 +152,11 @@ bindsym Mod1+Shift+Tab workspace previous
 
 # use $mod+space for running dmenu
 bindsym $mod+space exec dmenu_run -b
+
+# workspace assignment
+assign [class="Google-chrome"] 2
+
+# autostart
+exec i3-sensible-terminal
+exec i3-sensible-terminal
+exec google-chrome
