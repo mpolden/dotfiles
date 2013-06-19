@@ -16,6 +16,9 @@ fi
 # Set editor to vim
 [[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
 
+# Set terminal
+[[ -x "/usr/bin/urxvt" ]] && export TERMINAL="urxvt"
+
 # Set LS_COLORS
 if [[ -x "/usr/local/bin/gdircolors" ]]; then
     eval "$(/usr/local/bin/gdircolors -b)"
