@@ -1,0 +1,12 @@
+{
+	"installed_packages":
+	[
+		"Git",
+		"GitGutter",
+		"LESS",
+		"Package Control",
+		"SublimeREPL",
+		"Theme - Flatland",
+		"Tomorrow Color Schemes"
+	]
+}
