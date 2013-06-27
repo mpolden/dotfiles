@@ -46,6 +46,9 @@ help:
 (X11)"
 	@echo "   $(COLOR)make arch-deps$(NO_COLOR)	Install Arch Linux packages"
 	@echo
+	@echo "Install Sublime Text 2 config:"
+	@echo "   $(COLOR)make st2$(NO_COLOR)		Install Sublime Text 2 config"
+	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
@@ -119,3 +122,20 @@ deb-deps-x:
 arch-deps:
 	test -f /etc/arch-release && \
 		pacman --sync --needed git htop make mosh rsync tig tmux vim zsh
+
+# Sublime Text 2
+OS = $(shell uname -s)
+ifeq ($(OS),Darwin)
+	ST2_PATH = ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+endif
+ifeq ($(OS),Linux)
+	ST2_PATH = ~/.config/sublime-text-2
+endif
+st2:
+	@test -n "$(ST2_PATH)" || \
+		(echo "ST2_PATH is undefined. No idea where to put symlinks" && exit 1)
+	ln $(LN_FLAGS) $(CURDIR)/dot.sublime-text-2/Preferences.sublime-settings \
+		$(ST2_PATH)/Preferences.sublime-settings
+	ln $(LN_FLAGS) \
+		$(CURDIR)/dot.sublime-text-2/Package\ Control.sublime-settings \
+		$(ST2_PATH)/Package\ Control.sublime-settings
