@@ -1,14 +1,20 @@
 {
 	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "venv"],
 	"font_face": "Source Code Pro",
 	"font_size": 15.0,
-	"ignored_packages": [],
-	"theme": "Flatland Dark.sublime-theme",
-	"folder_exclude_patterns": [".git", ".svn", "node_modules", "venv"],
-    "file_exclude_patterns": [".DS_Store"],
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80,
+		120
+	],
+	"save_on_focus_lost": true,
 	"tab_size": 4,
+	"theme": "Flatland Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-    "save_on_focus_lost": true,
-    "rulers": [80, 120]
+	"vintage_start_in_command_mode": true
 }
