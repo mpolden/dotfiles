@@ -1,6 +1,14 @@
 {
 	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
-	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "venv"],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules",
+		"venv"
+	],
 	"font_face": "Source Code Pro",
 	"font_size": 15.0,
 	"ignored_packages":

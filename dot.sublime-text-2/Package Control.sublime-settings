@@ -1,7 +1,6 @@
 {
 	"installed_packages":
 	[
-		"Git",
 		"GitGutter",
 		"LESS",
 		"Package Control",
