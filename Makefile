@@ -123,19 +123,18 @@ arch-deps:
 	test -f /etc/arch-release && \
 		pacman --sync --needed git htop make mosh rsync tig tmux vim zsh
 
-# Sublime Text 2
+# Sublime Text
 OS = $(shell uname -s)
 ifeq ($(OS),Darwin)
-	ST2_PATH = ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+	ST_PATH = $(HOME)/Library/Application Support/Sublime Text 3/Packages/User
 endif
-ifeq ($(OS),Linux)
-	ST2_PATH = ~/.config/sublime-text-2
-endif
-st2:
-	@test -n "$(ST2_PATH)" || \
+ST_FILES = Default\ (OSX).sublime-keymap \
+		   Package\ Control.sublime-settings \
+		   Preferences.sublime-settings
+
+$(ST_FILES):
+	@test -n "$(ST_PATH)" || \
 		(echo "ST2_PATH is undefined. No idea where to put symlinks" && exit 1)
-	ln $(LN_FLAGS) $(CURDIR)/dot.sublime-text-2/Preferences.sublime-settings \
-		$(ST2_PATH)/Preferences.sublime-settings
-	ln $(LN_FLAGS) \
-		$(CURDIR)/dot.sublime-text-2/Package\ Control.sublime-settings \
-		$(ST2_PATH)/Package\ Control.sublime-settings
+	ln $(LN_FLAGS) "$(CURDIR)/dot.sublime-text/$@" "$(ST_PATH)/$@"
+
+sublime-text: $(ST_FILES)
