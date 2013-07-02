@@ -37,7 +37,7 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     Bundle 'nanotech/jellybeans.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'bling/vim-airline'
     Bundle 'airblade/vim-gitgutter'
 
     " extra syntax
