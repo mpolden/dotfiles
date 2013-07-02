@@ -1,5 +1,6 @@
 {
 	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
 		".svn",
