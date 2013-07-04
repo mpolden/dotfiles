@@ -25,6 +25,15 @@ set expandtab
 " numbered lines
 set number
 
+" round indent to multiple of 'shiftwidth'
+set shiftround
+
+" align the new line indent with the previous line
+set autoindent
+
+" lines longer than 79 columns will be broken
+set textwidth=79
+
 " vundle
 if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     filetype off
