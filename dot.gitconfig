@@ -19,3 +19,5 @@
     browser = google-chrome
 [branch]
     autosetuprebase = always
+[rebase]
+    stat = true
