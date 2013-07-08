@@ -1,9 +1,11 @@
 {
 	"installed_packages":
 	[
+		"Base16 Color Schemes",
 		"GitGutter",
 		"LESS",
 		"Package Control",
-		"Theme - Flatland"
+		"Theme - Flatland",
+		"Tomorrow Color Schemes"
 	]
 }

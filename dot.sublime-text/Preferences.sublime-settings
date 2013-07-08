@@ -1,5 +1,6 @@
 {
 	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+	"default_line_ending": "unix",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -12,6 +13,7 @@
 	],
 	"font_face": "Source Code Pro",
 	"font_size": 15.0,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 	],
@@ -25,5 +27,7 @@
 	"theme": "Flatland Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"vintage_start_in_command_mode": true
+	"vintage_start_in_command_mode": true,
+	"word_wrap": true,
+	"wrap_width": 80
 }
