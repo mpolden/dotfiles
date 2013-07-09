@@ -9,7 +9,8 @@
 		".hg",
 		"CVS",
 		"node_modules",
-		"venv"
+		"venv",
+		".webassets-cache"
 	],
 	"font_face": "Source Code Pro",
 	"font_size": 15.0,
