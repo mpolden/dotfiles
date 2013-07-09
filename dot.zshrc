@@ -108,5 +108,12 @@ typeset -U path
 # nvm
 [[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
+# virtualenvwrapper
+if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
+    export WORKON_HOME="$HOME/.virtualenvs"
+    export PROJECT_HOME="$HOME/p"
+    source "/usr/local/bin/virtualenvwrapper.sh"
+fi
+
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
