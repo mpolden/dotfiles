@@ -46,8 +46,8 @@ help:
 (X11)"
 	@echo "   $(COLOR)make arch-deps$(NO_COLOR)	Install Arch Linux packages"
 	@echo
-	@echo "Install Sublime Text 2 config:"
-	@echo "   $(COLOR)make st2$(NO_COLOR)		Install Sublime Text 2 config"
+	@echo "Install Sublime Text config:"
+	@echo "   $(COLOR)make subl$(NO_COLOR)		Install Sublime Text config"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
@@ -134,7 +134,7 @@ ST_FILES = Default\ (OSX).sublime-keymap \
 
 $(ST_FILES):
 	@test -n "$(ST_PATH)" || \
-		(echo "ST2_PATH is undefined. No idea where to put symlinks" && exit 1)
+		(echo "ST_PATH is undefined. No idea where to put symlinks" && exit 1)
 	ln $(LN_FLAGS) "$(CURDIR)/dot.sublime-text/$@" "$(ST_PATH)/$@"
 
-sublime-text: $(ST_FILES)
+subl: $(ST_FILES)
