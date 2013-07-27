@@ -7,10 +7,12 @@
 		".svn",
 		".git",
 		".hg",
+		".vagrant",
 		"CVS",
 		"node_modules",
 		"venv",
-		".webassets-cache"
+		".webassets-cache",
+		"test_data"
 	],
 	"font_face": "Source Code Pro",
 	"font_size": 15.0,
