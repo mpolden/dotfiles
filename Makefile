@@ -44,7 +44,6 @@ help:
 	@echo "   $(COLOR)make deb-deps$(NO_COLOR)	Install Debian packages"
 	@echo "   $(COLOR)make deb-deps-x$(NO_COLOR)	Install Debian packages \
 (X11)"
-	@echo "   $(COLOR)make arch-deps$(NO_COLOR)	Install Arch Linux packages"
 	@echo
 	@echo "Install Sublime Text config:"
 	@echo "   $(COLOR)make subl$(NO_COLOR)		Install Sublime Text config"
@@ -89,6 +88,8 @@ prezto:
 		git clone --quiet --recursive \
 		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
+# Maintenance
+
 check-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
 
@@ -97,7 +98,6 @@ clean-dead:
 
 update:
 	git pull --rebase
-
 
 # X environment
 
@@ -118,10 +118,6 @@ deb-deps-x:
 	test -f /etc/debian_version && \
 		aptitude install --assume-yes xserver-xorg x11-xserver-utils slim i3 \
 		fonts-liberation rxvt-unicode-256color
-
-arch-deps:
-	test -f /etc/arch-release && \
-		pacman --sync --needed git htop make mosh rsync tig tmux vim zsh
 
 # Sublime Text
 OS = $(shell uname -s)
