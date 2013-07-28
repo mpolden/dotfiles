@@ -113,6 +113,11 @@ if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
     export PROJECT_HOME="$HOME/p"
     source "/usr/local/bin/virtualenvwrapper.sh"
 fi
+if [[ -f "/etc/bash_completion.d/virtualenvwrapper" ]]; then
+    export WORKON_HOME="$HOME/.virtualenvs"
+    export PROJECT_HOME="$HOME/p"
+    source "/etc/bash_completion.d/virtualenvwrapper"
+fi
 
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
