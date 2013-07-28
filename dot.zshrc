@@ -63,8 +63,8 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Display current edit mode
-vim_ins_mode='-- INSERT --'
-vim_cmd_mode='-- NORMAL --'
+vim_ins_mode='[i]'
+vim_cmd_mode='[n]'
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
