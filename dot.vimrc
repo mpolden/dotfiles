@@ -46,7 +46,8 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     Bundle 'nanotech/jellybeans.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'bling/vim-airline'
+    Bundle 'bling/vim-bufferline'
     Bundle 'airblade/vim-gitgutter'
 
     " extra syntax
@@ -156,3 +157,6 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+
+" only display bufferline in status line
+let g:bufferline_echo = 0
