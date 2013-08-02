@@ -49,7 +49,6 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     Bundle 'bling/vim-airline'
     Bundle 'bling/vim-bufferline'
     Bundle 'airblade/vim-gitgutter'
-    Bundle 'klen/python-mode'
 
     " extra syntax
     Bundle 'othree/html5.vim'
