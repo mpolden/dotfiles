@@ -6,7 +6,6 @@ symlinks = .gitconfig \
 		   .gitignore \
 		   .hgrc \
 		   .lftprc \
-		   .screenrc \
 		   .synergy.conf \
 		   .tmux.conf \
 		   .vim \
