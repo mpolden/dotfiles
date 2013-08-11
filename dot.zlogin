@@ -1,3 +1,3 @@
-if [[ -n "$SSH_TTY" && -x "$(which tmux)" && -z "$TMUX" ]]; then
-    tmux attach -d || tmux
+if [[ -n "$SSH_TTY" && -z "$TMUX" ]]; then
+    (( $+commands[tmux] )) && (tmux attach -d || tmux)
 fi
