@@ -28,10 +28,7 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'directory' \
-  'spectrum' \
   'completion' \
-  'homebrew' \
   'command-not-found' \
   'node' \
   'python' \
