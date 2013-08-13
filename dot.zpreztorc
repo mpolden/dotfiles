@@ -34,8 +34,10 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'command-not-found' \
   'node' \
+  'python' \
   'syntax-highlighting' \
-  'history-substring-search'
+  'history-substring-search' \
+  'prompt'
 
 #
 # Editor
@@ -88,7 +90,7 @@ zstyle ':prezto:module:gnu-utility' prefix 'g'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-# zstyle ':prezto:module:prompt' theme 'steeef'
+zstyle ':prezto:module:prompt' theme 'debian'
 
 #
 # Screen
