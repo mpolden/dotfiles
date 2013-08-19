@@ -21,3 +21,5 @@
     autosetuprebase = always
 [rebase]
     stat = true
+[help]
+    autocorrect = 1
