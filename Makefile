@@ -16,12 +16,7 @@ symlinks = .gitconfig \
 		   .zshenv \
 		   .zshrc
 
-xsymlinks = .fonts.conf \
-			.i3 \
-			.i3status.conf \
-			.Xresources
-
-.PHONY: $(symlinks) $(xsymlinks)
+.PHONY: $(symlinks)
 
 COLOR = \033[32;01m
 NO_COLOR = \033[0m
@@ -31,7 +26,6 @@ help:
 	@echo
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
-	@echo "   $(COLOR)make install-x$(NO_COLOR)	Install X11 symlinks"
 	@echo
 	@echo "Install vim and shell extras:"
 	@echo "   $(COLOR)make vim-extras$(NO_COLOR)	Install vim bundles"
@@ -41,8 +35,6 @@ help:
 	@echo
 	@echo "Install common packages:"
 	@echo "   $(COLOR)make deb-deps$(NO_COLOR)	Install Debian packages"
-	@echo "   $(COLOR)make deb-deps-x$(NO_COLOR)	Install Debian packages \
-(X11)"
 	@echo
 	@echo "Install Sublime Text config:"
 	@echo "   $(COLOR)make subl$(NO_COLOR)		Install Sublime Text config"
@@ -55,7 +47,6 @@ help:
 	@echo
 	@echo "Useful aliases:"
 	@echo "   $(COLOR)make all$(NO_COLOR)		install vim-extras zsh-extras"
-	@echo "   $(COLOR)make all-x$(NO_COLOR)		install-x deb-deps deb-deps-x"
 
 # Shell environment
 
@@ -102,25 +93,11 @@ clean-dead:
 update:
 	git pull --rebase
 
-# X environment
-
-all-x: install-x deb-deps deb-deps-x
-
-install-x: $(xsymlinks)
-
-$(xsymlinks):
-	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
-
 # Packages
 
 deb-deps:
 	test -f /etc/debian_version && \
 		aptitude install --assume-yes git htop make mosh rsync tig tmux vim zsh
-
-deb-deps-x:
-	test -f /etc/debian_version && \
-		aptitude install --assume-yes xserver-xorg x11-xserver-utils slim i3 \
-		fonts-liberation rxvt-unicode-256color
 
 # Sublime Text
 OS = $(shell uname -s)
