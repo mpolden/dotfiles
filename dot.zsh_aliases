@@ -43,3 +43,11 @@ ssh-rm-host-key () {
         echo "usage: $0 line-number"
     fi
 }
+
+function watch-do () {
+    FILE="$1"
+    shift
+    while inotifywait -q -e close_write,moved_to,create -r $FILE; do
+        "$@"
+    done
+}
