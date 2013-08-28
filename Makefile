@@ -93,6 +93,10 @@ clean-dead:
 update:
 	git pull --rebase
 
+rehash:
+	test -n "$(TMUX)" && tmux source ~/.tmux.conf
+	test -n "$(TMUX)" && ./tmux-rehash-panes.sh
+
 # Packages
 
 deb-deps:
