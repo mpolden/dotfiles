@@ -56,6 +56,34 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
 
     " set color scheme (and don't complain if it doesn't exist)
     silent! colorscheme jellybeans
+
+    " ctrlp search command
+    let g:ctrlp_user_command = {
+        \ 'types': {
+            \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
+            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+        \ },
+        \ 'fallback': 'find %s -type f'
+    \ }
+
+    " only display bufferline in status line
+    let g:bufferline_echo = 0
+
+    " vim-airline config
+    let g:airline#extensions#hunks#enabled = 0
+    let g:airline_mode_map = {
+        \ '__' : '-',
+        \ 'n'  : 'N',
+        \ 'i'  : 'I',
+        \ 'R'  : 'R',
+        \ 'c'  : 'C',
+        \ 'v'  : 'V',
+        \ 'V'  : 'V',
+        \ '' : 'V',
+        \ 's'  : 'S',
+        \ 'S'  : 'S',
+        \ '' : 'S',
+        \ }
 else
     silent! colorscheme torte
 endif
@@ -137,40 +165,5 @@ noremap <leader>l :ls<cr>
 " hidden buffers
 set hidden
 
-" ignored file patterns
-set wildignore +=*/target/*
-set wildignore +=*/node_modules/*
-set wildignore +=*/venv/*
-set wildignore +=*/tmp/*
-
 " directory for swap files
 set directory=~/.vim/swap
-
-" ctrlp search command
-let g:ctrlp_user_command = {
-    \ 'types': {
-        \ 1: ['.git',
-            \ 'cd %s && git ls-files . --cached --exclude-standard --others'],
-        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-    \ 'fallback': 'find %s -type f'
-\ }
-
-" only display bufferline in status line
-let g:bufferline_echo = 0
-
-" vim-airline config
-let g:airline#extensions#hunks#enabled = 0
-let g:airline_mode_map = {
-    \ '__' : '-',
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'c'  : 'C',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
-    \ }
