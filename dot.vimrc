@@ -45,7 +45,6 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     Bundle 'kien/ctrlp.vim'
     Bundle 'nanotech/jellybeans.vim'
     Bundle 'scrooloose/syntastic'
-    Bundle 'Lokaltog/vim-easymotion'
     Bundle 'bling/vim-airline'
     Bundle 'bling/vim-bufferline'
     Bundle 'airblade/vim-gitgutter'
@@ -54,7 +53,6 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     Bundle 'othree/html5.vim'
     Bundle 'groenewege/vim-less'
     Bundle 'jnwhiteh/vim-golang'
-    Bundle 'guns/vim-clojure-static'
 
     " set color scheme (and don't complain if it doesn't exist)
     silent! colorscheme jellybeans
