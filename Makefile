@@ -44,6 +44,8 @@ help:
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
+	@echo "   $(COLOR)make rehash$(NO_COLOR)		Source .zshrc in all tmux \
+panes"
 	@echo
 	@echo "Useful aliases:"
 	@echo "   $(COLOR)make all$(NO_COLOR)		install vim-extras zsh-extras"
