@@ -25,6 +25,7 @@ path-prepend () {
 }
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
+path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
 typeset -U path
 
