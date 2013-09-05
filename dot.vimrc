@@ -57,6 +57,9 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
     " set color scheme (and don't complain if it doesn't exist)
     silent! colorscheme jellybeans
 
+    " ctrlp mode
+    let g:ctrlp_cmd = 'CtrlPMixed'
+
     " ctrlp search command
     let g:ctrlp_user_command = {
         \ 'types': {
