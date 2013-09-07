@@ -24,7 +24,7 @@ function prompt_debian_setup {
   zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
 
   # Set python-info parameters.
-  zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
+  zstyle ':prezto:module:python:info:virtualenv' format '[%v]'
 
   # Define prompts.
   PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
