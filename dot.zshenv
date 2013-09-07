@@ -50,8 +50,5 @@ if [[ -d "/etc/etckeeper" ]]; then
     export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 fi
 
-# Default to Python 2 on Arch
-[[ -x "/usr/bin/python2" ]] && export PYTHON="python2"
-
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
