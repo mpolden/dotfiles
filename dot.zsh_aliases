@@ -45,6 +45,10 @@ ssh-rm-host-key () {
 }
 
 function watch-do () {
+    if [[ -z "$1" || -z "$2" ]]; then
+        echo "usage: $0 <path> <command>"
+        return
+    fi
     FILE="$1"
     shift
     while inotifywait -q -e close_write,moved_to,create -r $FILE; do
