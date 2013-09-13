@@ -50,5 +50,15 @@ if [[ -d "/etc/etckeeper" ]]; then
     export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 fi
 
+# Set PATH
+path-prepend () {
+    [[ -d "$1" ]] && path[1,0]=($1)
+}
+path-prepend "/usr/local/sbin"
+path-prepend "/usr/local/bin"
+path-prepend "/usr/local/go/bin"
+path-prepend "$HOME/.local/bin"
+typeset -U path
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
