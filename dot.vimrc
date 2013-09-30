@@ -83,6 +83,9 @@ if isdirectory(expand('$HOME/.vim/bundle/vundle'))
         \ 'S'  : 'S',
         \ '' : 'S',
         \ }
+
+    " ensure that syntastic always uses flake8
+    let g:syntastic_python_checkers = ['flake8', 'python']
 else
     silent! colorscheme torte
 endif
