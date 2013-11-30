@@ -1,12 +1,12 @@
 {
 	"installed_packages":
 	[
-		"Base16 Color Schemes",
 		"GitGutter",
+		"JSHint",
 		"LESS",
 		"Package Control",
+		"Pretty JSON",
 		"SublimeLinter",
-		"Theme - Flatland",
-		"Tomorrow Color Schemes"
+		"Theme - Flatland"
 	]
 }
