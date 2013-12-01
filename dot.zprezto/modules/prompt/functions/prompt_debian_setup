@@ -26,8 +26,15 @@ function prompt_debian_setup {
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '[%v]'
 
+  # Only show user@hostname if connected through SSH
+  if [[ -n "$SSH_TTY" ]]; then
+    PROMPT_HOST='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
+  else
+    PROMPT_HOST=''
+  fi
+
   # Define prompts.
-  PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
+  PROMPT="$PROMPT_HOST"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
   RPROMPT='$python_info[virtualenv]'
 }
 
