@@ -2,7 +2,6 @@
 	"installed_packages":
 	[
 		"GitGutter",
-		"JSHint",
 		"LESS",
 		"Package Control",
 		"Pretty JSON",
