@@ -118,8 +118,8 @@ zstyle ':prezto:module:prompt' theme 'debian'
 #
 # Set syntax highlighting styles.
  zstyle ':prezto:module:syntax-highlighting' styles \
-   'builtin' 'bg=blue' \
-   'function' 'bg=blue'
+   'builtin' 'fg=blue' \
+   'function' 'fg=blue'
 
 #
 # Terminal
