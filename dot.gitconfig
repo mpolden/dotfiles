@@ -13,6 +13,7 @@
     lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
     wdiff = diff --word-diff=color
     s = status --short --branch
+    a = add --all
 [push]
     default = upstream
 [web]
