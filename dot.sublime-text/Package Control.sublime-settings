@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"Emmet",
 		"GitGutter",
 		"LESS",
 		"Package Control",
