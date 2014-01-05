@@ -2,6 +2,7 @@
 	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
 	"default_line_ending": "unix",
 	"ensure_newline_at_eof_on_save": true,
+	"flatland_square_tabs": true,
 	"folder_exclude_patterns":
 	[
 		".svn",
