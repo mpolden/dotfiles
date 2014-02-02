@@ -14,6 +14,7 @@
     wdiff = diff --word-diff=color
     s = status --short --branch
     a = add --all
+    c = commit
 [push]
     default = upstream
 [web]
