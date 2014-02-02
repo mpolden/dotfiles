@@ -1,28 +1,22 @@
 # Python
-*.py[oc]
-venv
+*.py[cod]
 .venv
+venv/
 
 # Java
 *.class
-build
-dist
-target
-.gradle
+.gradle/
+build/
+dist/
+target/
 
 # vim
-.netrwhist
 *.swp
 *~
+.netrwhist
 
 # ctags
 tags
-
-# Play Framework
-eclipse
-tmp
-precompiled
-!app/views/tags
 
 # gcc
 *.[oa]
@@ -33,29 +27,18 @@ precompiled
 *.iws
 *.iml
 *.ipr
-.idea
-out
-
-# Eclipse
-.classpath
-.project
-.settings
-
-# NetBeans
-nbproject
+.idea/
+out/
 
 # Misc
-*.log
 *.bak
-*.lock
-.DS_Store
+*.log
 *.pid
+.DS_Store
+tmp/
 
 # Node
-node_modules
-
-# Ruby
-!Gemfile.lock
+node_modules/
 
 # Vagrant
-.vagrant
+.vagrant/
