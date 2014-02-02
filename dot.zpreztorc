@@ -32,6 +32,7 @@ zstyle ':prezto:load' pmodule \
   'command-not-found' \
   'node' \
   'python' \
+  'ruby' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
