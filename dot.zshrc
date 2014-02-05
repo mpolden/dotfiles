@@ -8,6 +8,9 @@ bindkey -M viins '^?' backward-delete-char
 # Change directory without cd
 setopt autocd
 
+# Interactive comments (like bash)
+setopt interactivecomments
+
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
