@@ -25,3 +25,5 @@
     stat = true
 [help]
     autocorrect = 1
+[grep]
+    lineNumber = true
