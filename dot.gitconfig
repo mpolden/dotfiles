@@ -15,6 +15,7 @@
     s = status --short --branch
     a = add --all
     c = commit
+    g = grep --break --heading --line-number
 [push]
     default = upstream
 [web]
