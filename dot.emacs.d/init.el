@@ -53,6 +53,9 @@
   tab-stop-list (number-sequence 4 200 4)
   indent-tabs-mode nil)
 
+;; start server
+(server-start)
+
 ;; display line numbers
 (global-linum-mode 1)
 
