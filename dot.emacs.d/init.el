@@ -51,6 +51,8 @@
 ;; display line numbers
 (global-linum-mode 1)
 
+;; highlight current line
+(global-hl-line-mode)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq indent-tabs-mode nil)
