@@ -48,11 +48,13 @@
   (set-face-attribute 'default nil :height 140))
 
 ;; use soft tabs and 4 space indent
+(setq-default
+  tab-width 4
+  tab-stop-list (number-sequence 4 200 4)
+  indent-tabs-mode nil)
+
 ;; display line numbers
 (global-linum-mode 1)
 
 ;; highlight current line
 (global-hl-line-mode)
-(setq tab-width 4)
-(setq tab-stop-list (number-sequence 4 200 4))
-(setq indent-tabs-mode nil)
