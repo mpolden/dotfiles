@@ -39,6 +39,9 @@
 (require 'ido)
 (ido-mode t)
 
+;; load go-mode
+(require 'go-mode-load)
+
 ;; set theme
 (load-theme 'solarized-dark t)
 
