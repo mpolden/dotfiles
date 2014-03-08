@@ -80,3 +80,6 @@
 
 ;; highlight current line
 (global-hl-line-mode)
+
+;; bind return to newline-and-indent
+(global-set-key (kbd "RET") 'newline-and-indent)
