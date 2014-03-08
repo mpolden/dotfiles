@@ -42,3 +42,7 @@ node_modules/
 
 # Vagrant
 .vagrant/
+
+# Emacs
+\#*\#
+.\#*
