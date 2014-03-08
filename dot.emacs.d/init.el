@@ -23,6 +23,7 @@
 (require-package 'key-chord)
 (require-package 'solarized-theme)
 (require-package 'go-mode)
+(require-package 'linum)
 
 ;; load evil mode
 (require 'evil)
@@ -47,6 +48,9 @@
   (set-face-attribute 'default nil :height 140))
 
 ;; use soft tabs and 4 space indent
+;; display line numbers
+(global-linum-mode 1)
+
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq indent-tabs-mode nil)
