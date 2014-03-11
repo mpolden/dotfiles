@@ -5,6 +5,9 @@
 ;; hide toolbar
 (tool-bar-mode -1)
 
+;; hide scrollbar
+(scroll-bar-mode -1)
+
 ;; configure melpa repo
 (require 'package)
 (add-to-list 'package-archives
