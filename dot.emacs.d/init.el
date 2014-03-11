@@ -27,7 +27,6 @@
 (require-package 'key-chord)
 (require-package 'solarized-theme)
 (require-package 'go-mode)
-(require-package 'linum)
 
 ;; load evil mode
 (require 'evil)
