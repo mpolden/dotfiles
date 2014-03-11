@@ -90,3 +90,6 @@
 
 ;; make prompts accept y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; no confirmation for non-existent files or buffers
+(setq confirm-nonexistent-file-or-buffer nil)
