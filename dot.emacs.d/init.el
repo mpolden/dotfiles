@@ -96,3 +96,8 @@
 
 ;; highlight matching parentheses
 (show-paren-mode 1)
+
+;; highlight lines exceeding 80 columns
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
