@@ -93,3 +93,6 @@
 
 ;; no confirmation for non-existent files or buffers
 (setq confirm-nonexistent-file-or-buffer nil)
+
+;; highlight matching parentheses
+(show-paren-mode 1)
