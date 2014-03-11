@@ -27,6 +27,7 @@
 (require-package 'key-chord)
 (require-package 'solarized-theme)
 (require-package 'go-mode)
+(require-package 'yaml-mode)
 
 ;; load evil mode
 (require 'evil)
