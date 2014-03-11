@@ -80,7 +80,7 @@
 
 ;; display line numbers
 (global-linum-mode 1)
-(setq linum-format "%d ")
+(setq linum-format " %d ")
 
 ;; highlight current line
 (global-hl-line-mode)
