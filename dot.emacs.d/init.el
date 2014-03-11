@@ -87,3 +87,6 @@
 
 ;; bind return to newline-and-indent
 (global-set-key (kbd "RET") 'newline-and-indent)
+
+;; make prompts accept y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
