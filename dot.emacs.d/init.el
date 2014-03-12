@@ -28,6 +28,7 @@
 (require-package 'solarized-theme)
 (require-package 'go-mode)
 (require-package 'yaml-mode)
+(require-package 'flx-ido)
 
 ;; load evil mode
 (require 'evil)
@@ -39,9 +40,13 @@
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
 
-;; load ido
-(require 'ido)
-(ido-mode t)
+;; load flx-ido
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
 
 ;; load go-mode
 (require 'go-mode-load)
