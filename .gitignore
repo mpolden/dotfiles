@@ -3,5 +3,5 @@ dot.vim/swap/
 !dot.vim/swap/.gitkeep
 \#*\#
 .#*
-dot.emacs.d/elpa/
-dot.emacs.d/tutorial/
+dot.emacs.d/*
+!dot.emacs.d/init.el
