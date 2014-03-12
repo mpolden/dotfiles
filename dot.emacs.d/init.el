@@ -74,6 +74,9 @@
   (define-key key-translation-map (kbd "s-/") (kbd "\\"))
   (define-key key-translation-map (kbd "M-s-7") (kbd "M-|")))
 
+  ;; don't open files from the workspace in a new frame
+  (setq ns-pop-up-frames nil)
+
 ;; use soft tabs and 4 space indent
 (setq-default
   tab-width 4
