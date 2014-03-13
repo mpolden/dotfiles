@@ -30,6 +30,7 @@
 (require-package 'yaml-mode)
 (require-package 'flx-ido)
 (require-package 'exec-path-from-shell)
+(require-package 'ido-vertical-mode)
 
 ;; load evil mode
 (require 'evil)
@@ -41,13 +42,27 @@
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
 
+;; load ido
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-case-fold nil
+      ido-auto-merge-work-directories-length -1
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point nil
+      ido-max-prospects 10
+      ido-everywhere t)
+
 ;; load flx-ido
 (require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
+
+;; vertical mode for ido
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
 
 ;; load go-mode
 (require 'go-mode-load)
