@@ -31,6 +31,7 @@
 (require-package 'flx-ido)
 (require-package 'exec-path-from-shell)
 (require-package 'ido-vertical-mode)
+(require-package 'find-file-in-project)
 
 ;; load evil mode
 (require 'evil)
@@ -131,3 +132,6 @@
 
 ;; disable word wrapping
 (setq-default truncate-lines 1)
+
+;; find file in project
+(global-set-key (kbd "C-x o") 'find-file-in-project)
