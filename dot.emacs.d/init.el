@@ -29,6 +29,7 @@
 (require-package 'go-mode)
 (require-package 'yaml-mode)
 (require-package 'flx-ido)
+(require-package 'exec-path-from-shell)
 
 ;; load evil mode
 (require 'evil)
@@ -76,6 +77,9 @@
 
   ;; don't open files from the workspace in a new frame
   (setq ns-pop-up-frames nil)
+
+  ;; use shell PATH
+  (exec-path-from-shell-initialize)
 
 ;; use soft tabs and 4 space indent
 (setq-default
