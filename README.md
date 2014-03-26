@@ -11,7 +11,3 @@ Clone the repository:
 Create symlinks (will overwrite existing files):
 
     make install
-
-or using [Vagrant](http://www.vagrantup.com):
-
-    vagrant up
