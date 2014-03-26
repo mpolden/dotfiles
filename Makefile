@@ -33,9 +33,6 @@ help:
 	@echo "   $(COLOR)make z$(NO_COLOR)		Install z"
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
 	@echo
-	@echo "Install common packages:"
-	@echo "   $(COLOR)make deb-deps$(NO_COLOR)	Install Debian packages"
-	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
@@ -95,9 +92,3 @@ update:
 rehash:
 	test -n "$(TMUX)" && tmux source ~/.tmux.conf
 	test -n "$(TMUX)" && ./tmux-rehash-panes.sh
-
-# Packages
-
-deb-deps:
-	test -f /etc/debian_version && \
-		aptitude install --assume-yes git htop make mosh rsync tig tmux vim zsh
