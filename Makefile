@@ -36,9 +36,6 @@ help:
 	@echo "Install common packages:"
 	@echo "   $(COLOR)make deb-deps$(NO_COLOR)	Install Debian packages"
 	@echo
-	@echo "Install Sublime Text config:"
-	@echo "   $(COLOR)make subl$(NO_COLOR)		Install Sublime Text config"
-	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
@@ -104,19 +101,3 @@ rehash:
 deb-deps:
 	test -f /etc/debian_version && \
 		aptitude install --assume-yes git htop make mosh rsync tig tmux vim zsh
-
-# Sublime Text
-OS = $(shell uname -s)
-ifeq ($(OS),Darwin)
-	ST_PATH = $(HOME)/Library/Application Support/Sublime Text 3/Packages/User
-endif
-ST_FILES = Default\ (OSX).sublime-keymap \
-		   Package\ Control.sublime-settings \
-		   Preferences.sublime-settings
-
-$(ST_FILES):
-	@test -n "$(ST_PATH)" || \
-		(echo "ST_PATH is undefined. No idea where to put symlinks" && exit 1)
-	ln $(LN_FLAGS) "$(CURDIR)/dot.sublime-text/$@" "$(ST_PATH)/$@"
-
-subl: $(ST_FILES)
