@@ -31,6 +31,7 @@ alias week='date +%V'
 alias zrehash='source ~/.zshrc'
 alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias svn-diff='svn diff | colordiff -u'
+alias emacs='emacsclient -nq'
 (( $+commands[colordiff] )) && alias diff='colordiff'
 ssh-rm-host-key () {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
