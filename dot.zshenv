@@ -14,8 +14,8 @@ fi
 [[ -n "$TMUX" ]] && export TERM="screen-256color"
 
 # Set EDITOR to emacs or vim
-if [[ -x "/usr/bin/emacs" ]]; then
-    export EDITOR="emacs"
+if [[ -x "/usr/bin/emacsclient" ]]; then
+    export EDITOR="emasclient -nq"
 elif [[ -x "/usr/bin/vim" ]]; then
     export EDITOR="vim"
 fi
