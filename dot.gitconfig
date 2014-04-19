@@ -2,7 +2,7 @@
     name = Martin Polden
     email = martin.polden@gmail.com
 [core]
-    editor = vim
+    editor = emacsclient -q
     excludesfile = ~/.gitignore
     autocrlf = input
 [merge]
