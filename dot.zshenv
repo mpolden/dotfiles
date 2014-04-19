@@ -13,8 +13,12 @@ fi
 # Set tmux TERM
 [[ -n "$TMUX" ]] && export TERM="screen-256color"
 
-# Set editor to vim
-[[ -x "/usr/bin/vim" ]] && export EDITOR="vim"
+# Set EDITOR to emacs or vim
+if [[ -x "/usr/bin/emacs" ]]; then
+    export EDITOR="emacs"
+elif [[ -x "/usr/bin/vim" ]]; then
+    export EDITOR="vim"
+fi
 
 # Set terminal
 [[ -x "/usr/bin/urxvt" ]] && export TERMINAL="urxvt"
