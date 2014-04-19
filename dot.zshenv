@@ -15,7 +15,7 @@ fi
 
 # Set EDITOR to emacs or vim
 if [[ -x "/usr/bin/emacsclient" ]]; then
-    export EDITOR="emasclient -nq"
+    export EDITOR="emacsclient -q"
 elif [[ -x "/usr/bin/vim" ]]; then
     export EDITOR="vim"
 fi
