@@ -16,6 +16,9 @@
     a = add --all
     c = commit
     g = grep --break --heading --line-number
+    co = checkout
+    m = merge
+    b = branch
 [push]
     default = upstream
 [web]
