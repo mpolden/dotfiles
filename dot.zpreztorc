@@ -42,11 +42,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-if [[ -z "$EMACS" ]]; then
-    zstyle ':prezto:module:editor' key-bindings 'vi'
-else
-    zstyle ':prezto:module:editor' key-bindings 'emacs'
-fi
+zstyle ':prezto:module:editor' key-bindings 'emacs'
 
 # Auto convert .... to ../..
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
