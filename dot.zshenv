@@ -20,9 +20,6 @@ elif [[ -x "/usr/bin/vim" ]]; then
     export EDITOR="vim"
 fi
 
-# Set terminal
-[[ -x "/usr/bin/urxvt" ]] && export TERMINAL="urxvt"
-
 # Set LS_COLORS
 if [[ -x "/usr/local/bin/gdircolors" ]]; then
     eval "$(/usr/local/bin/gdircolors -b)"
