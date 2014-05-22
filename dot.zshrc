@@ -1,10 +1,6 @@
 # Prezto
 [[ -s "$HOME/.zprezto/init.zsh" ]] && source "$HOME/.zprezto/init.zsh"
 
-# Vim bindings
-bindkey -M viins 'jj' vi-cmd-mode
-bindkey -M viins '^?' backward-delete-char
-
 # Change directory without cd
 setopt autocd
 
