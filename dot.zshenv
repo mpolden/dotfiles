@@ -27,9 +27,6 @@ else
     eval "$(dircolors -b)"
 fi
 
-# Load keychain
-[[ -f "$HOME/.keychain/$HOST-sh" ]] && source "$HOME/.keychain/$HOST-sh"
-
 # etckeeper does not read .gitconfig for some reason
 if [[ -d "/etc/etckeeper" ]]; then
     export GIT_AUTHOR_EMAIL="$(git config --get user.email)"
