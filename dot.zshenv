@@ -30,20 +30,6 @@ fi
 # Load keychain
 [[ -f "$HOME/.keychain/$HOST-sh" ]] && source "$HOME/.keychain/$HOST-sh"
 
-# Java
-if [[ -d "/usr/lib/jvm/java-7-oracle" ]]; then
-    export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
-elif [[ -d "/usr/lib/jvm/java-6-sun" ]]; then
-    export JAVA_HOME="/usr/lib/jvm/java-6-sun"
-fi
-
-# Maven
-[[ -d "/opt/apache-maven" ]] && export M2_HOME="/opt/apache-maven"
-
-# Android
-[[ -d "/opt/android-sdk-linux" ]] && \
-    export ANDROID_HOME="/opt/android-sdk-linux"
-
 # etckeeper does not read .gitconfig for some reason
 if [[ -d "/etc/etckeeper" ]]; then
     export GIT_AUTHOR_EMAIL="$(git config --get user.email)"
