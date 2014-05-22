@@ -9,8 +9,6 @@ symlinks = .gitconfig \
 		   .synergy.conf \
 		   .tigrc \
 		   .tmux.conf \
-		   .vim \
-		   .vimrc \
 		   .zlogin \
 		   .zpreztorc \
 		   .zsh_aliases \
@@ -28,43 +26,28 @@ help:
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
 	@echo
-	@echo "Install vim and shell extras:"
-	@echo "   $(COLOR)make vim-extras$(NO_COLOR)	Install vim bundles"
-	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)	Install prezto and z"
+	@echo "Install zsh extras:"
 	@echo "   $(COLOR)make z$(NO_COLOR)		Install z"
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
 	@echo
 	@echo "Maintenance:"
-	@echo "   $(COLOR)make clean$(NO_COLOR)		Delete vim bundles"
-	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Print dead symlinks"
+	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Find dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
 	@echo "   $(COLOR)make rehash$(NO_COLOR)		Source .zshrc in all tmux \
 panes"
 	@echo
-	@echo "Useful aliases:"
-	@echo "   $(COLOR)make all$(NO_COLOR)		install vim-extras zsh-extras"
+	@echo "Everything:"
+	@echo "   $(COLOR)make all$(NO_COLOR)		z, prezto and install"
 
 # Shell environment
 
-all: install vim-extras zsh-extras
-
-clean:
-	rm -rf -- $(CURDIR)/dot.vim/bundle/*
+all: z prezto install
 
 install: $(symlinks)
 
 $(symlinks):
 	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
-
-vim-extras:
-	mkdir -p $(CURDIR)/dot.vim/bundle
-	test -d $(CURDIR)/dot.vim/bundle/vundle || \
-		(git clone --quiet https://github.com/gmarik/vundle.git \
-		$(CURDIR)/dot.vim/bundle/vundle && \
-		vim +BundleInstall +qall > /dev/null)
-
-zsh-extras: z prezto
 
 z:
 	test -d ~/.zcmd || \
@@ -77,7 +60,6 @@ prezto:
 	ln $(LN_FLAGS) \
 		$(CURDIR)/dot.zprezto/modules/prompt/functions/prompt_debian_setup \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
-
 
 # Maintenance
 
