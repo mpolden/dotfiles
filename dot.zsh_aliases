@@ -12,15 +12,15 @@ alias emacs='emacsclient -nq'
 
 case "$OSTYPE" in
     darwin*)
-        if [[ -x "/usr/local/bin/gls" ]]; then
-            alias ls='gls --color=auto'
+        if (( $+commands[gls] )); then
+            alias ls='gls --group-directories-first --color=auto'
         else
             alias ls='ls -G'
         fi
         alias pgrep='pgrep -f -l -i'
         ;;
     freebsd*)
-        if [[ -x "/usr/local/bin/gnuls" ]]; then
+        if (( $+commands[gnuls] )); then
             alias ls='gnuls --color=auto'
         else
             alias ls='ls -G'
@@ -28,7 +28,7 @@ case "$OSTYPE" in
         alias pgrep='pgrep -f -l -i'
         ;;
     *)
-        alias ls='ls --color=auto'
+        alias ls='ls --group-directories-first --color=auto'
         alias pgrep='pgrep -f -l'
 esac
 
