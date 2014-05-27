@@ -4,14 +4,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export LC_CTYPE="en_US.UTF-8"
 fi
 
-# Set 256 color xterm
-[[ -e "/usr/share/terminfo/x/xterm-256color" || \
-    -e "/usr/share/terminfo/78/xterm-256color" || \
-    -e "/lib/terminfo/x/xterm-256color" ]] && \
-    export TERM="xterm-256color"
-
-# Set tmux TERM
-[[ -n "$TMUX" ]] && export TERM="screen-256color"
+# Use 256 color terminal
+if [[ -n "$TMUX" ]]; then
+   export TERM="screen-256color"
+else
+   export TERM="xterm-256color"
+fi
 
 # Set EDITOR to emacs or vim
 if [[ -x "/usr/bin/emacsclient" ]]; then
