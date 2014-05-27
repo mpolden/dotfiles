@@ -12,16 +12,18 @@ else
 fi
 
 # Set EDITOR to emacs or vim
-if [[ -x "/usr/bin/emacsclient" ]]; then
+if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
-elif [[ -x "/usr/bin/vim" ]]; then
+elif (( $+commands[emacs] )); then
+    export EDITOR="emacs"
+elif (( $+commands[vim] )); then
     export EDITOR="vim"
 fi
 
 # Set LS_COLORS
-if [[ -x "/usr/local/bin/gdircolors" ]]; then
-    eval "$(/usr/local/bin/gdircolors -b)"
-else
+if (( $+commands[gdircolors] )); then
+    eval "$(gdircolors -b)"
+elif (( $+commands[dircolors] )); then
     eval "$(dircolors -b)"
 fi
 
