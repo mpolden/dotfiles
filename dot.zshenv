@@ -11,6 +11,17 @@ else
    export TERM="xterm-256color"
 fi
 
+# Set PATH
+function path-prepend {
+    [[ -d "$1" ]] && path[1,0]=($1)
+}
+path-prepend "/usr/local/sbin"
+path-prepend "/usr/local/bin"
+path-prepend "/usr/local/go/bin"
+path-prepend "$HOME/.local/bin"
+typeset -U path
+unfunction path-prepend
+
 # Set EDITOR to emacs or vim
 if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
@@ -33,16 +44,6 @@ if [[ -d "/etc/etckeeper" ]]; then
     export GIT_AUTHOR_NAME="$(git config --get user.name)"
     export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 fi
-
-# Set PATH
-path-prepend () {
-    [[ -d "$1" ]] && path[1,0]=($1)
-}
-path-prepend "/usr/local/sbin"
-path-prepend "/usr/local/bin"
-path-prepend "/usr/local/go/bin"
-path-prepend "$HOME/.local/bin"
-typeset -U path
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"

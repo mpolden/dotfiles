@@ -32,7 +32,7 @@ case "$OSTYPE" in
         alias pgrep='pgrep -f -l'
 esac
 
-ssh-rm-host-key () {
+function ssh-rm-host-key {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
         case "$OSTYPE" in
             darwin* | freebsd*)
