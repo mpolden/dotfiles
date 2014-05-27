@@ -1,9 +1,17 @@
 alias aptup='sudo aptitude update && sudo aptitude safe-upgrade'
 alias git-root='cd $(git rev-parse --show-toplevel)'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias rgrep='rgrep --color=auto'
+alias week='date +%V'
+alias zrehash='source ~/.zshrc'
+alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
+alias emacs='emacsclient -nq'
+(( $+commands[colordiff] )) && alias diff='colordiff'
+
 case "$OSTYPE" in
     darwin*)
-        [[ -x "/usr/local/bin/gdircolors" ]] && \
-            eval $(/usr/local/bin/gdircolors)
         if [[ -x "/usr/local/bin/gls" ]]; then
             alias ls='gls --color=auto'
         else
@@ -23,16 +31,7 @@ case "$OSTYPE" in
         alias ls='ls --color=auto'
         alias pgrep='pgrep -f -l'
 esac
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias rgrep='rgrep --color=auto'
-alias week='date +%V'
-alias zrehash='source ~/.zshrc'
-alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
-alias svn-diff='svn diff | colordiff -u'
-alias emacs='emacsclient -nq'
-(( $+commands[colordiff] )) && alias diff='colordiff'
+
 ssh-rm-host-key () {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
         case "$OSTYPE" in
@@ -45,16 +44,4 @@ ssh-rm-host-key () {
     else
         echo "usage: $0 line-number"
     fi
-}
-
-function watch-do-sh () {
-    if [[ -z "$1" || -z "$2" ]]; then
-        echo "usage: $0 <path> <command>"
-        return
-    fi
-    FILE="$1"
-    shift
-    while inotifywait -q -e close_write,moved_to,create -r $FILE; do
-        "$@"
-    done
 }
