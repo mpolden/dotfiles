@@ -18,7 +18,7 @@
     m = merge
     b = branch
 [push]
-    default = upstream
+    default = simple
 [web]
     browser = google-chrome
 [branch]
