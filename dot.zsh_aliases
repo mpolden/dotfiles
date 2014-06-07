@@ -7,7 +7,7 @@ alias rgrep='rgrep --color=auto'
 alias week='date +%V'
 alias zrehash='source ~/.zshrc'
 alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
-alias emacs='emacsclient -nq'
+alias ec='emacsclient -nq'
 (( $+commands[colordiff] )) && alias diff='colordiff'
 
 case "$OSTYPE" in
