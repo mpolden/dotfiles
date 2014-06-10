@@ -129,7 +129,7 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa'
 #
 # Set syntax highlighting styles.
 zstyle ':prezto:module:syntax-highlighting' styles \
-   'builtin' 'fg=blue' \
+   'builtin' 'fg=cyan' \
    'function' 'fg=blue' \
    'alias' 'fg=blue'
 
