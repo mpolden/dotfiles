@@ -9,6 +9,9 @@ alias zrehash='source ~/.zshrc'
 alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias ec='emacsclient -nq'
 (( $+commands[colordiff] )) && alias diff='colordiff'
+alias prezto-update='cd ~/.zprezto && git pull --rebase && \
+    git submodule update --init --recursive && cd -'
+alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
 
 case "$OSTYPE" in
     darwin*)
