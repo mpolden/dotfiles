@@ -1,3 +1,12 @@
+function alias-if-in-path {
+    # Split on = and extract 1st word (alias name) and 2nd word (alias value)
+    local name=${1[(ws:=:)1]}
+    local value=${1[(ws:=:)2]}
+    # Command is the first word of the alias value
+    local cmd=${value[(w)1]}
+    (( $+commands[$cmd] )) && alias $name=\'$value\'
+}
+
 alias aptup='sudo aptitude update && sudo aptitude safe-upgrade'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias grep='grep --color=auto'
@@ -6,13 +15,15 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias week='date +%V'
 alias zrehash='source ~/.zshrc'
-alias autossh='autossh -M 0 -o "ServerAliveInterval 10"'
-alias ec='emacsclient -nq'
-(( $+commands[colordiff] )) && alias diff='colordiff'
+alias-if-in-path autossh='autossh -M 0 -o "ServerAliveInterval 10"'
+alias-if-in-path ec='emacsclient -nq'
+alias-if-in-path diff='colordiff'
+alias-if-in-path docker='docker.io'
 alias prezto-update='cd ~/.zprezto && git pull --rebase && \
     git submodule update --init --recursive && cd -'
 alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
-(( $+commands[docker.io] )) && alias docker='docker.io'
+
+unfunction alias-if-in-path
 
 case "$OSTYPE" in
     darwin*)
