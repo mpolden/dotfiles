@@ -4,7 +4,7 @@ function alias-if-in-path {
     local value=${1[(ws:=:)2]}
     # Command is the first word of the alias value
     local cmd=${value[(w)1]}
-    (( $+commands[$cmd] )) && alias $name=\'$value\'
+    (( $+commands[$cmd] )) && alias $name=$value
 }
 
 alias aptup='sudo aptitude update && sudo aptitude safe-upgrade'
