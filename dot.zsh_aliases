@@ -12,6 +12,7 @@ alias ec='emacsclient -nq'
 alias prezto-update='cd ~/.zprezto && git pull --rebase && \
     git submodule update --init --recursive && cd -'
 alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
+(( $+commands[docker.io] )) && alias docker='docker.io'
 
 case "$OSTYPE" in
     darwin*)
