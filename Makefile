@@ -2,7 +2,8 @@ CURDIR ?= $(.CURDIR)
 
 LN_FLAGS = -sfn
 
-symlinks = .gitconfig \
+symlinks = .agignore \
+		   .gitconfig \
 		   .gitignore \
 		   .hgrc \
 		   .lftprc \
