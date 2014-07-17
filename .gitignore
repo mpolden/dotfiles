@@ -1,7 +1,0 @@
-dot.vim/bundle/
-dot.vim/swap/
-!dot.vim/swap/.gitkeep
-\#*\#
-.#*
-dot.emacs.d/*
-!dot.emacs.d/init.el
