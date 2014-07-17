@@ -80,3 +80,22 @@ function git-add-push {
     fi
     git remote -v
 }
+
+function tmux-rehash-panes {
+    if (( ! $+commands[tmux] )); then
+        return 1
+    fi
+    local panes
+    panes=$(tmux list-panes -aF \
+        '#{session_name}:#{window_index}.#{pane_index},#{pane_pid}')
+    local line
+    for line in ${(f)panes}; do
+        local pane=${line[(ws:,:)1]}
+        local pane_pid=${line[(ws:,:)2]}
+        # If pane_pid is NOT the parent of any process, then it's most like a
+        # interactive shell and we can send our command
+        if ! command pgrep -P $pane_pid > /dev/null; then
+            command tmux send-keys -t $pane 'source ~/.zshrc' enter
+        fi
+    done
+}

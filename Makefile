@@ -36,8 +36,6 @@ help:
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Find dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
-	@echo "   $(COLOR)make rehash$(NO_COLOR)		Source .zshrc in all tmux \
-panes"
 	@echo
 	@echo "Everything:"
 	@echo "   $(COLOR)make all$(NO_COLOR)		z, prezto and install"
@@ -73,7 +71,3 @@ clean-dead:
 
 update:
 	git pull --rebase
-
-rehash:
-	test -n "$(TMUX)" && tmux source ~/.tmux.conf
-	test -n "$(TMUX)" && ./tmux-rehash-panes.sh
