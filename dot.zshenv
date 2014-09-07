@@ -45,5 +45,8 @@ if [[ -d "/etc/etckeeper" ]]; then
     export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 fi
 
+# Remove mosh prefix from terminal title
+(( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX="yes"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
