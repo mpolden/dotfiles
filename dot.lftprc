@@ -1,28 +1,43 @@
-set ftp:ssl-force yes
-set ftp:ssl-protect-data yes
-set ftp:ssl-protect-fxp yes
+# ssl
+set ftp:ssl-force true
+set ftp:ssl-protect-data true
+set ftp:ssl-protect-fxp true
+set ftp:ssl-protect-list true
+set ftps:initial-prot "P"
+set ssl:verify-certificate false
+
+# workaround for broken servers
+set ftp:ssl-copy-sid false
+
+# use stat when listing directories
 set ftp:use-stat-for-list true
-set ftp:fxp-force true
-set cmd:remote-completion on
+
+# enable fxp
+set ftp:use-fxp true
+
+# never attempt to fix pasv address
+set ftp:fix-pasv-address false
+
+# mdtm is slow for large directories
+set ftp:use-mdtm false
+
+# misc
+set cmd:remote-completion true
 set bmk:save-passwords true
 set color:use-color true
-set ssl:verify-certificate no
-debug
 
-set prompt "\[\e[1;37m\][\[\e[1;31m\]\S\[\e[1;37m\]] \[\e[1;32m\]\u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;32m\]\w$\[\e[0m\] " 
+# nice prompt
+set prompt "\[\e[1;32m\]\u@\S\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]$ "
 
+# aliases
+alias .. "cd .."
 alias ll "cls \
     --long \
     --human-readable \
-    --user \
-    --group \
-    --date \
-    --size \
-    --filesize \
     --sort=date"
-alias lll "ll | less -R"
+alias l "ll | less -R"
 alias s "slot"
-alias t "mirror \
+alias m "mirror \
     --continue \
     --only-missing \
     --no-empty-dirs \
@@ -41,5 +56,14 @@ alias t "mirror \
     --exclude-glob='*(?).*' \
     --exclude-glob='*(??).*' \
     --exclude-glob='*(???).*' \
-    --exclude='.*complete\s.*'"
+    --exclude-glob='*(movieinfo)*' \
+    --exclude='imdb.nfo' \
+    --exclude='.*COMPLETE .*' \
+    --exclude='.*complete .*'"
+
+alias g "m \
+    --exclude='Sample' \
+    --exclude='Proof' \
+    --exclude-glob='*-sample.mkv' \
+    --exclude-glob='*.jpg'"
 
