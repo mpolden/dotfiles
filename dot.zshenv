@@ -19,8 +19,18 @@ path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
-typeset -U path
 unfunction path-prepend
+
+# Set CDPATH
+function cdpath-append {
+    [[ -d "$1" ]] && cdpath+=($1)
+}
+cdpath-append "$HOME"
+cdpath-append "$HOME/p"
+unfunction cdpath-append
+
+# Ensure path and cdpath do not contain duplicates
+typeset -gU path cdpath
 
 # Set EDITOR to emacs or vim
 if (( $+commands[emacsclient] )); then
