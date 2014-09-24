@@ -58,5 +58,8 @@ fi
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX="yes"
 
+# Load rbenv
+(( $+commands[rbenv] )) && eval "$(rbenv init -)"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
