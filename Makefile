@@ -8,7 +8,6 @@ symlinks = .agignore \
 		   .hgrc \
 		   .lftprc \
 		   .synergy.conf \
-		   .tigrc \
 		   .tmux.conf \
 		   .zlogin \
 		   .zpreztorc \
