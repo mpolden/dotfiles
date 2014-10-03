@@ -2,18 +2,18 @@ CURDIR ?= $(.CURDIR)
 
 LN_FLAGS = -sfn
 
-symlinks = .agignore \
-		   .gitconfig \
-		   .gitignore \
-		   .hgrc \
-		   .lftprc \
-		   .synergy.conf \
-		   .tmux.conf \
-		   .zlogin \
-		   .zpreztorc \
-		   .zsh_aliases \
-		   .zshenv \
-		   .zshrc
+symlinks = agignore \
+		   gitconfig \
+		   gitignore \
+		   hgrc \
+		   lftprc \
+		   synergy.conf \
+		   tmux.conf \
+		   zlogin \
+		   zpreztorc \
+		   zsh_aliases \
+		   zshenv \
+		   zshrc
 
 .PHONY: $(symlinks)
 
@@ -45,7 +45,7 @@ all: z prezto install
 install: $(symlinks)
 
 $(symlinks):
-	test -e $(CURDIR)/dot$@ && ln $(LN_FLAGS) $(CURDIR)/dot$@ ~/$@
+	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
 z:
 	test -d ~/.zcmd || \
@@ -56,7 +56,7 @@ prezto:
 		git clone --quiet --recursive \
 		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 	ln $(LN_FLAGS) \
-		$(CURDIR)/dot.zprezto/modules/prompt/functions/prompt_debian_setup \
+		$(CURDIR)/zprezto/modules/prompt/functions/prompt_debian_setup \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
 
 # Maintenance
