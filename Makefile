@@ -10,7 +10,6 @@ symlinks = .agignore \
 		   .synergy.conf \
 		   .tigrc \
 		   .tmux.conf \
-		   .Xmodmap \
 		   .zlogin \
 		   .zpreztorc \
 		   .zsh_aliases \
