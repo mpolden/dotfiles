@@ -7,7 +7,6 @@ symlinks = .agignore \
 		   .gitignore \
 		   .hgrc \
 		   .lftprc \
-		   .slate \
 		   .synergy.conf \
 		   .tigrc \
 		   .tmux.conf \
