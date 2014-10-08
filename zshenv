@@ -7,7 +7,7 @@ fi
 # Use 256 color terminal
 if [[ -n "$TMUX" ]]; then
    export TERM="screen-256color"
-else
+elif [[ "$TERM" != "dumb" ]]; then
    export TERM="xterm-256color"
 fi
 
