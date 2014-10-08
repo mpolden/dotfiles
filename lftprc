@@ -65,5 +65,7 @@ alias g "m \
     --exclude='Sample' \
     --exclude='Proof' \
     --exclude-glob='*-sample.mkv' \
+    --exclude-glob='*.sample.mkv' \
     --exclude-glob='*.jpg'"
 
+alias q "queue"
