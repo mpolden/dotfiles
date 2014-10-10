@@ -27,7 +27,6 @@ help:
 	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
 	@echo
 	@echo "Install zsh extras:"
-	@echo "   $(COLOR)make z$(NO_COLOR)		Install z"
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
 	@echo
 	@echo "Maintenance:"
@@ -36,20 +35,16 @@ help:
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
 	@echo
 	@echo "Everything:"
-	@echo "   $(COLOR)make all$(NO_COLOR)		z, prezto and install"
+	@echo "   $(COLOR)make all$(NO_COLOR)		prezto and install"
 
 # Shell environment
 
-all: z prezto install
+all: prezto install
 
 install: $(symlinks)
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
-
-z:
-	test -d ~/.zcmd || \
-		git clone --quiet https://github.com/rupa/z.git ~/.zcmd
 
 prezto:
 	test -d ~/.zprezto || \
