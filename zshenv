@@ -19,7 +19,6 @@ path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
-unfunction path-prepend
 
 # Set CDPATH
 function cdpath-append {
@@ -27,7 +26,6 @@ function cdpath-append {
 }
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
-unfunction cdpath-append
 
 # Ensure path and cdpath do not contain duplicates
 typeset -gU path cdpath
@@ -63,3 +61,7 @@ fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
+
+# Clean up functions
+unfunction path-prepend
+unfunction cdpath-append
