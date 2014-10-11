@@ -18,7 +18,6 @@ alias zrehash='source ~/.zshrc'
 alias-if-in-path autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path diff='colordiff'
-alias-if-in-path docker='docker.io'
 alias-if-in-path v='vagrant ssh'
 alias prezto-update='cd ~/.zprezto && git pull --rebase && \
     git submodule update --init --recursive && cd -'
