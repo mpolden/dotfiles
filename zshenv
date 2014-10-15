@@ -4,11 +4,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export LC_CTYPE="en_US.UTF-8"
 fi
 
-# Use 256 color terminal
+# Use 256 color terminal inside tmux
 if [[ -n "$TMUX" ]]; then
    export TERM="screen-256color"
-elif [[ "$TERM" != "dumb" ]]; then
-   export TERM="xterm-256color"
 fi
 
 # Set PATH
