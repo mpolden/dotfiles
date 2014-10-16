@@ -20,6 +20,8 @@ symlinks = agignore \
 COLOR = \033[32;01m
 NO_COLOR = \033[0m
 
+all: prezto install
+
 help:
 	@echo "Makefile for installing dotfiles"
 	@echo
@@ -38,8 +40,6 @@ help:
 	@echo "   $(COLOR)make all$(NO_COLOR)		prezto and install"
 
 # Shell environment
-
-all: prezto install
 
 install: $(symlinks)
 
