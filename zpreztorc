@@ -30,7 +30,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'command-not-found' \
   'ssh' \
-  'node' \
   'python' \
   'syntax-highlighting' \
   'history-substring-search' \
