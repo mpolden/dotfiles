@@ -65,26 +65,6 @@ function ssh-rm-host-key {
     fi
 }
 
-function git-add-push {
-    [[ -z "$1" ]] && echo "usage: $0 base-url" && return 1
-    [[ ! -d ".git" ]] && echo "Not a git repository" && return 1
-
-    local push; push=$(git remote -v | awk '$3 == "(push)" {print $2}')
-    [[ -z "$push" ]] && echo "No existing push url found" && return 1
-
-    local count; count=$(echo "$push" | wc -l)
-    (( $count == 1 )) && git remote set-url --add --push origin $push
-
-    local repo=$(basename "$push")
-    local new_push="${1}/${repo}"
-    if ! echo "$push" | grep -q "$new_push"; then
-        git remote set-url --add --push origin $new_push
-    else
-        echo "$new_push is already added"
-    fi
-    git remote -v
-}
-
 function tmux-rehash-panes {
     if (( ! $+commands[tmux] )); then
         return 1
