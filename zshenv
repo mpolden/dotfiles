@@ -44,13 +44,6 @@ elif (( $+commands[dircolors] )); then
     eval "$(dircolors -b)"
 fi
 
-# etckeeper does not read .gitconfig for some reason
-if [[ -d "/etc/etckeeper" ]]; then
-    export GIT_AUTHOR_EMAIL="$(git config --get user.email)"
-    export GIT_AUTHOR_NAME="$(git config --get user.name)"
-    export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-fi
-
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX="yes"
 
