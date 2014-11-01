@@ -29,27 +29,24 @@ alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
 # Clean up functions
 unfunction alias-if-in-path
 
+# Alias ls
+_ls_opts='--group-directories-first --color=auto'
 case "$OSTYPE" in
-    darwin*)
+    darwin*|freebsd*)
         if (( $+commands[gls] )); then
-            alias ls='gls --group-directories-first --color=auto'
-        else
-            alias ls='ls -G'
-        fi
-        alias pgrep='pgrep -f -l -i'
-        ;;
-    freebsd*)
-        if (( $+commands[gnuls] )); then
-            alias ls='gnuls --color=auto'
+            alias ls="gls ${_ls_opts}"
+        elif (( $+commands[gnuls] )); then
+            alias ls="gnuls ${_ls_opts}"
         else
             alias ls='ls -G'
         fi
         alias pgrep='pgrep -f -l -i'
         ;;
     *)
-        alias ls='ls --group-directories-first --color=auto'
+        alias ls="ls ${_ls_opts}"
         alias pgrep='pgrep -f -l'
 esac
+unset _ls_opts
 
 function ssh-rm-host-key {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
