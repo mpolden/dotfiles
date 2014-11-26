@@ -25,6 +25,7 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
+  'terminal' \
   'editor' \
   'history' \
   'completion' \
@@ -136,7 +137,9 @@ zstyle ':prezto:module:syntax-highlighting' styles \
 #
 
 # Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+if [[ -z "$EMACS" ]]; then
+    zstyle ':prezto:module:terminal' auto-title 'yes'
+fi
 
 # Set the window title format.
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
