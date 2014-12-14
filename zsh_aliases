@@ -44,7 +44,7 @@ case "$OSTYPE" in
         ;;
     *)
         alias ls="ls ${_ls_opts}"
-        alias pgrep='pgrep -f -l'
+        alias pgrep='pgrep -f -l -a'
 esac
 unset _ls_opts
 
