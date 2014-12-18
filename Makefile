@@ -6,6 +6,7 @@ symlinks = agignore \
 		   gitconfig \
 		   gitignore \
 		   hgrc \
+		   iterm2 \
 		   lftprc \
 		   synergy.conf \
 		   tmux.conf \
@@ -31,6 +32,9 @@ help:
 	@echo "Install zsh extras:"
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
 	@echo
+	@echo "Configure iTerm2:"
+	@echo "   $(COLOR)make iterm$(NO_COLOR)		Set iTerm2 config path"
+	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Find dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
@@ -53,6 +57,9 @@ prezto:
 	ln $(LN_FLAGS) \
 		$(CURDIR)/zprezto/modules/prompt/functions/prompt_debian_setup \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
+
+iterm:
+	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 
 # Maintenance
 
