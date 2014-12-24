@@ -51,7 +51,8 @@ fi
 (( $+commands[rbenv] )) && eval "$(rbenv init -)"
 
 # Disable virtualenv prompt
-(( $+commands[virtualenv] )) && export VIRTUAL_ENV_DISABLE_PROMPT=1
+(( $+commands[pyenv] || $+commands[virtualenv] )) && \
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
