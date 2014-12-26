@@ -481,7 +481,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/p/vendor/Argonaut-theme/iterm-2</string>
+	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{911, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
