@@ -51,7 +51,8 @@ fi
 (( $+commands[rbenv] )) && eval "$(rbenv init -)"
 
 # Disable virtualenv prompt
-(( $+commands[pyenv] || $+commands[virtualenv] )) && \
+(( $+commands[pyenv] || $+commands[virtualenv] )) || \
+    [[ -d "$HOME/.pyenv" ]] && \
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Local environment
