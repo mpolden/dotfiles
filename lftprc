@@ -52,6 +52,7 @@ alias m "mirror \
     --exclude-glob='*.message' \
     --exclude-glob='*.url' \
     --exclude-glob='*.missing' \
+    --exclude-glob='*-missing' \
     --exclude-glob='*approved*' \
     --exclude-glob='*(?).*' \
     --exclude-glob='*(??).*' \
@@ -69,3 +70,4 @@ alias g "m \
     --exclude-glob='*.jpg'"
 
 alias q "queue"
+alias lgrep "ls | grep -i"
