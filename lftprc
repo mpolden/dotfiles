@@ -24,7 +24,7 @@ set ftp:use-mdtm false
 # misc
 set cmd:remote-completion true
 set bmk:save-passwords true
-set color:use-color true
+set color:use-color auto
 
 # nice prompt
 set prompt "\[\e[1;32m\]\u@\S\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]$ "
