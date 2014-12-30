@@ -45,6 +45,7 @@ alias m "mirror \
     --no-umask \
     --dereference \
     --loop \
+    --verbose \
     --exclude-glob='.*' \
     --exclude-glob='*-offline' \
     --exclude-glob='*.conflict' \
