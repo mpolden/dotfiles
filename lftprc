@@ -45,7 +45,6 @@ alias m "mirror \
     --no-umask \
     --dereference \
     --loop \
-    --verbose \
     --exclude-glob='.*' \
     --exclude-glob='*-offline' \
     --exclude-glob='*.conflict' \
@@ -70,6 +69,8 @@ alias g "m \
     --exclude-glob='*-sample.mkv' \
     --exclude-glob='*.sample.mkv' \
     --exclude-glob='*.jpg'"
+
+alias _g "g --verbose"
 
 alias q "queue"
 alias lgrep "ls | grep -i"
