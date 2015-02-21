@@ -65,6 +65,7 @@ alias m "mirror \
 
 alias g "m \
     --exclude='Sample' \
+    --exclude='SAMPLE' \
     --exclude='Proof' \
     --exclude-glob='*-sample.mkv' \
     --exclude-glob='*.sample.mkv' \
