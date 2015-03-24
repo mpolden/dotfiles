@@ -33,6 +33,8 @@ if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
 elif (( $+commands[emacs] )); then
     export EDITOR="emacs"
+elif (( $+commands[mg] )); then
+    export EDITOR="mg"
 elif (( $+commands[vim] )); then
     export EDITOR="vim"
 fi
