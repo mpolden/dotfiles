@@ -49,11 +49,6 @@ fi
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX=1
 
-# Disable virtualenv prompt
-(( $+commands[pyenv] || $+commands[virtualenv] )) || \
-    [[ -d "$HOME/.pyenv" ]] && \
-    export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 

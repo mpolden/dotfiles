@@ -7,6 +7,10 @@ setopt autocd
 # Interactive comments (like bash)
 setopt interactivecomments
 
+# Disable virtualenv prompt
+(( $+commands[pyenv] || $+commands[virtualenv] )) && \
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
