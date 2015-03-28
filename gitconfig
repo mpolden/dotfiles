@@ -18,8 +18,6 @@
     b = branch
 [push]
     default = simple
-[web]
-    browser = google-chrome
 [branch]
     autosetuprebase = always
 [rebase]
