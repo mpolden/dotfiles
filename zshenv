@@ -49,6 +49,14 @@ fi
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX=1
 
+# GOPATH
+if [[ -d "${HOME}/go" ]]; then
+    export GOPATH="${HOME}/go"
+    [[ -d "${GOPATH}/bin" ]] && path-prepend "${GOPATH}/bin"
+    [[ -d "${GOPATH}/src/github.com/martinp" ]] && \
+        cdpath-append "${GOPATH}/src/github.com/martinp"
+fi
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
