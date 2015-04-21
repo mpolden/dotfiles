@@ -9,6 +9,7 @@ venv/
 build/
 dist/
 target/
+/mvnvm.properties
 
 # vim
 *.swp
