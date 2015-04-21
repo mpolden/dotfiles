@@ -60,6 +60,7 @@ prezto:
 
 iterm:
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
+	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
 # Maintenance
 
