@@ -6,6 +6,23 @@ function prompt_debian_precmd {
   fi
 }
 
+function prompt_debian_symbol {
+  zmodload zsh/datetime
+  local symbol=''
+  local -r burger=$(printf "\xF0\x9F\x8D\x94")
+  local -r coffee=$(printf "\xE2\x98\x95")
+  local -r beer=$(printf "\xF0\x9F\x8D\xBA")
+  local -r hour=$(strftime %k $EPOCHSECONDS)
+  if (( $hour >= 8 && $hour < 16 )); then
+      symbol=$coffee
+  elif (( $hour >= 16 && $hour < 19 )); then
+      symbol=$burger
+  else
+      symbol=$beer
+  fi
+  printf $symbol
+}
+
 function prompt_debian_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
@@ -32,8 +49,16 @@ function prompt_debian_setup {
     host_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
   fi
 
+  # Display fancy symbol on darwin
+  local symbol=''
+  if [[ "$OSTYPE" == darwin* ]]; then
+      symbol="$(prompt_debian_symbol)  "
+  else
+      symbol='$ '
+  fi
+
   # Define prompts.
-  PROMPT="$host_prefix"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}\$ '
+  PROMPT="$host_prefix"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}'"$symbol"
   RPROMPT='$python_info[virtualenv]'
 }
 
