@@ -12,13 +12,13 @@ function prompt_debian_symbol {
   local -r burger=$(printf "\xF0\x9F\x8D\x94")
   local -r coffee=$(printf "\xE2\x98\x95")
   local -r beer=$(printf "\xF0\x9F\x8D\xBA")
-  local -r hour=$(strftime %k $EPOCHSECONDS)
+  local -r hour=$(strftime %-k $EPOCHSECONDS)
   if (( $hour >= 8 && $hour < 16 )); then
-      symbol=$coffee
+    symbol=$coffee
   elif (( $hour >= 16 && $hour < 19 )); then
-      symbol=$burger
+    symbol=$burger
   else
-      symbol=$beer
+    symbol=$beer
   fi
   printf $symbol
 }
@@ -52,9 +52,9 @@ function prompt_debian_setup {
   # Display fancy symbol on darwin
   local symbol=''
   if [[ "$OSTYPE" == darwin* ]]; then
-      symbol="$(prompt_debian_symbol)  "
+    symbol="$(prompt_debian_symbol)  "
   else
-      symbol='$ '
+    symbol='$ '
   fi
 
   # Define prompts.
