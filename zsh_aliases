@@ -17,6 +17,7 @@ alias-if-in-path autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path v='vagrant ssh'
+alias-if-in-path mg='mg -n'
 
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias week='date +%V'
