@@ -22,6 +22,8 @@ alias-if-in-path mg='mg -n'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias week='date +%V'
 alias zrehash='source ~/.zshrc'
+# Make sudo respect aliases
+alias sudo='sudo '
 
 # prezto helpers
 alias prezto-update='cd ~/.zprezto && git pull --rebase && \
