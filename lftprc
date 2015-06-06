@@ -17,6 +17,7 @@ set ftp:use-fxp true
 
 # never attempt to fix pasv address
 set ftp:fix-pasv-address false
+set ftp:ignore-pasv-address true
 
 # mdtm is slow for large directories
 set ftp:use-mdtm false
