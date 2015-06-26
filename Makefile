@@ -54,8 +54,7 @@ prezto:
 	test -d ~/.zprezto || \
 		git clone --quiet --recursive \
 		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
-	ln $(LN_FLAGS) \
-		$(CURDIR)/zprezto/modules/prompt/functions/prompt_debian_setup \
+	ln $(LN_FLAGS) $(CURDIR)/zprezto_prompt \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
 
 iterm:
