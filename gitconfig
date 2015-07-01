@@ -16,6 +16,7 @@
     co = checkout
     m = merge
     b = branch
+    prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 [push]
     default = simple
 [branch]
