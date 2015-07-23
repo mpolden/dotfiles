@@ -47,6 +47,7 @@ alias m "mirror \
     --loop \
     --exclude-glob='.*' \
     --exclude-glob='*-offline' \
+    --exclude-glob='*-OFFLINE' \
     --exclude-glob='*.conflict' \
     --exclude-glob='*.bad' \
     --exclude-glob='*.message' \
