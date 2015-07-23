@@ -28,6 +28,13 @@ cdpath-append "$HOME/p"
 # Ensure path and cdpath do not contain duplicates
 typeset -gU path cdpath
 
+# Set LESSOPEN
+if (( $+commands[lesspipe] )); then
+    eval "$(lesspipe)"
+elif (( $+commands[lesspipe.sh] )); then
+    eval "$(lesspipe.sh)"
+fi
+
 # Set EDITOR to emacs or vim
 if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
