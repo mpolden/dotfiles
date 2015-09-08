@@ -6,6 +6,10 @@ set ftp:ssl-protect-list true
 set ftps:initial-prot "P"
 set ssl:verify-certificate false
 
+# disable ssl and feat for localhost
+set ftp:ssl-allow/127.0.0.1 false
+set ftp:use-feat/127.0.0.1 false
+
 # workaround for broken servers
 set ftp:ssl-copy-sid false
 
