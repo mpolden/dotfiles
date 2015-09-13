@@ -43,7 +43,6 @@ alias l "ll | less -R"
 alias s "slot"
 alias m "mirror \
     --continue \
-    --only-missing \
     --no-empty-dirs \
     --no-perms \
     --no-umask \
