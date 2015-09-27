@@ -15,6 +15,8 @@ function path-prepend {
 }
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
+path-prepend "/usr/share/doc/git/contrib/diff-highlight"
+path-prepend "/usr/local/share/git-core/contrib/diff-highlight"
 path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
 
