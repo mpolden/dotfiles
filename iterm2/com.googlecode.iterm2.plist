@@ -357,13 +357,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x54-0x120000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 		<key>0x71-0x100000</key>
 		<dict>
 			<key>Action</key>
