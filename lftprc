@@ -33,14 +33,26 @@ set color:use-color auto
 # nice prompt
 set prompt "\[\e[1;32m\]\u@\S\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]$ "
 
+# timeout and retries
+set net:timeout 120
+set net:max-retries 5
+
 # aliases
 alias .. "cd .."
+
+# directory listing
 alias ll "cls \
     --long \
     --human-readable \
     --sort=date"
 alias l "ll | less -R"
+alias lgrep "ll | grep -i"
+
+# queuing
+alias q "queue"
 alias s "slot"
+
+# transferring
 alias m "mirror \
     --continue \
     --no-empty-dirs \
@@ -66,16 +78,19 @@ alias m "mirror \
     --exclude='imdb.nfo' \
     --exclude='.*COMPLETE .*' \
     --exclude='.*complete .*'"
-
 alias g "m \
     --exclude='Sample' \
     --exclude='SAMPLE' \
+    --exclude='sample' \
     --exclude='Proof' \
     --exclude-glob='*-sample.mkv' \
     --exclude-glob='*.sample.mkv' \
     --exclude-glob='*.jpg'"
 
-alias _g "g --verbose"
+# manual transfers
+alias x "g --only-missing"
+alias x2 "x --parallel=2"
 
-alias q "queue"
-alias lgrep "ls | grep -i"
+# used by lftpq
+alias a "g --verbose"
+alias a2 "a --parallel=2"
