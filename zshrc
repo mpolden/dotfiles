@@ -7,6 +7,10 @@ setopt autocd
 # Interactive comments (like bash)
 setopt interactivecomments
 
+# Set color of interactive comments
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
+
 # Disable virtualenv prompt
 (( $+commands[pyenv] || $+commands[virtualenv] )) && \
     export VIRTUAL_ENV_DISABLE_PROMPT=1
