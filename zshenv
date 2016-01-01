@@ -63,6 +63,11 @@ if [[ -d "${HOME}/go" ]]; then
     cdpath-append "${GOPATH}/src/github.com/martinp"
 fi
 
+# docker-machine
+(( $+commands[docker-machine] )) && \
+    [[ "$(docker-machine status default)" == "Running" ]] && \
+    eval "$(docker-machine env default)"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
