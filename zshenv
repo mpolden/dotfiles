@@ -63,6 +63,15 @@ if [[ -d "${HOME}/go" ]]; then
     cdpath-append "${GOPATH}/src/github.com/martinp"
 fi
 
+# JAVA_HOME
+if [[ "$OSTYPE" == darwin* && -d "/Library/Java/JavaVirtualMachines" ]]; then
+    # Find the most recently modified directory
+    java_root="$(print -n /Library/Java/JavaVirtualMachines/*(om[1]))"
+    java_home="${java_root}/Contents/Home"
+    [[ -d "$java_home" ]] && export JAVA_HOME=$java_home
+    unset java_root java_home
+fi
+
 # docker-machine
 (( $+commands[docker-machine] )) && \
     [[ "$(docker-machine status default)" == "Running" ]] && \
