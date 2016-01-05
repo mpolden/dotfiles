@@ -8,7 +8,6 @@ symlinks = agignore \
 		   hgrc \
 		   iterm2 \
 		   lftprc \
-		   synergy.conf \
 		   tmux.conf \
 		   zlogin \
 		   zpreztorc \
