@@ -8,13 +8,8 @@
 	ui = auto
 [alias]
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-	wdiff = diff --word-diff=color
 	s = status --short --branch
-	a = add --all
-	c = commit
-	g = grep --break --heading --line-number
 	co = checkout
-	m = merge
 	b = branch
 	prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 [push]
