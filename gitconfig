@@ -1,29 +1,29 @@
 [user]
-    name = Martin Polden
-    email = martin.polden@gmail.com
+	name = Martin Polden
+	email = martin.polden@gmail.com
 [core]
-    excludesfile = ~/.gitignore
-    autocrlf = input
+	excludesfile = ~/.gitignore
+	autocrlf = input
 [color]
-    ui = auto
+	ui = auto
 [alias]
-    lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-    wdiff = diff --word-diff=color
-    s = status --short --branch
-    a = add --all
-    c = commit
-    g = grep --break --heading --line-number
-    co = checkout
-    m = merge
-    b = branch
-    prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
+	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	wdiff = diff --word-diff=color
+	s = status --short --branch
+	a = add --all
+	c = commit
+	g = grep --break --heading --line-number
+	co = checkout
+	m = merge
+	b = branch
+	prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 [push]
-    default = simple
+	default = simple
 [branch]
-    autosetuprebase = always
+	autosetuprebase = always
 [rebase]
-    stat = true
+	stat = true
 [help]
-    autocorrect = 1
+	autocorrect = 1
 [grep]
-    lineNumber = true
+	lineNumber = true
