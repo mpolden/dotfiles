@@ -64,9 +64,11 @@ if [[ -d "${HOME}/go" ]]; then
 fi
 
 # JAVA_HOME
-if [[ "$OSTYPE" == darwin* && -d "/Library/Java/JavaVirtualMachines" ]]; then
-    # Find the most recently modified directory
-    java_root="$(print -n /Library/Java/JavaVirtualMachines/*(om[1]))"
+if [[ "$OSTYPE" == darwin* ]]; then
+    # Find the most recently modified directory.
+    # N = be silent when there are no matches
+    # om[1] = sort by last modified, most recent first and pick the first one
+    java_root="$(print -n /Library/Java/JavaVirtualMachines/*(N,om[1]))"
     java_home="${java_root}/Contents/Home"
     [[ -d "$java_home" ]] && export JAVA_HOME=$java_home
     unset java_root java_home
