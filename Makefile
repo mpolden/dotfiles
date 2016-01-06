@@ -68,4 +68,4 @@ clean-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -delete
 
 update:
-	git pull --rebase
+	git pull --rebase --quiet
