@@ -1,15 +1,16 @@
 # Python
 *.py[cod]
-.venv
-venv/
+/.venv/
+/venv/
 
 # Java
 *.class
 .gradle/
+/mvnvm.properties
 build/
 dist/
+hs_err_pid*
 target/
-/mvnvm.properties
 
 # vim
 *.swp
@@ -21,28 +22,29 @@ tags
 
 # gcc
 *.[oa]
-*.out
 *.aout
+*.out
 
 # IntelliJ IDEA
-*.iws
 *.iml
 *.ipr
+*.iws
 .idea/
-out/
+/out/
 
 # Misc
 *.bak
 *.log
 *.pid
 .DS_Store
-tmp/
+/tmp/
+prompt_debian_setup
 
 # Node
 node_modules/
 
 # Vagrant
-.vagrant/
+/.vagrant/
 
 # Emacs
 \#*\#
