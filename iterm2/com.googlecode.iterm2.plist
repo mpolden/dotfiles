@@ -259,124 +259,33 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x20-0x100000</key>
+		<key>0x19-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>22</integer>
+			<integer>39</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x27-0x100000</key>
+		<key>0x62-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>22</integer>
+			<integer>10</integer>
 			<key>Text</key>
-			<string></string>
+			<string>b</string>
 		</dict>
-		<key>0x2c-0x100000</key>
+		<key>0x64-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>22</integer>
+			<integer>10</integer>
 			<key>Text</key>
-			<string></string>
+			<string>d</string>
 		</dict>
-		<key>0x31-0x100000</key>
+		<key>0x66-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>22</integer>
+			<integer>10</integer>
 			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x32-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x33-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x34-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x35-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x36-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x37-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x38-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x39-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x43-0x120000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x53-0x120000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x71-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x76-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x9-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>22</integer>
-			<key>Text</key>
-			<string></string>
+			<string>f</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -501,7 +410,7 @@
 	<key>JobName</key>
 	<true/>
 	<key>LeftCommand</key>
-	<integer>3</integer>
+	<integer>7</integer>
 	<key>LeftOption</key>
 	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
