@@ -2,7 +2,8 @@ CURDIR ?= $(.CURDIR)
 
 LN_FLAGS = -sfn
 
-symlinks = gitconfig \
+symlinks = completions \
+		   gitconfig \
 		   gitignore \
 		   hgrc \
 		   iterm2 \
