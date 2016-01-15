@@ -26,12 +26,9 @@ alias zrehash='source ~/.zshrc'
 alias sudo='sudo '
 
 # prezto helpers
-alias prezto-update='cd ~/.zprezto && git pull --rebase && \
-    git submodule update --init --recursive && cd -'
+alias prezto-update='git -C ~/.zprezto pull --rebase && \
+    git -C ~/.zprezto submodule update --init --recursive'
 alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
-
-# Clean up functions
-unfunction alias-if-in-path
 
 # Alias ls
 _ls_opts='--group-directories-first --color=auto'
@@ -44,43 +41,11 @@ case "$OSTYPE" in
         else
             alias ls='ls -G'
         fi
-        alias pgrep='pgrep -f -l -i'
         ;;
     *)
         alias ls="ls ${_ls_opts}"
-        alias pgrep='pgrep -f -l -a'
 esac
 unset _ls_opts
 
-function ssh-rm-host-key {
-    if [[ "$1" =~ ^[0-9]+$ ]]; then
-        case "$OSTYPE" in
-            darwin* | freebsd*)
-                sed -i '' -e "${1}d" ~/.ssh/known_hosts
-                ;;
-            *)
-                sed -i'' -e "${1}d" ~/.ssh/known_hosts
-        esac
-    else
-        echo "usage: $0 line-number"
-    fi
-}
-
-function tmux-rehash-panes {
-    if (( ! $+commands[tmux] )); then
-        return 1
-    fi
-    local panes
-    panes=$(tmux list-panes -aF \
-        '#{session_name}:#{window_index}.#{pane_index},#{pane_pid}')
-    local line
-    for line in ${(f)panes}; do
-        local pane=${line[(ws:,:)1]}
-        local pane_pid=${line[(ws:,:)2]}
-        # If pane_pid is NOT the parent of any process, then it's most like a
-        # interactive shell and we can send our command
-        if ! command pgrep -P $pane_pid > /dev/null; then
-            command tmux send-keys -t $pane 'source ~/.zshrc' enter
-        fi
-    done
-}
+# Clean up functions
+unfunction alias-if-in-path
