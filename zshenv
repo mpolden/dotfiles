@@ -25,9 +25,6 @@ function cdpath-append {
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
 
-# Ensure path and cdpath do not contain duplicates
-typeset -gU path cdpath
-
 # Set LESSOPEN
 if (( $+commands[lesspipe] )); then
     eval "$(lesspipe)"
@@ -85,6 +82,8 @@ fi
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
+# Ensure path and cdpath do not contain duplicates
+typeset -gU path cdpath
+
 # Clean up functions
-unfunction path-prepend
-unfunction cdpath-append
+unfunction path-prepend cdpath-append
