@@ -6,21 +6,18 @@ function prompt_debian_precmd {
   fi
 }
 
-function prompt_debian_symbol {
-  zmodload zsh/datetime
-  local symbol=''
+function _set_prompt_symbol {
   local -r burger=$(printf "\xF0\x9F\x8D\x94")
   local -r coffee=$(printf "\xE2\x98\x95")
   local -r beer=$(printf "\xF0\x9F\x8D\xBA")
   local -r hour=$(strftime %-k $EPOCHSECONDS)
   if (( $hour >= 8 && $hour < 16 )); then
-    symbol=$coffee
+    _prompt_symbol="$coffee "
   elif (( $hour >= 16 && $hour < 19 )); then
-    symbol=$burger
+    _prompt_symbol="$burger "
   else
-    symbol=$beer
+    _prompt_symbol="$beer "
   fi
-  printf $symbol
 }
 
 function prompt_debian_setup {
@@ -45,20 +42,17 @@ function prompt_debian_setup {
 
   # Show user@hostname prefix if connected through SSH
   local host_prefix=''
-  if [[ -n "$SSH_TTY" ]]; then
-    host_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
-  fi
+  [[ -n "$SSH_TTY" ]] && host_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
   # Display fancy symbol on darwin
-  local symbol=''
+  _prompt_symbol='$'
   if [[ "$OSTYPE" == darwin* ]]; then
-    symbol="$(prompt_debian_symbol)  "
-  else
-    symbol='$ '
+    zmodload zsh/datetime
+    add-zsh-hook precmd _set_prompt_symbol
   fi
 
   # Define prompts.
-  PROMPT="$host_prefix"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}'"$symbol"
+  PROMPT="$host_prefix"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
   RPROMPT='$python_info[virtualenv]'
 }
 
