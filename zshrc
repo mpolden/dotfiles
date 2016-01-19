@@ -15,9 +15,6 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 (( $+commands[pyenv] || $+commands[virtualenv] )) && \
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# Chef Development Kit (uses compdef so it must be loaded after prezto)
-(( $+commands[chef] )) && eval "$(chef shell-init zsh)"
-
 # Load extra completions
 for _completion in $HOME/.completions/*(N); do
     source $_completion

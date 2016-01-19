@@ -79,6 +79,9 @@ fi
     [[ "$(docker-machine status default)" == "Running" ]] && \
     eval "$(docker-machine env default)"
 
+# Chef Development Kit
+(( $+commands[chef] )) && eval "$(chef shell-init sh)"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
