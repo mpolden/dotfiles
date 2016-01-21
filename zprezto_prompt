@@ -6,7 +6,7 @@ function prompt_debian_precmd {
   fi
 }
 
-function _set_prompt_symbol {
+function prompt_debian_precmd_symbol {
   local -r burger=$(printf "\xF0\x9F\x8D\x94")
   local -r coffee=$(printf "\xE2\x98\x95")
   local -r beer=$(printf "\xF0\x9F\x8D\xBA")
@@ -40,19 +40,18 @@ function prompt_debian_setup {
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '[%v]'
 
-  # Show user@hostname prefix if connected through SSH
-  local host_prefix=''
-  [[ -n "$SSH_TTY" ]] && host_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
+  # Prefix to use when connected through SSH
+  local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
   # Display fancy symbol on darwin
   _prompt_symbol='$'
   if [[ "$OSTYPE" == darwin* ]]; then
     zmodload zsh/datetime
-    add-zsh-hook precmd _set_prompt_symbol
+    add-zsh-hook precmd prompt_debian_precmd_symbol
   fi
 
   # Define prompts.
-  PROMPT="$host_prefix"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
+  PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
   RPROMPT='$python_info[virtualenv]'
 }
 
