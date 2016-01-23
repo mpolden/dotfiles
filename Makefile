@@ -2,7 +2,8 @@ CURDIR ?= $(.CURDIR)
 
 LN_FLAGS = -sfn
 
-symlinks = completions \
+symlinks = ansible.cfg \
+		   completions \
 		   gitconfig \
 		   gitignore \
 		   hgrc \
