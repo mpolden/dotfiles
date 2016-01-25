@@ -11,10 +11,6 @@ setopt interactivecomments
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
-# Disable virtualenv prompt
-(( $+commands[pyenv] || $+commands[virtualenv] )) && \
-    export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 # Load extra completions
 for _completion in $HOME/.completions/*(N); do
     source $_completion
