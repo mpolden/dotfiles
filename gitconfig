@@ -19,8 +19,6 @@
 [rebase]
 	stat = true
 	autostash = true
-[help]
-	autocorrect = 1
 [grep]
 	lineNumber = true
 [log]
