@@ -7,6 +7,9 @@ setopt autocd
 # Interactive comments (like bash)
 setopt interactivecomments
 
+# Correct commands
+setopt correct
+
 # Set color of interactive comments
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
