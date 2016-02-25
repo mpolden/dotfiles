@@ -1,5 +1,7 @@
 CURDIR ?= $(.CURDIR)
 
+HOSTNAME = $(shell hostname -s)
+
 LN_FLAGS = -sfn
 
 symlinks = ansible.cfg \
@@ -7,7 +9,6 @@ symlinks = ansible.cfg \
 		   gitconfig \
 		   gitignore \
 		   hgrc \
-		   iterm2 \
 		   lftprc \
 		   tmux.conf \
 		   zlogin \
@@ -33,7 +34,7 @@ help:
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
 	@echo
 	@echo "Configure iTerm2:"
-	@echo "   $(COLOR)make iterm$(NO_COLOR)		Set iTerm2 config path"
+	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to Dropbox"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Find dead symlinks"
@@ -57,7 +58,8 @@ prezto:
 	ln $(LN_FLAGS) $(CURDIR)/zprezto_prompt \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
 
-iterm:
+iterm2:
+	ln $(LN_FLAGS) $(HOME)/Dropbox/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
