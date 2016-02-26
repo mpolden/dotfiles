@@ -14,9 +14,6 @@ setopt correct
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
-# Chef Development Kit (uses compdef so it must be loaded after prezto)
-(( $+commands[chef] )) && eval "$(chef shell-init zsh)"
-
 # Load extra completions
 for _completion in $HOME/.completions/*(N); do
     source $_completion
