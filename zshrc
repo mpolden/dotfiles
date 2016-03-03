@@ -14,12 +14,6 @@ setopt correct
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
-# Load extra completions
-for _completion in $HOME/.completions/*(N); do
-    source $_completion
-done
-unset _completion
-
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"

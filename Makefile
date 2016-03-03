@@ -5,7 +5,6 @@ HOSTNAME = $(shell hostname -s)
 LN_FLAGS = -sfn
 
 symlinks = ansible.cfg \
-		   completions \
 		   gitconfig \
 		   gitignore \
 		   hgrc \
