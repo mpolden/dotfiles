@@ -30,13 +30,15 @@ help:
 	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
 	@echo
 	@echo "Install zsh extras:"
-	@echo "   $(COLOR)make prezto$(NO_COLOR)		Install prezto"
+	@echo "   $(COLOR)make prezto-install$(NO_COLOR)	Install prezto"
+	@echo "   $(COLOR)make prezto-update$(NO_COLOR)	Update prezto"
+	@echo "   $(COLOR)make prezto$(NO_COLOR)		prezto-install and prezto-update"
 	@echo
 	@echo "Configure iTerm2:"
 	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to Dropbox"
 	@echo
 	@echo "Maintenance:"
-	@echo "   $(COLOR)make check-dead$(NO_COLOR)	Find dead symlinks"
+	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
 	@echo
@@ -50,12 +52,20 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-prezto:
+prezto-install:
 	test -d ~/.zprezto || \
 		git clone --quiet --recursive \
 		https://github.com/sorin-ionescu/prezto.git ~/.zprezto
-	ln $(LN_FLAGS) $(CURDIR)/zprezto_prompt \
+	test -h ~/.zprezto/modules/prompt/functions/prompt_debian_setup || \
+		ln $(LN_FLAGS) $(CURDIR)/zprezto_prompt \
 		~/.zprezto/modules/prompt/functions/prompt_debian_setup
+
+prezto-update:
+	test -d ~/.zprezto && \
+		git -C ~/.zprezto pull --rebase && \
+		git -C ~/.zprezto submodule update --init --recursive
+
+prezto: prezto-install prezto-update
 
 iterm2:
 	ln $(LN_FLAGS) $(HOME)/Dropbox/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
@@ -64,7 +74,7 @@ iterm2:
 
 # Maintenance
 
-check-dead:
+print-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
 
 clean-dead:
