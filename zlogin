@@ -1,4 +1,4 @@
-if [[ -n "$SSH_TTY" && -z "$TMUX" && "$TERM" != "dumb" ]]; then
+if [[ -n "$SSH_TTY" && -z "$TMUX" && -z "$EMACS" && "$TERM" != "dumb" ]]; then
     (( $+commands[tmux] )) && (tmux attach -d || tmux)
 fi
 
