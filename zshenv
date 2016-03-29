@@ -63,11 +63,6 @@ fi
 # JAVA_HOME
 [[ -x "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
 
-# docker-machine
-(( $+commands[docker-machine] )) && \
-    [[ "$(docker-machine status default)" == "Running" ]] && \
-    eval "$(docker-machine env default)"
-
 # Chef Development Kit
 (( $+commands[chef] )) && eval "$(chef shell-init sh)"
 
