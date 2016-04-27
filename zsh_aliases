@@ -4,8 +4,8 @@ function alias-if-in-path {
     local value=${1[(ws:=:)2]}
     # Command is the first word of the alias value
     local cmd=${value[(w)1]}
-    # If first command is sudo, the actual command is the second word
-    if [[ "$cmd" == "sudo" ]]; then
+    # If first command is sudo or noglob, the actual command is the second word
+    if [[ "$cmd" == "sudo" || "$cmd" == "noglob" ]]; then
         cmd=${value[(w)2]}
     fi
     (( $+commands[$cmd] )) && alias $name=$value
@@ -18,6 +18,11 @@ alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path v='vagrant ssh'
 alias-if-in-path mg='mg -n'
+
+# Disable globbing for certain commands
+alias-if-in-path find='noglob find'
+alias-if-in-path curl='noglob curl'
+alias-if-in-path http='noglob http'
 
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias week='date +%V'
