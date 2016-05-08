@@ -10,6 +10,9 @@ set ssl:verify-certificate false
 set ftp:ssl-allow/127.0.0.1 false
 set ftp:use-feat/127.0.0.1 false
 
+# disable epsv
+set ftp:prefer-epsv false
+
 # workaround for broken servers
 set ftp:ssl-copy-sid false
 
