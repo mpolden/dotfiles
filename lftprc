@@ -45,7 +45,7 @@ alias ll "cls \
     --long \
     --human-readable \
     --sort=date"
-alias l "ll | less -R"
+alias l "set color:use-color true && ll | less -R && set color:use-color auto"
 alias lgrep "ll | grep -i"
 
 # queuing
