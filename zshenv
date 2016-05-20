@@ -63,6 +63,10 @@ fi
 # JAVA_HOME
 [[ -x "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
 
+# MAVEN_OPTS
+# Prevent Maven from running tasks in the foreground
+(( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
+
 # Chef Development Kit
 (( $+commands[chef] )) && eval "$(chef shell-init sh)"
 
