@@ -32,6 +32,9 @@ elif (( $+commands[lesspipe.sh] )); then
     eval "$(lesspipe.sh)"
 fi
 
+# less flags
+(( $+commands[less] )) && export LESS="-Ri"
+
 # Set EDITOR to emacs or vim
 if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
