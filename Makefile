@@ -52,7 +52,7 @@ help:
 
 # Shell environment
 
-install: $(symlinks)
+install: $(symlinks) fish
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
@@ -91,6 +91,10 @@ mac-iterm2: mac-icloud
 	ln $(LN_FLAGS) $(HOME)/.icloud/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
+
+fish:
+	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
+	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Maintenance
 
