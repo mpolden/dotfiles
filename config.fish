@@ -153,6 +153,17 @@ alias-if-in-path ec 'emacsclient -nq'
 alias-if-in-path v 'vagrant ssh'
 alias-if-in-path mg 'mg -n'
 
+# Start or attach to tmux
+if status ‐‐is‐login > /dev/null
+    and is-command tmux
+    and set -q SSH_TTY
+    and not set -q TMUX
+    and not set -q EMACS
+    and [ $TERM != 'dumb' ]
+    tmux attach -d
+    or tmux
+end
+
 # Clean up helper functions
 functions -e path-prepend
 functions -e cdpath-append
