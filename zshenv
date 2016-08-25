@@ -64,7 +64,11 @@ if [[ -d "${HOME}/go" ]]; then
 fi
 
 # JAVA_HOME
-[[ -x "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ -x "/usr/libexec/java_home" ]]; then
+    java_home=$(/usr/libexec/java_home 2> /dev/null)
+    [[ -n "$java_home" ]] && export JAVA_HOME=$java_home
+    unset java_home
+fi
 
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
