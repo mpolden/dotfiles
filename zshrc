@@ -14,6 +14,9 @@ setopt correct
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
+# Print message if reboot is required
+[[ -f "/var/run/reboot-required" ]] && print "reboot required"
+
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
