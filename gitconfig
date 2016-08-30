@@ -23,3 +23,6 @@
 	lineNumber = true
 [log]
 	follow = true
+[pager]
+	diff = (diff-so-fancy 2> /dev/null || cat) | less -R
+	show = (diff-so-fancy 2> /dev/null || cat) | less -R
