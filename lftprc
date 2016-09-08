@@ -62,7 +62,6 @@ alias m "mirror \
     --no-perms \
     --no-umask \
     --dereference \
-    --loop \
     --exclude-glob='.*' \
     --exclude-glob='*-offline' \
     --exclude-glob='*-OFFLINE' \
