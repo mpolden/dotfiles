@@ -35,7 +35,7 @@ help:
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		prezto-install and prezto-update"
 	@echo
 	@echo "Configure iTerm2:"
-	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to Dropbox"
+	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to iCloud Drive"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
@@ -68,7 +68,7 @@ prezto-update:
 prezto: prezto-install prezto-update
 
 iterm2:
-	ln $(LN_FLAGS) $(HOME)/Dropbox/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
+	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
