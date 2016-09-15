@@ -30,10 +30,8 @@ alias zrehash='source ~/.zshrc'
 # Make sudo respect aliases
 alias sudo='sudo '
 
-# prezto helpers
-alias prezto-update='git -C ~/.zprezto pull --rebase && \
-    git -C ~/.zprezto submodule update --init --recursive'
-alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less -R'
+# prezto helper
+alias prezto-diff='diff -u ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc | less'
 
 # Alias ls
 _ls_opts='--group-directories-first --color=auto'

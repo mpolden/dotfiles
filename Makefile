@@ -31,19 +31,19 @@ help:
 	@echo
 	@echo "Install zsh extras:"
 	@echo "   $(COLOR)make prezto-install$(NO_COLOR)	Install prezto"
-	@echo "   $(COLOR)make prezto-update$(NO_COLOR)	Update prezto"
+	@echo "   $(COLOR)make prezto-update$(NO_COLOR)		Update prezto"
 	@echo "   $(COLOR)make prezto$(NO_COLOR)		prezto-install and prezto-update"
 	@echo
 	@echo "Configure iTerm2:"
 	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to iCloud Drive"
 	@echo
 	@echo "Maintenance:"
-	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
-	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
+	@echo "   $(COLOR)make print-dead$(NO_COLOR)		Print dead symlinks"
+	@echo "   $(COLOR)make clean-dead$(NO_COLOR)		Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
 	@echo
 	@echo "Everything:"
-	@echo "   $(COLOR)make all$(NO_COLOR)		prezto and install"
+	@echo "   $(COLOR)make all$(NO_COLOR)			prezto and install"
 
 # Shell environment
 
