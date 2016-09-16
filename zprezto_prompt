@@ -1,9 +1,5 @@
 function prompt_debian_precmd {
   vcs_info
-
-  if (( $+functions[python-info] )); then
-    python-info
-  fi
 }
 
 function prompt_debian_precmd_symbol {
@@ -37,9 +33,6 @@ function prompt_debian_setup {
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
 
-  # Set python-info parameters.
-  zstyle ':prezto:module:python:info:virtualenv' format '[%v]'
-
   # Prefix to use when connected through SSH
   local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
@@ -52,7 +45,6 @@ function prompt_debian_setup {
 
   # Define prompts.
   PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
-  RPROMPT='$python_info[virtualenv]'
 }
 
 prompt_debian_setup "$@"
