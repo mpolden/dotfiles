@@ -39,7 +39,7 @@ function prompt_debian_setup {
   # Display fancy symbol on darwin
   _prompt_symbol='$'
   if [[ "$OSTYPE" == darwin* ]]; then
-    zmodload zsh/datetime
+    zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
     add-zsh-hook precmd prompt_debian_precmd_symbol
   fi
 
