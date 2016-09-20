@@ -4,6 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
+	pager = (diff-so-fancy 2> /dev/null || cat) | less -R
 [color]
 	ui = auto
 [alias]
@@ -23,6 +24,3 @@
 	lineNumber = true
 [log]
 	follow = true
-[pager]
-	diff = (diff-so-fancy 2> /dev/null || cat) | less -R
-	show = (diff-so-fancy 2> /dev/null || cat) | less -R
