@@ -1,5 +1,16 @@
+# Fallback prompt
+function prompt_setup {
+    autoload -Uz colors && colors
+    local -r ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
+    PROMPT="${SSH_TTY:+$ssh_prefix}""%{$fg_bold[blue]%}%~%{$reset_color%}$ "
+}
+
 # Prezto
-[[ -s "$HOME/.zprezto/init.zsh" ]] && source "$HOME/.zprezto/init.zsh"
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+    source "$HOME/.zprezto/init.zsh"
+else
+    prompt_setup
+fi
 
 # Change directory without cd
 setopt autocd
@@ -23,3 +34,5 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+unfunction prompt_setup
