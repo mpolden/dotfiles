@@ -7,7 +7,6 @@ LN_FLAGS = -sfn
 symlinks = ansible.cfg \
 		   gitconfig \
 		   gitignore \
-		   hgrc \
 		   lftprc \
 		   tmux.conf \
 		   zlogin \
