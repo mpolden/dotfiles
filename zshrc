@@ -175,9 +175,9 @@ function zsh-syntax-highlighting {
     for p in $paths; do
         if [[ -s "$p" ]]; then
             source "$p"
-            ZSH_HIGHLIGHT_STYLES["builtin"]="fg=cyan"
-            ZSH_HIGHLIGHT_STYLES["function"]="fg=blue"
-            ZSH_HIGHLIGHT_STYLES["alias"]="fg=blue"
+            ZSH_HIGHLIGHT_STYLES[builtin]="fg=cyan"
+            ZSH_HIGHLIGHT_STYLES[function]="fg=blue"
+            ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
             break
         fi
     done
