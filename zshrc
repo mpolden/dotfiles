@@ -174,9 +174,11 @@ function zsh-syntax-highlighting {
     for p in $paths; do
         if [[ -s "$p" ]]; then
             source "$p"
-            ZSH_HIGHLIGHT_STYLES[builtin]="fg=cyan"
-            ZSH_HIGHLIGHT_STYLES[function]="fg=blue"
-            ZSH_HIGHLIGHT_STYLES[alias]="fg=blue"
+            typeset -A ZSH_HIGHLIGHT_STYLES
+            ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+            ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+            ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+            ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
             break
         fi
     done
@@ -355,10 +357,6 @@ setopt interactivecomments
 
 # Correct commands
 setopt correct
-
-# Set color of interactive comments
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
 
 # Print message if reboot is required
 [[ -f "/var/run/reboot-required" ]] && print "reboot required"
