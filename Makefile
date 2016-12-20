@@ -25,10 +25,10 @@ help:
 	@echo "Makefile for installing dotfiles"
 	@echo
 	@echo "Create symlinks:"
-	@echo "   $(COLOR)make install$(NO_COLOR)		Install symlinks"
+	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
-	@echo "Configure iTerm2:"
-	@echo "   $(COLOR)make iterm2$(NO_COLOR)		Symlink iTerm2 config to iCloud Drive"
+	@echo "Create Mac-specific symlinks:"
+	@echo "   $(COLOR)make install-mac$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
@@ -42,7 +42,7 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-iterm2:
+install-mac:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
