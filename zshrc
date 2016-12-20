@@ -270,13 +270,12 @@ debian-prompt
 # Misc
 #
 
-# Set tab title to current directory
+# Set window and tab title to current directory
 function _set-window-and-tab-title {
     print -Pn "\e]0;%~\a"
 }
 
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _set-window-and-tab-title
+[[ -z "$TMUX" ]] && add-zsh-hook precmd _set-window-and-tab-title
 
 # Change directory without cd
 setopt autocd
