@@ -278,13 +278,13 @@ function _set-window-and-tab-title {
 [[ -z "$TMUX" ]] && add-zsh-hook precmd _set-window-and-tab-title
 
 # Change directory without cd
-setopt autocd
+setopt AUTO_CD
 
 # Interactive comments (like bash)
-setopt interactivecomments
+setopt INTERACTIVE_COMMENTS
 
 # Correct commands
-setopt correct
+setopt CORRECT
 
 # Print message if reboot is required
 [[ -f "/var/run/reboot-required" ]] && print "reboot required"
