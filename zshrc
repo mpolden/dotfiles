@@ -190,10 +190,10 @@ zsh-history-substring-search
 
 setopt PROMPT_SUBST
 
-function debian-prompt-set-symbol {
-    local -r burger=$(printf "\xF0\x9F\x8D\x94")
-    local -r coffee=$(printf "\xE2\x98\x95")
-    local -r beer=$(printf "\xF0\x9F\x8D\xBA")
+function _set-prompt-symbol {
+    local -r burger=$(print -n "\xF0\x9F\x8D\x94")
+    local -r coffee=$(print -n "\xE2\x98\x95")
+    local -r beer=$(print -n "\xF0\x9F\x8D\xBA")
     local -r hour=$(strftime %-k $EPOCHSECONDS)
     if (( $hour >= 8 && $hour < 16 )); then
         _prompt_symbol="$coffee "
@@ -204,15 +204,13 @@ function debian-prompt-set-symbol {
     fi
 }
 
-function debian-prompt {
+function set-prompt {
     setopt LOCAL_OPTIONS
     unsetopt XTRACE KSH_ARRAYS
     prompt_opts=(cr percent subst)
 
     # Load required functions.
-    autoload -Uz colors && colors
-    autoload -Uz add-zsh-hook
-    autoload -Uz vcs_info
+    autoload -Uz add-zsh-hook vcs_info colors && colors
 
     # Add hook for calling vcs_info before each command.
     add-zsh-hook precmd vcs_info
@@ -228,14 +226,14 @@ function debian-prompt {
     _prompt_symbol='$'
     if [[ "$OSTYPE" == darwin* ]]; then
         zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
-        add-zsh-hook precmd debian-prompt-set-symbol
+        add-zsh-hook precmd _set-prompt-symbol
     fi
 
     # Define prompts.
     PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
 }
 
-debian-prompt
+set-prompt
 
 #
 # SSH
@@ -279,4 +277,4 @@ setopt CORRECT
 unfunction zsh-completions \
            zsh-syntax-highlighting \
            zsh-history-substring-search \
-           debian-prompt
+           set-prompt
