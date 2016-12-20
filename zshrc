@@ -212,48 +212,48 @@ zsh-history-substring-search
 setopt PROMPT_SUBST
 
 function debian-prompt-set-symbol {
-  local -r burger=$(printf "\xF0\x9F\x8D\x94")
-  local -r coffee=$(printf "\xE2\x98\x95")
-  local -r beer=$(printf "\xF0\x9F\x8D\xBA")
-  local -r hour=$(strftime %-k $EPOCHSECONDS)
-  if (( $hour >= 8 && $hour < 16 )); then
-    _prompt_symbol="$coffee "
-  elif (( $hour >= 16 && $hour < 19 )); then
-    _prompt_symbol="$burger "
-  else
-    _prompt_symbol="$beer "
-  fi
+    local -r burger=$(printf "\xF0\x9F\x8D\x94")
+    local -r coffee=$(printf "\xE2\x98\x95")
+    local -r beer=$(printf "\xF0\x9F\x8D\xBA")
+    local -r hour=$(strftime %-k $EPOCHSECONDS)
+    if (( $hour >= 8 && $hour < 16 )); then
+        _prompt_symbol="$coffee "
+    elif (( $hour >= 16 && $hour < 19 )); then
+        _prompt_symbol="$burger "
+    else
+        _prompt_symbol="$beer "
+    fi
 }
 
 function debian-prompt {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+    setopt LOCAL_OPTIONS
+    unsetopt XTRACE KSH_ARRAYS
+    prompt_opts=(cr percent subst)
 
-  # Load required functions.
-  autoload -Uz colors && colors
-  autoload -Uz add-zsh-hook
-  autoload -Uz vcs_info
+    # Load required functions.
+    autoload -Uz colors && colors
+    autoload -Uz add-zsh-hook
+    autoload -Uz vcs_info
 
-  # Add hook for calling vcs_info before each command.
-  add-zsh-hook precmd vcs_info
+    # Add hook for calling vcs_info before each command.
+    add-zsh-hook precmd vcs_info
 
-  # Set vcs_info parameters.
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
+    # Set vcs_info parameters.
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
 
-  # Prefix to use when connected through SSH
-  local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
+    # Prefix to use when connected through SSH
+    local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
-  # Display fancy symbol on darwin
-  _prompt_symbol='$'
-  if [[ "$OSTYPE" == darwin* ]]; then
-    zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
-    add-zsh-hook precmd debian-prompt-set-symbol
-  fi
+    # Display fancy symbol on darwin
+    _prompt_symbol='$'
+    if [[ "$OSTYPE" == darwin* ]]; then
+        zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
+        add-zsh-hook precmd debian-prompt-set-symbol
+    fi
 
-  # Define prompts.
-  PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
+    # Define prompts.
+    PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
 }
 
 debian-prompt
