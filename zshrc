@@ -174,7 +174,6 @@ function zsh-syntax-highlighting {
     for p in $paths; do
         if [[ -s "$p" ]]; then
             source "$p"
-            typeset -A ZSH_HIGHLIGHT_STYLES
             ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
             ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
             ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
