@@ -314,13 +314,16 @@ function _terminal-set-titles-with-path {
     set-tab-title "$truncated_path"
 }
 
-autoload -Uz add-zsh-hook
+# Do not modify titles when inside tmux
+if [[ -z "$TMUX" ]]; then
+    autoload -Uz add-zsh-hook
 
-# Sets the tab and window titles before the prompt is displayed.
-add-zsh-hook precmd _terminal-set-titles-with-path
+    # Sets the tab and window titles before the prompt is displayed.
+    add-zsh-hook precmd _terminal-set-titles-with-path
 
-# Sets the tab and window titles before command execution.
-add-zsh-hook preexec _terminal-set-titles-with-command
+    # Sets the tab and window titles before command execution.
+    add-zsh-hook preexec _terminal-set-titles-with-command
+fi
 
 #
 # Misc
