@@ -177,6 +177,8 @@ function zsh-history-substring-search {
             bindkey -M emacs "\C-N" history-substring-search-down
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
+            # Case-sensitive search
+            HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
         fi
     done
 }
