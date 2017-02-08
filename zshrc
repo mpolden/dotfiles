@@ -145,50 +145,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 [[ -n "$terminfo[kcbt]" ]] && bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete
 
 #
-# Extensions
-#
-
-function zsh-syntax-highlighting {
-    local paths
-    paths=(
-        $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    )
-    for p in $paths; do
-        if [[ -s "$p" ]]; then
-            source "$p"
-            ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-            ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-            ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
-            ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
-            break
-        fi
-    done
-}
-
-function zsh-history-substring-search {
-    local paths
-    paths=(
-        $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-        /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
-    )
-    for p in $paths; do
-        if [[ -s "$p" ]]; then
-            source "$p"
-            bindkey -M emacs "\C-P" history-substring-search-up
-            bindkey -M emacs "\C-N" history-substring-search-down
-            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
-            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
-            # Case-sensitive search
-            HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
-        fi
-    done
-}
-
-zsh-syntax-highlighting
-zsh-history-substring-search
-
-#
 # Prompt
 #
 
@@ -380,8 +336,57 @@ setopt CORRECT
 # Local configuration
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
+#
+# Extensions
+#
+
+function init-syntax-highlighting {
+    local paths
+    paths=(
+        $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    )
+    for p in $paths; do
+        if [[ -s "$p" ]]; then
+            source "$p"
+            ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+            ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+            ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+            ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
+            break
+        fi
+    done
+}
+
+function init-history-substring-search {
+    local paths
+    paths=(
+        $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+        /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+    )
+    for p in $paths; do
+        if [[ -s "$p" ]]; then
+            source "$p"
+            bindkey -M emacs "\C-P" history-substring-search-up
+            bindkey -M emacs "\C-N" history-substring-search-down
+            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
+            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
+            # Case-sensitive search
+            HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
+        fi
+    done
+}
+
+# zsh-syntax-highlighting should be initialized as late as possible because it
+# wraps ZLE widgets.
+init-syntax-highlighting
+
+# When using both zsh-history-substring-search and zsh-syntax-highlighting, the
+# former should be initialized last.
+init-history-substring-search
+
 # Clean up functions
-unfunction zsh-syntax-highlighting \
-           zsh-history-substring-search \
+unfunction init-syntax-highlighting \
+           init-history-substring-search \
            set-fpath \
            set-prompt
