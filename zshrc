@@ -20,24 +20,26 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
 #
-# Completion
+# Functions
 #
-
-function zsh-completions {
-    local paths
-    paths=(
-        $HOME/.local/share/zsh-completions/src
+function set-fpath {
+    local -r paths=(
         /usr/local/share/zsh-completions
+        $HOME/.local/share/zsh-completions/src
+        $HOME/.zfunctions
     )
     for p in $paths; do
         if [[ -d "$p" ]]; then
             fpath=($p $fpath)
-            break
         fi
     done
 }
 
-zsh-completions
+set-fpath
+
+#
+# Completion
+#
 
 autoload -Uz compinit && compinit -i
 
@@ -190,8 +192,6 @@ zsh-history-substring-search
 # Prompt
 #
 
-setopt PROMPT_SUBST
-
 function _set-prompt-symbol {
     local -r burger=$(print -n "\xF0\x9F\x8D\x94")
     local -r coffee=$(print -n "\xE2\x98\x95")
@@ -235,7 +235,15 @@ function set-prompt {
     PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$_prompt_symbol '
 }
 
-set-prompt
+autoload -Uz promptinit && promptinit
+
+# Use pure prompt if available
+if (( $+functions[prompt_pure_setup] )); then
+    prompt pure
+else
+    setopt PROMPT_SUBST
+    set-prompt
+fi
 
 #
 # SSH
@@ -373,7 +381,7 @@ setopt CORRECT
 [[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
 # Clean up functions
-unfunction zsh-completions \
-           zsh-syntax-highlighting \
+unfunction zsh-syntax-highlighting \
            zsh-history-substring-search \
+           set-fpath \
            set-prompt
