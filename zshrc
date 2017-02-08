@@ -373,6 +373,7 @@ function init-history-substring-search {
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
             # Case-sensitive search
             HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
+            break
         fi
     done
 }
