@@ -22,8 +22,11 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 #
 # Functions
 #
+
 function set-fpath {
-    local -r paths=(
+    # Cannot be written as local -r paths=(...) as it doesn't work in zsh 5.0
+    local paths
+    paths=(
         /usr/local/share/zsh-completions
         $HOME/.local/share/zsh-completions/src
         $HOME/.zfunctions
