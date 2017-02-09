@@ -206,30 +206,20 @@ fi
 # SSH
 #
 
-# Set the path to the environment file if not set by another module.
-_ssh_agent_env="${_ssh_agent_env:-${TMPDIR:-/tmp}/ssh-agent.env}"
-
-# Set the path to the persistent authentication socket.
-_ssh_agent_sock="${TMPDIR:-/tmp}/ssh-agent.sock"
-
-# Start ssh-agent if not started.
 if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
-  # Export environment variables.
-  source "$_ssh_agent_env" 2> /dev/null
+    # Set the path to the environment file if not set by another module.
+    _ssh_agent_env="${_ssh_agent_env:-${TMPDIR:-/tmp}/ssh-agent.env}"
 
-  # Start ssh-agent if not started.
-  if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
-    eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
-  fi
+    # Export environment variables.
+    source "$_ssh_agent_env" 2> /dev/null
+
+    # Start ssh-agent if not started.
+    if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
+        eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
+    fi
+
+    unset _ssh_agent_env
 fi
-
-# Create a persistent SSH authentication socket.
-if [[ "$OSTYPE" != darwin* && -S "$SSH_AUTH_SOCK" && "$SSH_AUTH_SOCK" != "$_ssh_agent_sock" ]]; then
-  ln -sf "$SSH_AUTH_SOCK" "$_ssh_agent_sock"
-  export SSH_AUTH_SOCK="$_ssh_agent_sock"
-fi
-
-unset _ssh_agent_{env,sock}
 
 #
 # Terminal
