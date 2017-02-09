@@ -368,8 +368,12 @@ function init-history-substring-search {
     for p in $paths; do
         if [[ -s "$p" ]]; then
             source "$p"
+            # Bind C-P/C-N in Emacs mode
             bindkey -M emacs "\C-P" history-substring-search-up
             bindkey -M emacs "\C-N" history-substring-search-down
+            # Bind arrow keys in all modes
+            bindkey '^[[A' history-substring-search-up
+            bindkey '^[[B' history-substring-search-down
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
             # Case-sensitive search
