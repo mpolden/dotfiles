@@ -50,7 +50,7 @@ if (( $+commands[emacsclient] )); then
 elif (( $+commands[emacs] )); then
     export EDITOR="emacs"
 elif (( $+commands[mg] )); then
-    export EDITOR="mg"
+    export EDITOR="mg -n"
 elif (( $+commands[vim] )); then
     export EDITOR="vim"
 fi
