@@ -28,7 +28,6 @@ function set-fpath {
     local paths
     paths=(
         /usr/local/share/zsh-completions
-        $HOME/.local/share/zsh-completions/src
         $HOME/.zpackages/zsh-completions/src
         $HOME/.zfunctions
     )
@@ -339,7 +338,6 @@ function init-syntax-highlighting {
     local paths
     paths=(
         /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         $HOME/.zpackages/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     )
     for p in $paths; do
@@ -358,7 +356,6 @@ function init-history-substring-search {
     local paths
     paths=(
         /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
-        $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
         $HOME/.zpackages/zsh-history-substring-search/zsh-history-substring-search.zsh
     )
     for p in $paths; do
