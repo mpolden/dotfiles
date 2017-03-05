@@ -16,7 +16,6 @@ alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
 alias-if-in-path autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'
-alias-if-in-path v='vagrant ssh'
 alias-if-in-path mg='mg -n'
 
 # Disable globbing for certain commands
@@ -27,8 +26,6 @@ alias-if-in-path http='noglob http'
 alias git-root='cd $(git rev-parse --show-toplevel)'
 alias week='date +%V'
 alias zrehash='source ~/.zshrc'
-# Make sudo respect aliases
-alias sudo='sudo '
 
 # Alias ls
 _ls_opts='--group-directories-first --color=auto'
