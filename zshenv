@@ -69,7 +69,7 @@ fi
 if [[ -d "${HOME}/go" ]]; then
     export GOPATH="${HOME}/go"
     path-prepend "${GOPATH}/bin"
-    cdpath-append "${GOPATH}/src/github.com/martinp"
+    cdpath-append "${GOPATH}/src/github.com/mpolden"
 fi
 
 # JAVA_HOME

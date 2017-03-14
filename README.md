@@ -1,7 +1,7 @@
 # dotfiles
 
 This is my personal collection of dotfiles for various shells and tools. My
-Emacs settings are available [here](https://github.com/martinp/emacs.d).
+Emacs settings are available [here](https://github.com/mpolden/emacs.d).
 
 ## Usage
 
