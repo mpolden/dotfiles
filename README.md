@@ -7,7 +7,7 @@ Emacs settings are available [here](https://github.com/mpolden/emacs.d).
 
 Clone the repository:
 
-    $ git clone git@github.com:martinp/dotfiles.git
+    $ git clone git@github.com:mpolden/dotfiles.git
 
 Create symlinks. This will overwrite existing files:
 
