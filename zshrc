@@ -197,8 +197,10 @@ function set-prompt {
 
 autoload -Uz promptinit && promptinit
 
-# Use pure prompt if available
-if (( $+functions[prompt_pure_setup] )); then
+if [[ "$TERM" == "dumb" ]]; then
+    prompt off
+    unsetopt ZLE
+elif (( $+functions[prompt_pure_setup] )); then
     prompt pure
 else
     setopt PROMPT_SUBST
@@ -296,8 +298,8 @@ function _terminal-set-titles-with-path {
     set-tab-title "$truncated_path"
 }
 
-# Do not modify titles when inside tmux
-if [[ -z "$TMUX" ]]; then
+# Only set titles for regular terminals
+if [[ -z "$TMUX" && "$TERM" != "dumb" ]]; then
     autoload -Uz add-zsh-hook
 
     # Sets the tab and window titles before the prompt is displayed.
