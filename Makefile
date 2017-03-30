@@ -9,7 +9,6 @@ symlinks = ansible.cfg \
 		   gitignore \
 		   lftprc \
 		   tmux.conf \
-		   zlogin \
 		   zsh_aliases \
 		   zshenv \
 		   zshrc
