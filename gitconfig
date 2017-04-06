@@ -12,7 +12,6 @@
 	s = status --short --branch
 	co = checkout
 	b = branch
-	d = diff
 	prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 [push]
 	default = simple
