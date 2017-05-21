@@ -367,8 +367,16 @@ function init-history-substring-search {
             bindkey -M emacs "\C-P" history-substring-search-up
             bindkey -M emacs "\C-N" history-substring-search-down
             # Bind arrow keys in all modes
-            bindkey '^[[A' history-substring-search-up
-            bindkey '^[[B' history-substring-search-down
+            case "$TERM" in
+                screen*)
+                    bindkey "^[OA" history-substring-search-up
+                    bindkey "^[OB" history-substring-search-down
+                    ;;
+                xterm*)
+                    bindkey "^[[A" history-substring-search-up
+                    bindkey "^[[B" history-substring-search-down
+                    ;;
+            esac
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
             HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
             # Case-sensitive search
