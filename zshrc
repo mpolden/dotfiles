@@ -64,6 +64,7 @@ if [[ $#compfiles > 0 ]]; then
 else
   compinit -i
 fi
+unset compfiles
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
