@@ -223,7 +223,7 @@ fi
 
 if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
     # Set the path to the environment file if not set by another module.
-    _ssh_agent_env="${_ssh_agent_env:-${TMPDIR:-/tmp}/ssh-agent.env}"
+    _ssh_agent_env="${_ssh_agent_env:-${TMPDIR:-/tmp}/ssh-agent.env.$UID}"
 
     # Export environment variables.
     source "$_ssh_agent_env" 2> /dev/null
