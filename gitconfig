@@ -27,5 +27,7 @@
 	lineNumber = true
 [log]
 	follow = true
+[diff]
+	indentHeuristic = true
 [include]
 	path = .gitconfig.local
