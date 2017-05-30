@@ -14,7 +14,12 @@ symlinks = ansible.cfg \
 		   zshenv \
 		   zshrc
 
-.PHONY: $(symlinks)
+repos = zsh-users/zsh-history-substring-search \
+		   zsh-users/zsh-syntax-highlighting \
+		   zsh-users/zsh-completions \
+		   sindresorhus/pure
+
+.PHONY: $(symlinks) $(zpackages)
 
 COLOR = \033[32;01m
 NO_COLOR = \033[0m
@@ -33,6 +38,9 @@ help:
 	@echo "Install additional zsh packages:"
 	@echo "   $(COLOR)make install-zpackages$(NO_COLOR)"
 	@echo
+	@echo "Install pure prompt:"
+	@echo "   $(COLOR)make install-pure$(NO_COLOR)"
+	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
@@ -45,24 +53,17 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-install-zpackages:
+install-zpackages: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
+
+install-pure: sindresorhus/pure
+	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/async.zsh $(HOME)/.zfunctions/async
+	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/pure.zsh $(HOME)/.zfunctions/prompt_pure_setup
+
+# Clone or update repositories
+$(repos):
 	mkdir -p $(HOME)/.zfunctions $(HOME)/.zpackages
-	test -d $(HOME)/.zpackages/zsh-history-substring-search || \
-git clone -q https://github.com/zsh-users/zsh-history-substring-search.git \
-$(HOME)/.zpackages/zsh-history-substring-search
-	test -d $(HOME)/.zpackages/zsh-completions || \
-git clone -q https://github.com/zsh-users/zsh-completions.git \
-$(HOME)/.zpackages/zsh-completions
-	test -d $(HOME)/.zpackages/zsh-syntax-highlighting || \
-git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git \
-$(HOME)/.zpackages/zsh-syntax-highlighting
-	test -d $(HOME)/.zpackages/pure || \
-git clone -q https://github.com/sindresorhus/pure.git \
-$(HOME)/.zpackages/pure
-	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/async.zsh \
-$(HOME)/.zfunctions/async
-	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/pure.zsh \
-$(HOME)/.zfunctions/prompt_pure_setup
+	test ! -d $(HOME)/.zpackages/$(notdir $@) || git -C $(HOME)/.zpackages/$(notdir $@) pull --rebase
+	test -d $(HOME)/.zpackages/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.zpackages/$(notdir $@)
 
 install-mac:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
