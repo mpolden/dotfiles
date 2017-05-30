@@ -1,6 +1,6 @@
 [user]
 	name = Martin Polden
-	email = martin.polden@gmail.com
+	email = mpolden@mpolden.no
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
