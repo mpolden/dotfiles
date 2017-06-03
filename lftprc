@@ -61,6 +61,7 @@ alias s "slot"
 # transferring
 alias m "mirror \
     --continue \
+    --ignore-time \
     --no-empty-dirs \
     --no-perms \
     --no-umask \
