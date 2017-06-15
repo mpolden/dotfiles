@@ -56,12 +56,13 @@ $(symlinks):
 install-zpackages: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
 
 install-pure: sindresorhus/pure
+	mkdir -p $(HOME)/.zfunctions
 	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/async.zsh $(HOME)/.zfunctions/async
 	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/pure.zsh $(HOME)/.zfunctions/prompt_pure_setup
 
 # Clone or update repositories
 $(repos):
-	mkdir -p $(HOME)/.zfunctions $(HOME)/.zpackages
+	mkdir -p $(HOME)/.zpackages
 	test ! -d $(HOME)/.zpackages/$(notdir $@) || git -C $(HOME)/.zpackages/$(notdir $@) pull --rebase
 	test -d $(HOME)/.zpackages/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.zpackages/$(notdir $@)
 
