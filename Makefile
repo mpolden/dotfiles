@@ -17,7 +17,8 @@ symlinks = ansible.cfg \
 repos = zsh-users/zsh-history-substring-search \
 		   zsh-users/zsh-syntax-highlighting \
 		   zsh-users/zsh-completions \
-		   sindresorhus/pure
+		   sindresorhus/pure \
+		   trapd00r/LS_COLORS
 
 .PHONY: $(symlinks) $(zpackages)
 
@@ -38,6 +39,9 @@ help:
 	@echo "Install additional zsh packages:"
 	@echo "   $(COLOR)make install-zpackages$(NO_COLOR)"
 	@echo
+	@echo "Install additional ls colors:"
+	@echo "   $(COLOR)make install-ls-colors$(NO_COLOR)"
+	@echo
 	@echo "Install pure prompt:"
 	@echo "   $(COLOR)make install-pure$(NO_COLOR)"
 	@echo
@@ -54,6 +58,8 @@ $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
 install-zpackages: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
+
+install-ls-colors: trapd00r/LS_COLORS
 
 install-pure: sindresorhus/pure
 	mkdir -p $(HOME)/.zfunctions
