@@ -4,7 +4,6 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
-	pager = (diff-so-fancy 2> /dev/null || cat) | less
 [color]
 	ui = auto
 [alias]
