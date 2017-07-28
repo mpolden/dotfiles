@@ -50,3 +50,6 @@ node_modules/
 \#*\#
 .\#*
 flycheck_*
+
+# Go
+/vendor/
