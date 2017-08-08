@@ -369,7 +369,7 @@ function init-syntax-highlighting {
 function init-history-substring-search {
     local paths
     paths=(
-        /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+        /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
         $HOME/.zpackages/zsh-history-substring-search/zsh-history-substring-search.zsh
     )
     for p in $paths; do
