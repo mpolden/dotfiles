@@ -20,7 +20,7 @@ repos = zsh-users/zsh-history-substring-search \
 		   sindresorhus/pure \
 		   trapd00r/LS_COLORS
 
-.PHONY: $(symlinks) $(zpackages)
+.PHONY: $(symlinks) $(repos)
 
 COLOR = \033[32;01m
 NO_COLOR = \033[0m
@@ -37,7 +37,7 @@ help:
 	@echo "   $(COLOR)make install-mac$(NO_COLOR)"
 	@echo
 	@echo "Install additional zsh packages:"
-	@echo "   $(COLOR)make install-zpackages$(NO_COLOR)"
+	@echo "   $(COLOR)make install-zsh-extras$(NO_COLOR)"
 	@echo
 	@echo "Install additional ls colors:"
 	@echo "   $(COLOR)make install-ls-colors$(NO_COLOR)"
@@ -57,20 +57,20 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-install-zpackages: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
+install-zsh-extras: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
 
 install-ls-colors: trapd00r/LS_COLORS
 
 install-pure: sindresorhus/pure
 	mkdir -p $(HOME)/.zfunctions
-	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/async.zsh $(HOME)/.zfunctions/async
-	ln $(LN_FLAGS) $(HOME)/.zpackages/pure/pure.zsh $(HOME)/.zfunctions/prompt_pure_setup
+	ln $(LN_FLAGS) $(HOME)/.local/share/pure/async.zsh $(HOME)/.zfunctions/async
+	ln $(LN_FLAGS) $(HOME)/.local/share/pure/pure.zsh $(HOME)/.zfunctions/prompt_pure_setup
 
 # Clone or update repositories
 $(repos):
-	mkdir -p $(HOME)/.zpackages
-	test ! -d $(HOME)/.zpackages/$(notdir $@) || git -C $(HOME)/.zpackages/$(notdir $@) pull --rebase
-	test -d $(HOME)/.zpackages/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.zpackages/$(notdir $@)
+	mkdir -p $(HOME)/.local/share
+	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
+	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
 
 install-mac:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs/iTerm2/$(HOSTNAME) $(HOME)/.iterm2

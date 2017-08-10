@@ -63,7 +63,7 @@ elif (( $+commands[dircolors] )); then
     dircolors="dircolors"
 fi
 if [[ -n "$dircolors" ]]; then
-    ls_colors="${HOME}/.zpackages/LS_COLORS/LS_COLORS"
+    ls_colors="${HOME}/.local/share/LS_COLORS/LS_COLORS"
     if [[ -f "$ls_colors" ]]; then
         eval "$($dircolors -b $ls_colors)"
     else
