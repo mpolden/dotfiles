@@ -33,8 +33,9 @@ help:
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
-	@echo "Create Mac-specific symlinks:"
-	@echo "   $(COLOR)make install-mac$(NO_COLOR)"
+	@echo "Configure Mac-specific symlinks:"
+	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
+	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
 	@echo
 	@echo "Install additional zsh packages:"
 	@echo "   $(COLOR)make install-zsh-extras$(NO_COLOR)"
@@ -72,8 +73,14 @@ $(repos):
 	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
 	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
 
-install-mac:
-	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
+mac-icloud:
+	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
+
+mac-org: mac-icloud
+	ln $(LN_FLAGS) $(HOME)/.icloud/org $(HOME)/org
+
+mac-iterm2: mac-icloud
+	ln $(LN_FLAGS) $(HOME)/.icloud/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
