@@ -62,6 +62,7 @@ alias s "slot"
 alias m "mirror \
     --continue \
     --ignore-time \
+    --skip-noaccess \
     --no-empty-dirs \
     --no-perms \
     --no-umask \
