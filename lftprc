@@ -13,9 +13,6 @@ set ftp:use-feat/127.0.0.1 false
 # disable epsv
 set ftp:prefer-epsv false
 
-# workaround for broken servers
-set ftp:ssl-copy-sid false
-
 # use stat when listing directories
 set ftp:use-stat-for-list true
 
