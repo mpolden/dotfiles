@@ -17,7 +17,6 @@ symlinks = ansible.cfg \
 repos = zsh-users/zsh-history-substring-search \
 		   zsh-users/zsh-syntax-highlighting \
 		   zsh-users/zsh-completions \
-		   trapd00r/LS_COLORS
 
 .PHONY: $(symlinks) $(repos)
 
@@ -40,9 +39,6 @@ help:
 	@echo "Install additional zsh packages:"
 	@echo "   $(COLOR)make install-zsh-extras$(NO_COLOR)"
 	@echo
-	@echo "Install additional ls colors:"
-	@echo "   $(COLOR)make install-ls-colors$(NO_COLOR)"
-	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
@@ -56,8 +52,6 @@ $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
 install-zsh-extras: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
-
-install-ls-colors: trapd00r/LS_COLORS
 
 # Clone or update repositories
 $(repos):
