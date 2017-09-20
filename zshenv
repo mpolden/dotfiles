@@ -56,21 +56,11 @@ elif (( $+commands[vim] )); then
 fi
 
 # Set LS_COLORS
-dircolors=""
 if (( $+commands[gdircolors] )); then
-    dircolors="gdircolors"
+    eval "$(gdircolors -b)"
 elif (( $+commands[dircolors] )); then
-    dircolors="dircolors"
+    eval "$(dircolors -b)"
 fi
-if [[ -n "$dircolors" ]]; then
-    ls_colors="${HOME}/.local/share/LS_COLORS/LS_COLORS"
-    if [[ -f "$ls_colors" ]]; then
-        eval "$($dircolors -b $ls_colors)"
-    else
-        eval "$($dircolors -b)"
-    fi
-fi
-unset dircolors ls_colors
 
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX=1
