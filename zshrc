@@ -29,7 +29,6 @@ function set-fpath {
     paths=(
         /usr/local/share/zsh-completions
         $HOME/.local/share/zsh-completions/src
-        $HOME/.zfunctions
     )
     for p in $paths; do
         if [[ -d "$p" ]]; then
@@ -212,8 +211,6 @@ autoload -Uz promptinit && promptinit
 if [[ "$TERM" == "dumb" ]]; then
     prompt off
     unsetopt ZLE
-elif (( $+functions[prompt_pure_setup] )); then
-    prompt pure
 else
     setopt PROMPT_SUBST
     set-prompt
