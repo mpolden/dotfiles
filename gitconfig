@@ -4,6 +4,16 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
+	# This pager removes leading +/- from unified diff output
+	# Matching:
+	# 1. Characters leading up to +/- (in case of colors)
+	# 2. Actual +/- prefix
+	# 3. A single character that's not +/- to avoid matching diff headline (---/+++)
+	# Substitution:
+	# 1. Put back control characters
+	# 2. Leave a space to preserve indentation
+	# 3. Put back repeated +/-
+	pager = sed -E \"s/^([^-+]*)[-+]([^-+])/\\1 \\2/\" | less
 [color]
 	ui = auto
 [alias]
