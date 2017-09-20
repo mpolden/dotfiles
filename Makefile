@@ -34,6 +34,7 @@ help:
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
 	@echo "Configure Mac-specific symlinks:"
+	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
 	@echo
@@ -75,6 +76,9 @@ $(repos):
 
 mac-icloud:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
+
+mac-idea: mac-icloud
+	ln $(LN_FLAGS) $(HOME)/.icloud/IdeaIC2017.2 "$(HOME)/Library/Application Support/IdeaIC2017.2"
 
 mac-org: mac-icloud
 	ln $(LN_FLAGS) $(HOME)/.icloud/org $(HOME)/org
