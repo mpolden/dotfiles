@@ -6,14 +6,13 @@
 	autocrlf = input
 	# This pager removes leading +/- from unified diff output
 	# Matching:
-	# 1. Color escape characters
+	# 1. Color escape characters, if any
 	# 2. Actual +/- prefix
-	# 3. A single character that's not +/- to avoid matching diff headline (---/+++)
 	# Substitution:
-	# 1. Put back escape characters
-	# 2. Leave a space to preserve indentation
-	# 3. Put back repeated +/-
-	pager = "perl -pe \"s/^(\\x1b\\[[\\d;]+m)?[-+]([^-+])/\\$1 \\$2/\" | less"
+	# 1. Put back escape characters, if any
+	# 2. Replace with a space with reversed color to preserve indentation
+	# and highlighting of empty lines
+	pager = "perl -pe \"s|^(\\e\\[\\d{2,}m)?[-+]|\\$1\\e[7m \\e[27m|\" | less"
 [color]
 	ui = auto
 [alias]
