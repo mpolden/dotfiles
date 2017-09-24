@@ -63,7 +63,7 @@ mac-icloud:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
 
 mac-idea: mac-icloud
-	ln $(LN_FLAGS) $(HOME)/.icloud/IdeaIC2017.2 "$(HOME)/Library/Application Support/IdeaIC2017.2"
+	ln $(LN_FLAGS) $(HOME)/.icloud/IdeaIC2017.2 "$(HOME)/Library/Preferences/IdeaIC2017.2"
 
 mac-org: mac-icloud
 	ln $(LN_FLAGS) $(HOME)/.icloud/org $(HOME)/org
