@@ -34,6 +34,7 @@ help:
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
 	@echo "Configure Mac-specific symlinks:"
+	@echo "   $(COLOR)make mac-icloud$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
