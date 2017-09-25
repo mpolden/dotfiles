@@ -1,10 +1,10 @@
 CURDIR ?= $(.CURDIR)
 
-HOSTNAME = $(shell hostname -s)
+HOSTNAME := $(shell hostname -s)
 
-LN_FLAGS = -sfn
+LN_FLAGS := -sfn
 
-symlinks = ansible.cfg \
+symlinks := ansible.cfg \
 		   gitconfig \
 		   gitignore \
 		   lftprc \
@@ -14,14 +14,14 @@ symlinks = ansible.cfg \
 		   zshenv \
 		   zshrc
 
-repos = zsh-users/zsh-history-substring-search \
+repos := zsh-users/zsh-history-substring-search \
 		   zsh-users/zsh-syntax-highlighting \
 		   zsh-users/zsh-completions \
 
 .PHONY: $(symlinks) $(repos)
 
-COLOR = \033[32;01m
-NO_COLOR = \033[0m
+COLOR := \033[32;01m
+NO_COLOR := \033[0m
 
 all: install
 
@@ -58,6 +58,8 @@ $(repos):
 	mkdir -p $(HOME)/.local/share
 	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
 	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
+
+# Mac
 
 mac-icloud:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
