@@ -34,6 +34,9 @@ help:
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
 	@echo "Configure Mac-specific symlinks:"
+	@echo "   $(COLOR)make mac-all$(NO_COLOR)"
+	@echo "   $(COLOR)make mac-alfred$(NO_COLOR)"
+	@echo "   $(COLOR)make mac-dash$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-icloud$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
@@ -66,6 +69,14 @@ else
 endif
 
 # Mac
+
+mac-all: mac-alfred mac-dash mac-icloud mac-idea mac-org mac-iterm2
+
+mac-alfred:
+	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "~/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
+
+mac-dash:
+	defaults write com.kapeli.dashdoc syncFolderPath "~/Library/Mobile Documents/com~apple~CloudDocs/Dash"
 
 mac-icloud:
 	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
