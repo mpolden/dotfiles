@@ -4,6 +4,8 @@ HOSTNAME := $(shell hostname -s)
 
 LN_FLAGS := -sfn
 
+BREW := $(shell command -v brew 2> /dev/null)
+
 symlinks := ansible.cfg \
 		   gitconfig \
 		   gitignore \
@@ -36,8 +38,8 @@ help:
 	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
 	@echo
-	@echo "Install additional zsh packages:"
-	@echo "   $(COLOR)make install-zsh-extras$(NO_COLOR)"
+	@echo "Install or upgrade zsh extras:"
+	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
@@ -51,13 +53,16 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-install-zsh-extras: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
+zsh-extras: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
 
-# Clone or update repositories
 $(repos):
+ifdef BREW
+	brew install $(notdir $@)
+else
 	mkdir -p $(HOME)/.local/share
 	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
 	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
+endif
 
 # Mac
 
