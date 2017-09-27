@@ -7,12 +7,12 @@
 	# This pager removes leading +/- from colored unified diff
 	# Matching:
 	# 1. Color escape characters
-	# 2. Actual +/- prefix
+	# 2. All leading + and - characters
 	# Substitution:
 	# 1. Put back escape characters
-	# 2. Replace with a space with reversed color to preserve indentation
+	# 2. Replace + and - with N spaces with reversed color, to preserve indentation
 	# and highlighting of empty lines
-	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)[-+]|\\$1\\e[7m \\e[27m|\" | less
+	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)([-+]+)|\\\"\\$1\\e[7m\\\" . (' ' x length(\\$2)) . \\\"\\e[27m\\\"|e\" | less
 [color]
 	ui = auto
 [alias]
