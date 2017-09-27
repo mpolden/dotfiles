@@ -12,7 +12,7 @@
 	# 1. Put back escape characters
 	# 2. Replace + and - with N spaces with reversed color, to preserve indentation
 	# and highlighting of empty lines
-	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)([-+]+)|\\\"\\$1\\e[7m\\\" . (' ' x length(\\$2)) . \\\"\\e[27m\\\"|e\" | less
+	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)(\\s*[-+]+)|\\\"\\$1\\e[7m\\\" . (' ' x length(\\$2)) . \\\"\\e[27m\\\"|e\" | less
 [color]
 	ui = auto
 [alias]
