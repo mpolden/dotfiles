@@ -319,6 +319,19 @@ if [[ -z "$TMUX" && "$TERM" != "dumb" && -z "$INSIDE_EMACS" ]]; then
 fi
 
 #
+# Emacs
+#
+
+# Tell Emacs about the current directory
+if [[ -n "$INSIDE_EMACS" ]]; then
+    function chpwd {
+        print -P "\033AnSiTc %d"
+    }
+    print -P "\033AnSiTu %n"
+    print -P "\033AnSiTc %d"
+fi
+
+#
 # Misc
 #
 
