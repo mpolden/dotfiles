@@ -197,7 +197,7 @@ function set-prompt {
 
     # Display fancy symbol on darwin
     _prompt_symbol='$'
-    if [[ "$OSTYPE" == darwin* ]]; then
+    if [[ "$OSTYPE" == darwin* && "$TERM" != eterm* ]]; then
         zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
         add-zsh-hook precmd _set-prompt-symbol
     fi
@@ -308,7 +308,7 @@ function _terminal-set-titles-with-path {
 }
 
 # Only set titles for regular terminals
-if [[ -z "$TMUX" && "$TERM" != "dumb" ]]; then
+if [[ -z "$TMUX" && "$TERM" != "dumb" && "$TERM" != eterm* ]]; then
     autoload -Uz add-zsh-hook
 
     # Sets the tab and window titles before the prompt is displayed.
