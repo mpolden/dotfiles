@@ -139,11 +139,6 @@ if is-command mvn
     set -gx MAVEN_OPTS '-Djava.awt.headless=true'
 end
 
-# Chef Development Kit
-if is-command chef
-    eval (chef shell-init fish)
-end
-
 # Aliases
 alias git-root 'cd (git rev-parse --show-toplevel)'
 alias week 'date +%V'
