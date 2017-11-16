@@ -1,50 +1,50 @@
 # Helper functions
 function path-prepend
-    set -l p $argv[1]
-    if test -d $p
-        and not contains $p $PATH
-        set -gx PATH $p $PATH
-    end
+        set -l p $argv[1]
+        if test -d $p
+                and not contains $p $PATH
+                set -gx PATH $p $PATH
+        end
 end
 
 function cdpath-append
-    set -l p $argv[1]
-    if test -d $p
-        and not contains $p $CDPATH
-        set -gx CDPATH $CDPATH $p
-    end
+        set -l p $argv[1]
+        if test -d $p
+                and not contains $p $CDPATH
+                set -gx CDPATH $CDPATH $p
+        end
 end
 
 function is-command
-    command -s $argv[1] >/dev/null
+        command -s $argv[1] > /dev/null
 end
 
 function alias-if-in-path
-    set -l name $argv[1]
-    set -l values (string split ' ' $argv[2])
-    set -l cmd $values[1]
-    if [ $cmd = 'sudo' ]
-        set cmd $values[2]
-    end
-    if is-command $cmd
-        alias $name "$values"
-    end
+        set -l name $argv[1]
+        set -l values (string split ' ' $argv[2])
+        set -l cmd $values[1]
+        if [ $cmd = 'sudo' ]
+                set cmd $values[2]
+        end
+        if is-command $cmd
+                alias $name "$values"
+        end
 end
 
 function ls-command
-    set -l ls_opts '--group-directories-first --color=auto'
-    switch (uname)
-        case Darwin FreeBSD
-            if is-command gls
-                echo "gls $ls_opts"
-            else if is-command gnuls
-                echo "gnuls $ls_opts"
-            else
-                echo 'ls -G'
-            end
-        case '*'
-            echo "ls $ls_opts"
-    end
+        set -l ls_opts '--group-directories-first --color=auto'
+        switch (uname)
+                case Darwin FreeBSD
+                        if is-command gls
+                                echo "gls $ls_opts"
+                        else if is-command gnuls
+                                echo "gnuls $ls_opts"
+                        else
+                                echo 'ls -G'
+                        end
+                case '*'
+                        echo "ls $ls_opts"
+        end
 end
 
 # Remove greeting
@@ -60,13 +60,13 @@ set -g fish_prompt_pwd_dir_length 0
 
 # Set locale on Darwin
 if [ (uname) = 'Darwin' ]
-    set -gx LANG 'en_US.UTF-8'
-    set -gx LC_CTYPE 'en_US.UTF-8'
+        set -gx LANG 'en_US.UTF-8'
+        set -gx LC_CTYPE 'en_US.UTF-8'
 end
 
 # Set terminal inside tmux
 if set -q TMUX
-    set -gx TERM 'screen-256color'
+        set -gx TERM 'screen-256color'
 end
 
 # Set PATH
@@ -82,15 +82,15 @@ cdpath-append $HOME/p
 
 # Configure less
 if is-command lesspipe
-    set -l lesspipe (command -s lesspipe)
-    set -gx LESSOPEN "|$lesspipe %s"
+        set -l lesspipe (command -s lesspipe)
+        set -gx LESSOPEN "|$lesspipe %s"
 else if is-command lesspipe.sh
-    set -l lesspipe (command -s lesspipe.sh)
-    set -gx LESSOPEN "|$lesspipe %s"
+        set -l lesspipe (command -s lesspipe.sh)
+        set -gx LESSOPEN "|$lesspipe %s"
 end
 
 if is-command less
-    set -gx LESS '-Ri'
+        set -gx LESS '-Ri'
 end
 
 # Add colors to man pages
@@ -104,39 +104,39 @@ set -gx LESS_TERMCAP_us (printf "\e[01;32m")
 
 # Set EDITOR to emacs or vim
 if is-command emacsclient
-    set -gx EDITOR 'emacsclient -q'
+        set -gx EDITOR 'emacsclient -q'
 else if is-command emacs
-    set -gx EDITOR 'emacs'
+        set -gx EDITOR 'emacs'
 else if is-command mg
-    set -gx EDITOR 'mg'
+        set -gx EDITOR 'mg'
 else if is-command vim
-    set -gx EDITOR 'vim'
+        set -gx EDITOR 'vim'
 end
 
 # Remove mosh prefix from terminal title
 if is-command mosh
-    set -gx MOSH_TITLE_NOPREFIX '1'
+        set -gx MOSH_TITLE_NOPREFIX '1'
 end
 
 # GOPATH
 if test -d $HOME/go
-    set -gx GOPATH $HOME/go
-    path-prepend $GOPATH/bin
-    cdpath-append $GOPATH/src/github.com/martinp
+        set -gx GOPATH $HOME/go
+        path-prepend $GOPATH/bin
+        cdpath-append $GOPATH/src/github.com/martinp
 end
 
 # JAVA_HOME
 if test -x /usr/libexec/java_home
-    set java_home (/usr/libexec/java_home 2> /dev/null)
-    if test -n $java_home
-        set -gx JAVA_HOME $java_home
-    end
+        set java_home (/usr/libexec/java_home 2> /dev/null)
+        if test -n $java_home
+                set -gx JAVA_HOME $java_home
+        end
 end
 
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
 if is-command mvn
-    set -gx MAVEN_OPTS '-Djava.awt.headless=true'
+        set -gx MAVEN_OPTS '-Djava.awt.headless=true'
 end
 
 # Aliases
@@ -152,14 +152,13 @@ alias-if-in-path v 'vagrant ssh'
 alias-if-in-path mg 'mg -n'
 
 # Start or attach to tmux
-if status ‐‐is‐login > /dev/null
-    and is-command tmux
-    and set -q SSH_TTY
-    and not set -q TMUX
-    and not set -q EMACS
-    and [ $TERM != 'dumb' ]
-    tmux attach -d
-    or tmux
+if status is-login
+        and is-command tmux
+        and set -q SSH_TTY
+        and not set -q TMUX
+        and not set -q EMACS
+        and [ $TERM != 'dumb' ]
+        tmux attach -d or tmux
 end
 
 # Clean up helper functions
