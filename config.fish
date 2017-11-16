@@ -124,7 +124,7 @@ end
 if test -d $HOME/go
         set -gx GOPATH $HOME/go
         path-prepend $GOPATH/bin
-        cdpath-append $GOPATH/src/github.com/martinp
+        cdpath-append $GOPATH/src/github.com/mpolden
 end
 
 # JAVA_HOME
