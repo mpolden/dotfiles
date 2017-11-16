@@ -1,7 +1,7 @@
 # Helper functions
 function path-prepend
         set -l p $argv[1]
-        if test -d $p
+        if [ -d $p ]
                 and not contains $p $PATH
                 set -gx PATH $p $PATH
         end
@@ -9,7 +9,7 @@ end
 
 function cdpath-append
         set -l p $argv[1]
-        if test -d $p
+        if [ -d $p ]
                 and not contains $p $CDPATH
                 set -gx CDPATH $CDPATH $p
         end
@@ -121,16 +121,16 @@ if is-command mosh
 end
 
 # GOPATH
-if test -d $HOME/go
+if [ -d $HOME/go ]
         set -gx GOPATH $HOME/go
         path-prepend $GOPATH/bin
         cdpath-append $GOPATH/src/github.com/mpolden
 end
 
 # JAVA_HOME
-if test -x /usr/libexec/java_home
+if [ -x /usr/libexec/java_home ]
         set java_home (/usr/libexec/java_home 2> /dev/null)
-        if test -n $java_home
+        if [ -n $java_home ]
                 set -gx JAVA_HOME $java_home
         end
 end
@@ -150,7 +150,6 @@ alias-if-in-path aptup 'sudo apt update; and sudo apt upgrade'
 alias-if-in-path autossh 'autossh -M 0 -o "ServerAliveInterval 10"'
 alias-if-in-path diff 'colordiff'
 alias-if-in-path ec 'emacsclient -nq'
-alias-if-in-path v 'vagrant ssh'
 alias-if-in-path mg 'mg -n'
 
 # Start or attach to tmux
