@@ -93,6 +93,7 @@ mac-iterm2: mac-icloud
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
 fish:
+	mkdir -p ~/.config/fish/functions
 	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
 	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
