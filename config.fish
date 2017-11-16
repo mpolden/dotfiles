@@ -127,7 +127,10 @@ end
 
 # JAVA_HOME
 if test -x /usr/libexec/java_home
-    set -gx JAVA_HOME (/usr/libexec/java_home)
+    set java_home (/usr/libexec/java_home 2> /dev/null)
+    if test -n $java_home
+        set -gx JAVA_HOME $java_home
+    end
 end
 
 # MAVEN_OPTS
