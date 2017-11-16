@@ -153,7 +153,7 @@ alias-if-in-path ec 'emacsclient -nq'
 alias-if-in-path mg 'mg -n'
 
 # Start or attach to tmux
-if status is-login
+if status is-login > /dev/null
         and is-command tmux
         and set -q SSH_TTY
         and not set -q TMUX
