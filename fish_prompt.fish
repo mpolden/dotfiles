@@ -21,7 +21,6 @@ function fish_prompt --description 'Write out the prompt'
                 set -l coffee (echo -ne '\xE2\x98\x95')
                 set -l beer (echo -ne '\xF0\x9F\x8D\xBA')
                 set -l hour (date +%-k)
-                set -l seconds (date +%-S)
                 if [ $hour -ge 8 -a $hour -lt 16 ]
                         set __prompt_symbol "$coffee "
                 else if [ $hour -ge 16 -a $hour -lt 19 ]
