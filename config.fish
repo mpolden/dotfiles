@@ -162,6 +162,11 @@ if status is-login > /dev/null
         tmux attach -d or tmux
 end
 
+# Local configuration
+if [ -s $HOME/.config/fish/local.fish ]
+        source $HOME/.config/fish/local.fish
+end
+
 # Clean up helper functions
 functions -e path-prepend
 functions -e cdpath-append
