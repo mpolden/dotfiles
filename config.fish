@@ -56,6 +56,8 @@ set -g fish_color_user green
 set -g fish_color_host green
 set -g fish_color_at green
 set -g fish_color_cwd blue
+set -g fish_color_command green
+set -g fish_color_param grey
 set -g fish_prompt_pwd_dir_length 0
 
 # Set locale on Darwin
