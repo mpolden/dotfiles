@@ -154,21 +154,6 @@ alias-if-in-path diff 'colordiff'
 alias-if-in-path ec 'emacsclient -nq'
 alias-if-in-path mg 'mg -n'
 
-# Start or attach to tmux
-if set -q fish_startup_command
-        eval $fish_startup_command
-        set -e fish_startup_command
-end
-
-if status is-login > /dev/null
-        and is-command tmux
-        and set -q SSH_TTY
-        and not set -q TMUX
-        and not set -q EMACS
-        and [ $TERM != 'dumb' ]
-        set -x fish_startup_command 'tmux new-session -A -D -s 0'
-end
-
 # Local configuration
 if [ -s $HOME/.config/fish/local.fish ]
         source $HOME/.config/fish/local.fish
