@@ -74,8 +74,8 @@ end
 # Set PATH
 path-prepend /usr/local/sbin
 path-prepend /usr/local/bin
-path-prepend "$HOME/Library/Python/3.6/bin"
-path-prepend "$HOME/Library/Python/2.7/bin"
+path-prepend $HOME/Library/Python/3.6/bin
+path-prepend $HOME/Library/Python/2.7/bin
 path-prepend /usr/local/go/bin
 path-prepend $HOME/.local/bin
 
@@ -170,8 +170,4 @@ if [ -s $HOME/.config/fish/local.fish ]
 end
 
 # Clean up helper functions
-functions -e path-prepend
-functions -e cdpath-append
-functions -e is-command
-functions -e alias-if-in-path
-functions -e ls-command
+functions -e path-prepend cdpath-append is-command alias-if-in-path ls-command
