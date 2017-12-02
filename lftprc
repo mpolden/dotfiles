@@ -28,6 +28,9 @@ set ftp:use-mdtm false
 # never use mlsd
 set ftp:use-mlsd false
 
+# do not bind data socket
+set ftp:bind-data-socket false
+
 # misc
 set cmd:remote-completion true
 set bmk:save-passwords true
