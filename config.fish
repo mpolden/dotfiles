@@ -35,7 +35,9 @@ function ls-command
         set -l ls_opts '--group-directories-first --color=auto'
         switch (uname)
                 case Darwin FreeBSD
-                        if is-command gls
+                        if is-command exa
+                                echo "exa $ls_opts"
+                        else if is-command gls
                                 echo "gls $ls_opts"
                         else if is-command gnuls
                                 echo "gnuls $ls_opts"
