@@ -98,13 +98,13 @@ if is-command less
 end
 
 # Add colors to man pages
-set -gx LESS_TERMCAP_mb (printf "\e[01;31m")
-set -gx LESS_TERMCAP_md (printf "\e[01;31m")
-set -gx LESS_TERMCAP_me (printf "\e[0m")
-set -gx LESS_TERMCAP_se (printf "\e[0m")
-set -gx LESS_TERMCAP_so (printf "\e[00;47;30m")
-set -gx LESS_TERMCAP_ue (printf "\e[0m")
-set -gx LESS_TERMCAP_us (printf "\e[01;32m")
+set -gx LESS_TERMCAP_mb (printf '\e[01;31m')
+set -gx LESS_TERMCAP_md (printf '\e[01;31m')
+set -gx LESS_TERMCAP_me (printf '\e[0m')
+set -gx LESS_TERMCAP_se (printf '\e[0m')
+set -gx LESS_TERMCAP_so (printf '\e[00;47;30m')
+set -gx LESS_TERMCAP_ue (printf '\e[0m')
+set -gx LESS_TERMCAP_us (printf '\e[01;32m')
 
 # Set EDITOR to emacs or vim
 if is-command emacsclient
