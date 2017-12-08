@@ -49,6 +49,14 @@ function ls-command
         end
 end
 
+function ll-command
+        if is-command exa
+               printf '%s -l\n' (ls-command)
+        else
+               printf '%s -lh\n' (ls-command)
+        end
+end
+
 # Remove greeting
 set fish_greeting
 
@@ -150,6 +158,7 @@ end
 alias git-root 'cd (git rev-parse --show-toplevel)'
 alias week 'date +%V'
 alias ls (ls-command)
+alias ll (ll-command)
 alias-if-in-path grep 'grep --color=auto'
 alias-if-in-path aptup 'sudo apt update; and sudo apt upgrade'
 alias-if-in-path autossh 'autossh -M 0 -o "ServerAliveInterval 10"'
@@ -163,4 +172,5 @@ if [ -s $HOME/.config/fish/local.fish ]
 end
 
 # Clean up helper functions
-functions -e path-prepend cdpath-append is-command alias-if-in-path ls-command
+functions -e path-prepend cdpath-append is-command alias-if-in-path ls-command \
+             ll-command
