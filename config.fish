@@ -166,6 +166,11 @@ alias-if-in-path diff 'colordiff'
 alias-if-in-path ec 'emacsclient -nq'
 alias-if-in-path mg 'mg -n'
 
+# Print message if reboot is required
+if [ -f /var/run/reboot-required ]
+        echo 'reboot required'
+end
+
 # Local configuration
 if [ -s $HOME/.config/fish/local.fish ]
         source $HOME/.config/fish/local.fish
