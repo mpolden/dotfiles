@@ -16,7 +16,7 @@ function fish_prompt --description 'Write out the prompt'
 
         # Display fancy symbol on darwin
         set __prompt_symbol '$'
-        if [ (uname) = 'Darwin' ]
+        if [ -z "$EMACS" -a (uname) = 'Darwin' ]
                 set -l burger (echo -ne '\xF0\x9F\x8D\x94')
                 set -l coffee (echo -ne '\xE2\x98\x95')
                 set -l beer (echo -ne '\xF0\x9F\x8D\xBA')
