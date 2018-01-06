@@ -167,7 +167,9 @@ alias-if-in-path ec 'emacsclient -nq'
 alias-if-in-path mg 'mg -n'
 
 # Print message if reboot is required
-if [ -f /var/run/reboot-required ]
+if status is-interactive > /dev/null
+        and [ -n "$TERM" ]
+        and [ -f /var/run/reboot-required ]
         echo 'reboot required'
 end
 
