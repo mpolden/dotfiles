@@ -3,8 +3,8 @@
 #
 
 HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"       # The path to the history file.
-HISTSIZE=50000                   # The maximum number of events to save in the internal history.
-SAVEHIST=50000                   # The maximum number of events to save in the history file.
+HISTSIZE=100000                  # The maximum number of events to save in the internal history.
+SAVEHIST=100000                  # The maximum number of events to save in the history file.
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
