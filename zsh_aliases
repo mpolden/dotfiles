@@ -31,16 +31,23 @@ alias zrehash='source ~/.zshrc'
 _ls_opts='--group-directories-first --color=auto'
 case "$OSTYPE" in
     darwin*|freebsd*)
-        if (( $+commands[gls] )); then
+        if (( $+commands[exa] )); then
+            alias ls="exa ${_ls_opts}"
+            alias ll="exa ${_ls_opts} -l"
+        elif (( $+commands[gls] )); then
             alias ls="gls ${_ls_opts}"
+            alias ll="gls ${_ls_opts} -lh"
         elif (( $+commands[gnuls] )); then
             alias ls="gnuls ${_ls_opts}"
+            alias ll="gnuls ${_ls_opts} -lh"
         else
             alias ls='ls -G'
+            alias ll='ls -Glh'
         fi
         ;;
     *)
         alias ls="ls ${_ls_opts}"
+        alias ll="ls ${_ls_opts} -lh"
 esac
 unset _ls_opts
 
