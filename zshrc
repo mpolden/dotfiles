@@ -23,21 +23,16 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 # Functions
 #
 
-function set-fpath {
-    # Cannot be written as local -r paths=(...) as it doesn't work in zsh 5.0
-    local paths
-    paths=(
-        /usr/local/share/zsh-completions
-        $HOME/.local/share/zsh-completions/src
-    )
-    for p in $paths; do
+function prepend-fpath {
+    for p in $@; do
         if [[ -d "$p" ]]; then
             fpath=($p $fpath)
         fi
     done
 }
 
-set-fpath
+prepend-fpath /usr/local/share/zsh-completions \
+              $HOME/.local/share/zsh-completions/src
 
 #
 # Completion
@@ -365,12 +360,7 @@ setopt CORRECT
 #
 
 function init-syntax-highlighting {
-    local paths
-    paths=(
-        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    )
-    for p in $paths; do
+    for p in $@; do
         if [[ -s "$p" ]]; then
             source "$p"
             ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
@@ -383,12 +373,7 @@ function init-syntax-highlighting {
 }
 
 function init-history-substring-search {
-    local paths
-    paths=(
-        /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-        $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-    )
-    for p in $paths; do
+    for p in $@; do
         if [[ -s "$p" ]]; then
             source "$p"
             # Bind C-P/C-N in Emacs mode
@@ -416,14 +401,16 @@ function init-history-substring-search {
 
 # zsh-syntax-highlighting should be initialized as late as possible because it
 # wraps ZLE widgets.
-init-syntax-highlighting
+init-syntax-highlighting /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+                         $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # When using both zsh-history-substring-search and zsh-syntax-highlighting, the
 # former should be initialized last.
-init-history-substring-search
+init-history-substring-search /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh \
+                              $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Clean up functions
 unfunction init-syntax-highlighting \
            init-history-substring-search \
-           set-fpath \
+           prepend-fpath \
            set-prompt
