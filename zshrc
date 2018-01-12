@@ -23,16 +23,11 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 # Functions
 #
 
-function prepend-fpath {
-    for p in $@; do
-        if [[ -d "$p" ]]; then
-            fpath=($p $fpath)
-        fi
-    done
+function fpath-prepend {
+    [[ -d "$1" ]] && fpath=($1 $fpath)
 }
-
-prepend-fpath /usr/local/share/zsh-completions \
-              $HOME/.local/share/zsh-completions/src
+fpath-prepend "/usr/local/share/zsh-completions"
+fpath-prepend "$HOME/.local/share/zsh-completions/src"
 
 #
 # Completion
@@ -401,16 +396,19 @@ function init-history-substring-search {
 
 # zsh-syntax-highlighting should be initialized as late as possible because it
 # wraps ZLE widgets.
-init-syntax-highlighting /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-                         $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+init-syntax-highlighting "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+                         "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # When using both zsh-history-substring-search and zsh-syntax-highlighting, the
 # former should be initialized last.
-init-history-substring-search /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh \
-                              $HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+init-history-substring-search "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" \
+                              "$HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# Ensure fpath does not contain duplicates
+typeset -gU fpath
 
 # Clean up functions
 unfunction init-syntax-highlighting \
            init-history-substring-search \
-           prepend-fpath \
+           fpath-prepend \
            set-prompt
