@@ -27,13 +27,6 @@ function cdpath-append {
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
 
-# Set LESSOPEN
-if (( $+commands[lesspipe] )); then
-    eval "$(lesspipe)"
-elif (( $+commands[lesspipe.sh] )); then
-    eval "$(lesspipe.sh)"
-fi
-
 # less flags
 (( $+commands[less] )) && export LESS="-Ri"
 
