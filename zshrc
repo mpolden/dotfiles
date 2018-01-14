@@ -158,11 +158,11 @@ function _set-prompt-symbol {
     local -r beer=$(print -n "\xF0\x9F\x8D\xBA")
     local -r hour=$(strftime %-k $EPOCHSECONDS)
     if (( $hour >= 8 && $hour < 16 )); then
-        _prompt_symbol="$coffee%{ %}"
+        _prompt_symbol="$coffee "
     elif (( $hour >= 16 && $hour < 19 )); then
-        _prompt_symbol="$burger%{ %}"
+        _prompt_symbol="$burger "
     else
-        _prompt_symbol="$beer%{ %}"
+        _prompt_symbol="$beer "
     fi
 }
 
