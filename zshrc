@@ -344,7 +344,7 @@ setopt CORRECT
 export WORDCHARS=${WORDCHARS/\/}
 
 # Print message if reboot is required
-[[ -f "/var/run/reboot-required" ]] && print "reboot required"
+[[ -o interactive && -f "/var/run/reboot-required" ]] && print "reboot required"
 
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
