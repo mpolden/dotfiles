@@ -340,6 +340,9 @@ setopt INTERACTIVE_COMMENTS
 # Correct commands
 setopt CORRECT
 
+# Make forward-word, backward-word etc. stop at path delimiter
+export WORDCHARS=${WORDCHARS/\/}
+
 # Print message if reboot is required
 [[ -f "/var/run/reboot-required" ]] && print "reboot required"
 
