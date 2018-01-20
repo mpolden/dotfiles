@@ -49,7 +49,6 @@ alias .. "cd .."
 # directory listing
 alias ll "cls \
     --long \
-    --dirsfirst \
     --human-readable \
     --sort=date"
 alias l "set color:use-color true && ll | less -R && set color:use-color auto"
