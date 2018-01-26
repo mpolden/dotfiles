@@ -15,6 +15,10 @@
 	# 3. Replace any matched +/- with the same number of spaces in reversed
 	# color, to preserve indentation and highlighting of empty lines
 	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)(\\s*)([-+]+)|\\\"\\$1\\$2\\e[7m\\\" . (' ' x length(\\$3)) . \\\"\\e[27m\\\"|e\" | less
+[pager]
+	# Disable pager for branch and tag. This restores < 2.15.0 behaviour
+	branch = cat
+	tag = cat
 [color]
 	ui = auto
 [alias]
