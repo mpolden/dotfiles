@@ -1,10 +1,8 @@
 CURDIR ?= $(.CURDIR)
-
 HOSTNAME := $(shell hostname -s)
-
 LN_FLAGS := -sfn
-
 BREW := $(shell command -v brew 2> /dev/null)
+SYNC_PATH := $(HOME)/Sync
 
 symlinks := ansible.cfg \
 		   gitconfig \
@@ -37,7 +35,6 @@ help:
 	@echo "   $(COLOR)make mac-all$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-alfred$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-dash$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-icloud$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
@@ -70,25 +67,22 @@ endif
 
 # Mac
 
-mac-all: mac-alfred mac-dash mac-icloud mac-idea mac-org mac-iterm2
+mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
 
 mac-alfred:
-	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "~/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
+	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "$(SYNC_PATH)/Alfred"
 
 mac-dash:
-	defaults write com.kapeli.dashdoc syncFolderPath "~/Library/Mobile Documents/com~apple~CloudDocs/Dash"
+	defaults write com.kapeli.dashdoc syncFolderPath "$(SYNC_PATH)/Dash"
 
-mac-icloud:
-	ln $(LN_FLAGS) $(HOME)/Library/Mobile\ Documents/com~apple~CloudDocs $(HOME)/.icloud
-
-mac-idea: mac-icloud
-	ln $(LN_FLAGS) $(HOME)/.icloud/IdeaIC2017.3 "$(HOME)/Library/Preferences/IdeaIC2017.3"
+mac-idea:
+	ln $(LN_FLAGS) $(SYNC_PATH)/IdeaIC2017.3 "$(HOME)/Library/Preferences/IdeaIC2017.3"
 
 mac-org:
-	ln $(LN_FLAGS) $(HOME)/Sync/org $(HOME)/org
+	ln $(LN_FLAGS) $(SYNC_PATH)/org $(HOME)/org
 
-mac-iterm2: mac-icloud
-	ln $(LN_FLAGS) $(HOME)/.icloud/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
+mac-iterm2:
+	ln $(LN_FLAGS) $(SYNC_PATH)/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
 	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
