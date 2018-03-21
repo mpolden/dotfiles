@@ -82,8 +82,7 @@ mac-org:
 	ln $(LN_FLAGS) $(SYNC_PATH)/org $(HOME)/org
 
 mac-iterm2:
-	ln $(LN_FLAGS) $(SYNC_PATH)/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
-	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(HOME)/.iterm2"
+	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(SYNC_PATH)/iTerm2/$(HOSTNAME)"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
 # Maintenance
