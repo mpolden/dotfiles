@@ -85,7 +85,7 @@ mac-idea: mac-icloud
 	ln $(LN_FLAGS) $(HOME)/.icloud/IdeaIC2017.3 "$(HOME)/Library/Preferences/IdeaIC2017.3"
 
 mac-org:
-	ln $(LN_FLAGS) /Volumes/webdav/org $(HOME)/org
+	ln $(LN_FLAGS) $(HOME)/Sync/org $(HOME)/org
 
 mac-iterm2: mac-icloud
 	ln $(LN_FLAGS) $(HOME)/.icloud/iTerm2/$(HOSTNAME) $(HOME)/.iterm2
