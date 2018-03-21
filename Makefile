@@ -1,4 +1,3 @@
-CURDIR ?= $(.CURDIR)
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
@@ -45,7 +44,7 @@ help:
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
-	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull --rebase"
+	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull"
 
 # Shell environment
 
