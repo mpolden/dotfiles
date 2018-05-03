@@ -44,5 +44,7 @@
 	follow = true
 [diff]
 	indentHeuristic = true
+[magithub]
+	enabled = false
 [include]
 	path = .gitconfig.local
