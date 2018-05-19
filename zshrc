@@ -168,13 +168,14 @@ function _set-prompt-symbol {
     local -r beer=$(print -n "\xF0\x9F\x8D\xBA")
     local -r hour=$(strftime %-k $EPOCHSECONDS)
     if (( $hour >= 8 && $hour < 16 )); then
-        # zsh may incorrectly determine the width of these characters. %1{...%}
-        # forces width to be 1
-        _prompt_symbol="%1{$coffee%} "
+        # zsh may incorrectly determine the width of these characters when
+        # redrawing the prompt. Force width to be 2 as these characters are
+        # double-width
+        _prompt_symbol="%2{$coffee%}"
     elif (( $hour >= 16 && $hour < 19 )); then
-        _prompt_symbol="%1{$burger%} "
+        _prompt_symbol="%2{$burger%}"
     else
-        _prompt_symbol="%1{$beer%} "
+        _prompt_symbol="%2{$beer%}"
     fi
 }
 
