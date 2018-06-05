@@ -320,15 +320,20 @@ function _terminal-set-titles-with-path {
 }
 
 # Only set titles for regular terminals
-if [[ -z "$TMUX" && "$TERM" != "dumb" && -z "$INSIDE_EMACS" ]]; then
-    autoload -Uz add-zsh-hook
+case "$TERM" in
+    dumb|eterm*|screen*)
+        # Ignore these terminals
+        ;;
+    *)
+        autoload -Uz add-zsh-hook
 
-    # Sets titles before the prompt is displayed.
-    add-zsh-hook precmd _terminal-set-titles-with-path
+        # Sets titles before the prompt is displayed.
+        add-zsh-hook precmd _terminal-set-titles-with-path
 
-    # Sets titles before command execution.
-    add-zsh-hook preexec _terminal-set-titles-with-command
-fi
+        # Sets titles before command execution.
+        add-zsh-hook preexec _terminal-set-titles-with-command
+        ;;
+esac
 
 #
 # Emacs
