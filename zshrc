@@ -210,13 +210,16 @@ function set-prompt {
 
 autoload -Uz promptinit && promptinit
 
-if [[ "$TERM" == "dumb" ]]; then
-    prompt off
-    unsetopt ZLE
-else
-    setopt PROMPT_SUBST
-    set-prompt
-fi
+case "$TERM" in
+    dumb)
+        prompt off
+        unsetopt ZLE
+        ;;
+    *)
+        setopt PROMPT_SUBST
+        set-prompt
+        ;;
+esac
 
 #
 # SSH
