@@ -18,5 +18,4 @@ starttls = no
 ssl = yes
 cert_fingerprint = edd7ee170863afd2bbfbede31a6f9354c99ee0b0
 auth_mechanisms = LOGIN
-realdelete = no
 folderfilter = lambda name: name != 'Spam' and not name.startswith('Other Folders/RESTORED')
