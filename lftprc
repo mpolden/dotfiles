@@ -72,6 +72,7 @@ alias m "mirror \
     --exclude-glob='*-OFFLINE' \
     --exclude-glob='*.conflict' \
     --exclude-glob='*.bad' \
+    --exclude-glob='*.html' \
     --exclude-glob='*.message' \
     --exclude-glob='*.url' \
     --exclude-glob='*.missing' \
