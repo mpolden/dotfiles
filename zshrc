@@ -42,6 +42,7 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 setopt EXTENDED_GLOB       # Needed for file modification glob modifiers with compinit
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
+unsetopt AUTO_REMOVE_SLASH # Never remove trailing slash when completing.
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a
