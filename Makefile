@@ -2,7 +2,7 @@ HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
 SYNC_PATH := $(HOME)/Sync
-IDEA_PREFERENCES := IdeaIC2018.1
+IDEA_PREFERENCES := $(shell find $(HOME)/Library/Preferences -name IdeaIC* -type d 2> /dev/null | sort | tail -1)
 
 symlinks := ansible.cfg \
 		   gitconfig \
@@ -77,7 +77,8 @@ mac-dash:
 	defaults write com.kapeli.dashdoc syncFolderPath "$(SYNC_PATH)/Dash"
 
 mac-idea:
-	ln $(LN_FLAGS) $(SYNC_PATH)/$(IDEA_PREFERENCES) "$(HOME)/Library/Preferences/$(IDEA_PREFERENCES)"
+	test -z $(IDEA_PREFERENCES) || mv $(IDEA_PREFERENCES) $(SYNC_PATH)/$(notdir $(IDEA_PREFERENCES))
+	test -z $(IDEA_PREFERENCES) || ln $(LN_FLAGS) $(SYNC_PATH)/$(notdir $(IDEA_PREFERENCES)) $(IDEA_PREFERENCES)
 
 mac-org:
 	ln $(LN_FLAGS) $(SYNC_PATH)/org $(HOME)/org
