@@ -8,6 +8,7 @@ symlinks := ansible.cfg \
 		   gitconfig \
 		   gitignore \
 		   lftprc \
+		   mbsyncrc \
                    offlineimaprc \
 		   tmux.conf \
 		   zlogin \

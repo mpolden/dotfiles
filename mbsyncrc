@@ -1,0 +1,28 @@
+# IMAP account
+IMAPAccount fastmail
+  Host imap.fastmail.com
+  User mpolden@fastmail.com
+  PassCmd "awk '/imap.fastmail.com/{getline; getline; print $2}' < ~/.netrc"
+  SSLType IMAPS
+
+# Remote store
+IMAPStore fastmail-remote
+  Account fastmail
+
+# Local store
+MaildirStore fastmail-local
+  Path ~/Maildir/
+  Inbox ~/Maildir/INBOX
+  SubFolders Legacy
+
+# Synchronization
+Channel fastmail
+  Master :fastmail-remote:
+  Slave :fastmail-local:
+  Patterns * !Spam
+  # Save sync state inside Maildir
+  SyncState *
+  # Only create missing mailboxes on the slave
+  Create Slave
+  # Propagate deletions both ways
+  Expunge Both
