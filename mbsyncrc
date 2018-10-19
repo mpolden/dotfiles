@@ -13,7 +13,6 @@ IMAPStore fastmail-remote
 MaildirStore fastmail-local
   Path ~/Maildir/
   Inbox ~/Maildir/INBOX
-  SubFolders Legacy
 
 # Synchronization
 Channel fastmail
