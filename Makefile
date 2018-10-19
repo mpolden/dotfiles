@@ -9,7 +9,6 @@ symlinks := ansible.cfg \
 		   gitignore \
 		   lftprc \
 		   mbsyncrc \
-                   offlineimaprc \
 		   tmux.conf \
 		   zlogin \
 		   zsh_aliases \
