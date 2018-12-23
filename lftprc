@@ -83,9 +83,9 @@ alias m "mirror \
     --exclude-glob='*(??).*' \
     --exclude-glob='*(???).*' \
     --exclude-glob='*(movieinfo)*' \
+    --exclude-glob='*TvMaze*' \
     --exclude='imdb.nfo' \
     --exclude='tvmaze.nfo' \
-    --exclude='*TvMaze*' \
     --exclude='.*COMPLETE .*' \
     --exclude='.*complete .*'"
 alias g "m \
