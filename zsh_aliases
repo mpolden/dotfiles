@@ -23,6 +23,7 @@ alias-if-in-path mg='mg -n'
 alias-if-in-path lgrep='ls | grep -i'
 alias-if-in-path git-root='cd $(git rev-parse --show-toplevel)'
 alias-if-in-path week='date +%V'
+alias-if-in-path cat='bat'
 
 # Disable globbing for certain commands
 alias-if-in-path find='noglob find'
