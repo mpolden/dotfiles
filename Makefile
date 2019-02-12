@@ -4,8 +4,7 @@ BREW := $(shell command -v brew 2> /dev/null)
 SYNC_PATH := $(HOME)/Sync
 IDEA_PREFERENCES := $(shell find $(HOME)/Library/Preferences -name IdeaIC* -type d 2> /dev/null | sort | tail -1)
 
-symlinks := ansible.cfg \
-		   gitconfig \
+symlinks := gitconfig \
 		   gitignore \
 		   lftprc \
 		   mbsyncrc \
