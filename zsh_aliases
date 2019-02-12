@@ -29,8 +29,6 @@ alias-if-in-path cat='bat'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
 
-alias zrehash='source ~/.zshrc'
-
 # Alias ls
 _ls_opts='--group-directories-first --color=auto'
 case "$OSTYPE" in
