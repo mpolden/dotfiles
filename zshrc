@@ -50,9 +50,9 @@ unsetopt AUTO_REMOVE_SLASH # Never remove trailing slash when completing.
 autoload -Uz compinit
 _comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
 if (( $#_comp_files )); then
-  compinit -i -C
+  compinit -C
 else
-  compinit -i
+  compinit
 fi
 unset _comp_files
 
