@@ -27,6 +27,10 @@ alias-if-in-path cat='bat'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
 
+function rmt {
+    mv "$@" "$HOME/.Trash"
+}
+
 # Alias ls
 _ls_opts='--group-directories-first --color=auto'
 case "$OSTYPE" in
@@ -54,3 +58,4 @@ unset _ls_opts
 
 # Clean up functions
 unfunction alias-if-in-path
+[[ ! -d "$HOME/.Trash" ]] && unfunction rmt
