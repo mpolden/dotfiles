@@ -32,30 +32,39 @@ function rmt {
 }
 
 # Alias ls
-_ls_opts='--group-directories-first --color=auto'
-case "$OSTYPE" in
-    darwin*|freebsd*)
-        if (( $+commands[exa] )); then
-            alias ls="exa ${_ls_opts}"
-            alias ll="exa ${_ls_opts} --git -l"
-            alias tree="exa ${_ls_opts} --tree"
-        elif (( $+commands[gls] )); then
-            alias ls="gls ${_ls_opts}"
-            alias ll="gls ${_ls_opts} -lh"
-        elif (( $+commands[gnuls] )); then
-            alias ls="gnuls ${_ls_opts}"
-            alias ll="gnuls ${_ls_opts} -lh"
-        else
-            alias ls='ls -G'
-            alias ll='ls -Glh'
-        fi
-        ;;
-    *)
-        alias ls="ls ${_ls_opts}"
-        alias ll="ls ${_ls_opts} -lh"
-esac
-unset _ls_opts
+function alias-ls {
+    local -r ls_opts='--group-directories-first --color=auto'
+
+    # Always prefer exa
+    if (( $+commands[exa] )); then
+        alias ls="exa ${ls_opts}"
+        alias ll="exa ${ls_opts} --git -l"
+        alias tree="exa ${ls_opts} --tree"
+        return
+    fi
+
+    # Fallback
+    case "$OSTYPE" in
+        darwin*|freebsd*)
+            if (( $+commands[gls] )); then
+                alias ls="gls ${ls_opts}"
+                alias ll="gls ${ls_opts} -lh"
+            elif (( $+commands[gnuls] )); then
+                alias ls="gnuls ${ls_opts}"
+                alias ll="gnuls ${ls_opts} -lh"
+            else
+                alias ls='ls -G'
+                alias ll='ls -Glh'
+            fi
+            ;;
+        *)
+            alias ls="ls ${ls_opts}"
+            alias ll="ls ${ls_opts} -lh"
+    esac
+}
+
+alias-ls
 
 # Clean up functions
-unfunction alias-if-in-path
+unfunction alias-if-in-path alias-ls
 [[ ! -d "$HOME/.Trash" ]] && unfunction rmt
