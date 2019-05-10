@@ -33,6 +33,7 @@ help:
 	@echo
 	@echo "Configure Mac-specific symlinks:"
 	@echo "   $(COLOR)make mac-all$(NO_COLOR)"
+	@echo "   $(COLOR)make mac-alacritty$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-alfred$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-dash$(NO_COLOR)"
 	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
@@ -67,7 +68,10 @@ endif
 
 # Mac
 
-mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
+mac-all: mac-alacritty mac-alfred mac-dash mac-idea mac-org mac-iterm2
+
+mac-alacritty:
+	ln $(LN_FLAGS) $(CURDIR)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
 
 mac-alfred:
 	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "$(SYNC_PATH)/Alfred"
