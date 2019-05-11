@@ -194,7 +194,9 @@ function set-prompt {
 
     # Display fancy symbol on darwin
     _prompt_symbol='$'
-    if [[ "$OSTYPE" == darwin* && -z "$INSIDE_EMACS" ]]; then
+    if [[ "$OSTYPE" == darwin* && \
+              -z "$INSIDE_EMACS" && \
+              -z "$ALACRITTY_LOG" ]]; then
         zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
         add-zsh-hook precmd _set-prompt-symbol
     fi
