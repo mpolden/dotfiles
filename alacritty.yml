@@ -600,6 +600,9 @@ key_bindings:
   - { key: LBracket,  mods: Alt,          chars: "\x5B"                      } # Option + 8
   - { key: RBracket,  mods: Alt,          chars: "\x5D"                      } # Option + 9
 
+  # Custom undo binding
+  - { key: Minus,     mods: Control,       chars: "\x1f"                     } # Ctrl + _  
+
   # Use Command as Meta
   # https://github.com/jwilm/alacritty/issues/62#issuecomment-347552058
   - { key: A,         mods: Command,       chars: "\x1ba"                    }
