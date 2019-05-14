@@ -318,7 +318,7 @@ function _terminal-set-titles-with-path {
 
 # Only set titles for regular terminals
 case "$TERM" in
-    dumb|eterm*|screen*)
+    dumb|eterm*)
         # Ignore these terminals
         ;;
     *)
