@@ -376,61 +376,63 @@ export WORDCHARS=${WORDCHARS/\/}
 # Extensions
 #
 
-function init-syntax-highlighting {
-    for p in $@; do
-        if [[ -s "$p" ]]; then
-            source "$p"
-            ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-            ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-            ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
-            ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
-            break
+function load-extension {
+    for extension in "$@"; do
+        if [[ -s "$extension" ]]; then
+            source "$extension"
+            return 0
         fi
     done
+    return 1
 }
 
-function init-history-substring-search {
-    for p in $@; do
-        if [[ -s "$p" ]]; then
-            source "$p"
-            # Bind C-P/C-N in Emacs mode
-            bindkey -M emacs "\C-P" history-substring-search-up
-            bindkey -M emacs "\C-N" history-substring-search-down
-            # Bind arrow keys in all modes
-            case "$TERM" in
-                screen*)
-                    bindkey "^[OA" history-substring-search-up
-                    bindkey "^[OB" history-substring-search-down
-                    ;;
-                xterm*)
-                    bindkey "^[[A" history-substring-search-up
-                    bindkey "^[[B" history-substring-search-down
-                    ;;
-            esac
-            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
-            HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
-            # Case-sensitive search
-            HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
-            break
-        fi
-    done
+function load-syntax-highlighting {
+    load-extension "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+                   "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return
+    # Set highlight colors
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
+}
+
+function load-history-substring-search {
+    load-extension "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" \
+                   "$HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" || return
+    # Bind C-P/C-N in Emacs mode
+    bindkey -M emacs "\C-P" history-substring-search-up
+    bindkey -M emacs "\C-N" history-substring-search-down
+    # Bind arrow keys in all modes
+    case "$TERM" in
+        screen*)
+            bindkey "^[OA" history-substring-search-up
+            bindkey "^[OB" history-substring-search-down
+            ;;
+        xterm*)
+            bindkey "^[[A" history-substring-search-up
+            bindkey "^[[B" history-substring-search-down
+            ;;
+    esac
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=magenta"
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
+    # Case-sensitive search
+    HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="${HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS//i}"
 }
 
 # zsh-syntax-highlighting should be initialized as late as possible because it
 # wraps ZLE widgets.
-init-syntax-highlighting "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                         "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+load-syntax-highlighting
 
 # When using both zsh-history-substring-search and zsh-syntax-highlighting, the
 # former should be initialized last.
-init-history-substring-search "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" \
-                              "$HOME/.local/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+load-history-substring-search
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
 # Clean up functions
-unfunction init-syntax-highlighting \
-           init-history-substring-search \
+unfunction load-extension \
+           load-syntax-highlighting \
+           load-history-substring-search \
            fpath-prepend \
            set-prompt
