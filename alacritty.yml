@@ -608,6 +608,9 @@ key_bindings:
   # Custom undo binding
   - { key: Minus,     mods: Control,       chars: "\x1f"                     } # Ctrl + _
 
+  # mosh escape key (ASCII RS)
+  - { key: Key6,      mods: Control,       chars: "\x1e"                     } # Ctrl + 6
+
   # Use Command as Meta
   # https://github.com/jwilm/alacritty/issues/62#issuecomment-347552058
   - { key: A,         mods: Command,       chars: "\x1ba"                    }
