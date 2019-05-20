@@ -603,7 +603,6 @@ key_bindings:
   - { key: 25,        mods: Alt,          chars: "\x5d"                      } # Option + 9
   - { key: LBracket,  mods: Alt|Shift,    chars: "\x7b"                      } # Shift + Option + 8
   - { key: 25,        mods: Alt|Shift,    chars: "\x7d"                      } # Shift + Option + 9
-  - { key: 30,        mods: Alt,          chars: "\x7e"                      } # Option + Grave
 
   # Custom undo binding
   - { key: Minus,     mods: Control,       chars: "\x1f"                     } # Ctrl + _
