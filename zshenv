@@ -28,7 +28,11 @@ cdpath-append "$HOME"
 cdpath-append "$HOME/p"
 
 # less flags
-(( $+commands[less] )) && export LESS="-Ri"
+if (( $+commands[less] )); then
+    export LESS="-Ri"
+    # Respect less flags in bat pager
+    (( $+commands[bat] )) && export BAT_PAGER="less $LESS"
+fi
 
 # Add colors to man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'      # Begins blinking.
