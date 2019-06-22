@@ -8,6 +8,7 @@ symlinks := gitconfig \
 		   gitignore \
 		   lftprc \
 		   mbsyncrc \
+		   sqliterc \
 		   tmux.conf \
 		   zlogin \
 		   zsh_aliases \
