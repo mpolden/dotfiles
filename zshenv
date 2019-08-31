@@ -83,6 +83,10 @@ fi
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
 
+# Load nix
+[[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
