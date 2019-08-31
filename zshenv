@@ -84,8 +84,10 @@ fi
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
 
 # Load nix
-[[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+if [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
     source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    export NIX_PAGER=cat
+fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
