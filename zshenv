@@ -31,8 +31,9 @@ cdpath-append "$HOME/p"
 # less flags
 if (( $+commands[less] )); then
     export LESS="-Ri"
+    export PAGER="less"
     # Respect less flags in bat pager
-    (( $+commands[bat] )) && export BAT_PAGER="less $LESS"
+    (( $+commands[bat] )) && export BAT_PAGER="$PAGER $LESS"
 fi
 
 # Add colors to man pages
