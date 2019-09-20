@@ -22,13 +22,11 @@
 [color]
 	ui = auto
 [alias]
-	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	s = status --short --branch
 	co = checkout
 	b = branch
 	prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 	sync = "!git checkout master && git pull && git prune-branches"
-	discard = "!sh -c \"git reset -- $1 && git checkout -- $1\""
 [push]
 	default = simple
 [fetch]
