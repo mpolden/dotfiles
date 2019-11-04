@@ -13,12 +13,13 @@ IMAPStore fastmail-remote
 MaildirStore fastmail-local
   Path ~/Maildir/
   Inbox ~/Maildir/INBOX
+  SubFolders Verbatim
 
 # Synchronization
 Channel fastmail
   Master :fastmail-remote:
   Slave :fastmail-local:
-  Patterns * !Spam
+  Patterns * !Spam !*@RESTORED
   # Save sync state inside Maildir
   SyncState *
   # Only create missing mailboxes on the slave
