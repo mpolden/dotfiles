@@ -9,6 +9,12 @@ if [[ -n "$TMUX" ]]; then
    export TERM="screen-256color"
 fi
 
+# Load nix
+if [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
+    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    export NIX_PAGER=cat
+fi
+
 # Set PATH
 function path-prepend {
     [[ -d "$1" ]] && path[1,0]=($1)
@@ -83,12 +89,6 @@ fi
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
-
-# Load nix
-if [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
-    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    export NIX_PAGER=cat
-fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
