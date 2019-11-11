@@ -51,7 +51,7 @@ alias ll "cls \
     --long \
     --human-readable \
     --sort=date"
-alias l "set color:use-color true && ll | fzf --ansi --reverse && set color:use-color auto"
+alias l "set color:use-color true && cls --human-readable --sort=date --user --group --date --links --size | fzf --ansi --reverse && set color:use-color auto"
 alias lgrep "ll | grep -i"
 
 # queuing
