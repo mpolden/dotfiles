@@ -1,7 +1,7 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
-SYNC_PATH := $(HOME)/Sync
+SYNC_PATH := $(HOME)/Sync/appcfg
 IDEA_PREFERENCES := $(shell find $(HOME)/Library/Preferences -name IdeaIC* -type d 2> /dev/null | sort | tail -1)
 
 symlinks := gitconfig \
