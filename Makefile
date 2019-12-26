@@ -71,7 +71,7 @@ endif
 mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
 
 mac-alfred:
-	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "$(SYNC_PATH)/Alfred"
+	defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(SYNC_PATH)/Alfred"
 
 mac-dash:
 	defaults write com.kapeli.dashdoc syncFolderPath "$(SYNC_PATH)/Dash"
