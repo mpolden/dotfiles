@@ -72,6 +72,7 @@ endif
 mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
 
 mac-alfred:
+	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "$(APPCFG_PATH)/Alfred"
 	defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(APPCFG_PATH)/Alfred"
 
 mac-dash:
