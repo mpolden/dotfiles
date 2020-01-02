@@ -1,7 +1,8 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
-SYNC_PATH := $(HOME)/Sync/appcfg
+SYNC_PATH := $(HOME)/Sync
+APPCFG_PATH := $(SYNC_PATH)/appcfg
 IDEA_PREFERENCES := $(shell find $(HOME)/Library/Preferences -name IdeaIC* -type d 2> /dev/null | sort | tail -1)
 
 symlinks := gitconfig \
@@ -71,20 +72,20 @@ endif
 mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
 
 mac-alfred:
-	defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(SYNC_PATH)/Alfred"
+	defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(APPCFG_PATH)/Alfred"
 
 mac-dash:
-	defaults write com.kapeli.dashdoc syncFolderPath "$(SYNC_PATH)/Dash"
+	defaults write com.kapeli.dashdoc syncFolderPath "$(APPCFG_PATH)/Dash"
 
 mac-idea:
-	test -z $(IDEA_PREFERENCES) || mv $(IDEA_PREFERENCES) $(SYNC_PATH)/$(notdir $(IDEA_PREFERENCES))
-	test -z $(IDEA_PREFERENCES) || ln $(LN_FLAGS) $(SYNC_PATH)/$(notdir $(IDEA_PREFERENCES)) $(IDEA_PREFERENCES)
+	test -z $(IDEA_PREFERENCES) || mv $(IDEA_PREFERENCES) $(APPCFG_PATH)/$(notdir $(IDEA_PREFERENCES))
+	test -z $(IDEA_PREFERENCES) || ln $(LN_FLAGS) $(APPCFG_PATH)/$(notdir $(IDEA_PREFERENCES)) $(IDEA_PREFERENCES)
 
 mac-org:
 	ln $(LN_FLAGS) $(SYNC_PATH)/org $(HOME)/org
 
 mac-iterm2:
-	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(SYNC_PATH)/iTerm2/$(HOSTNAME)"
+	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(APPCFG_PATH)/iTerm2/$(HOSTNAME)"
 	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
 # Maintenance
