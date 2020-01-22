@@ -1,9 +1,6 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
-SYNC_PATH := $(HOME)/Sync
-APPCFG_PATH := $(SYNC_PATH)/appcfg
-IDEA_PREFERENCES := $(shell find $(HOME)/Library/Preferences -name IdeaIC* -type d 2> /dev/null | sort | tail -1)
 
 symlinks := gitconfig \
 		   gitignore \
@@ -33,14 +30,6 @@ help:
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
-	@echo "Configure Mac-specific symlinks:"
-	@echo "   $(COLOR)make mac-all$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-alfred$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-dash$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-idea$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-iterm2$(NO_COLOR)"
-	@echo "   $(COLOR)make mac-org$(NO_COLOR)"
-	@echo
 	@echo "Install or upgrade zsh extras:"
 	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)"
 	@echo
@@ -66,28 +55,6 @@ else
 	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
 	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
 endif
-
-# Mac
-
-mac-all: mac-alfred mac-dash mac-idea mac-org mac-iterm2
-
-mac-alfred:
-	defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder "$(APPCFG_PATH)/Alfred"
-	defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$(APPCFG_PATH)/Alfred"
-
-mac-dash:
-	defaults write com.kapeli.dashdoc syncFolderPath "$(APPCFG_PATH)/Dash"
-
-mac-idea:
-	test -z $(IDEA_PREFERENCES) || mv $(IDEA_PREFERENCES) $(APPCFG_PATH)/$(notdir $(IDEA_PREFERENCES))
-	test -z $(IDEA_PREFERENCES) || ln $(LN_FLAGS) $(APPCFG_PATH)/$(notdir $(IDEA_PREFERENCES)) $(IDEA_PREFERENCES)
-
-mac-org:
-	ln $(LN_FLAGS) $(SYNC_PATH)/org $(HOME)/org
-
-mac-iterm2:
-	defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(APPCFG_PATH)/iTerm2/$(HOSTNAME)"
-	defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLost -bool true
 
 # Maintenance
 
