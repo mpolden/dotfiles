@@ -1,6 +1,7 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
+NIX_ENV := $(shell command -v nix-env 2> /dev/null)
 
 symlinks := gitconfig \
 		   gitignore \
@@ -13,11 +14,11 @@ symlinks := gitconfig \
 		   zshenv \
 		   zshrc
 
-repos := zsh-users/zsh-history-substring-search \
-		   zsh-users/zsh-syntax-highlighting \
-		   zsh-users/zsh-completions \
+zsh_extensions := zsh-history-substring-search \
+		   zsh-syntax-highlighting \
+		   zsh-completions \
 
-.PHONY: $(symlinks) $(repos)
+.PHONY: $(symlinks) $(zsh_extensions)
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -30,7 +31,7 @@ help:
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
-	@echo "Install or upgrade zsh extras:"
+	@echo "Install zsh extras:"
 	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
@@ -45,15 +46,17 @@ install: $(symlinks)
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-zsh-extras: zsh-users/zsh-history-substring-search zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions
+zsh-extras: $(zsh_extensions)
 
-$(repos):
+$(zsh_extensions):
 ifdef BREW
-	brew install $(notdir $@)
+	brew install $@
 else
-	mkdir -p $(HOME)/.local/share
-	test ! -d $(HOME)/.local/share/$(notdir $@) || git -C $(HOME)/.local/share/$(notdir $@) pull --rebase
-	test -d $(HOME)/.local/share/$(notdir $@) || git clone -q https://github.com/$@.git $(HOME)/.local/share/$(notdir $@)
+ifdef NIX_ENV
+	nix-env -i $@
+else
+	$(error could not find a package manager to install $@)
+endif
 endif
 
 # Maintenance
