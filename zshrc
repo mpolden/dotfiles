@@ -158,23 +158,6 @@ bindkey -M emacs "\C-X\C-E" edit-command-line
 # Prompt
 #
 
-function _set-prompt-symbol {
-    local -r burger=$(print -n "\xF0\x9F\x8D\x94")
-    local -r coffee=$(print -n "\xE2\x98\x95")
-    local -r beer=$(print -n "\xF0\x9F\x8D\xBA")
-    local -r hour=$(strftime %-k $EPOCHSECONDS)
-    if (( $hour >= 8 && $hour < 16 )); then
-        # zsh may incorrectly determine the width of these characters when
-        # redrawing the prompt. Force width to be 2 as these characters are
-        # double-width
-        _prompt_symbol="%2{$coffee%}"
-    elif (( $hour >= 16 && $hour < 19 )); then
-        _prompt_symbol="%2{$burger%}"
-    else
-        _prompt_symbol="%2{$beer%}"
-    fi
-}
-
 function set-prompt {
     setopt LOCAL_OPTIONS
     unsetopt XTRACE KSH_ARRAYS
@@ -193,28 +176,19 @@ function set-prompt {
     # Prefix to use when connected through SSH
     local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
-    # Display fancy symbol on darwin
-    _prompt_symbol='$'
-    if [[ "$OSTYPE" == darwin* && \
-              -z "$INSIDE_EMACS" && \
-              -z "$ALACRITTY_LOG" ]]; then
-        zmodload -F zsh/datetime b:strftime p:EPOCHSECONDS
-        add-zsh-hook precmd _set-prompt-symbol
-    fi
-
-    local prefix
+    local path_prefix
     case "$TERM_PROGRAM" in
         iTerm.app)
             # If running in iTerm, assume that information in fancy prompt is
-            # already in the status bar and just display a compact prompt.
+            # already in the status bar and display only the prompt symbol.
             ;;
         *)
-            prefix='%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}'
+            path_prefix='%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}'
             ;;
     esac
 
     # Define prompts.
-    PROMPT="${SSH_CONNECTION:+$ssh_prefix}${prefix}"'$_prompt_symbol '
+    PROMPT="${SSH_CONNECTION:+$ssh_prefix}${path_prefix}"'$ '
 }
 
 autoload -Uz promptinit && promptinit
