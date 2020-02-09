@@ -23,7 +23,6 @@ path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "$HOME/Library/Python/3.7/bin"
 path-prepend "/Library/TeX/texbin"
-path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
 path-prepend "$HOME/go/bin"
 
