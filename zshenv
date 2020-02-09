@@ -25,6 +25,7 @@ path-prepend "$HOME/Library/Python/3.7/bin"
 path-prepend "/Library/TeX/texbin"
 path-prepend "/usr/local/go/bin"
 path-prepend "$HOME/.local/bin"
+path-prepend "$HOME/go/bin"
 
 # Set CDPATH
 function cdpath-append {
@@ -73,12 +74,6 @@ fi
 
 # Kill mosh-server if it has been inactive for a week
 (( $+commands[mosh-server] )) && export MOSH_SERVER_NETWORK_TMOUT=604800
-
-# GOPATH
-if [[ -d "${HOME}/go" ]]; then
-    export GOPATH="${HOME}/go"
-    path-prepend "${GOPATH}/bin"
-fi
 
 # JAVA_HOME
 if [[ -x "/usr/libexec/java_home" ]]; then
