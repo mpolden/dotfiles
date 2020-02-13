@@ -26,10 +26,7 @@ alias-if-in-path week='date +%V'
 alias-if-in-path cat='bat'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
-
-function rmt {
-    mv "$@" "$HOME/.Trash"
-}
+alias-if-in-path rmt='trash'
 
 # Alias ls
 function alias-ls {
@@ -67,4 +64,3 @@ alias-ls
 
 # Clean up functions
 unfunction alias-if-in-path alias-ls
-[[ ! -d "$HOME/.Trash" ]] && unfunction rmt
