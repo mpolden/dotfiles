@@ -15,7 +15,6 @@ function alias-if-in-path {
 }
 
 alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
-alias-if-in-path autossh='autossh -M 0 -o "ServerAliveInterval 10"'
 alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path mg='mg -n'
