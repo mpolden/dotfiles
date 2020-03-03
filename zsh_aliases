@@ -14,6 +14,7 @@ function alias-if-in-path {
     (( $+commands[$cmd] )) && alias $name=$value
 }
 
+alias-if-in-path grep='grep --color=auto'
 alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
 alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'

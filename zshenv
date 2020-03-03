@@ -67,9 +67,6 @@ elif (( $+commands[dircolors] )); then
     eval "$(dircolors -b)"
 fi
 
-# Highlight grep matches
-export GREP_OPTIONS="--color=auto"
-
 # Remove mosh prefix from terminal title
 (( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX=1
 
