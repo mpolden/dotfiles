@@ -177,7 +177,7 @@ function set-prompt {
     local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
     # Define prompts.
-    PROMPT="${SSH_CONNECTION:+$ssh_prefix}${path_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
+    PROMPT="${SSH_TTY:+$ssh_prefix}${path_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
 }
 
 autoload -Uz promptinit && promptinit
