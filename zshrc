@@ -159,24 +159,19 @@ bindkey -M emacs "\C-X\C-E" edit-command-line
 #
 
 function set-prompt {
-    setopt LOCAL_OPTIONS
-    unsetopt XTRACE KSH_ARRAYS
-    prompt_opts=(cr percent subst)
+    setopt PROMPT_SUBST
 
-    # Load required functions.
+    # Call vcs_info before every command
     autoload -Uz add-zsh-hook vcs_info colors && colors
-
-    # Add hook for calling vcs_info before each command.
     add-zsh-hook precmd vcs_info
 
-    # Set vcs_info parameters.
-    zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:*' formats ' %F{red}%b%c%f'
+    # Display branch
+    zstyle ':vcs_info:*' formats ' %F{red}%b'
 
     # Prefix to use when connected through SSH
     local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
-    # Define prompts.
+    # Define prompt
     PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
 }
 
@@ -188,7 +183,6 @@ case "$TERM" in
         unsetopt ZLE
         ;;
     *)
-        setopt PROMPT_SUBST
         set-prompt
         ;;
 esac
