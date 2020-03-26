@@ -404,6 +404,9 @@ load-syntax-highlighting
 # former should be initialized last.
 load-history-substring-search
 
+# Load fzf keybindings. E.g. C-r searches history using fzf.
+load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
