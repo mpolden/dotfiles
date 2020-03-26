@@ -14,9 +14,7 @@ symlinks := gitconfig \
 		   zshenv \
 		   zshrc
 
-zsh_extensions := zsh-history-substring-search \
-		   zsh-syntax-highlighting \
-		   zsh-completions \
+zsh_extensions := zsh-syntax-highlighting zsh-completions
 
 .PHONY: $(symlinks) $(zsh_extensions)
 
