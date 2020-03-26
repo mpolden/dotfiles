@@ -165,6 +165,9 @@ function set-prompt {
     autoload -Uz add-zsh-hook vcs_info colors && colors
     add-zsh-hook precmd vcs_info
 
+    # Enable git support only
+    zstyle ':vcs_info:*' enable git
+
     # Display branch
     zstyle ':vcs_info:*' formats ' %F{red}%b'
 
