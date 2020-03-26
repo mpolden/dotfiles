@@ -176,19 +176,8 @@ function set-prompt {
     # Prefix to use when connected through SSH
     local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
 
-    local path_prefix
-    case "$TERM_PROGRAM" in
-        iTerm.app)
-            # If running in iTerm, assume that information in fancy prompt is
-            # already in the status bar and display only the prompt symbol.
-            ;;
-        *)
-            path_prefix='%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}'
-            ;;
-    esac
-
     # Define prompts.
-    PROMPT="${SSH_TTY:+$ssh_prefix}${path_prefix}"'$ '
+    PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
 }
 
 autoload -Uz promptinit && promptinit
