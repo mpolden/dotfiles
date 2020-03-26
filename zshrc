@@ -405,7 +405,8 @@ load-syntax-highlighting
 load-history-substring-search
 
 # Load fzf keybindings. E.g. C-r searches history using fzf.
-load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh"
+load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh" \
+               "/usr/share/doc/fzf/examples/key-bindings.zsh"
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
