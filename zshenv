@@ -12,7 +12,7 @@ fi
 # Load nix
 if [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
     source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    export NIX_PAGER=cat
+    export NIX_PAGER="cat"
 fi
 
 # Set PATH
@@ -65,7 +65,7 @@ fi
 
 # Use fd as fzf as default find command
 if (( $+commands[fzf] && $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND='fd --type f'
+    export FZF_DEFAULT_COMMAND="fd --type f"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
@@ -84,7 +84,7 @@ fi
 # JAVA_HOME
 if [[ -x "/usr/libexec/java_home" ]]; then
     java_home=$(/usr/libexec/java_home 2> /dev/null)
-    [[ -n "$java_home" ]] && export JAVA_HOME=$java_home
+    [[ -n "$java_home" ]] && export JAVA_HOME="$java_home"
     unset java_home
 fi
 
