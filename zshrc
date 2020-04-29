@@ -2,7 +2,7 @@
 # History
 #
 
-HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"    # The path to the history file.
+HISTFILE="$HOME/.zhistory"                # The path to the history file.
 HISTSIZE=100000                           # The maximum number of events to save in the internal history.
 SAVEHIST=100000                           # The maximum number of events to save in the history file.
 
@@ -49,7 +49,7 @@ unsetopt AUTO_REMOVE_SLASH # Never remove trailing slash when completing.
 # cache time of 20 hours, so it should almost always regenerate the first time a
 # shell is opened each day.
 autoload -Uz compinit
-_comp_files=(${ZDOTDIR:-$HOME}/.zcompdump(Nm-20))
+_comp_files=($HOME/.zcompdump(Nm-20))
 if (( $#_comp_files )); then
   compinit -C
 else
@@ -59,7 +59,7 @@ unset _comp_files
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
+zstyle ':completion::complete:*' cache-path "$HOME/.zcompcache"
 
 # Case-sensitive (all), partial-word, and then substring completion.
 zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
