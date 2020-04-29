@@ -259,16 +259,6 @@ case "$TERM" in
 esac
 
 #
-# External Editor
-#
-
-# Allow command line editing in an external editor.
-autoload -Uz edit-command-line
-zle -N edit-command-line
-
-bindkey -M emacs "\C-X\C-E" edit-command-line
-
-#
 # Prompt
 #
 
