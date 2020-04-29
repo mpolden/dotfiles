@@ -1,10 +1,17 @@
 #
-# History
+# Autoloading functions
 #
 
-HISTFILE="$HOME/.zhistory"                # The path to the history file.
-HISTSIZE=100000                           # The maximum number of events to save in the internal history.
-SAVEHIST=100000                           # The maximum number of events to save in the history file.
+function fpath-prepend {
+    [[ -d "$1" ]] && fpath=($1 $fpath)
+}
+fpath-prepend "/usr/local/share/zsh-completions"
+fpath-prepend "$HOME/.nix-profile/share/zsh/site-functions"
+fpath-prepend "$HOME/.local/share/zsh-completions/src"
+
+#
+# History. Adapted from the prezto history module.
+#
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
@@ -18,19 +25,12 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
-#
-# Autoloading functions
-#
-
-function fpath-prepend {
-    [[ -d "$1" ]] && fpath=($1 $fpath)
-}
-fpath-prepend "/usr/local/share/zsh-completions"
-fpath-prepend "$HOME/.nix-profile/share/zsh/site-functions"
-fpath-prepend "$HOME/.local/share/zsh-completions/src"
+HISTFILE="$HOME/.zhistory"       # The path to the history file.
+HISTSIZE=100000                  # The maximum number of events to save in the internal history.
+SAVEHIST=100000                  # The maximum number of events to save in the history file.
 
 #
-# Completion
+# Completion. Adapted from the prezto completion module.
 #
 
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
@@ -144,53 +144,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 [[ -n "$terminfo[kcbt]" ]] && bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete
 
 #
-# External Editor
-#
-
-# Allow command line editing in an external editor.
-autoload -Uz edit-command-line
-zle -N edit-command-line
-
-bindkey -M emacs "\C-X\C-E" edit-command-line
-
-#
-# Prompt
-#
-
-function set-prompt {
-    setopt PROMPT_SUBST
-
-    # Call vcs_info before every command
-    autoload -Uz add-zsh-hook vcs_info colors && colors
-    add-zsh-hook precmd vcs_info
-
-    # Enable git support only
-    zstyle ':vcs_info:*' enable git
-
-    # Display branch
-    zstyle ':vcs_info:*' formats ' %F{red}%b'
-
-    # Prefix to use when connected through SSH
-    local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
-
-    # Define prompt
-    PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
-}
-
-autoload -Uz promptinit && promptinit
-
-case "$TERM" in
-    dumb)
-        prompt off
-        unsetopt ZLE
-        ;;
-    *)
-        set-prompt
-        ;;
-esac
-
-#
-# SSH
+# SSH. Adapted from the prezto ssh module.
 #
 
 # Start ssh-agent if not started.
@@ -210,7 +164,7 @@ if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
 fi
 
 #
-# Terminal
+# Terminal. Adapted from the prezto terminal module.
 #
 
 # Sets the terminal window title.
@@ -301,6 +255,52 @@ case "$TERM" in
 
         # Sets titles before command execution.
         add-zsh-hook preexec _terminal-set-titles-with-command
+        ;;
+esac
+
+#
+# External Editor
+#
+
+# Allow command line editing in an external editor.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
+bindkey -M emacs "\C-X\C-E" edit-command-line
+
+#
+# Prompt
+#
+
+function set-prompt {
+    setopt PROMPT_SUBST
+
+    # Call vcs_info before every command
+    autoload -Uz add-zsh-hook vcs_info colors && colors
+    add-zsh-hook precmd vcs_info
+
+    # Enable git support only
+    zstyle ':vcs_info:*' enable git
+
+    # Display branch
+    zstyle ':vcs_info:*' formats ' %F{red}%b'
+
+    # Prefix to use when connected through SSH
+    local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
+
+    # Define prompt
+    PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
+}
+
+autoload -Uz promptinit && promptinit
+
+case "$TERM" in
+    dumb)
+        prompt off
+        unsetopt ZLE
+        ;;
+    *)
+        set-prompt
         ;;
 esac
 
