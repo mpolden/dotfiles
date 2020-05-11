@@ -63,10 +63,16 @@ elif (( $+commands[dircolors] )); then
     eval "$(dircolors -b)"
 fi
 
-# Use fd as fzf as default find command
-if (( $+commands[fzf] && $+commands[fd] )); then
-    export FZF_DEFAULT_COMMAND="fd --type f"
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Use fd as find command in fzf
+if (( $+commands[fzf] )); then
+    # fd binary is named fdfind on Debian
+    if (( $+commands[fdfind] )); then
+        export FZF_DEFAULT_COMMAND="fdfind --type f"
+    elif (( $+commands[fd] )); then
+        export FZF_DEFAULT_COMMAND="fd --type f"
+    fi
+    # Use fd when finding files with C-t
+    [[ -n "$FZF_DEFAULT_COMMAND" ]] && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 # Remove mosh prefix from terminal title
