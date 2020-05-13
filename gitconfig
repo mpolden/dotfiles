@@ -1,3 +1,5 @@
+# -*- mode: gitconfig -*-
+
 [user]
 	name = Martin Polden
 	email = mpolden@mpolden.no
