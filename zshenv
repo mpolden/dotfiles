@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 # Locale
 if [[ "$OSTYPE" == darwin* ]]; then
     export LANG="en_US.UTF-8"

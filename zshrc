@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 #
 # Autoloading functions
 #

@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 function alias-if-in-path {
     # Split on = and extract 1st word (alias name) and 2nd word (alias value)
     local -r name=${1[(ws:=:)1]}
