@@ -1,7 +1,6 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
-NIX_ENV := $(shell command -v nix-env 2> /dev/null)
 
 symlinks := gitconfig \
 		   gitignore \
@@ -49,9 +48,6 @@ zsh-extras: $(zsh_extensions)
 $(zsh_extensions):
 ifdef BREW
 	brew install $@
-else
-ifdef NIX_ENV
-	nix-env -i $@
 else
 	$(error could not find a package manager to install $@)
 endif

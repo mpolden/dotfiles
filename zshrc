@@ -8,7 +8,6 @@ function fpath-prepend {
     [[ -d "$1" ]] && fpath=($1 $fpath)
 }
 fpath-prepend "/usr/local/share/zsh-completions"
-fpath-prepend "$HOME/.nix-profile/share/zsh/site-functions"
 fpath-prepend "$HOME/.local/share/zsh-completions/src"
 
 #
@@ -351,7 +350,6 @@ function load-extension {
 
 function load-syntax-highlighting {
     load-extension "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
                    "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return
     # Set highlight colors
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'

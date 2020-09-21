@@ -11,12 +11,6 @@ if [[ -n "$TMUX" ]]; then
    export TERM="screen-256color"
 fi
 
-# Load nix
-if [[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
-    source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    export NIX_PAGER="cat"
-fi
-
 # Set PATH
 function path-prepend {
     [[ -d "$1" ]] && path[1,0]=($1)
