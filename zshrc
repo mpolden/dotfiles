@@ -350,6 +350,7 @@ function load-extension {
 
 function load-syntax-highlighting {
     load-extension "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+                   "/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
                    "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return
     # Set highlight colors
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
