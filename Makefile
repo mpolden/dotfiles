@@ -51,7 +51,6 @@ ifdef BREW
 else
 	$(error could not find a package manager to install $@)
 endif
-endif
 
 # Maintenance
 
