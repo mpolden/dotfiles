@@ -8,6 +8,7 @@ function fpath-prepend {
     [[ -d "$1" ]] && fpath=($1 $fpath)
 }
 fpath-prepend "/usr/local/share/zsh-completions"
+fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions"
 fpath-prepend "$HOME/.local/share/zsh-completions/src"
 
 #
