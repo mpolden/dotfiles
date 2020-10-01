@@ -7,9 +7,9 @@
 function fpath-prepend {
     [[ -d "$1" ]] && fpath=($1 $fpath)
 }
-fpath-prepend "/usr/local/share/zsh-completions"
-fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions"
-fpath-prepend "$HOME/.local/share/zsh-completions/src"
+fpath-prepend "/usr/local/share/zsh-completions"                 # Homebrew on macOS
+fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions" # Homebrew on Linux
+fpath-prepend "$HOME/.local/share/zsh-completions/src"           # Home directory
 
 #
 # History. Adapted from the prezto history module.
@@ -350,10 +350,11 @@ function load-extension {
 }
 
 function load-syntax-highlighting {
-    load-extension "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return
+    load-extension \
+        "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \                        # dpkg on Debian
+        "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \                  # Homebrew on macOS
+        "/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \  # Homebrew on Linux
+        "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return        # Home directory
     # Set highlight colors
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
     ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
@@ -366,8 +367,8 @@ function load-syntax-highlighting {
 load-syntax-highlighting
 
 # Load fzf keybindings. E.g. C-r searches history using fzf.
-load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh" \
-               "/usr/share/doc/fzf/examples/key-bindings.zsh"
+load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh" \   # Homebrew on macOS
+               "/usr/share/doc/fzf/examples/key-bindings.zsh"  # dpkg on Debian
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
