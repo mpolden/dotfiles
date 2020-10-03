@@ -58,6 +58,7 @@ function alias-ls {
         *)
             alias ls="ls ${ls_opts}"
             alias ll="ls ${ls_opts} -lh"
+            ;;
     esac
 }
 
