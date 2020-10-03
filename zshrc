@@ -7,9 +7,9 @@
 function fpath-prepend {
     [[ -d "$1" ]] && fpath=($1 $fpath)
 }
-fpath-prepend "/usr/local/share/zsh-completions"
-fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions"
-fpath-prepend "$HOME/.local/share/zsh-completions/src"
+fpath-prepend "/usr/local/share/zsh-completions"                 # Homebrew on macOS
+fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions" # Homebrew on Linux
+fpath-prepend "$HOME/.local/share/zsh-completions/src"           # Home directory
 
 #
 # History. Adapted from the prezto history module.
@@ -339,21 +339,26 @@ export WORDCHARS=${WORDCHARS/\/}
 # Extensions
 #
 
+typeset -A _loaded_extensions
+
 function load-extension {
-    for extension in "$@"; do
-        if [[ -s "$extension" ]]; then
-            source "$extension"
-            return 0
-        fi
-    done
-    return 1
+    local -r name="$1"
+    local -r src_path="$2"
+    (( ${+_loaded_extensions[$name]} )) && return 0
+    [[ ! -s "$src_path" ]] && return 1
+    source "$src_path"
+    _loaded_extensions[$name]="$src_path"
+    return 0
 }
 
 function load-syntax-highlighting {
-    load-extension "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "/home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-                   "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" || return
+    local -r name="zsh-syntax-highlighting"
+    load-extension $name "/usr/share/${name}/${name}.zsh"                       # dpkg on Debian
+    load-extension $name "/usr/local/share/${name}/${name}.zsh"                 # Homebrew on macOS
+    load-extension $name "/home/linuxbrew/.linuxbrew/share/${name}/${name}.zsh" # Homebrew on Linux
+    load-extension $name "$HOME/.local/share/${name}/${name}.zsh"               # Home directory
+    [[ $? -ne 0 ]] && return
+
     # Set highlight colors
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
     ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
@@ -366,14 +371,15 @@ function load-syntax-highlighting {
 load-syntax-highlighting
 
 # Load fzf keybindings. E.g. C-r searches history using fzf.
-load-extension "/usr/local/opt/fzf/shell/key-bindings.zsh" \
-               "/usr/share/doc/fzf/examples/key-bindings.zsh"
+load-extension fzf "/usr/local/opt/fzf/shell/key-bindings.zsh"    # Homebrew on macOS
+load-extension fzf "/usr/share/doc/fzf/examples/key-bindings.zsh" # dpkg on Debian
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
-# Clean up functions
+# Cleanup
 unfunction load-extension \
            load-syntax-highlighting \
            fpath-prepend \
            set-prompt
+unset _loaded_extensions
