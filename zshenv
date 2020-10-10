@@ -41,6 +41,7 @@ fi
 # Add colors to man pages
 if (( $+commands[bat] )); then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export BAT_THEME="Dracula"
 fi
 
 # Set EDITOR to emacs or vim
