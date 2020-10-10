@@ -247,7 +247,7 @@ function _terminal-set-titles-with-path {
 # Only set titles for regular terminals
 case "$TERM" in
     dumb|eterm*)
-        # Ignore these terminals
+        # Ignore unsupported terminals, e.g. TRAMP or an Emacs terminal emulator.
         ;;
     *)
         autoload -Uz add-zsh-hook
@@ -288,6 +288,7 @@ autoload -Uz promptinit && promptinit
 
 case "$TERM" in
     dumb)
+        # Ignore dumb terminal, e.g. TRAMP.
         prompt off
         unsetopt ZLE
         ;;
