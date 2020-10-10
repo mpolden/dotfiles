@@ -292,7 +292,11 @@ case "$TERM" in
         unsetopt ZLE
         ;;
     *)
-        set-prompt
+        if (( $+commands[starship] )); then
+            eval "$(starship init zsh)"
+        else
+            set-prompt
+        fi
         ;;
 esac
 
