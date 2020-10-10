@@ -5,4 +5,6 @@ if [[ -n "$SSH_TTY" && -z "$TMUX" && -z "$EMACS" && "$TERM" != "dumb" ]]; then
 fi
 
 # Local configuration
-[[ -s "$HOME/.zlogin.local" ]] && source "$HOME/.zlogin.local"
+if [[ -s "$HOME/.zlogin.local" ]]; then
+    source "$HOME/.zlogin.local"
+fi
