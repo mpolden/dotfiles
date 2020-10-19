@@ -17,7 +17,7 @@ function path-prepend {
 }
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
-path-prepend "$HOME/Library/Python/3.8/bin"
+path-prepend "$HOME/Library/Python/3.9/bin"
 path-prepend "/Library/TeX/texbin"
 path-prepend "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
 path-prepend "/home/linuxbrew/.linuxbrew/bin"
