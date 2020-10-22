@@ -2,16 +2,17 @@ HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
 BREW := $(shell command -v brew 2> /dev/null)
 
-symlinks := gitconfig \
-		   gitignore \
-		   lftprc \
-		   mbsyncrc \
-		   sqliterc \
-		   tmux.conf \
-		   zlogin \
-		   zsh_aliases \
-		   zshenv \
-		   zshrc
+symlinks := gitattributes \
+	    gitconfig \
+	    gitignore \
+	    lftprc \
+	    mbsyncrc \
+	    sqliterc \
+	    tmux.conf \
+	    zlogin \
+	    zsh_aliases \
+	    zshenv \
+	    zshrc
 
 zsh_extensions := zsh-syntax-highlighting zsh-completions
 

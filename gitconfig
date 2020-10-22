@@ -4,6 +4,7 @@
 	name = Martin Polden
 	email = mpolden@mpolden.no
 [core]
+	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
 	autocrlf = input
 	# This pager removes leading +/- from colored unified diff

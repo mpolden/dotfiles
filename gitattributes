@@ -1,0 +1,5 @@
+# -*- mode: gitattributes -*-
+
+*.go   diff=golang
+*.java diff=java
+*.py   diff=python
