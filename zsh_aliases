@@ -18,7 +18,6 @@ function alias-if-in-path {
 
 alias-if-in-path grep='grep --color=auto'
 alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
-alias-if-in-path diff='colordiff'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path mg='mg -n'
 alias-if-in-path lgrep='ls | grep -i'
@@ -28,6 +27,17 @@ alias-if-in-path cat='bat'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
 alias-if-in-path rmt='trash'
+
+# Alias diff
+function alias-diff {
+    local -r diff_path="$(whence diff)"
+    if [[ "$OSTYPE" != darwin* || "$diff_path" == "/usr/local/bin/diff" ]]; then
+        # GNU diff which supports --color
+        alias diff='diff --color=auto'
+    fi
+}
+
+alias-diff
 
 # Alias ls
 function alias-ls {
@@ -65,4 +75,4 @@ function alias-ls {
 alias-ls
 
 # Clean up functions
-unfunction alias-if-in-path alias-ls
+unfunction alias-if-in-path alias-diff alias-ls
