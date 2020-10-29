@@ -30,18 +30,19 @@ function cdpath-append {
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
 
-# less flags
+# Pager
 if (( $+commands[less] )); then
     export LESS="-Ri"
     export PAGER="less"
-    # Respect less flags in bat pager
-    (( $+commands[bat] )) && export BAT_PAGER="$PAGER $LESS"
-fi
-
-# Add colors to man pages
-if (( $+commands[bat] )); then
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    export BAT_THEME="Dracula"
+    if (( $+commands[bat] )); then
+        export BAT_THEME="Dracula"
+        # bat does not respect LESS so configure it explicitly
+        export BAT_PAGER="$PAGER $LESS"
+        export PAGER="bat --paging=always"
+        alias less="$PAGER"
+        # Use bat for man pages
+        export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    fi
 fi
 
 # Set EDITOR to emacs or vim
