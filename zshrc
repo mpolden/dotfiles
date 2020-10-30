@@ -278,10 +278,10 @@ function set-prompt {
     zstyle ':vcs_info:*' formats ' %F{red}%b'
 
     # Prefix to use when connected through SSH
-    local -r ssh_prefix='%{$fg_bold[green]%}%n@%m%{$reset_color%}:'
+    local -r ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
 
     # Define prompt
-    PROMPT="${SSH_TTY:+$ssh_prefix}"'%{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}$ '
+    PROMPT="${SSH_TTY:+$ssh_prefix}%{$fg_bold[blue]%}%~\${vcs_info_msg_0_}%{$reset_color%}$ "
 }
 
 autoload -Uz promptinit && promptinit
