@@ -375,9 +375,10 @@ function load-syntax-highlighting {
 # wraps ZLE widgets.
 load-syntax-highlighting
 
-# Load fzf keybindings. E.g. C-r searches history using fzf.
-load-extension fzf "/usr/local/opt/fzf/shell/key-bindings.zsh"    # Homebrew on macOS
-load-extension fzf "/usr/share/doc/fzf/examples/key-bindings.zsh" # dpkg on Debian
+# Load fzf keybindings and completion. E.g. C-r searches history using fzf.
+load-extension fzf-bindings "/usr/local/opt/fzf/shell/key-bindings.zsh"    # Homebrew on macOS
+load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh" # dpkg on Debian
+load-extension fzf-completion "/usr/local/opt/fzf/shell/completion.zsh"    # Homebrew on macOS
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
