@@ -7,9 +7,8 @@
 function fpath-prepend {
     [[ -d "$1" ]] && fpath=($1 $fpath)
 }
-fpath-prepend "/usr/local/share/zsh-completions"                 # Homebrew on macOS
-fpath-prepend "/home/linuxbrew/.linuxbrew/share/zsh-completions" # Homebrew on Linux
-fpath-prepend "$HOME/.local/share/zsh-completions/src"           # Home directory
+fpath-prepend "/usr/local/share/zsh-completions"       # Homebrew on macOS
+fpath-prepend "$HOME/.local/share/zsh-completions/src" # Home directory
 
 #
 # History. Adapted from the prezto history module.
@@ -358,10 +357,9 @@ function load-extension {
 
 function load-syntax-highlighting {
     local -r name="zsh-syntax-highlighting"
-    load-extension $name "/usr/share/${name}/${name}.zsh"                       # dpkg on Debian
-    load-extension $name "/usr/local/share/${name}/${name}.zsh"                 # Homebrew on macOS
-    load-extension $name "/home/linuxbrew/.linuxbrew/share/${name}/${name}.zsh" # Homebrew on Linux
-    load-extension $name "$HOME/.local/share/${name}/${name}.zsh"               # Home directory
+    load-extension $name "/usr/share/${name}/${name}.zsh"         # dpkg on Debian
+    load-extension $name "/usr/local/share/${name}/${name}.zsh"   # Homebrew on macOS
+    load-extension $name "$HOME/.local/share/${name}/${name}.zsh" # Home directory
     [[ $? -ne 0 ]] && return
 
     # Set highlight colors
