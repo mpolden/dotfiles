@@ -378,6 +378,20 @@ load-extension fzf-bindings "/usr/local/opt/fzf/shell/key-bindings.zsh"    # Hom
 load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh" # dpkg on Debian
 load-extension fzf-completion "/usr/local/opt/fzf/shell/completion.zsh"    # Homebrew on macOS
 
+# Re-read history before invoking history widget.
+# Inspired by https://superuser.com/questions/843138/how-can-i-get-zsh-shared-history-to-work
+_history_widget="${$(bindkey '^R')[(ws: :)2]}"
+
+function history-widget-with-reload {
+    [[ -o sharehistory && -z "$BUFFER" ]] && fc -R "$HISTFILE"
+    zle "$_history_widget"
+}
+
+if zle -l "$_history_widget"; then
+    zle -N history-widget-with-reload
+    bindkey '^R' history-widget-with-reload
+fi
+
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
