@@ -292,11 +292,7 @@ case "$TERM" in
         unsetopt ZLE
         ;;
     *)
-        if (( !STARSHIP_DISABLED && $+commands[starship] )); then
-            eval "$(starship init zsh)"
-        else
-            set-prompt
-        fi
+        set-prompt
         ;;
 esac
 
