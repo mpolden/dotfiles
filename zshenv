@@ -36,7 +36,6 @@ if (( $+commands[less] )); then
     export LESS="-Ri"
     export PAGER="less"
     if (( $+commands[bat] )); then
-        export BAT_THEME="Dracula"
         # bat does not respect LESS so configure it explicitly
         export BAT_PAGER="$PAGER $LESS"
         alias less="bat --paging=always"
