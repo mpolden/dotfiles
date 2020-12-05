@@ -379,7 +379,7 @@ load-extension fzf-completion "/usr/local/opt/fzf/shell/completion.zsh"    # Hom
 _history_widget="${$(bindkey '^R')[(ws: :)2]}"
 
 function history-widget-with-reload {
-    [[ -o sharehistory && -z "$BUFFER" ]] && fc -RI "$HISTFILE"
+    [[ -o sharehistory ]] && fc -RI
     zle "$_history_widget"
 }
 
