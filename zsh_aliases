@@ -30,8 +30,8 @@ alias-if-in-path rmt='trash'
 # Alias diff
 function alias-diff {
     local -r diff_path="$(whence diff)"
-    if [[ "$OSTYPE" != darwin* || "$diff_path" == "/usr/local/bin/diff" ]]; then
-        # GNU diff which supports --color
+    if [[ "$OSTYPE" == "linux-gnu" || "$diff_path" == "/usr/local/bin/diff" ]]; then
+        # GNU diff, which supports --color
         alias diff='diff --color=auto'
     fi
 }
