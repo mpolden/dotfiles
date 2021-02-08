@@ -73,5 +73,8 @@ function alias-ls {
 
 alias-ls
 
+# Local aliases
+[[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
+
 # Clean up functions
 unfunction alias-if-in-path alias-diff alias-ls
