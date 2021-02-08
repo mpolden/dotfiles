@@ -9,7 +9,6 @@ symlinks := gitattributes \
 	    mbsyncrc \
 	    sqliterc \
 	    tmux.conf \
-	    zlogin \
 	    zsh_aliases \
 	    zshenv \
 	    zshrc
