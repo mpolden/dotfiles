@@ -22,12 +22,10 @@ alias-if-in-path grep='grep --color=auto'
 alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
 alias-if-in-path ec='emacsclient -nq'
 alias-if-in-path mg='mg -n'
-alias-if-in-path lgrep='ls | grep -i'
 alias-if-in-path git-root='cd $(git rev-parse --show-toplevel)'
 alias-if-in-path week='date +%V'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
-alias-if-in-path rmt='trash'
 alias-if-in-path brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
 
 # Alias diff
