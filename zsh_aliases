@@ -8,9 +8,11 @@ function alias-if-in-path {
     local cmd=${value[(w)1]}
     # If command match any of the below, the actual command is the second word
     case "$cmd" in
-        sudo|noglob|cd)
-            # Remove substitution from command
-            cmd=${value[(w)2]:s/$\(//}
+        sudo|noglob|cd|cat)
+            # Remove $( and <( prefixes from command
+            cmd=${value[(w)2]}
+            cmd=${cmd:s/$\(//}
+            cmd=${cmd:s/<\(//}
             ;;
     esac
     (( $+commands[$cmd] )) && alias $name=$value
@@ -26,6 +28,7 @@ alias-if-in-path week='date +%V'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
 alias-if-in-path rmt='trash'
+alias-if-in-path brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
 
 # Alias diff
 function alias-diff {
