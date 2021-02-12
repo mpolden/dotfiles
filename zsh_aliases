@@ -27,6 +27,7 @@ alias-if-in-path week='date +%V'
 alias-if-in-path find='noglob find'
 alias-if-in-path curl='noglob curl'
 alias-if-in-path brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
+alias-if-in-path ta='tmux attach -d'
 
 # Alias diff
 function alias-diff {
