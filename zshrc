@@ -215,11 +215,10 @@ function _terminal-set-titles-with-path {
     local absolute_path="${${1:a}:-$PWD}"
     local abbreviated_path="${absolute_path/#$HOME/~}"
     local truncated_path="${abbreviated_path/(#m)?(#c15,)/...${MATCH[-12,-1]}}"
-    local base_path="${abbreviated_path##*/}/"
     unset MATCH
 
     if [[ "$TERM" == screen* ]]; then
-        set-multiplexer-title "$base_path"
+        set-multiplexer-title "$truncated_path"
     fi
     set-tab-title "$truncated_path"
     set-window-title "$abbreviated_path"
