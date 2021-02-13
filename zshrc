@@ -49,13 +49,15 @@ unsetopt AUTO_REMOVE_SLASH # Never remove trailing slash when completing.
 # cache time of 20 hours, so it should almost always regenerate the first time a
 # shell is opened each day.
 autoload -Uz compinit
-_comp_files=($HOME/.zcompdump(Nm-20))
-if (( $#_comp_files )); then
-  compinit -C
+_comp_path="$HOME/.zcompdump"
+# #q expands globs in conditional expressions
+if [[ $_comp_path(#qNmh-20) ]]; then
+    # -C (skip function check) implies -i (skip security check).
+    compinit -C
 else
-  compinit
+    compinit -i
 fi
-unset _comp_files
+unset _comp_path
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
