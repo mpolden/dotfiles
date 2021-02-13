@@ -147,26 +147,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 [[ -n "$terminfo[kcbt]" ]] && bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete
 
 #
-# SSH. Adapted from the prezto ssh module.
-#
-
-# Start ssh-agent if not started.
-if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
-    # Set the path to the environment file if not set by another module.
-    _ssh_agent_env="${_ssh_agent_env:-${TMPDIR:-/tmp}/ssh-agent.env.$UID}"
-
-    # Export environment variables.
-    source "$_ssh_agent_env" 2> /dev/null
-
-    # Start ssh-agent if not started.
-    if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
-        eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
-    fi
-
-    unset _ssh_agent_env
-fi
-
-#
 # Terminal. Adapted from the prezto terminal module.
 #
 
