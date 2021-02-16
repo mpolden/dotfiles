@@ -53,15 +53,19 @@ if (( $+commands[less] )); then
     fi
 fi
 
-# Set EDITOR to emacs or vim
+# Set EDITOR, from most to least preferred
 if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient -q"
 elif (( $+commands[emacs] )); then
     export EDITOR="emacs"
+elif (( $+commands[jmacs] )); then
+    export EDITOR="jmacs"
 elif (( $+commands[mg] )); then
     export EDITOR="mg -n"
 elif (( $+commands[vim] )); then
     export EDITOR="vim"
+elif (( $+commands[vi] )); then
+    export EDITOR="vi"
 fi
 
 # Set LS_COLORS
