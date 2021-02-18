@@ -35,22 +35,14 @@ cdpath-append "$HOME/p"
 if (( $+commands[less] )); then
     export LESS="-Ri"
     export PAGER="less"
-    if (( $+commands[bat] )); then
-        # bat does not respect LESS so configure it explicitly
-        export BAT_PAGER="$PAGER $LESS"
-        alias less="bat --paging=always"
-        # Use bat for man pages
-        export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    else
-        # Add some colors to man pages even if bat is not available
-        export LESS_TERMCAP_mb=$'\e[1;32m'      # Begins blinking.
-        export LESS_TERMCAP_md=$'\e[1;32m'      # Begins bold.
-        export LESS_TERMCAP_me=$'\e[0m'         # Ends mode.
-        export LESS_TERMCAP_se=$'\e[0m'         # Ends standout-mode.
-        export LESS_TERMCAP_so=$'\e[1;31m'      # Begins standout-mode.
-        export LESS_TERMCAP_ue=$'\e[0m'         # Ends underline.
-        export LESS_TERMCAP_us=$'\e[4m'         # Begins underline.
-    fi
+    # Add colors to man pages
+    export LESS_TERMCAP_mb=$'\e[1;32m'      # Begins blinking.
+    export LESS_TERMCAP_md=$'\e[1;32m'      # Begins bold.
+    export LESS_TERMCAP_me=$'\e[0m'         # Ends mode.
+    export LESS_TERMCAP_se=$'\e[0m'         # Ends standout-mode.
+    export LESS_TERMCAP_so=$'\e[1;31m'      # Begins standout-mode.
+    export LESS_TERMCAP_ue=$'\e[0m'         # Ends underline.
+    export LESS_TERMCAP_us=$'\e[4m'         # Begins underline.
 fi
 
 # Set EDITOR, from most to least preferred
