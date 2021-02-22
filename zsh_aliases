@@ -52,7 +52,7 @@ function alias-ls {
     # Always prefer exa
     if (( $+commands[exa] )); then
         alias ls="exa ${ls_opts}"
-        alias ll="exa ${ls_opts} --git -l"
+        alias ll="exa ${ls_opts} --git --group --long"
         alias tree="exa ${ls_opts} --tree"
         return
     fi
