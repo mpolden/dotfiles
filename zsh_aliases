@@ -80,6 +80,27 @@ function alias-ls {
 
 alias-ls
 
+# Activate, deactivate or switch virtualenv
+function venv {
+    local -r venv="$(realpath "$PWD/venv")"
+    if [[ -d "$venv" ]]; then
+        if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV" != "$venv" ]]; then
+            echo "venv: deactivating $VIRTUAL_ENV" 1>&2
+            deactivate
+        fi
+        echo "venv: activating $venv"
+        source "${venv}/bin/activate"
+    else
+        if [[ -n "$VIRTUAL_ENV" ]]; then
+            echo "venv: deactivating $VIRTUAL_ENV" 1>&2
+            deactivate
+        else
+            echo "venv: $venv is not a directory"
+            return 1
+        fi
+    fi
+}
+
 # Local aliases
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
 
