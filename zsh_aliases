@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 
-function alias-if-in-path {
+function cond-alias {
     # Split on = and extract 1st word (alias name) and 2nd word (alias value)
     local -r name=${1[(ws:=:)1]}
     local -r value=${1[(ws:=:)2]}
@@ -15,19 +15,21 @@ function alias-if-in-path {
             cmd=${cmd:s/<\(//}
             ;;
     esac
-    (( $+commands[$cmd] )) && alias $name=$value
+    if whence $cmd > /dev/null; then
+        alias $name=$value
+    fi
 }
 
-alias-if-in-path aptup='sudo apt update && sudo apt upgrade'
-alias-if-in-path brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
-alias-if-in-path curl='noglob curl'
-alias-if-in-path ec='emacsclient -nq'
-alias-if-in-path find='noglob find'
-alias-if-in-path git-root='cd $(git rev-parse --show-toplevel)'
-alias-if-in-path grep='grep --color=auto'
-alias-if-in-path mg='mg -n'
-alias-if-in-path ta='tmux new-session -AD -s $LOGNAME'
-alias-if-in-path week='date +%V'
+cond-alias aptup='sudo apt update && sudo apt upgrade'
+cond-alias brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
+cond-alias curl='noglob curl'
+cond-alias ec='emacsclient -nq'
+cond-alias find='noglob find'
+cond-alias git-root='cd $(git rev-parse --show-toplevel)'
+cond-alias grep='grep --color=auto'
+cond-alias mg='mg -n'
+cond-alias ta='tmux new-session -AD -s $LOGNAME'
+cond-alias week='date +%V'
 
 # Create one or more directories and change to the last one
 function take {
@@ -105,4 +107,4 @@ function venv {
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
 
 # Clean up functions
-unfunction alias-if-in-path alias-diff alias-ls
+unfunction cond-alias alias-diff alias-ls
