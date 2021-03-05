@@ -31,6 +31,14 @@ cond-alias hstat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -nr | he
 cond-alias mg='mg -n'
 cond-alias ta='tmux new-session -AD -s $LOGNAME'
 cond-alias week='date +%V'
+if (( $+commands[apt-mark] )); then
+    # This is the most precise method I've found for answering the question
+    # "which packages did I install explicitly?"
+    #
+    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=727799
+    # https://stackoverflow.com/q/58309013/22831
+    alias apt-leaves='sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin <(apt-mark showmanual | sort)'
+fi
 
 # Create one or more directories and change to the last one
 function take {
