@@ -98,6 +98,23 @@ if [[ -x "/usr/libexec/java_home" ]]; then
     unset java_home
 fi
 
+# CLASSPATH
+# Add Eclipse JDT to the classpath so that eglot finds it
+jdt_home="${HOME}/.emacs.d/eclipse.jdt.ls/plugins"
+jdt_jar="${jdt_home}/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar"
+if [[ -d "$jdt_home" ]]; then
+    if [[ -f "$jdt_jar" ]]; then
+        export CLASSPATH="$jdt_jar"
+    else
+        # Exact version not found, try globbing
+        for f in "${jdt_home}/org.eclipse.equinox.launcher_"*".jar"; do
+            export CLASSPATH="$f"
+            break
+        done
+    fi
+fi
+unset jdt_home jdt_jar
+
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
