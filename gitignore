@@ -2,7 +2,6 @@
 
 # Python
 *.py[cod]
-/.venv/
 /venv/
 
 # Java
@@ -41,10 +40,6 @@ tags
 *.pid
 .DS_Store
 /tmp/
-prompt_debian_setup
-
-# Node
-node_modules/
 
 # Vagrant
 /.vagrant/
@@ -52,7 +47,3 @@ node_modules/
 # Emacs
 \#*\#
 .\#*
-flycheck_*
-
-# Go
-/vendor/*
