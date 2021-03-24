@@ -1,3 +1,6 @@
+# Preserve arrival date when emails are moved between folders
+CopyArrivalDate yes
+
 # IMAP account
 IMAPAccount fastmail
   Host imap.fastmail.com
