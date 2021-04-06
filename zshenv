@@ -1,9 +1,11 @@
 # -*- mode: sh -*-
 
-# Locale
 if [[ "$OSTYPE" == darwin* ]]; then
+    # Locale
     export LANG="en_US.UTF-8"
     export LC_CTYPE="en_US.UTF-8"
+    # Ensure that /etc/zprofile does not mess with our PATH
+    unsetopt GLOBAL_RCS
 fi
 
 # Use 256 color terminal inside tmux
