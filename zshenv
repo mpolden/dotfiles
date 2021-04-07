@@ -94,11 +94,9 @@ if [[ -d "${HOME}/go" ]]; then
 fi
 
 # JAVA_HOME
-if [[ -x "/usr/libexec/java_home" ]]; then
-    java_home=$(/usr/libexec/java_home 2> /dev/null)
-    [[ -n "$java_home" ]] && export JAVA_HOME="$java_home"
-    unset java_home
-fi
+java_home="$(/usr/libexec/java_home 2> /dev/null)"
+[[ -n "$java_home" ]] && export JAVA_HOME="$java_home"
+unset java_home
 
 # CLASSPATH
 # Add Eclipse JDT to the classpath so that eglot finds it
