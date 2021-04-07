@@ -55,7 +55,7 @@ elif (( $+commands[emacs] )); then
 elif (( $+commands[jmacs] )); then
     export EDITOR="jmacs"
 elif (( $+commands[mg] )); then
-    export EDITOR="mg -n"
+    export EDITOR="mg"
 elif (( $+commands[vim] )); then
     export EDITOR="vim"
 elif (( $+commands[vi] )); then
