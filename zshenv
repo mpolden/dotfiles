@@ -49,7 +49,7 @@ fi
 
 # Set EDITOR, from most to least preferred
 if (( $+commands[emacsclient] )); then
-    export EDITOR="emacsclient -q"
+    export EDITOR="emacsclient"
 elif (( $+commands[emacs] )); then
     export EDITOR="emacs"
 elif (( $+commands[jmacs] )); then
