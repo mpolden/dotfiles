@@ -27,5 +27,6 @@ Channel fastmail
   SyncState *
   # Only create missing mailboxes on the slave
   Create Slave
-  # Propagate deletions both ways
-  Expunge Both
+  # Propagate deletions to slave. Unwanted mail is moved to Trash folder by the
+  # slave. Old mail is eventually deleted from Trash by master
+  Expunge Slave
