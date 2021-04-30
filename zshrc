@@ -244,7 +244,7 @@ esac
 # Prompt
 #
 
-function set-prompt {
+function load-prompt {
     setopt PROMPT_SUBST
 
     # Call vcs_info before every command
@@ -255,7 +255,7 @@ function set-prompt {
     zstyle ':vcs_info:*' enable git
 
     # Display branch
-    zstyle ':vcs_info:*' formats ' %F{red}%b'
+    zstyle ':vcs_info:*' formats ' %F{red}%b%f'
 
     # Prefix to use when connected through SSH
     local -r ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
@@ -273,7 +273,7 @@ case "$TERM" in
         unsetopt ZLE
         ;;
     *)
-        set-prompt
+        load-prompt
         ;;
 esac
 
@@ -376,5 +376,5 @@ typeset -gU fpath
 unfunction load-extension \
            load-syntax-highlighting \
            fpath-prepend \
-           set-prompt
+           load-prompt
 unset _loaded_extensions
