@@ -122,6 +122,12 @@ unset jdt_home jdt_jar
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
 
+# Homebrew
+if (( $+commands[brew] )); then
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
 
