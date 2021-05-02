@@ -55,10 +55,10 @@ if (( $+commands[emacsclient] )); then
     export EDITOR="emacsclient"
 elif (( $+commands[emacs] )); then
     export EDITOR="emacs"
-elif (( $+commands[jmacs] )); then
-    export EDITOR="jmacs"
 elif (( $+commands[mg] )); then
     export EDITOR="mg"
+elif (( $+commands[jmacs] )); then
+    export EDITOR="jmacs"
 elif (( $+commands[vim] )); then
     export EDITOR="vim"
 elif (( $+commands[vi] )); then
