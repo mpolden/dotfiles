@@ -6,9 +6,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export LC_CTYPE="en_US.UTF-8"
     # Ensure that /etc/zprofile does not mess with our PATH
     unsetopt GLOBAL_RCS
-    # Secretive
-    export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-    [[ ! -S "$SSH_AUTH_SOCK" ]] && unset SSH_AUTH_SOCK
 fi
 
 # Use 256 color terminal inside tmux
