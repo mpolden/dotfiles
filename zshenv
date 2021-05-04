@@ -7,9 +7,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # Ensure that /etc/zprofile does not mess with our PATH
     unsetopt GLOBAL_RCS
     # Secretive
-    _ssh_auth_sock="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-    [[ -S "$_ssh_auth_sock" ]] && export SSH_AUTH_SOCK="$_ssh_auth_sock"
-    unset _ssh_auth_sock
+    export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+    [[ ! -S "$SSH_AUTH_SOCK" ]] && unset SSH_AUTH_SOCK
 fi
 
 # Use 256 color terminal inside tmux
