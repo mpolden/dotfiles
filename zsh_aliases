@@ -44,7 +44,8 @@ fi
 function alias-diff {
     local -r diff_path="$(whence diff)"
     if [[ "$OSTYPE" == "linux-gnu" || "$diff_path" == "/usr/local/bin/diff" ]]; then
-        # GNU diff, which supports --color
+        # Modern GNU diff. macOS ships with an older diff which doesn't support
+        # --color
         alias diff='diff --color=auto'
     fi
 }
