@@ -40,11 +40,6 @@ if (( $+commands[apt-mark] )); then
     alias apt-leaves='sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin <(apt-mark showmanual | sort)'
 fi
 
-# Create one or more directories and change to the last one
-function take {
-    mkdir -p $@ && cd ${@:$#}
-}
-
 # Alias diff
 function alias-diff {
     local -r diff_path="$(whence diff)"
