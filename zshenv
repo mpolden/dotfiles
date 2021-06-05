@@ -3,6 +3,8 @@
 if [[ "$OSTYPE" == darwin* ]]; then
     # Locale
     export LANG="en_US.UTF-8"
+    # iTerm may choose to set an invalid LC_CTYPE
+    # https://superuser.com/a/1400419
     export LC_CTYPE="en_US.UTF-8"
     # Ensure that /etc/zprofile does not mess with our PATH
     unsetopt GLOBAL_RCS
