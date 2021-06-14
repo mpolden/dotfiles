@@ -1,16 +1,6 @@
 # -*- mode: sh -*-
 
 #
-# Autoloading functions
-#
-
-function fpath-prepend {
-    [[ -d "$1" ]] && fpath=($1 $fpath)
-}
-fpath-prepend "/usr/local/share/zsh-completions"       # Homebrew on macOS
-fpath-prepend "$HOME/.local/share/zsh-completions/src" # Home directory
-
-#
 # History. Adapted from the prezto history module.
 #
 
@@ -382,6 +372,5 @@ typeset -gU fpath
 # Cleanup
 unfunction load-extension \
            load-syntax-highlighting \
-           fpath-prepend \
            load-prompt
 unset _loaded_extensions
