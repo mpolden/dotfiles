@@ -191,8 +191,9 @@ function _terminal-set-titles-with-command {
             _terminal-set-titles-with-command "${(e):-\$jobtexts_from_parent_shell$index}"
         )
     else
-        # Set the command name, or in the case of sudo or ssh, the next command.
-        local cmd="${${2[(wr)^(*=*|sudo|ssh|-*)]}:t}"
+        # Set the command name, or in the case of sudo, ssh or vpn, the next
+        # command.
+        local cmd="${${2[(wr)^(*=*|sudo|ssh|vpn|-*)]}:t}"
         local truncated_cmd="${cmd/(#m)?(#c15,)/${MATCH[1,12]}...}"
         unset MATCH
 
