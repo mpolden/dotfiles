@@ -31,6 +31,7 @@
 	prune-branches = "!git branch --merged | grep -Ev '^\\*|  master$' | xargs git branch --delete"
 	sync = "!git checkout master && git pull && git prune-branches"
     sync-here = "!git fetch origin master:master && git prune-branches"
+    wip = "!git add --all && git commit -m wip"
 [push]
 	default = simple
 [fetch]
