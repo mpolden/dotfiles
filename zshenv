@@ -73,12 +73,14 @@ fi
 
 # Use fd as find command in fzf
 if (( $+commands[fzf] )); then
-    # fd binary is named fdfind on Debian
+    fd_opts="--type f --hidden"
     if (( $+commands[fdfind] )); then
-        export FZF_DEFAULT_COMMAND="fdfind --type f"
+        # fd binary is named fdfind on Debian
+        export FZF_DEFAULT_COMMAND="fdfind ${fd_opts}"
     elif (( $+commands[fd] )); then
-        export FZF_DEFAULT_COMMAND="fd --type f"
+        export FZF_DEFAULT_COMMAND="fd ${fd_opts}"
     fi
+    unset fd_opts
     # Use fd when finding files with C-t
     [[ -n "$FZF_DEFAULT_COMMAND" ]] && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
