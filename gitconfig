@@ -33,6 +33,7 @@
 	sync = "!git checkout master && git pull && git prune-branches"
 	sync-here = "!git fetch origin master:master && git prune-branches"
 	wip = "!git add --all && git commit -m wip"
+    latest-tag = "!git tag -l 'v[0-9]*' | sort -rV | head -1"
 [push]
 	default = simple
 [fetch]
