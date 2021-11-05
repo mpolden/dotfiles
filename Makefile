@@ -13,7 +13,7 @@ symlinks := gitattributes \
 	    zshenv \
 	    zshrc
 
-zsh_extensions := zsh-syntax-highlighting zsh-completions
+zsh_extensions := zsh-syntax-highlighting
 
 .PHONY: $(symlinks) $(zsh_extensions)
 
