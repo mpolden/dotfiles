@@ -26,6 +26,8 @@ path-append "/usr/sbin"
 path-append "/sbin"
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
+# Prefer Homebrew curl because the pre-installed curl doesn't support TLS 1.3
+path-prepend "/usr/local/opt/curl/bin"
 path-prepend "$HOME/Library/Python/3.8/bin"
 path-prepend "$HOME/Library/Python/3.9/bin"
 path-prepend "/Library/TeX/texbin"
