@@ -1,4 +1,4 @@
-# -*- mode: gitconfig -*-
+# -*- mode: gitconfig; indent-tabs-mode: t -*-
 
 [user]
 	name = Martin Polden
@@ -34,7 +34,7 @@
 	sync-here = "!git fetch origin master:master && git prune-branches"
 	wip = "!git add --all && git commit -m wip"
 	wip-reset = "!git show --no-patch --format=%s HEAD | grep -qE '^wip$' && git reset --soft HEAD~1 || echo 'no wip commit found' 1>&2"
-    latest-tag = "!git tag -l 'v[0-9]*' | sort -rV | head -1"
+	latest-tag = "!git tag -l 'v[0-9]*' | sort -rV | head -1"
 [push]
 	default = simple
 [fetch]
