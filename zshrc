@@ -255,11 +255,14 @@ function load-prompt {
     # Display branch
     zstyle ':vcs_info:*' formats ' %F{red}%b%f'
 
-    # Prefix to use when connected through SSH
-    local -r ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
+    # Add user@host when connected through SSH
+    local ssh_prefix
+    if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
+        ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
+    fi
 
     # Define prompt
-    PROMPT="${SSH_TTY:+$ssh_prefix}%{$fg_bold[blue]%}%~\${vcs_info_msg_0_}%{$reset_color%}$ "
+    PROMPT="${ssh_prefix}%{$fg_bold[blue]%}%~\${vcs_info_msg_0_}%{$reset_color%}$ "
 }
 
 autoload -Uz promptinit && promptinit
