@@ -15,7 +15,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions)
+.PHONY: $(symlinks) $(zsh_extensions) kitty.conf
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -38,7 +38,11 @@ help:
 
 # Shell environment
 
-install: $(symlinks)
+kitty.conf:
+	mkdir -p ~/.config/kitty
+	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/kitty/$@
+
+install: $(symlinks) kitty.conf
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
