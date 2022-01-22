@@ -50,7 +50,7 @@ $(symlinks):
 zsh-extras: $(zsh_extensions)
 
 $(zsh_extensions):
-ifdef BREW
+ifneq ($(BREW),)
 	brew install $@
 else
 	$(error could not find a package manager to install $@)
