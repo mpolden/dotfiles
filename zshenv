@@ -10,8 +10,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
     unsetopt GLOBAL_RCS
 fi
 
-# Use 256 color terminal inside tmux
-if [[ -n "$TMUX" ]]; then
+# Set TERM
+if [[ -z "$TMUX" ]]; then
+    export TERM="xterm-256color"
+else
     export TERM="screen-256color"
 fi
 
