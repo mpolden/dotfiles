@@ -11,11 +11,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # Set TERM
-if [[ -z "$TMUX" ]]; then
-    export TERM="xterm-256color"
-else
-    export TERM="screen-256color"
-fi
+case "$TERM" in
+    xterm*)
+        export TERM="xterm-256color"
+        ;;
+    screen*)
+        export TERM="screen-256color"
+        ;;
+esac
 
 # Set PATH
 function path-prepend {
