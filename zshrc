@@ -222,19 +222,46 @@ function _terminal-set-titles-with-path {
     set-window-title "$abbreviated_path"
 }
 
+function set-terminal-title {
+    autoload -Uz add-zsh-hook
+    if [[ "$TERM_PROGRAM" == 'Apple_Terminal' ]]; then
+        # Sets the Terminal.app current working directory before the prompt is
+        # displayed.
+        function _terminal-set-terminal-app-proxy-icon {
+            printf '\e]7;%s\a' "file://${HOST}${PWD// /%20}"
+        }
+        add-zsh-hook precmd _terminal-set-terminal-app-proxy-icon
+
+        # Unsets the Terminal.app current working directory when a terminal
+        # multiplexer or remote connection is started since it can no longer be
+        # updated, and it becomes confusing when the directory displayed in the title
+        # bar is no longer synchronized with real current working directory.
+        function _terminal-unset-terminal-app-proxy-icon {
+            if [[ "${2[(w)1]:t}" == (screen|tmux|dvtm|ssh|mosh) ]]; then
+                print '\e]7;\a'
+            fi
+        }
+        add-zsh-hook preexec _terminal-unset-terminal-app-proxy-icon
+
+        # Do not set the tab and window titles in Terminal.app since it sets the tab
+        # title to the currently running process by default and the current working
+        # directory is set separately.
+    else
+        # Sets titles before the prompt is displayed.
+        add-zsh-hook precmd _terminal-set-titles-with-path
+
+        # Sets titles before command execution.
+        add-zsh-hook preexec _terminal-set-titles-with-command
+    fi
+}
+
 # Only set titles for regular terminals
 case "$TERM" in
     dumb|eterm*)
         # Ignore unsupported terminals, e.g. TRAMP or an Emacs terminal emulator.
         ;;
     *)
-        autoload -Uz add-zsh-hook
-
-        # Sets titles before the prompt is displayed.
-        add-zsh-hook precmd _terminal-set-titles-with-path
-
-        # Sets titles before command execution.
-        add-zsh-hook preexec _terminal-set-titles-with-command
+        set-terminal-title
         ;;
 esac
 
@@ -376,5 +403,6 @@ typeset -gU fpath
 # Cleanup
 unfunction load-extension \
            load-syntax-highlighting \
-           load-prompt
+           load-prompt \
+           set-terminal-title
 unset _loaded_extensions
