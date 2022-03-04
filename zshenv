@@ -8,6 +8,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export LC_CTYPE="en_US.UTF-8"
     # Ensure that /etc/zprofile does not mess with our PATH
     unsetopt GLOBAL_RCS
+    # Set mail location
+    export MAIL="/var/mail/$LOGNAME"
 fi
 
 # Set TERM

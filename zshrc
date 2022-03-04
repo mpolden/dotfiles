@@ -337,6 +337,9 @@ export WORDCHARS=${WORDCHARS/\/}
 # Print message if reboot is required
 [[ -o interactive && -f "/var/run/reboot-required" ]] && print "reboot required"
 
+# Check for mail
+autoload -Uz checkmail
+
 # Aliases
 [[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 
