@@ -15,7 +15,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions) kitty.conf
+.PHONY: $(symlinks) $(zsh_extensions) kitty.conf iterm2.conf
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -41,6 +41,15 @@ help:
 kitty.conf:
 	mkdir -p ~/.config/kitty
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/kitty/$@
+
+iterm2.conf:
+	mkdir -p ~/.config/iterm2
+# iTerm2 overwrites the symlink when configuration is saved. Copy the changes
+# into this repository when that happens and relink. When changing the iTerm2
+# config, save it in General -> Preferences manually and then run this target
+# again.
+	test -h ~/.config/iterm2/com.googlecode.iterm2.plist || cp -a ~/.config/iterm2/com.googlecode.iterm2.plist $(CURDIR)/iterm2.conf
+	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/iterm2/com.googlecode.iterm2.plist
 
 install: $(symlinks) kitty.conf
 
