@@ -15,7 +15,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions) kitty.conf iterm2.conf
+.PHONY: $(symlinks) $(zsh_extensions) iterm2.conf
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -38,10 +38,6 @@ help:
 
 # Shell environment
 
-kitty.conf:
-	mkdir -p ~/.config/kitty
-	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/kitty/$@
-
 iterm2.conf: ITERM2_PLIST=~/.config/iterm2/com.googlecode.iterm2.plist
 iterm2.conf:
 	mkdir -p ~/.config/iterm2
@@ -52,7 +48,7 @@ iterm2.conf:
 	test -f $(ITERM2_PLIST) && cp -a $(ITERM2_PLIST) $(CURDIR)/iterm2.conf || true
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ $(ITERM2_PLIST)
 
-install: $(symlinks) kitty.conf iterm2.conf
+install: $(symlinks) iterm2.conf
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
