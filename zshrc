@@ -270,6 +270,17 @@ esac
 #
 
 function load-prompt {
+    # This configures a simple prompt. It's visual appearance is based on the
+    # default bash prompt in Ubuntu, around 2010.
+    #
+    # The prompt looks roughly like this:
+    # <green>user@host</green>:<blue>current-directory</blue>( <red>git-branch</red>)$<space>
+    #
+    # All colors are the bold variant.
+    #
+    # It has the following features:
+    # - The user@host part is only shown when connected through SSH
+    # - The current git branch is shown when the current directory is a git repository
     setopt PROMPT_SUBST
 
     # Call vcs_info before every command
@@ -279,7 +290,7 @@ function load-prompt {
     # Enable git support only
     zstyle ':vcs_info:*' enable git
 
-    # Display branch
+    # Display git branch
     zstyle ':vcs_info:*' formats ' %F{red}%b%f'
 
     # Add user@host when connected through SSH
