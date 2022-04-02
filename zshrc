@@ -296,11 +296,11 @@ function load-prompt {
     # Add user@host when connected through SSH
     local ssh_prefix
     if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
-        ssh_prefix="%{$fg_bold[green]%}%n@%m%{$reset_color%}:"
+        ssh_prefix="%B%F{green}%n@%m%b%f:"
     fi
 
     # Define prompt
-    PROMPT="${ssh_prefix}%{$fg_bold[blue]%}%~\${vcs_info_msg_0_}%{$reset_color%}$ "
+    PROMPT="${ssh_prefix}%B%F{blue}%~\${vcs_info_msg_0_}%b%f$ "
 }
 
 autoload -Uz promptinit && promptinit
