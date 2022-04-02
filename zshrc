@@ -276,11 +276,14 @@ function load-prompt {
     # The prompt looks roughly like this:
     # <green>user@host</green>:<blue>current-directory</blue>( <red>git-branch</red>)$<space>
     #
-    # All colors are the bold variant.
+    # All colored sections are also bold.
     #
     # It has the following features:
-    # - The user@host part is only shown when connected through SSH
-    # - The current git branch is shown when the current directory is a git repository
+    # - the user@host part is only shown when connected through SSH
+    # - the git branch is shown when the current directory is in a git
+    #   repository
+    # - the '$' symbol becomes yellow if the previous command exited with
+    #   non-zero status
     setopt PROMPT_SUBST
 
     # Call vcs_info before every command
@@ -299,8 +302,12 @@ function load-prompt {
         ssh_prefix="%B%F{green}%n@%m%b%f:"
     fi
 
+    # Color prompt symbol based on exit status. Inspired by
+    # https://solovyov.net/blog/2020/useful-shell-prompt/
+    local -r prompt_symbol="%(?..%B%F{yellow})$%b%f"
+
     # Define prompt
-    PROMPT="${ssh_prefix}%B%F{blue}%~\${vcs_info_msg_0_}%b%f$ "
+    PROMPT="${ssh_prefix}%B%F{blue}%~\${vcs_info_msg_0_}%b%f${prompt_symbol} "
 }
 
 autoload -Uz promptinit && promptinit
