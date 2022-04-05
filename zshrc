@@ -270,15 +270,14 @@ esac
 #
 
 function load-prompt {
-    # This configures a simple prompt. It's visual appearance is based on the
-    # default bash prompt in Ubuntu, around 2010.
+    # This configures a simple prompt. Its visual appearance is based on the
+    # Ubuntu bash prompt, from ~2010.
     #
     # The prompt looks roughly like this:
     # <green>user@host</green>:<blue>current-directory</blue>( <red>git-branch</red>)$<space>
     #
-    # All colored sections are also bold.
-    #
     # It has the following features:
+    # - renders quickly
     # - the user@host part is only shown when connected through SSH
     # - the git branch is shown when the current directory is in a git
     #   repository
@@ -299,15 +298,18 @@ function load-prompt {
     # Add user@host when connected through SSH
     local ssh_prefix
     if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
-        ssh_prefix="%B%F{green}%n@%m%b%f:"
+        ssh_prefix="%F{green}%n@%m%f:"
     fi
+
+    # Current directory, with the ~ symbol indicating the home directory
+    local -r pwd="%F{blue}%~%f"
 
     # Color prompt symbol based on exit status. Inspired by
     # https://solovyov.net/blog/2020/useful-shell-prompt/
-    local -r prompt_symbol="%(?..%B%F{yellow})$%b%f"
+    local -r prompt_symbol="%(?.$.%F{yellow}$%f)"
 
     # Define prompt
-    PROMPT="${ssh_prefix}%B%F{blue}%~\${vcs_info_msg_0_}%b%f${prompt_symbol} "
+    PROMPT="${ssh_prefix}${pwd}\${vcs_info_msg_0_}${prompt_symbol} "
 }
 
 autoload -Uz promptinit && promptinit
