@@ -55,16 +55,6 @@ alias-diff
 # Alias ls
 function alias-ls {
     local -r ls_opts='--group-directories-first --color=auto'
-
-    # Always prefer exa
-    if (( $+commands[exa] )); then
-        alias ls="exa ${ls_opts}"
-        alias ll="exa ${ls_opts} --git --group --long"
-        alias tree="exa ${ls_opts} --tree"
-        return
-    fi
-
-    # Fallback
     case "$OSTYPE" in
         darwin*|freebsd*)
             if (( $+commands[gls] )); then
