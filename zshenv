@@ -26,11 +26,6 @@ esac
 function path-prepend {
     [[ -d "$1" ]] && path[1,0]=($1)
 }
-function path-append {
-    [[ -d "$1" ]] && path+=($1)
-}
-path-append "/usr/sbin"
-path-append "/sbin"
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "$HOME/Library/Python/3.8/bin"
@@ -137,4 +132,4 @@ fi
 typeset -gU path cdpath
 
 # Clean up functions
-unfunction path-prepend path-append cdpath-append
+unfunction path-prepend cdpath-append
