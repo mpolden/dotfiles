@@ -336,19 +336,6 @@ case "$TERM" in
 esac
 
 #
-# Emacs
-#
-
-# Tell Emacs about the current directory
-if [[ -n "$INSIDE_EMACS" ]]; then
-    function chpwd {
-        print -P "\033AnSiTc %d"
-    }
-    print -P "\033AnSiTu %n"
-    print -P "\033AnSiTc %d"
-fi
-
-#
 # Misc
 #
 
@@ -428,6 +415,11 @@ function history-widget-with-reload {
 if zle -l "$_history_widget"; then
     zle -N history-widget-with-reload
     bindkey '^R' history-widget-with-reload
+fi
+
+# Load vterm support
+if [[ "$INSIDE_EMACS" == "vterm" ]]; then
+    load-extension vterm $(print "${HOME}/.emacs.d/elpa/"vterm-*"/etc/emacs-vterm-zsh.sh"(N))
 fi
 
 # Ensure fpath does not contain duplicates
