@@ -32,6 +32,7 @@ path-prepend "$HOME/Library/Python/3.8/bin"
 path-prepend "$HOME/Library/Python/3.9/bin"
 path-prepend "/Library/TeX/texbin"
 path-prepend "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
+path-prepend "$HOME/.emacs.d/eclipse.jdt.ls/bin"
 path-prepend "$HOME/.local/bin"
 path-prepend "$HOME/.cargo/bin"
 
@@ -108,12 +109,6 @@ fi
 java_home="$(/usr/libexec/java_home 2> /dev/null)"
 [[ -n "$java_home" ]] && export JAVA_HOME="$java_home"
 unset java_home
-
-# CLASSPATH
-# Add Eclipse JDT to the classpath so that eglot finds it
-jdt_jar=$(echo "${HOME}/.emacs.d/eclipse.jdt.ls/plugins"/org.eclipse.equinox.launcher_*.jar(N))
-[[ -f "$jdt_jar" ]] && export CLASSPATH=".:$jdt_jar"
-unset jdt_jar
 
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
