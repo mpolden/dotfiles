@@ -408,8 +408,12 @@ load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh" # dpk
 _history_widget="${$(bindkey '^R')[(ws: :)2]}"
 
 function history-widget-with-reload {
+    local opts=""
+    if [[ "$VTERM_THEME" == "light" ]]; then
+        opts="--color=light"
+    fi
     [[ -o sharehistory ]] && fc -RI
-    zle "$_history_widget"
+    FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $opts" zle "$_history_widget"
 }
 
 if zle -l "$_history_widget"; then
