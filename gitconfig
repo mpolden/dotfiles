@@ -1,4 +1,4 @@
-# -*- mode: gitconfig; indent-tabs-mode: t -*-
+# -*- mode: conf-unix; indent-tabs-mode: t -*-
 
 [user]
 	name = Martin Polden
@@ -26,7 +26,7 @@
 	ui = auto
 [alias]
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-    lg-fzf = "!git lg --color=always | fzf --ansi --multi --reverse --delimiter=' - ' --nth=2.. | perl -lne '/ ([a-f0-9]+) - / && print $1'"
+	lg-fzf = "!git lg --color=always | fzf --ansi --multi --reverse --delimiter=' - ' --nth=2.. | perl -lne '/ ([a-f0-9]+) - / && print $1'"
 	s = status --short --branch
 	co = checkout
 	b = branch
