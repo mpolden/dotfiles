@@ -27,6 +27,7 @@
 [alias]
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	lg-fzf = "!git lg --color=always | fzf --ansi --multi --reverse --delimiter=' - ' --nth=2.. | perl -lne '/ ([a-f0-9]+) - / && print $1'"
+	show-fzf="!git lg-fzf | xargs -r git show"
 	s = status --short --branch
 	co = checkout
 	b = branch
