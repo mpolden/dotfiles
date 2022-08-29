@@ -45,7 +45,7 @@ iterm2.conf:
 # regular file. When changing iTerm2 config, save it in General -> Preferences
 # manually. This will replace the symlink with a regular file, so this target
 # should be run again.
-	test -f $(ITERM2_PLIST) && cp -a $(ITERM2_PLIST) $(CURDIR)/iterm2.conf || true
+	test -f $(ITERM2_PLIST) -a ! -L $(ITERM2_PLIST) && cp -a $(ITERM2_PLIST) $(CURDIR)/iterm2.conf || true
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ $(ITERM2_PLIST)
 
 install: $(symlinks) iterm2.conf
