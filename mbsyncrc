@@ -7,6 +7,7 @@ IMAPAccount fastmail
   User mpolden@fastmail.com
   PassCmd "awk '/imap.fastmail.com/{getline; getline; print $2}' < ~/.netrc"
   SSLType IMAPS
+  AuthMechs LOGIN
 
 # Remote store
 IMAPStore fastmail-remote
