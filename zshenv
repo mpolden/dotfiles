@@ -17,7 +17,9 @@ case "$TERM" in
     xterm*)
         export TERM="xterm-256color"
         ;;
-    screen*)
+    screen*|tmux*)
+        # OS may lack terminfo entry for tmux-256color
+        # https://github.com/tmux/tmux/issues/2262
         export TERM="screen-256color"
         ;;
 esac
