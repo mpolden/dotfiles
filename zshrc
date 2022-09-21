@@ -384,9 +384,9 @@ function load-extension {
 
 function load-syntax-highlighting {
     local -r name="zsh-syntax-highlighting"
-    load-extension $name "/usr/share/${name}/${name}.zsh"         # dpkg on Debian
-    load-extension $name "/usr/local/share/${name}/${name}.zsh"   # Homebrew on macOS
-    load-extension $name "$HOME/.local/share/${name}/${name}.zsh" # Home directory
+    load-extension $name "/usr/share/${name}/${name}.zsh"             # dpkg on Debian
+    load-extension $name "$HOMEBREW_PREFIX/share/${name}/${name}.zsh" # Homebrew on macOS
+    load-extension $name "$HOME/.local/share/${name}/${name}.zsh"     # Home directory
     [[ $? -ne 0 ]] && return
 
     # Set highlight colors
@@ -401,10 +401,10 @@ function load-syntax-highlighting {
 load-syntax-highlighting
 
 # Load fzf keybindings and completion. E.g. C-r searches history using fzf.
-load-extension fzf-bindings "/usr/local/opt/fzf/shell/key-bindings.zsh"    # Homebrew on macOS
-load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh" # dpkg on Debian
-load-extension fzf-completion "/usr/local/opt/fzf/shell/completion.zsh"    # Homebrew on macOS
-load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh" # dpkg on Debian
+load-extension fzf-bindings "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" # Homebrew on macOS
+load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh"    # dpkg on Debian
+load-extension fzf-completion "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" # Homebrew on macOS
+load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh"    # dpkg on Debian
 
 # Re-read history before invoking history widget.
 # Inspired by https://superuser.com/questions/843138/how-can-i-get-zsh-shared-history-to-work

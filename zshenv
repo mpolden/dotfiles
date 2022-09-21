@@ -117,6 +117,11 @@ unset java_home
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
 
 # Homebrew
+if [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 if (( $+commands[brew] )); then
     export HOMEBREW_NO_ANALYTICS=1
     export HOMEBREW_NO_AUTO_UPDATE=1
