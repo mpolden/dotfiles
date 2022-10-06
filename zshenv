@@ -45,6 +45,17 @@ function cdpath-append {
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
 
+# Homebrew
+if [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+if (( $+commands[brew] )); then
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
 # Pager
 if (( $+commands[less] )); then
     export LESS="-Ri"
@@ -115,17 +126,6 @@ unset java_home
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
-
-# Homebrew
-if [[ -x "/usr/local/bin/brew" ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-elif [[ -x "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-if (( $+commands[brew] )); then
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_AUTO_UPDATE=1
-fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
