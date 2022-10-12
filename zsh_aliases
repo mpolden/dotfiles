@@ -21,7 +21,6 @@ function cond-alias {
 }
 
 cond-alias aptup='sudo apt update && sudo apt upgrade'
-cond-alias brew-fzf='cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf'
 cond-alias curl='noglob curl'
 cond-alias ec='emacsclient -nq'
 cond-alias find='noglob find'
@@ -40,6 +39,21 @@ if (( $+commands[apt-mark] )); then
     # https://stackoverflow.com/q/58309013/22831
     alias apt-leaves='sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin <(apt-mark showmanual | sort)'
 fi
+
+# Fuzzy-finding wrapper for brew install, info and uninstall
+function brew-fzf {
+    case "$1" in
+        info|install|uninstall)
+            cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf | xargs -r brew "$1"
+            ;;
+        *)
+            echo "usage: brew-fzf [ info | install | uninstall ]" 1>&2
+            return 1
+            ;;
+    esac
+}
+
+(( $+commands[brew] )) || unfunction brew-fzf
 
 # Alias diff
 function alias-diff {
