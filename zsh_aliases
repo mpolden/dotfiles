@@ -31,7 +31,7 @@ cond-alias mg='mg -n'
 cond-alias ta='tmux new-session -AD -s $LOGNAME'
 cond-alias week='date +%V'
 cond-alias reload='exec zsh'
-cond-alias restic-review='restic snapshots --group-by host --host $(hostname -s) --latest 2 | awk "/^[a-f0-9]{8,}/{ print \$1 }" | xargs -r restic diff'
+cond-alias restic-review='restic snapshots --group-by host --host $(hostname -s) --latest 2 | grep -Eo "^[a-f0-9]{8,}" | xargs -r restic diff'
 if (( $+commands[apt-mark] )); then
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
