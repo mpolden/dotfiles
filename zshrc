@@ -307,7 +307,7 @@ function load-prompt {
 
     # Add user@host when connected through SSH
     local ssh_prefix
-    if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
+    if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" || -n "$SSH_CONNECTION" ]]; then
         ssh_prefix="%F{green}%n@%m%f:"
     fi
 
