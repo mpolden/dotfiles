@@ -31,7 +31,6 @@ cond-alias mg='mg -n'
 cond-alias ta='tmux new-session -AD -s $LOGNAME'
 cond-alias week='date +%V'
 cond-alias reload='exec zsh'
-cond-alias restic-review='restic snapshots --group-by host --host $(hostname -s) | grep -Eo "^[a-f0-9]{8,}" | tail -n2 | xargs -r restic diff'
 if (( $+commands[apt-mark] )); then
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
@@ -40,6 +39,21 @@ if (( $+commands[apt-mark] )); then
     # https://stackoverflow.com/q/58309013/22831
     alias apt-leaves='sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin <(apt-mark showmanual | sort)'
 fi
+
+# Show restic diff for the most recent snapshot. If offset is given, show the
+# diff for the nth most recent snapshot instead
+function restic-review {
+    local -r offset="${1:-0}"
+    if [[ $# -gt 1 || ! "$offset" =~ ^[0-9]+$ ]]; then
+        echo "usage: restic-review [COUNT]" 1>&2
+        return 1
+    fi
+    restic snapshots --group-by host --host $(hostname -s) | \
+        grep -Eo "^[a-f0-9]{8,}" | \
+        tail -$(( 2 + $offset )) | \
+        head -2 | \
+        xargs -r restic diff
+}
 
 # Fuzzy-finding wrapper for brew install, info and uninstall
 function brew-fzf {
