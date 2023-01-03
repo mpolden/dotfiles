@@ -22,6 +22,17 @@ case "$TERM" in
         ;;
 esac
 
+# Homebrew
+if [[ -x "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+if (( $+commands[brew] )); then
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
 # Set PATH
 function path-prepend {
     [[ -d "$1" ]] && path[1,0]=($1)
@@ -42,17 +53,6 @@ function cdpath-append {
 }
 cdpath-append "$HOME"
 cdpath-append "$HOME/p"
-
-# Homebrew
-if [[ -x "/usr/local/bin/brew" ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-elif [[ -x "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-if (( $+commands[brew] )); then
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_AUTO_UPDATE=1
-fi
 
 # Pager
 if (( $+commands[less] )); then
