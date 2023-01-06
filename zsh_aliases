@@ -72,11 +72,9 @@ function brew-fzf {
 
 # Alias diff
 function alias-diff {
-    local -r diff_path="$(whence diff)"
-    if [[ "$OSTYPE" == "linux-gnu" || "$diff_path" == "/usr/local/bin/diff" ]]; then
-        # Modern GNU diff. macOS ships with an older diff which doesn't support
-        # --color
-        alias diff='diff --color=auto'
+    # Use colors in diff output when supported
+    if diff --color=auto /dev/null /dev/null 2> /dev/null; then
+       alias diff='diff --color=auto'
     fi
 }
 
