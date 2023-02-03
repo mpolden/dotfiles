@@ -23,7 +23,6 @@ tags
 # gcc
 *.[oa]
 *.aout
-*.out
 
 # IntelliJ IDEA
 *.iml
