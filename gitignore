@@ -4,31 +4,25 @@
 
 # Java
 *.class
+.factorypath
 .gradle/
 /mvnvm.properties
-build/
 hs_err_pid*
 target/
-.factorypath
 
 # vim
 *.swp
 *~
 .netrwhist
 
-# ctags
-tags
-
 # gcc
 *.[oa]
-*.aout
 
 # IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
 .idea/
-/out/
 
 # Misc
 *.bak
