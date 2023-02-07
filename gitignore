@@ -7,7 +7,6 @@
 .gradle/
 /mvnvm.properties
 build/
-dist/
 hs_err_pid*
 target/
 .factorypath
