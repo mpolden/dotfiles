@@ -400,8 +400,10 @@ load-syntax-highlighting
 # Load fzf keybindings and completion. E.g. C-r searches history using fzf.
 load-extension fzf-bindings "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" # Homebrew on macOS
 load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh"    # dpkg on Debian
+load-extension fzf-bindings "/usr/share/fzf/shell/key-bindings.zsh"           # rpm on Fedora
 load-extension fzf-completion "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" # Homebrew on macOS
 load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh"    # dpkg on Debian
+load-extension fzf-completion "/usr/share/zsh/site-functions/fzf"             # rpm on Fedora
 
 # Re-read history before invoking history widget.
 # Inspired by https://superuser.com/questions/843138/how-can-i-get-zsh-shared-history-to-work
