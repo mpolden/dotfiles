@@ -305,9 +305,9 @@ function load-prompt {
     # Display git branch
     zstyle ':vcs_info:*' formats ' %F{red}%b%f'
 
-    # Add user@host when connected through SSH
+    # Add user@host when connected through SSH or using toolbox
     local ssh_prefix
-    if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" || -n "$SSH_CONNECTION" ]]; then
+    if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" || -n "$SSH_CONNECTION" || -n "$TOOLBOX_PATH" ]]; then
         ssh_prefix="%F{green}%n@%m%f:"
     fi
 
