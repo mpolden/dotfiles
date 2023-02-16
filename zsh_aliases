@@ -45,7 +45,7 @@ fi
 function restic-review {
     local -r offset="${1:-0}"
     if [[ $# -gt 1 || ! "$offset" =~ ^[0-9]+$ ]]; then
-        echo "usage: restic-review [COUNT]" 1>&2
+        echo "usage: restic-review [OFFSET]" 1>&2
         return 1
     fi
     restic snapshots --group-by host --host $(hostname -s) | \
