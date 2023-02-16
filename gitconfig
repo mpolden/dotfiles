@@ -26,8 +26,7 @@
 	ui = auto
 [alias]
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-	lg-fzf = "!git lg --color=always | fzf --ansi --multi --reverse --delimiter=' - ' --nth=2.. | perl -lne '/ ([a-f0-9]+) - / && print $1'"
-	show-fzf="!git lg-fzf | xargs -r git show"
+	fzf = "!git lg --color=always | fzf --ansi --multi --reverse --delimiter=' - ' --nth=2.. --preview='echo {} | grep -Eo \"[a-f0-9]{7,}\" | xargs -r git show --color=always' | grep -Eo '[a-f0-9]{7,}'"
 	s = status --short --branch
 	co = checkout
 	b = branch
