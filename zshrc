@@ -266,8 +266,11 @@ case "$TERM" in
 esac
 
 #
-# External Editor
+# Editor
 #
+
+# Always use Emacs keybindings (never consider $EDITOR)
+bindkey -e
 
 # Allow command line editing in an external editor.
 autoload -Uz edit-command-line
