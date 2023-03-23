@@ -44,7 +44,6 @@ path-prepend "$HOME/Library/Python/3.10/bin"
 path-prepend "$HOME/Library/Python/3.11/bin"
 path-prepend "/Library/TeX/texbin"
 path-prepend "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
-path-prepend "$HOME/.emacs.d/eclipse.jdt.ls/bin"
 path-prepend "$HOME/.local/bin"
 path-prepend "$HOME/.cargo/bin"
 
