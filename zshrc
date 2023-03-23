@@ -408,20 +408,6 @@ load-extension fzf-completion "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" # 
 load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh"    # dpkg on Debian
 load-extension fzf-completion "/usr/share/zsh/site-functions/fzf"             # rpm on Fedora
 
-# Re-read history before invoking history widget.
-# Inspired by https://superuser.com/questions/843138/how-can-i-get-zsh-shared-history-to-work
-_history_widget="${$(bindkey '^R')[(ws: :)2]}"
-
-function history-widget-with-reload {
-    [[ -o sharehistory ]] && fc -RI
-    zle "$_history_widget"
-}
-
-if zle -l "$_history_widget"; then
-    zle -N history-widget-with-reload
-    bindkey '^R' history-widget-with-reload
-fi
-
 # Load vterm support
 if [[ "$INSIDE_EMACS" == "vterm" ]]; then
     load-extension vterm $(print "${HOME}/.emacs.d/elpa/"vterm-*"/etc/emacs-vterm-zsh.sh"(N))
