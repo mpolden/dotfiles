@@ -29,7 +29,7 @@ target/
 *.log
 *.pid
 .DS_Store
-/tmp/
+tmp/
 
 # Vagrant
 /.vagrant/
