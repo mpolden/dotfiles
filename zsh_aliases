@@ -126,6 +126,48 @@ function venv {
     fi
 }
 
+# A shell variant of the locate-dominating-file function found in Emacs
+function locate-dominating-file {
+    local -r file="$1"
+    local -r name="$2"
+    local dir="$file"
+    # If given file is indeed a file, we start in its directory
+    if [[ ! -d "$dir" ]]; then
+        dir="${dir:h}"
+    fi
+    # If directory is the current one, we replace it with $PWD
+    if [[ "$dir" == "." ]]; then
+        dir="$PWD"
+    fi
+    if [[ ! -d "$dir" ]]; then
+        echo "locate-dominating-file: $dir is not a directory" 1>&2
+        return 1
+    fi
+    local cur_dir="$dir"
+    while true; do
+        if [[ -e "$cur_dir/$name" ]]; then
+            echo "$cur_dir"
+            break
+        elif [[ "$cur_dir" == "/" ]]; then
+            echo "locate-dominating-file: $name not found in $dir or any of its parents" 1>&2
+            return 1
+        fi
+        cur_dir="$cur_dir/.."
+        cur_dir="${cur_dir:P}" # P converts to realpath
+    done
+}
+
+# Change directory to the nearest one containing the given file or directory
+#
+# Example:
+#
+# ~/project/some/deep/path$ cdn .git # or README.md, go.mod etc.
+# ~/project$
+#
+function cdn {
+    cd "$(locate-dominating-file "$PWD" "$1")"
+}
+
 # Local aliases
 [[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
 
