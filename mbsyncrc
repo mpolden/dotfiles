@@ -21,13 +21,13 @@ MaildirStore fastmail-local
 
 # Synchronization
 Channel fastmail
-  Master :fastmail-remote:
-  Slave :fastmail-local:
+  Far :fastmail-remote:
+  Near :fastmail-local:
   Patterns * !Spam !*@RESTORED !*@RESTORED/*
   # Save sync state inside Maildir
   SyncState *
   # Only create missing mailboxes on the slave
-  Create Slave
+  Create Near
   # Propagate deletions to slave. Unwanted mail is moved to Trash folder by the
   # slave. Old mail is eventually deleted from Trash by master
-  Expunge Slave
+  Expunge Near
