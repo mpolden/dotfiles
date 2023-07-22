@@ -23,7 +23,7 @@ function cond-alias {
 cond-alias aptup='sudo apt update && sudo apt upgrade'
 cond-alias curl='noglob curl'
 cond-alias ec='emacsclient -nq'
-cond-alias find='noglob find'
+cond-alias find='noglob bfs'
 cond-alias git-root='cd $(git rev-parse --show-toplevel)'
 cond-alias grep='grep --color=auto'
 cond-alias hstat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -nr | head"
