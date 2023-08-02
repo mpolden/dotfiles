@@ -112,7 +112,7 @@ alias-ls
 
 # Activate or deactivate a virtualenv in the directory venv
 function venv {
-    local -r venv="$(realpath ${1:-venv})"
+    local -r venv="$(realpath ${1:-.venv})"
     local -r activate="${venv}/bin/activate"
     if [[ -n "$VIRTUAL_ENV" ]]; then
         echo "venv: deactivating $VIRTUAL_ENV" 1>&2
