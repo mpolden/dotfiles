@@ -42,6 +42,9 @@ fi
 function path-prepend {
     [[ -d "$1" ]] && path[1,0]=($1)
 }
+function path-append {
+    [[ -d "$1" ]] && path+=($1)
+}
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
 path-prepend "/Library/TeX/texbin"
@@ -118,6 +121,12 @@ unset java_home
 # MAVEN_OPTS
 # Prevent Maven from running tasks in the foreground
 (( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
+
+# PLAN9
+if [[ -d "$HOME/.local/plan9" ]]; then
+    export PLAN9="$HOME/.local/plan9"
+    path-append "$PLAN9/bin"
+fi
 
 # Local environment
 [[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
