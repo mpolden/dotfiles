@@ -64,7 +64,7 @@ function restic-review {
 function brew-fzf {
     case "$1" in
         info|install|uninstall)
-            cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf | xargs -r brew "$1"
+            cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf --multi | xargs -r brew "$1"
             ;;
         *)
             echo "usage: brew-fzf [ info | install | uninstall ]" 1>&2
