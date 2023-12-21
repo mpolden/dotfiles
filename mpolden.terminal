@@ -221,7 +221,7 @@
 	<key>columnCount</key>
 	<integer>90</integer>
 	<key>name</key>
-	<string>DoomOne</string>
+	<string>mpolden</string>
 	<key>rowCount</key>
 	<integer>50</integer>
 	<key>shellExitAction</key>
@@ -229,6 +229,6 @@
 	<key>type</key>
 	<string>Window Settings</string>
 	<key>useOptionAsMetaKey</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
