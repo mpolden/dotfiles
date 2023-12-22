@@ -413,11 +413,6 @@ if [[ "$INSIDE_EMACS" == "vterm" ]]; then
     load-extension vterm $(print "${HOME}/.emacs.d/elpa/"vterm-*"/etc/emacs-vterm-zsh.sh"(N))
 fi
 
-# Load iTerm support
-if [[ -n "$ITERM_SESSION_ID" ]]; then
-    load-extension iterm "/Applications/iTerm.app/Contents/Resources/iterm2_shell_integration.zsh"
-fi
-
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
