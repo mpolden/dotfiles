@@ -11,6 +11,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # Ensure that /etc/zprofile does not mess with our PATH
     unsetopt GLOBAL_RCS
 elif [[ "$OSTYPE" == linux* ]]; then
+    export LANG="en_US.UTF-8"
     # Norwegian locale on Linux is named differently
     export LC_TIME="nb_NO.UTF-8"
 fi
