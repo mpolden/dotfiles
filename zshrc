@@ -319,10 +319,7 @@ function load-prompt {
 
     # Color prompt symbol based on exit status. Inspired by
     # https://solovyov.net/blog/2020/useful-shell-prompt/
-    local prompt_symbol="$"
-    if [[ -z "$ITERM_SESSION_ID" ]]; then # iTerm shell integration has its exit status indicator
-       prompt_symbol="%(?.$.%F{yellow}$%f)"
-    fi
+    local -r prompt_symbol="%(?.$.%F{yellow}$%f)"
 
     # Define prompt
     PROMPT="${ssh_prefix}${pwd}\${vcs_info_msg_0_}${prompt_symbol} "
