@@ -48,7 +48,7 @@ iterm2.conf:
 	test -f $(ITERM2_PLIST) -a ! -L $(ITERM2_PLIST) && cp -a $(ITERM2_PLIST) $(CURDIR)/iterm2.conf || true
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ $(ITERM2_PLIST)
 
-install: $(symlinks) iterm2.conf
+install: $(symlinks) iterm2.conf fish
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
@@ -61,6 +61,11 @@ ifneq ($(BREW),)
 else
 	$(error could not find a package manager to install $@)
 endif
+
+fish:
+	mkdir -p ~/.config/fish/functions
+	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
+	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Maintenance
 
