@@ -41,7 +41,7 @@ ghostty:
 	mkdir -p ~/.config/ghostty
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/ghostty/config
 
-install: $(symlinks) ghostty
+install: $(symlinks) ghostty fish
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
@@ -54,6 +54,11 @@ ifneq ($(BREW),)
 else
 	$(error could not find a package manager to install $@)
 endif
+
+fish:
+	mkdir -p ~/.config/fish/functions
+	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
+	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Maintenance
 
