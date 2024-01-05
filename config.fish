@@ -41,6 +41,15 @@ function cond-alias
     end
 end
 
+# Unbind functions that are only used to setup config
+function cleanup
+    if not is-command brew
+        functions -e brew-fzf
+    end
+    functions -e path-prepend path-append cdpath-append is-command cond-alias \
+        alias-diff alias-ls cleanup
+end
+
 ########## Environment ##########
 
 # Locale
@@ -155,6 +164,12 @@ end
 # Prevent Maven from running tasks in the foreground
 if is-command mvn
     set -gx MAVEN_OPTS "-Djava.awt.headless=true"
+end
+
+# Next config is only relevant for interactive use
+if not status is-interactive
+    cleanup
+    return 0
 end
 
 ########## Aliases ##########
@@ -315,8 +330,7 @@ end
 
 ########## Extensions ##########
 
-if status is-interactive
-    and source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null
+if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null
     fzf_key_bindings
 end
 
@@ -338,9 +352,7 @@ set -g fish_prompt_pwd_dir_length 0
 set -g fish_color_autosuggestion 8a8a8a
 
 # Print message if reboot is required
-if status is-interactive
-    and [ -n "$TERM" ]
-    and [ -f /var/run/reboot-required ]
+if [ -n "$TERM" -a -f /var/run/reboot-required ]
     echo "reboot required"
 end
 
@@ -348,8 +360,4 @@ end
 source $HOME/.config/fish/local.fish 2> /dev/null
 
 # Clean up functions
-if not is-command brew
-    functions -e brew-fzf
-end
-functions -e path-prepend path-append cdpath-append is-command cond-alias \
-    alias-diff alias-ls
+cleanup
