@@ -165,7 +165,7 @@ function cdn {
 }
 
 # Local aliases
-[[ -s "$HOME/.zsh_aliases.local" ]] && source "$HOME/.zsh_aliases.local"
+source "$HOME/.zsh_aliases.local" 2> /dev/null
 
 # Clean up functions
 unfunction cond-alias alias-diff alias-ls

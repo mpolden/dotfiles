@@ -358,59 +358,35 @@ export WORDCHARS=${WORDCHARS/\/}
 [[ -o interactive && -f "/var/run/reboot-required" ]] && print "reboot required"
 
 # Aliases
-[[ -s "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+source "$HOME/.zsh_aliases" 2> /dev/null
 
 # Local configuration
-[[ -s "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+source "$HOME/.zshrc.local" 2> /dev/null
 
 #
 # Extensions
 #
 
-typeset -A _loaded_extensions
-
-function load-extension {
-    local -r name="$1"
-    local -r src_path="$2"
-    (( ${+_loaded_extensions[$name]} )) && return 0
-    [[ ! -s "$src_path" ]] && return 1
-    source "$src_path"
-    _loaded_extensions[$name]="$src_path"
-    return 0
-}
-
-function load-syntax-highlighting {
-    local -r name="zsh-syntax-highlighting"
-    load-extension $name "/usr/share/${name}/${name}.zsh"             # dpkg on Debian
-    load-extension $name "$HOMEBREW_PREFIX/share/${name}/${name}.zsh" # Homebrew on macOS
-    load-extension $name "$HOME/.local/share/${name}/${name}.zsh"     # Home directory
-    [[ $? -ne 0 ]] && return
-
-    # Set highlight colors
-    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-    ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-    ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
-    ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
-}
-
 # zsh-syntax-highlighting should be initialized as late as possible because it
-# wraps ZLE widgets.
-load-syntax-highlighting
+# wraps ZLE widgets. Paths are tried in this order: Homebrew on macOS, dpkg on
+# Debian and home directory.
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
+    source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
+    source "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null
 
 # Load fzf keybindings and completion. E.g. C-r searches history using fzf.
-load-extension fzf-bindings "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" # Homebrew on macOS
-load-extension fzf-bindings "/usr/share/doc/fzf/examples/key-bindings.zsh"    # dpkg on Debian
-load-extension fzf-bindings "/usr/share/fzf/shell/key-bindings.zsh"           # rpm on Fedora
-load-extension fzf-completion "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" # Homebrew on macOS
-load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh"    # dpkg on Debian
-load-extension fzf-completion "/usr/share/zsh/site-functions/fzf"             # rpm on Fedora
+# Paths are tried in this order: Homebrew on macOS, dpkg on Debian and rpm on
+# Fedora.
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" 2> /dev/null || \
+    source "/usr/share/doc/fzf/examples/key-bindings.zsh" 2> /dev/null || \
+    source "/usr/share/fzf/shell/key-bindings.zsh" 2> /dev/null
+
+source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" 2> /dev/null || \
+    source "/usr/share/doc/fzf/examples/completion.zsh" 2> /dev/null || \
+    source "/usr/share/zsh/site-functions/fzf" 2> /dev/null
 
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
 # Cleanup
-unfunction load-extension \
-           load-syntax-highlighting \
-           load-prompt \
-           set-terminal-title
-unset _loaded_extensions
+unfunction load-prompt set-terminal-title

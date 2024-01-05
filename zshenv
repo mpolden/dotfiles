@@ -130,7 +130,7 @@ if [[ -d "$HOME/.local/plan9" ]]; then
 fi
 
 # Local environment
-[[ -s "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
+source "$HOME/.zshenv.local" 2> /dev/null
 
 # Ensure path and cdpath do not contain duplicates
 typeset -gU path cdpath
