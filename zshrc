@@ -385,8 +385,5 @@ source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" 2> /dev/null || \
     source "/usr/share/doc/fzf/examples/completion.zsh" 2> /dev/null || \
     source "/usr/share/zsh/site-functions/fzf" 2> /dev/null
 
-# Ensure fpath does not contain duplicates
-typeset -gU fpath
-
 # Cleanup
 unfunction load-prompt set-terminal-title
