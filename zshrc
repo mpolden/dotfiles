@@ -405,11 +405,6 @@ load-extension fzf-completion "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" # 
 load-extension fzf-completion "/usr/share/doc/fzf/examples/completion.zsh"    # dpkg on Debian
 load-extension fzf-completion "/usr/share/zsh/site-functions/fzf"             # rpm on Fedora
 
-# Load vterm support
-if [[ "$INSIDE_EMACS" == "vterm" ]]; then
-    load-extension vterm $(print "${HOME}/.emacs.d/elpa/"vterm-*"/etc/emacs-vterm-zsh.sh"(N))
-fi
-
 # Ensure fpath does not contain duplicates
 typeset -gU fpath
 
