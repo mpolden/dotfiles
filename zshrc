@@ -139,10 +139,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' l
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-# Bind Shift + Tab to go to the previous menu item.
-# kcbt might not be defined in all terminals
-[[ -n "$terminfo[kcbt]" ]] && bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete
-
 #
 # Terminal. Adapted from the prezto terminal module.
 #
@@ -271,6 +267,10 @@ esac
 
 # Always use Emacs keybindings (never consider $EDITOR)
 bindkey -e
+
+# Bind Shift + Tab to go to the previous menu item.
+# kcbt might not be defined in all terminals
+[[ -n "$terminfo[kcbt]" ]] && bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete
 
 # Allow command line editing in an external editor.
 autoload -Uz edit-command-line
