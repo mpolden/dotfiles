@@ -121,13 +121,13 @@ function locate-dominating-file {
     local -r file="$1"
     local -r name="$2"
     local dir="$file"
-    # If given file is indeed a file, we start in its directory
+    # Resolve parent if we're not given a directory directly
     if [[ ! -d "$dir" ]]; then
-        dir="${dir:h}"
-    fi
-    if [[ ! -d "$dir" ]]; then
-        echo "locate-dominating-file: $dir is not a directory" 1>&2
-        return 1
+        dir="${dir:h}" # h is dirname
+        if [[ ! -d "$dir" ]]; then
+            echo "locate-dominating-file: $dir is not a directory" 1>&2
+            return 1
+        fi
     fi
     local cur_dir="$dir"
     while true; do
