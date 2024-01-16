@@ -268,13 +268,13 @@ function locate-dominating-file
     set file $argv[1]
     set name $argv[2]
     set dir $file
-    # If given file is indeed a file, we start in its directory
+    # Resolve parent if we're not given a directory directly
     if not [ -d "$dir" ]
         set dir (path dirname "$dir")
-    end
-    if not [ -d "$dir" ]
-        echo "locate-dominating-file: $dir is not a directory" 1>&2
-        return 1
+        if not [ -d "$dir" ]
+            echo "locate-dominating-file: $dir is not a directory" 1>&2
+            return 1
+        end
     end
     set cur_dir $dir
     while true
