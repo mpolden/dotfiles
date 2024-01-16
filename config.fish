@@ -47,7 +47,7 @@ function cleanup
         functions -e brew-fzf
     end
     functions -e path-prepend path-append cdpath-append is-command cond-alias \
-        alias-diff alias-ls cleanup
+        cleanup
 end
 
 ########## Environment ##########
@@ -166,7 +166,7 @@ if is-command mvn
     set -gx MAVEN_OPTS "-Djava.awt.headless=true"
 end
 
-# Next config is only relevant for interactive use
+# Remaining config is only relevant for interactive use
 if not status is-interactive
     cleanup
     return 0
@@ -214,38 +214,30 @@ function brew-fzf
     end
 end
 
-# diff alias
-function alias-diff
-    # Use colors in diff output when supported
-    if diff --color=auto /dev/null /dev/null 2> /dev/null
-        alias diff "diff --color=auto"
-    end
+# Use colors in diff output when supported
+if diff --color=auto /dev/null /dev/null 2> /dev/null
+    alias diff "diff --color=auto"
 end
 
-alias-diff
-
-# ls alias
-function alias-ls
-    set ls_opts "--group-directories-first --color=auto"
-    switch (uname)
-        case Darwin FreeBSD
-            if is-command gls
-                alias ls "gls $ls_opts"
-                alias ll "gls $ls_opts -lh"
-            else if is-command gnuls
-                alias ls "gnuls $ls_opts"
-                alias ll "gnuls $ls_opts -lh"
-            else
-                alias ls "ls -G"
-                alias ll "ls -Glh"
-            end
-        case "*"
-            alias ls "ls $ls_opts"
-            alias ll "ls $ls_opts -lh"
-    end
+# ls aliases
+set _ls_opts "--group-directories-first --color=auto"
+switch (uname)
+    case Darwin FreeBSD
+        if is-command gls
+            alias ls "gls $ls_opts"
+            alias ll "gls $ls_opts -lh"
+        else if is-command gnuls
+            alias ls "gnuls $ls_opts"
+            alias ll "gnuls $ls_opts -lh"
+        else
+            alias ls "ls -G"
+            alias ll "ls -Glh"
+        end
+    case "*"
+        alias ls "ls $ls_opts"
+        alias ll "ls $ls_opts -lh"
 end
-
-alias-ls
+set -e _ls_opts
 
 # Activate or deactivate a virtualenv in the directory venv
 function venv
