@@ -21,12 +21,12 @@ function fish_prompt --description "Write out the prompt"
 
     # Color prompt symbol based on exit status. Inspired by
     # https://solovyov.net/blog/2020/useful-shell-prompt/
-    set __prompt_symbol '$'
+    set prompt_symbol '$'
     if [ $last_status -ne 0 ]
-        set __prompt_symbol "$(set_color yellow)\$$normal"
+        set prompt_symbol "$(set_color yellow)\$$normal"
     end
 
     # Print prompt
     echo -n -s $ssh_prefix (set_color $fish_color_cwd) (prompt_pwd) \
-        $normal (__fish_git_prompt " %s") $normal $__prompt_symbol " "
+        $normal (__fish_git_prompt " %s") $normal $prompt_symbol " "
 end
