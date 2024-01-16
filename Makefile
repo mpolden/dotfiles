@@ -63,9 +63,7 @@ else
 endif
 
 fish:
-	mkdir -p ~/.config/fish/functions
 	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
-	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Maintenance
 
