@@ -224,18 +224,18 @@ set _ls_opts "--group-directories-first --color=auto"
 switch (uname)
     case Darwin FreeBSD
         if is-command gls
-            alias ls "gls $ls_opts"
-            alias ll "gls $ls_opts -lh"
+            alias ls "gls $_ls_opts"
+            alias ll "gls $_ls_opts -lh"
         else if is-command gnuls
-            alias ls "gnuls $ls_opts"
-            alias ll "gnuls $ls_opts -lh"
+            alias ls "gnuls $_ls_opts"
+            alias ll "gnuls $_ls_opts -lh"
         else
             alias ls "ls -G"
             alias ll "ls -Glh"
         end
     case "*"
-        alias ls "ls $ls_opts"
-        alias ll "ls $ls_opts -lh"
+        alias ls "ls $_ls_opts"
+        alias ll "ls $_ls_opts -lh"
 end
 set -e _ls_opts
 
