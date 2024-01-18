@@ -340,8 +340,12 @@ set -g fish_color_cwd blue
 set -g fish_color_command green
 # Don't shorten working directory in prompt
 set -g fish_prompt_pwd_dir_length 0
+
 # Make autosuggestion text slightly brighter
 set -g fish_color_autosuggestion 8a8a8a
+
+# Do not colorize arguments
+set -g fish_color_param normal
 
 function fish_prompt --description "Write out the prompt"
     set last_status $status
