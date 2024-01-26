@@ -533,6 +533,12 @@ source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
     source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
     source "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null
 
+# Set highlight colors
+if [[ -n "$ZSH_HIGHLIGHT_STYLES" ]]; then
+    # Do not colorize comments. Default is too dark
+    ZSH_HIGHLIGHT_STYLES[comment]="fg=none"
+fi
+
 # Load fzf keybindings and completion. E.g. C-r searches history using fzf.
 # Paths are tried in this order: Homebrew on macOS, dpkg on Debian and rpm on
 # Fedora.
