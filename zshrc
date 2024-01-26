@@ -424,7 +424,10 @@ function restic-review {
 # Fuzzy-finding wrapper for brew install, info and uninstall
 function brew-fzf {
     case "$1" in
-        info|install|uninstall)
+        uninstall)
+            cat <(brew leaves) <(brew list --cask | sed "s/^/--cask /") | fzf --multi | xargs -r brew "$1"
+            ;;
+        info|install)
             cat <(brew formulae) <(brew casks | sed "s/^/--cask /") | fzf --multi | xargs -r brew "$1"
             ;;
         *)
