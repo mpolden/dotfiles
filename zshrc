@@ -392,6 +392,7 @@ cond-alias mg="mg -n"
 cond-alias ta='tmux new-session -AD -s $LOGNAME'
 cond-alias week="date +%V"
 cond-alias reload="exec zsh"
+cond-alias kp="open /Applications/KeePassXC.app"
 if (( $+commands[apt-mark] )); then
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
