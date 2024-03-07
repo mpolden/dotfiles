@@ -524,7 +524,6 @@ function cdn {
 #
 
 source "$HOME/.zshrc.local" 2> /dev/null
-source "$HOME/.zsh_aliases.local" 2> /dev/null
 
 #
 # Extensions
