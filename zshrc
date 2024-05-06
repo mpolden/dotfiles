@@ -465,15 +465,14 @@ case "$OSTYPE" in
 esac
 unset ls_opts
 
-# Activate or deactivate a virtualenv in the directory venv
+# Activate or deactivate a virtualenv
 function venv {
-    local -r venv="$(realpath ${1:-.venv})"
-    local -r activate="${venv}/bin/activate"
+    local -r activate="${1:-.venv}/bin/activate"
     if [[ -n "$VIRTUAL_ENV" ]]; then
         echo "venv: deactivating $VIRTUAL_ENV" 1>&2
         deactivate
     elif [[ -f "$activate" ]]; then
-        echo "venv: activating $venv" 1>&2
+        echo "venv: activating $(realpath $activate/../..)" 1>&2
         source "$activate"
     else
         echo "venv: $activate not found" 1>&2
