@@ -1,6 +1,6 @@
 # Python
 *.py[cod]
-/.venv/
+.venv/
 
 # Java
 *.class
