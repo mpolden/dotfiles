@@ -518,26 +518,6 @@ function cdn {
     cd "$(locate-dominating-file "$PWD" "$1")"
 }
 
-# Adjust monitor brightness using ddcutil
-function brightness {
-    local -r level="${1:-}"
-    if ! command -v ddcutil > /dev/null; then
-        echo "$0: ddcutil not found in path" 1>&2
-        return 1
-    fi
-    if [[ -z "$level" ]]; then
-        local current_level
-        current_level="$(ddcutil getvcp 10 | sed -E 's/.* current value = *([0-9]+),.*/\1/')"
-        echo "$0: current level: $current_level"
-    elif [[ ! "$level" =~ ^([0-9]|[1-9][0-9]+)$ || "$level" -gt 100 ]]; then
-        echo "$0: level must be a number between 0 and 100" 1>&2
-        return 1
-    else
-        echo "$0: changing level to $level"
-        ddcutil setvcp 10 "$level"
-    fi
-}
-
 #
 # Local configuration
 #
