@@ -537,16 +537,15 @@ source "$HOME/.zshrc.local" 2> /dev/null
 
 # zsh-syntax-highlighting should be initialized as late as possible because it
 # wraps ZLE widgets. Paths are tried in this order: Homebrew on macOS, dpkg on
-# Debian and home directory.
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
+# Debian and home directory. Fast variant of syntax highlighting is preferred.
+source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 2> /dev/null || \
+    source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
     source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null || \
     source "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2> /dev/null
 
-# Set highlight colors
-if [[ -n "$ZSH_HIGHLIGHT_STYLES" ]]; then
-    # Do not colorize comments. Default is too dark
-    ZSH_HIGHLIGHT_STYLES[comment]="fg=none"
-fi
+# Do not colorize comments. Default is too dark
+[[ -n "$ZSH_HIGHLIGHT_STYLES" ]] && ZSH_HIGHLIGHT_STYLES[comment]="fg=none"
+[[ -n "$FAST_HIGHLIGHT_STYLES" ]] && FAST_HIGHLIGHT_STYLES[comment]="fg=none"
 
 # Load fzf keybindings and completion. E.g. C-r searches history using fzf.
 # Paths are tried in this order: Homebrew on macOS, dpkg on Debian and rpm on
