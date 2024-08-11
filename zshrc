@@ -464,13 +464,6 @@ case "$OSTYPE" in
 esac
 unset ls_opts
 
-# Alias trash when using KDE
-if (( $+commands[kioclient] && ! $+commands[trash] )); then
-    function trash {
-        kioclient move "$@" trash:/
-    }
-fi
-
 # Activate or deactivate a virtualenv
 function venv {
     local -r activate="${1:-.venv}/bin/activate"
