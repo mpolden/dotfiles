@@ -6,7 +6,7 @@ config.color_scheme = 'DoomOne'
 
 -- Font
 config.font = wezterm.font 'Iosevka'
-config.font_size = 16.0
+config.font_size = 14.0
 
 -- Keybindings
 local act = wezterm.action
