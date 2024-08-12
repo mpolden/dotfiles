@@ -9,8 +9,12 @@ config.font = wezterm.font 'Iosevka'
 config.font_size = 16.0
 
 -- Keybindings
--- Use CMD as OPT for common readline shortcuts
 local act = wezterm.action
+
+-- Use left option as compose so that OPT-7 results in pipe (default is false)
+config.send_composed_key_when_left_alt_is_pressed = true
+
+-- Use CMD as OPT for common readline shortcuts
 config.keys = {
   {
     key = 'b',
