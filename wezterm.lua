@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'DoomOne'
 
 -- Font
-config.font = wezterm.font 'Iosevka'
+config.font = wezterm.font('Iosevka', { weight = 'Medium' })
 config.font_size = 14.0
 
 -- Keybindings
