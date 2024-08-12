@@ -38,4 +38,12 @@ config.keys = {
   },
 }
 
+-- Local config (optional)
+local loaded, local_config = pcall(require, "local")
+if loaded then
+  for k, v in pairs(local_config) do
+    config[k] = v
+  end
+end
+
 return config
