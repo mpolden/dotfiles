@@ -14,6 +14,12 @@ local act = wezterm.action
 -- Use left option as compose so that OPT-7 results in pipe (default is false)
 config.send_composed_key_when_left_alt_is_pressed = true
 
+-- Disable dead keys so that ~ is produced immediately
+config.use_dead_keys = false
+
+-- See https://wezfurlong.org/wezterm/config/keyboard-concepts.html#macos-left-and-right-option-key
+-- for more details on the above
+
 -- Use CMD as OPT for common readline shortcuts
 config.keys = {
   {
