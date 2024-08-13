@@ -22,8 +22,8 @@ config.use_dead_keys = false
 -- See https://wezfurlong.org/wezterm/config/keyboard-concepts.html#macos-left-and-right-option-key
 -- for more details on the above
 
--- Use CMD as OPT for common readline shortcuts
 config.keys = {
+  -- Use CMD as OPT for common readline shortcuts
   {
     key = 'b',
     mods = 'CMD',
@@ -44,13 +44,20 @@ config.keys = {
     mods = 'CMD',
     action = act.SendKey { key = 'x', mods = 'OPT' },
   },
+  -- Search with C-s
+  {
+    key = 's',
+    mods = 'CTRL',
+    action = act.Search 'CurrentSelectionOrEmptyString'
+  },
 }
 
 -- Extend copy mode keybindings with Emacs-style bindings
 config.key_tables = {
-  copy_mode = wezterm.gui.default_key_tables().copy_mode
+  copy_mode = wezterm.gui.default_key_tables().copy_mode,
+  search_mode = wezterm.gui.default_key_tables().search_mode,
 }
-emacs_keys = {
+copy_mode_emacs = {
   -- Navigation
   { key = 'b', mods = 'CMD', action = act.CopyMode 'MoveBackwardWord' },
   { key = 'f', mods = 'CMD', action = act.CopyMode 'MoveForwardWord' },
@@ -72,8 +79,18 @@ emacs_keys = {
     },
   },
 }
-for _, key in pairs(emacs_keys) do
+for _, key in pairs(copy_mode_emacs) do
   table.insert(config.key_tables.copy_mode, key)
+end
+
+-- Extend search mode keybindings with Emacs-style bindings
+search_mode_emacs = {
+  { key = 'g', mods = 'CTRL', action = act.CopyMode 'Close' },
+  { key = 's', mods = 'CTRL', action = act.CopyMode 'NextMatch' },
+  { key = 'r', mods = 'CTRL', action = act.CopyMode 'PriorMatch' },
+}
+for _, key in pairs(search_mode_emacs) do
+  table.insert(config.key_tables.search_mode, key)
 end
 
 -- Local config (optional)
