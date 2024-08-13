@@ -1,3 +1,5 @@
+-- -*- lua-indent-level: 2 -*-
+
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
@@ -43,6 +45,36 @@ config.keys = {
     action = act.SendKey { key = 'x', mods = 'OPT' },
   },
 }
+
+-- Extend copy mode keybindings with Emacs-style bindings
+config.key_tables = {
+  copy_mode = wezterm.gui.default_key_tables().copy_mode
+}
+emacs_keys = {
+  -- Navigation
+  { key = 'b', mods = 'CMD', action = act.CopyMode 'MoveBackwardWord' },
+  { key = 'f', mods = 'CMD', action = act.CopyMode 'MoveForwardWord' },
+  { key = 'b', mods = 'CTRL', action = act.CopyMode 'MoveLeft' },
+  { key = 'f', mods = 'CTRL', action = act.CopyMode 'MoveRight' },
+  { key = 'p', mods = 'CTRL', action = act.CopyMode 'MoveUp' },
+  { key = 'n', mods = 'CTRL', action = act.CopyMode 'MoveDown' },
+  { key = 'a', mods = 'CTRL', action = act.CopyMode 'MoveToStartOfLine' },
+  { key = 'e', mods = 'CTRL', action = act.CopyMode 'MoveToEndOfLineContent' },
+  -- Selection
+  { key = 'Space', mods = 'CTRL', action = act.CopyMode { SetSelectionMode = 'Cell' } },
+  -- Copy
+  {
+    key = 'w',
+    mods = 'CMD',
+    action = act.Multiple {
+      { CopyTo = 'ClipboardAndPrimarySelection' },
+      act.ClearSelection,
+    },
+  },
+}
+for _, key in pairs(emacs_keys) do
+  table.insert(config.key_tables.copy_mode, key)
+end
 
 -- Local config (optional)
 local loaded, local_config = pcall(require, "local")
