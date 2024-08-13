@@ -13,6 +13,9 @@ config.font_size = 14.0
 -- Tab bar
 config.window_frame = { font_size = config.font_size }
 
+-- Hide title bar
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+
 -- Keybindings
 local act = wezterm.action
 
