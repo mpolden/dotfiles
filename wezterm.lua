@@ -10,6 +10,9 @@ config.color_scheme = 'DoomOne'
 config.font = wezterm.font('Iosevka', { weight = 'Medium' })
 config.font_size = 14.0
 
+-- Tab bar
+config.window_frame = { font_size = config.font_size }
+
 -- Keybindings
 local act = wezterm.action
 
