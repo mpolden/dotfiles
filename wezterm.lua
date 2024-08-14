@@ -2,6 +2,7 @@
 
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+local is_macos = string.find(wezterm.target_triple, "apple%-darwin") ~= nil
 
 -- Theme
 config.color_scheme = 'DoomOne'
@@ -19,8 +20,14 @@ config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 -- Keybindings
 local act = wezterm.action
 
--- Use left option as compose so that OPT-7 results in pipe (default is false)
-config.send_composed_key_when_left_alt_is_pressed = true
+-- macOS
+local meta_key = 'ALT'
+if is_macos then
+  -- Use left option as compose so that OPT-7 results in pipe (default is false)
+  config.send_composed_key_when_left_alt_is_pressed = true
+  -- Use command as meta
+  meta_key = 'CMD'
+end
 
 -- Disable dead keys so that ~ is produced immediately
 config.use_dead_keys = false
@@ -32,22 +39,22 @@ config.keys = {
   -- Use CMD as OPT for common readline shortcuts
   {
     key = 'b',
-    mods = 'CMD',
+    mods = meta_key,
     action = act.SendKey { key = 'b', mods = 'OPT' },
   },
   {
     key = 'f',
-    mods = 'CMD',
+    mods = meta_key,
     action = act.SendKey { key = 'f', mods = 'OPT' },
   },
   {
     key = 'd',
-    mods = 'CMD',
+    mods = meta_key,
     action = act.SendKey { key = 'd', mods = 'OPT' },
   },
   {
     key = 'x',
-    mods = 'CMD',
+    mods = meta_key,
     action = act.SendKey { key = 'x', mods = 'OPT' },
   },
   -- Search with C-s
@@ -65,8 +72,8 @@ config.key_tables = {
 }
 copy_mode_emacs = {
   -- Navigation
-  { key = 'b', mods = 'CMD', action = act.CopyMode 'MoveBackwardWord' },
-  { key = 'f', mods = 'CMD', action = act.CopyMode 'MoveForwardWord' },
+  { key = 'b', mods = meta_key, action = act.CopyMode 'MoveBackwardWord' },
+  { key = 'f', mods = meta_key, action = act.CopyMode 'MoveForwardWord' },
   { key = 'b', mods = 'CTRL', action = act.CopyMode 'MoveLeft' },
   { key = 'f', mods = 'CTRL', action = act.CopyMode 'MoveRight' },
   { key = 'p', mods = 'CTRL', action = act.CopyMode 'MoveUp' },
@@ -78,7 +85,7 @@ copy_mode_emacs = {
   -- Copy
   {
     key = 'w',
-    mods = 'CMD',
+    mods = meta_key,
     action = act.Multiple {
       { CopyTo = 'ClipboardAndPrimarySelection' },
       act.ClearSelection,
