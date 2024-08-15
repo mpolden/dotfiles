@@ -9,7 +9,7 @@ symlinks := gitattributes \
 	    mbsyncrc \
 	    sqliterc \
 	    tmux.conf \
-		wezterm.lua \
+	    wezterm.lua \
 	    zshenv \
 	    zshrc
 
