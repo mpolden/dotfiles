@@ -57,6 +57,12 @@ config.keys = {
     mods = meta_key,
     action = act.SendKey { key = 'x', mods = 'OPT' },
   },
+  -- Escape with C-g
+  {
+    key = 'g',
+    mods = 'CTRL',
+    action = act.SendKey { key = 'Escape' },
+  },
   -- Search with C-s
   {
     key = 's',
