@@ -63,12 +63,6 @@ config.keys = {
     mods = 'CTRL',
     action = act.SendKey { key = 'Escape' },
   },
-  -- Search with C-s
-  {
-    key = 's',
-    mods = 'CTRL',
-    action = act.Search 'CurrentSelectionOrEmptyString'
-  },
 }
 
 -- Extend copy mode keybindings with Emacs-style bindings
