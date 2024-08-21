@@ -17,6 +17,9 @@ config.window_frame = { font_size = config.font_size }
 -- Hide title bar
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 
+-- Disable audible bell
+config.audible_bell = "Disabled"
+
 -- Keybindings
 local act = wezterm.action
 
