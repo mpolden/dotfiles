@@ -1,0 +1,14 @@
+# Set font and theme
+font-family = Iosevka
+font-size = 15
+theme = DoomOne
+
+# Use default (block) cursor, without blinking
+shell-integration-features = no-cursor
+cursor-style-blink = false
+
+# Use CMD as ESC for common readline shortcuts
+keybind = cmd+b=esc:b
+keybind = cmd+d=esc:d
+keybind = cmd+f=esc:f
+keybind = cmd+x=esc:x

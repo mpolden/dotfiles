@@ -14,7 +14,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions) iterm2.conf
+.PHONY: $(symlinks) $(zsh_extensions) ghostty iterm2.conf
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -36,6 +36,10 @@ help:
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull"
 
 # Shell environment
+
+ghostty:
+	mkdir -p ~/.config/ghostty
+	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/ghostty/config
 
 iterm2.conf: ITERM2_PLIST=~/.config/iterm2/com.googlecode.iterm2.plist
 iterm2.conf:
