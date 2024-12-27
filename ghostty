@@ -3,6 +3,11 @@ font-family = Iosevka
 font-size = 15
 theme = DoomOne
 
+# Disable all ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
 # Use default (block) cursor, without blinking
 shell-integration-features = no-cursor
 cursor-style-blink = false
