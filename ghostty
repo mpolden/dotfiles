@@ -10,9 +10,8 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-# Use default (block) cursor, without blinking
+# Use default (block) cursor
 shell-integration-features = no-cursor
-cursor-style-blink = false
 
 # Use CMD as ESC for common readline shortcuts
 keybind = cmd+b=esc:b
