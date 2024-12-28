@@ -1,3 +1,5 @@
+# -*- mode: conf-unix -*-
+
 # Set font and theme
 font-family = Iosevka
 font-size = 15
@@ -17,3 +19,6 @@ keybind = cmd+b=esc:b
 keybind = cmd+d=esc:d
 keybind = cmd+f=esc:f
 keybind = cmd+x=esc:x
+
+# Copy selection to clipboard
+copy-on-select = true
