@@ -109,10 +109,6 @@ java_home="$(/usr/libexec/java_home 2> /dev/null)"
 [[ -n "$java_home" ]] && export JAVA_HOME="$java_home"
 unset java_home
 
-# MAVEN_OPTS
-# Prevent Maven from running tasks in the foreground
-(( $+commands[mvn] )) && export MAVEN_OPTS="-Djava.awt.headless=true"
-
 # Local environment
 source "$HOME/.zshenv.local" 2> /dev/null
 
