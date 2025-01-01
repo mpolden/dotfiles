@@ -100,9 +100,6 @@ if (( $+commands[fzf] && $+commands[bfs] )); then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-# Remove mosh prefix from terminal title
-(( $+commands[mosh] )) && export MOSH_TITLE_NOPREFIX=1
-
 # Kill mosh-server if it has been inactive for a week
 (( $+commands[mosh-server] )) && export MOSH_SERVER_NETWORK_TMOUT=604800
 
