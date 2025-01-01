@@ -56,7 +56,6 @@ function cdpath-append {
 }
 cdpath-append "$HOME"
 cdpath-append "$HOME/git"
-cdpath-append "$HOME/p"
 
 # Pager
 if (( $+commands[less] )); then
