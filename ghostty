@@ -21,3 +21,8 @@ keybind = cmd+x=esc:x
 
 # Copy selection to clipboard
 copy-on-select = true
+
+# Local configuration (optional)
+# Path is relative to the main configuration file and leading '?' makes it
+# optional
+config-file = ?config-local
