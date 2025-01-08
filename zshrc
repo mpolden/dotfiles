@@ -401,11 +401,6 @@ if (( $+commands[apt-mark] )); then
     alias apt-leaves='sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin <(apt-mark showmanual | sort)'
 fi
 
-# Display ANSI art typically found .nfo files correctly
-function nfoless {
-    iconv -f 437 -t utf-8 "$@" | ${PAGER:-less}
-}
-
 # Show restic diff for the most recent snapshot. If offset is given, show the
 # diff for the nth most recent snapshot instead
 function restic-review {
