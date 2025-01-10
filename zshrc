@@ -342,9 +342,6 @@ esac
 # Misc
 #
 
-# Change directory without cd
-setopt AUTO_CD
-
 # Interactive comments (like bash)
 setopt INTERACTIVE_COMMENTS
 
