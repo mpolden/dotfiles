@@ -14,7 +14,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions) ghostty iterm2.conf
+.PHONY: $(symlinks) $(zsh_extensions) ghostty
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -41,17 +41,7 @@ ghostty:
 	mkdir -p ~/.config/ghostty
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/ghostty/config
 
-iterm2.conf: ITERM2_PLIST=~/.config/iterm2/com.googlecode.iterm2.plist
-iterm2.conf:
-	mkdir -p ~/.config/iterm2
-# Copy the changes into this repository if the config already exists as a
-# regular file. When changing iTerm2 config, save it in General -> Preferences
-# manually. This will replace the symlink with a regular file, so this target
-# should be run again.
-	test -f $(ITERM2_PLIST) -a ! -L $(ITERM2_PLIST) && cp -a $(ITERM2_PLIST) $(CURDIR)/iterm2.conf || true
-	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ $(ITERM2_PLIST)
-
-install: $(symlinks) iterm2.conf
+install: $(symlinks) ghostty
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
