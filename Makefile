@@ -14,7 +14,7 @@ symlinks := gitattributes \
 
 zsh_extensions := zsh-syntax-highlighting
 
-.PHONY: $(symlinks) $(zsh_extensions) ghostty
+.PHONY: $(symlinks) $(zsh_extensions) fish ghostty
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m

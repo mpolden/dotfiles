@@ -47,7 +47,7 @@ function cleanup
         functions -e brew-fzf
     end
     functions -e path-prepend path-append cdpath-append is-command cond-alias \
-        alias-diff alias-ls cleanup
+        cleanup
 end
 
 ########## Environment ##########
@@ -91,14 +91,12 @@ end
 # Set PATH
 path-prepend "/usr/local/sbin"
 path-prepend "/usr/local/bin"
-path-prepend "/Library/TeX/texbin"
-path-prepend "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
 path-prepend "$HOME/.local/bin"
 path-prepend "$HOME/.cargo/bin"
 
 # Set CDPATH
 cdpath-append $HOME
-cdpath-append $HOME/p
+cdpath-append $HOME/git
 
 # Configure less
 if is-command less
@@ -121,17 +119,10 @@ else if is-command emacs
     set -gx EDITOR "emacs"
 else if is-command mg
     set -gx EDITOR "mg"
-else if is-command jmacs
-    set -gx EDITOR "jmacs"
 else if is-command vim
     set -gx EDITOR "vim"
 else if is-command vi
     set -gx EDITOR "vi"
-end
-
-# Remove mosh prefix from terminal title
-if is-command mosh
-    set -gx MOSH_TITLE_NOPREFIX 1
 end
 
 # Use bfs as find command in fzf
@@ -160,28 +151,13 @@ if [ -x /usr/libexec/java_home ]
     end
 end
 
-# MAVEN_OPTS
-# Prevent Maven from running tasks in the foreground
-if is-command mvn
-    set -gx MAVEN_OPTS "-Djava.awt.headless=true"
-end
-
-# Next config is only relevant for interactive use
+# Config below is only relevant for interactive use
 if not status is-interactive
     cleanup
     return 0
 end
 
 ########## Aliases ##########
-
-# Display ANSI art typically found .nfo files correctly
-function nfoless
-    set pager $PAGER
-    if [ -z "$pager" ]
-        set pager less
-    end
-    iconv -f 437 -t utf-8 $argv | $pager
-end
 
 # Show restic diff for the most recent snapshot. If offset is given, show the
 # diff for the nth most recent snapshot instead
@@ -214,38 +190,29 @@ function brew-fzf
     end
 end
 
-# diff alias
-function alias-diff
-    # Use colors in diff output when supported
-    if diff --color=auto /dev/null /dev/null 2> /dev/null
-        alias diff "diff --color=auto"
-    end
+# Use colors in diff output when supported
+if diff --color=auto /dev/null /dev/null 2> /dev/null
+   alias diff "diff --color=auto"
 end
-
-alias-diff
 
 # ls alias
-function alias-ls
-    set ls_opts "--group-directories-first --color=auto"
-    switch (uname)
-        case Darwin FreeBSD
-            if is-command gls
-                alias ls "gls $ls_opts"
-                alias ll "gls $ls_opts -lh"
-            else if is-command gnuls
-                alias ls "gnuls $ls_opts"
-                alias ll "gnuls $ls_opts -lh"
-            else
-                alias ls "ls -G"
-                alias ll "ls -Glh"
-            end
-        case "*"
-            alias ls "ls $ls_opts"
-            alias ll "ls $ls_opts -lh"
-    end
+set -l ls_opts "--group-directories-first --color=auto"
+switch (uname)
+    case Darwin FreeBSD
+        if is-command gls
+            alias ls "gls $ls_opts"
+            alias ll "gls $ls_opts -lh"
+        else if is-command gnuls
+            alias ls "gnuls $ls_opts"
+            alias ll "gnuls $ls_opts -lh"
+        else
+            alias ls "ls -G"
+            alias ll "ls -Glh"
+        end
+    case "*"
+        alias ls "ls $ls_opts"
+        alias ll "ls $ls_opts -lh"
 end
-
-alias-ls
 
 # Activate or deactivate a virtualenv in the directory venv
 function venv
@@ -309,6 +276,7 @@ function cdn
     cd (locate-dominating-file "$PWD" $argv[1])
 end
 
+# Regular aliases
 cond-alias aptup "sudo apt update; and sudo apt upgrade"
 cond-alias ec "emacsclient -nq"
 cond-alias find bfs
