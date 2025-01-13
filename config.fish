@@ -78,7 +78,9 @@ switch $TERM
 end
 
 # Homebrew
-if [ -x /usr/local/bin/brew ]
+if [ -x /opt/workbrew/bin/brew ]
+   eval $(/opt/workbrew/bin/brew shellenv)
+else if [ -x /usr/local/bin/brew ]
     eval $(/usr/local/bin/brew shellenv)
 else if [ -x /opt/homebrew/bin/brew ]
     eval $(/opt/homebrew/bin/brew shellenv)
