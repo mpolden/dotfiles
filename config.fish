@@ -300,7 +300,8 @@ end
 
 ########## Extensions ##########
 
-if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null
+if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null || \
+    source "/usr/share/doc/fzf/examples/key-bindings.fish" 2> /dev/null
     fzf_key_bindings
 end
 
