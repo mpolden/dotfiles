@@ -303,7 +303,7 @@ if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null || \
     fzf_key_bindings
 end
 
-########## Behavior ##########
+########## Appearance ##########
 
 # Remove greeting
 set fish_greeting
