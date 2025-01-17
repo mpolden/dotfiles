@@ -194,11 +194,6 @@ function brew-fzf
     end
 end
 
-# Use colors in diff output when supported
-if diff --color=auto /dev/null /dev/null 2> /dev/null
-   alias diff "diff --color=auto"
-end
-
 # ls alias
 set -l ls_opts "--group-directories-first --color=auto"
 switch $uname
@@ -280,8 +275,9 @@ function cdn
     cd (locate-dominating-file "$PWD" $argv[1])
 end
 
-# Regular aliases
+# Plain aliases
 cond-alias aptup "sudo apt update; and sudo apt upgrade"
+cond-alias diff "diff --color=auto"
 cond-alias ec "emacsclient -nq"
 cond-alias find bfs
 cond-alias git-root "cd (git rev-parse --show-toplevel)"
