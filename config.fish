@@ -320,11 +320,6 @@ set -g fish_prompt_pwd_dir_length 0
 # Make autosuggestion text slightly brighter
 set -g fish_color_autosuggestion 8a8a8a
 
-# Print message if reboot is required
-if [ -n "$TERM" -a -f /var/run/reboot-required ]
-    echo "reboot required"
-end
-
 # Local configuration
 source $HOME/.config/fish/local.fish 2> /dev/null
 
