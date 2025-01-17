@@ -2,6 +2,8 @@
 
 ########## Helper functions ##########
 
+set -l uname (uname)
+
 # Wrapper around fish_add_path that verifies path existence
 function path-prepend
     [ -d "$argv[1]" ]; and fish_add_path --prepend $argv[1]
@@ -53,7 +55,7 @@ end
 ########## Environment ##########
 
 # Locale
-switch (uname)
+switch $uname
     case Darwin
         set -gx LANG "en_US.UTF-8"
         # iTerm may choose to set an invalid LC_CTYPE
@@ -199,7 +201,7 @@ end
 
 # ls alias
 set -l ls_opts "--group-directories-first --color=auto"
-switch (uname)
+switch $uname
     case Darwin FreeBSD
         if is-command gls
             alias ls "gls $ls_opts"
