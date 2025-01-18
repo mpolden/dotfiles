@@ -4,16 +4,6 @@
 
 set -l uname (uname)
 
-# Wrapper around fish_add_path that verifies path existence
-function path-prepend
-    [ -d "$argv[1]" ]; and fish_add_path --prepend $argv[1]
-end
-
-# Wrapper around fish_add_path that verifies path existence
-function path-append
-    [ -d "$argv[1]" ]; and fish_add_path --append $argv[1]
-end
-
 # Append given path to CDPATH
 function cdpath-append
     set _path $argv[1]
@@ -48,7 +38,7 @@ function cleanup
     if not is-command brew
         functions -e brew-fzf
     end
-    functions -e path-prepend path-append cdpath-append is-command cond-alias \
+    functions -e path-prepend cdpath-append is-command cond-alias \
         cleanup
 end
 
@@ -93,10 +83,10 @@ if is-command brew
 end
 
 # Set PATH
-path-prepend "/usr/local/sbin"
-path-prepend "/usr/local/bin"
-path-prepend "$HOME/.local/bin"
-path-prepend "$HOME/.cargo/bin"
+fish_add_path --prepend "/usr/local/sbin"
+fish_add_path --prepend "/usr/local/bin"
+fish_add_path --prepend "$HOME/.local/bin"
+fish_add_path --prepend "$HOME/.cargo/bin"
 
 # Set CDPATH
 cdpath-append $HOME
@@ -144,7 +134,7 @@ end
 # GOPATH
 if [ -d "$HOME/go" ]
     set -gx GOPATH $HOME/go
-    path-prepend $GOPATH/bin
+    fish_add_path --prepend $GOPATH/bin
 end
 
 # JAVA_HOME
