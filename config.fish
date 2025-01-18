@@ -298,8 +298,10 @@ end
 
 ########## Extensions ##########
 
+# Candidate order: Homebrew, Debian, Fedora
 if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null || \
-    source "/usr/share/doc/fzf/examples/key-bindings.fish" 2> /dev/null
+    source "/usr/share/doc/fzf/examples/key-bindings.fish" 2> /dev/null || \
+    source "/usr/share/fzf/shell/key-bindings.fish"
     fzf_key_bindings
 end
 
