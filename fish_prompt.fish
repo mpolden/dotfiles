@@ -2,7 +2,7 @@
 # customizations.
 # See https://fishshell.com/docs/current/tutorial.html#prompt
 function fish_prompt --description "Write out the prompt"
-    set last_status $status
+    set -l last_status $status
 
     set normal (set_color normal)
     set -q fish_color_at
