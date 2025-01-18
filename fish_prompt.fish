@@ -1,8 +1,8 @@
-# Prompt is usually stored in a separate file to allow instant reload of prompt
-# customizations.
-# See https://fishshell.com/docs/current/tutorial.html#prompt
 function fish_prompt --description "Write out the prompt"
-    set -l last_status $status
+    set last_status $status
+    if not set -q __fish_prompt_hostname
+        set -g __fish_prompt_hostname (hostname -s)
+    end
 
     set normal (set_color normal)
     set -q fish_color_at
@@ -16,7 +16,7 @@ function fish_prompt --description "Write out the prompt"
         or set -q TOOLBOX_PATH
         set ssh_prefix (set_color $fish_color_user) $USER \
             (set_color $fish_color_at) @ (set_color $fish_color_host) \
-            $HOSTNAME $normal ":"
+            $__fish_prompt_hostname $normal ":"
     end
 
     # Color prompt symbol based on exit status. Inspired by
