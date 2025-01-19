@@ -8,13 +8,9 @@ symlinks := gitattributes \
 	    lftprc \
 	    mbsyncrc \
 	    sqliterc \
-	    tmux.conf \
-	    zshenv \
-	    zshrc
+	    tmux.conf
 
-zsh_extensions := zsh-syntax-highlighting
-
-.PHONY: $(symlinks) $(zsh_extensions) fish ghostty
+.PHONY: $(symlinks) fish ghostty
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -26,9 +22,6 @@ help:
 	@echo
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
-	@echo
-	@echo "Install zsh extras:"
-	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make fmt$(NO_COLOR)		Format fish configuration"
@@ -46,15 +39,6 @@ install: $(symlinks) ghostty fish
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
-
-zsh-extras: $(zsh_extensions)
-
-$(zsh_extensions):
-ifneq ($(BREW),)
-	brew install $@
-else
-	$(error could not find a package manager to install $@)
-endif
 
 fish:
 	mkdir -p ~/.config/fish/functions
