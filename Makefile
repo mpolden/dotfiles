@@ -31,6 +31,7 @@ help:
 	@echo "   $(COLOR)make zsh-extras$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
+	@echo "   $(COLOR)make fmt$(NO_COLOR)		Format fish configuration"
 	@echo "   $(COLOR)make print-dead$(NO_COLOR)	Print dead symlinks"
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull"
@@ -61,6 +62,9 @@ fish:
 	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Maintenance
+
+fmt:
+	fish_indent -w *.fish
 
 print-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
