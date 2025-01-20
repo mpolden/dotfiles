@@ -62,16 +62,16 @@ end
 # Set TERM
 switch $TERM
     case "xterm*"
-        set -gx TERM "xterm-256color"
+        set -gx TERM xterm-256color
     case "screen*" "tmux*"
         # OS may lack terminfo entry for tmux-256color
         # https://github.com/tmux/tmux/issues/2262
-        set -gx TERM "screen-256color"
+        set -gx TERM screen-256color
 end
 
 # Homebrew
 if [ -x /opt/workbrew/bin/brew ]
-   eval $(/opt/workbrew/bin/brew shellenv)
+    eval $(/opt/workbrew/bin/brew shellenv)
 else if [ -x /usr/local/bin/brew ]
     eval $(/usr/local/bin/brew shellenv)
 else if [ -x /opt/homebrew/bin/brew ]
@@ -83,8 +83,8 @@ if is-command brew
 end
 
 # Set PATH
-fish_add_path --prepend "/usr/local/sbin"
-fish_add_path --prepend "/usr/local/bin"
+fish_add_path --prepend /usr/local/sbin
+fish_add_path --prepend /usr/local/bin
 fish_add_path --prepend "$HOME/.local/bin"
 fish_add_path --prepend "$HOME/.cargo/bin"
 
@@ -94,29 +94,29 @@ cdpath-append $HOME/git
 
 # Configure less
 if is-command less
-    set -gx LESS "-Ri"
-    set -gx PAGER "less"
+    set -gx LESS -Ri
+    set -gx PAGER less
     # Add colors to man pages
-    set -gx LESS_TERMCAP_mb (printf "\e[1;32m")  # Begins blinking.
-    set -gx LESS_TERMCAP_md (printf "\e[1;32m")  # Begins bold.
-    set -gx LESS_TERMCAP_me (printf "\e[0m")     # Ends mode.
-    set -gx LESS_TERMCAP_se (printf "\e[0m")     # Ends standout-mode.
-    set -gx LESS_TERMCAP_so (printf "\e[1;31m")  # Begins standout-mode.
-    set -gx LESS_TERMCAP_ue (printf "\e[0m")     # Ends underline.
-    set -gx LESS_TERMCAP_us (printf "\e[4m")     # Begins underline.
+    set -gx LESS_TERMCAP_mb (printf "\e[1;32m") # Begins blinking.
+    set -gx LESS_TERMCAP_md (printf "\e[1;32m") # Begins bold.
+    set -gx LESS_TERMCAP_me (printf "\e[0m") # Ends mode.
+    set -gx LESS_TERMCAP_se (printf "\e[0m") # Ends standout-mode.
+    set -gx LESS_TERMCAP_so (printf "\e[1;31m") # Begins standout-mode.
+    set -gx LESS_TERMCAP_ue (printf "\e[0m") # Ends underline.
+    set -gx LESS_TERMCAP_us (printf "\e[4m") # Begins underline.
 end
 
 # Set EDITOR, from most to least preferred
 if is-command emacsclient
-    set -gx EDITOR "emacsclient"
+    set -gx EDITOR emacsclient
 else if is-command emacs
-    set -gx EDITOR "emacs"
+    set -gx EDITOR emacs
 else if is-command mg
-    set -gx EDITOR "mg"
+    set -gx EDITOR mg
 else if is-command vim
-    set -gx EDITOR "vim"
+    set -gx EDITOR vim
 else if is-command vi
-    set -gx EDITOR "vi"
+    set -gx EDITOR vi
 end
 
 # Use bfs as find command in fzf
@@ -166,10 +166,9 @@ function restic-review
         echo "usage: restic-review [OFFSET]" 1>&2
         return 1
     end
-    restic snapshots --group-by host --host (hostname -s) | \
-        grep -Eo "^[a-f0-9]{8,}" | \
-        tail -(math 2 + $offset) | \
-        head -2 | \
+    restic snapshots --group-by host --host (hostname -s) |
+        grep -Eo "^[a-f0-9]{8,}" | tail -(math 2 + $offset) |
+        head -2 |
         xargs -r restic diff
 end
 
@@ -246,7 +245,7 @@ function locate-dominating-file
         if [ -e "$cur_dir/$name" ]
             echo "$cur_dir"
             break
-        else if [ "$cur_dir" = "/" ]
+        else if [ "$cur_dir" = / ]
             echo "locate-dominating-file: $name not found in $dir or any of its parents" 1>&2
             return 1
         end
@@ -276,7 +275,7 @@ cond-alias mg "mg -n"
 cond-alias ta 'tmux new-session -AD -s $LOGNAME'
 cond-alias week "date +%V"
 cond-alias reload "exec fish"
-if is-command "apt-mark"
+if is-command apt-mark
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
     #
@@ -288,10 +287,11 @@ end
 
 ########## Extensions ##########
 
-# Candidate order: Homebrew, Debian, Fedora
-if source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish" 2> /dev/null || \
-    source "/usr/share/doc/fzf/examples/key-bindings.fish" 2> /dev/null || \
-    source "/usr/share/fzf/shell/key-bindings.fish"
+set -l fzf_ext_brew $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
+set -l fzf_ext_debian /usr/share/doc/fzf/examples/key-bindings.fish
+set -l fzf_ext_fedora /usr/share/fzf/shell/key-bindings.fish
+
+if source $fzf_ext_brew 2>/dev/null || source $fzf_ext_debian 2>/dev/null || source $fzf_ext_fedora 2>/dev/null
     fzf_key_bindings
 end
 
@@ -313,7 +313,7 @@ set -g fish_prompt_pwd_dir_length 0
 set -g fish_color_autosuggestion 8a8a8a
 
 # Local configuration
-source $HOME/.config/fish/local.fish 2> /dev/null
+source $HOME/.config/fish/local.fish 2>/dev/null
 
 # Clean up functions
 cleanup
