@@ -47,16 +47,13 @@ end
 # Locale
 switch $uname
     case Darwin
-        set -gx LANG "en_US.UTF-8"
-        # iTerm may choose to set an invalid LC_CTYPE
-        # https://superuser.com/a/1400419
-        set -gx LC_CTYPE "en_US.UTF-8"
+        set -gx LANG en_US.UTF-8
         # Norwegian time locale
-        set -gx LC_TIME "no_NO.UTF-8"
+        set -gx LC_TIME no_NO.UTF-8
     case Linux
-        set -gx LANG "en_US.UTF-8"
+        set -gx LANG en_US.UTF-8
         # Norwegian locale on Linux is named differently
-        set -gx LC_TIME "nb_NO.UTF-8"
+        set -gx LC_TIME nb_NO.UTF-8
 end
 
 # Set TERM
