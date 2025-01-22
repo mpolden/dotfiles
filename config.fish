@@ -148,6 +148,11 @@ if not status is-interactive
     return 0
 end
 
+########## Keybindings ##########
+
+# C-o edits command
+bind \co edit_command_buffer
+
 ########## Aliases ##########
 
 # Show restic diff for the most recent snapshot. If offset is given, show the
@@ -280,7 +285,6 @@ if is-command apt-mark
     # https://stackoverflow.com/q/58309013/22831
     alias apt-leaves 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
 end
-
 
 ########## Extensions ##########
 
