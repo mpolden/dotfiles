@@ -4,15 +4,6 @@
 
 set -l uname (uname)
 
-# Append given path to CDPATH
-function cdpath-append
-    set _path $argv[1]
-    if [ -d "$_path" ]
-        and not contains $_path $CDPATH
-        set -gx CDPATH $CDPATH $_path
-    end
-end
-
 # Returns whether given command is in PATH
 function is-command
     command -q $argv[1]
@@ -38,8 +29,7 @@ function cleanup
     if not is-command brew
         functions -e brew-fzf
     end
-    functions -e path-prepend cdpath-append is-command cond-alias \
-        cleanup
+    functions -e path-prepend is-command cond-alias cleanup
 end
 
 ########## Environment ##########
@@ -86,8 +76,7 @@ fish_add_path --prepend "$HOME/.local/bin"
 fish_add_path --prepend "$HOME/.cargo/bin"
 
 # Set CDPATH
-cdpath-append $HOME
-cdpath-append $HOME/git
+set -gx CDPATH $HOME $HOME/git
 
 # Configure less
 if is-command less
