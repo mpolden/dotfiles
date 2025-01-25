@@ -9,27 +9,12 @@ function is-command
     command -q $argv[1]
 end
 
-# Create an alias only if the aliased command is in PATH
-function cond-alias
-    set name $argv[1]
-    set values (string split " " $argv[2])
-    set cmd $values[1]
-    switch $cmd
-        case sudo cd cat exec
-            # Trim ( prefix from command
-            set cmd (string trim --left --chars "(" $values[2])
-    end
-    if is-command $cmd
-        alias $name "$values"
-    end
-end
-
 # Unbind functions that are only used to setup config
 function cleanup
     if not is-command brew
         functions -e brew-fzf
     end
-    functions -e path-prepend is-command cond-alias cleanup
+    functions -e is-command cleanup
 end
 
 ########## Environment ##########
@@ -256,16 +241,19 @@ function cdn
 end
 
 # Plain aliases
-cond-alias aptup "sudo apt update; and sudo apt upgrade"
-cond-alias diff "diff --color=auto"
-cond-alias ec "emacsclient -nq"
-cond-alias find bfs
-cond-alias grep "grep --color=auto"
-cond-alias mg "mg -n"
-cond-alias ta 'tmux new-session -AD -s $LOGNAME'
-cond-alias week "date +%V"
-cond-alias reload "exec fish"
-if is-command apt-mark
+alias diff "diff --color=auto"
+alias ec "emacsclient -nq"
+alias grep "grep --color=auto"
+alias mg "mg -n"
+alias ta 'tmux new-session -AD -s $LOGNAME'
+alias week "date +%V"
+alias reload "exec fish"
+if is-command bfs
+    # Prefer bfs as find
+    alias find bfs
+end
+if is-command apt
+    alias aptup "sudo apt update; and sudo apt upgrade"
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
     #
