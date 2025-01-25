@@ -260,7 +260,6 @@ cond-alias aptup "sudo apt update; and sudo apt upgrade"
 cond-alias diff "diff --color=auto"
 cond-alias ec "emacsclient -nq"
 cond-alias find bfs
-cond-alias git-root "cd (git rev-parse --show-toplevel)"
 cond-alias grep "grep --color=auto"
 cond-alias mg "mg -n"
 cond-alias ta 'tmux new-session -AD -s $LOGNAME'
