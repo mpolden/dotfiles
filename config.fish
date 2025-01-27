@@ -1,23 +1,8 @@
 # -*- mode: fish -*-
 
-########## Helper functions ##########
+########## Environment ##########
 
 set -l uname (uname)
-
-# Returns whether given command is in PATH
-function is-command
-    command -q $argv[1]
-end
-
-# Unbind functions that are only used to setup config
-function cleanup
-    if not is-command brew
-        functions -e brew-fzf
-    end
-    functions -e is-command cleanup
-end
-
-########## Environment ##########
 
 # Locale
 switch $uname
@@ -49,7 +34,7 @@ else if [ -x /usr/local/bin/brew ]
 else if [ -x /opt/homebrew/bin/brew ]
     eval $(/opt/homebrew/bin/brew shellenv)
 end
-if is-command brew
+if command -q brew
     set -gx HOMEBREW_NO_ANALYTICS 1
     set -gx HOMEBREW_NO_AUTO_UPDATE 1
 end
@@ -64,7 +49,7 @@ fish_add_path --prepend "$HOME/.cargo/bin"
 set -gx CDPATH $HOME $HOME/git
 
 # Configure less
-if is-command less
+if command -q less
     set -gx LESS -Ri
     set -gx PAGER less
     # Add colors to man pages
@@ -78,27 +63,27 @@ if is-command less
 end
 
 # Set EDITOR, from most to least preferred
-if is-command emacsclient
+if command -q emacsclient
     set -gx EDITOR emacsclient
-else if is-command emacs
+else if command -q emacs
     set -gx EDITOR emacs
-else if is-command mg
+else if command -q mg
     set -gx EDITOR mg
-else if is-command vim
+else if command -q vim
     set -gx EDITOR vim
-else if is-command vi
+else if command -q vi
     set -gx EDITOR vi
 end
 
 # Use bfs as find command in fzf
-if is-command fzf
-    and is-command bfs
+if command -q fzf
+    and command -q bfs
     set -gx FZF_DEFAULT_COMMAND bfs
     set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 end
 
 # Kill mosh-server if it has been inactive for a week
-if is-command mosh-server
+if command -q mosh-server
     set -gx MOSH_SERVER_NETWORK_TMOUT 604800
 end
 
@@ -118,7 +103,6 @@ end
 
 # Config below is only relevant for interactive use
 if not status is-interactive
-    cleanup
     return 0
 end
 
@@ -163,10 +147,10 @@ end
 set -l ls_opts "--group-directories-first --color=auto"
 switch $uname
     case Darwin FreeBSD
-        if is-command gls
+        if command -q gls
             alias ls "gls $ls_opts"
             alias ll "gls $ls_opts -lh"
-        else if is-command gnuls
+        else if command -q gnuls
             alias ls "gnuls $ls_opts"
             alias ll "gnuls $ls_opts -lh"
         else
@@ -248,11 +232,11 @@ alias mg "mg -n"
 alias ta 'tmux new-session -AD -s $LOGNAME'
 alias week "date +%V"
 alias reload "exec fish"
-if is-command bfs
+if command -q bfs
     # Prefer bfs as find
     alias find bfs
 end
-if is-command apt
+if command -q apt
     alias aptup "sudo apt update; and sudo apt upgrade"
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
@@ -291,6 +275,3 @@ set -g fish_color_autosuggestion 8a8a8a
 
 # Local configuration
 source $HOME/.config/fish/local.fish 2>/dev/null
-
-# Clean up functions
-cleanup
