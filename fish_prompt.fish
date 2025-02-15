@@ -4,12 +4,13 @@ function fish_prompt --description "Write out the prompt"
     set -q fish_color_at
     or set -U fish_color_at $normal
 
-    # Add user@host when connected through SSH or using toolbox
+    # Add user@host when connected through SSH or using toolbox/distrobox
     set ssh_prefix
     if set -q SSH_CLIENT
         or set -q SSH_TTY
         or set -q SSH_CONNECTION
         or set -q TOOLBOX_PATH
+        or set -q DISTROBOX_ENTER_PATH
         set ssh_prefix (set_color $fish_color_user) $USER \
             (set_color $fish_color_at) @ (set_color $fish_color_host) \
             $hostname $normal ":"
