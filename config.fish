@@ -169,7 +169,7 @@ function venv
         set venv .venv
     end
     set venv (realpath $venv)
-    set activate "$venv/bin/activate"
+    set activate "$venv/bin/activate.fish"
     if [ -n "$VIRTUAL_ENV" ]
         echo "venv: deactivating $VIRTUAL_ENV" 1>&2
         deactivate
