@@ -1,6 +1,5 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
-BREW := $(shell command -v brew 2> /dev/null)
 
 symlinks := gitattributes \
 	    gitconfig \
@@ -15,13 +14,16 @@ symlinks := gitattributes \
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
 
-all: install
+all: help
 
 help:
 	@echo "Makefile for installing dotfiles"
 	@echo
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
+	@echo
+	@echo "Install applications declared in Brewfile:"
+	@echo "   $(COLOR)make install-apps$(NO_COLOR)"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make fmt$(NO_COLOR)		Format fish configuration"
@@ -44,6 +46,11 @@ fish:
 	mkdir -p ~/.config/fish/functions
 	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
 	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+
+# Applications
+
+install-apps:
+	brew bundle install --cleanup
 
 # Maintenance
 
