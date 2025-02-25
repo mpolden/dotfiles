@@ -1,6 +1,6 @@
 tap "filosottile/musl-cross"
 tap "homebrew/bundle"
-tap "railwaycat/emacsmacport"
+tap "jimeh/emacs-builds"
 
 # Easy file encryption
 brew "age"
@@ -76,8 +76,8 @@ brew "wireguard-tools"
 brew "yt-dlp"
 # Cross-compile Go code that has C dependencies
 brew "filosottile/musl-cross/musl-cross"
-# A macOS-optimized variant of the true editor
-cask "emacs-mac"
+# The true editor
+cask "emacs-app"
 # The last truly open browser
 cask "firefox"
 # A good terminal emulator
