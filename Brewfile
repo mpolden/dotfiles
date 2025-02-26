@@ -67,7 +67,7 @@ brew "stow"
 # Count lines of code
 brew "tokei"
 # Trash files from the command line
-brew "trash"
+brew "trash" if MacOS.version < :sonoma
 # Pretty-print a directory tree
 brew "tree"
 # Wrangle VPN configuration
