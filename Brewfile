@@ -87,7 +87,7 @@ cask "iina"
 # Password manager
 cask "keepassxc"
 # Run local LLMs
-cask "lm-studio"
+cask "lm-studio" if Hardware::CPU.arm?
 # Clipboard history
 cask "maccy"
 # Window manager
