@@ -76,6 +76,8 @@ brew "wireguard-tools"
 brew "yt-dlp"
 # Cross-compile Go code that has C dependencies
 brew "filosottile/musl-cross/musl-cross"
+# A better Spotlight (and clipboard history, when Maccy is not supported)
+cask "alfred" if MacOS.version < :sonoma
 # The true editor
 cask "emacs-app"
 # The last truly open browser
