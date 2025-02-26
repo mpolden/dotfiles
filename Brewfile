@@ -88,6 +88,8 @@ cask "firefox"
 cask "ghostty"
 # Video player
 cask "iina"
+# Java IDE
+cask "intellij-idea-ce"
 # Password manager
 cask "keepassxc"
 # Run local LLMs
