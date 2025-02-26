@@ -89,7 +89,7 @@ cask "keepassxc"
 # Run local LLMs
 cask "lm-studio" if Hardware::CPU.arm?
 # Clipboard history
-cask "maccy"
+cask "maccy" if MacOS.version >= :sonoma
 # Window manager
 cask "moom"
 # RSS client
