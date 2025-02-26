@@ -30,6 +30,8 @@ brew "go"
 brew "gopls"
 # A better ping, with a graph
 brew "gping"
+# Another better top
+brew "htop"
 # Test network throughput
 brew "iperf3"
 # Wrangle JSON
