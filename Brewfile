@@ -1,6 +1,7 @@
 tap "filosottile/musl-cross"
 tap "homebrew/bundle"
 tap "jimeh/emacs-builds"
+tap "mvndaemon/mvnd"
 
 # Easy file encryption
 brew "age"
@@ -82,6 +83,8 @@ brew "wireguard-tools"
 brew "yt-dlp"
 # Cross-compile Go code that has C dependencies
 brew "filosottile/musl-cross/musl-cross"
+# A better Maven frontend
+brew "mvndaemon/mvnd/mvnd@1"
 # A better Spotlight (and clipboard history, when Maccy is not supported)
 cask "alfred" if MacOS.version < :sonoma
 # The true editor
