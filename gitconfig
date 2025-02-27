@@ -53,11 +53,11 @@
 [log]
 	follow = true
 [diff]
-    # https://blog.gitbutler.com/how-git-core-devs-configure-git/
-    algorithm = histogram
-    colorMoved = plain
-    mnemonicPrefix = true
-    renames = true
+	# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [include]
 	path = .gitconfig.local
 [init]
