@@ -24,6 +24,8 @@ brew "ffmpeg"
 brew "fish"
 # Fuzzy-find anything
 brew "fzf"
+# GitHub CLI
+brew "gh"
 # Used by Emacs (magit) for automatic rebasing
 brew "git-absorb"
 # Probably the best language
