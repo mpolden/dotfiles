@@ -44,10 +44,10 @@
 [fetch]
 	prune = true
 [branch]
-	autosetuprebase = always
+	autoSetupRebase = always
 [rebase]
 	stat = true
-	autostash = true
+	autoStash = true
 [grep]
 	lineNumber = true
 [log]
