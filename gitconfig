@@ -39,10 +39,21 @@
 	# Clean, but preserve IntelliJ config and Maven build output that appear in
 	# directories which are otherwise still tracked in git
 	clean-java = "!git clean -ndx | sed 's/^Would remove //' | grep -vE '(\\.iml|\\.idea/|/target/)$' | tr '\\n' '\\0' | xargs -r0 git clean -dx"
+# Inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
 [push]
 	default = simple
+	autoSetupRemote = true
+	followTags = true
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [branch]
 	autoSetupRebase = always
 [rebase]
@@ -53,7 +64,6 @@
 [log]
 	follow = true
 [diff]
-	# https://blog.gitbutler.com/how-git-core-devs-configure-git/
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
