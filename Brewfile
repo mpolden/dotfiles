@@ -73,7 +73,7 @@ brew "sipcalc"
 brew "stow"
 # Count lines of code
 brew "tokei"
-# Trash files from the command line
+# Trash files from the command line. Sonoma comes with trash command
 brew "trash" if MacOS.version < :sonoma
 # Pretty-print a directory tree
 brew "tree"
@@ -85,7 +85,7 @@ brew "yt-dlp"
 brew "filosottile/musl-cross/musl-cross"
 # A better Maven frontend
 brew "mvndaemon/mvnd/mvnd@1"
-# A better Spotlight (and clipboard history, when Maccy is not supported)
+# A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
 # The true editor
 cask "emacs-app"
@@ -103,10 +103,10 @@ cask "intellij-idea-ce"
 cask "keepassxc"
 # Run local LLMs
 cask "lm-studio" if Hardware::CPU.arm?
-# Clipboard history
+# Clipboard history. Sonoma is required since 2.x
 cask "maccy" if MacOS.version >= :sonoma
-# Window manager
-cask "moom"
+# Window manager. Sequoia introduced native tiling
+cask "moom" if MacOS.version < :sequoia
 # RSS client
 cask "netnewswire"
 # Synchronize files without the cloud
