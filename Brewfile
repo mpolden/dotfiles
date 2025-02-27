@@ -8,6 +8,8 @@ brew "age"
 brew "ansible"
 # Used by Emacs (flyspell)
 brew "aspell"
+# Wrangle AWS
+brew "awscli"
 # A better find
 brew "bfs"
 # A better top
