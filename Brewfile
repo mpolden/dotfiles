@@ -84,6 +84,8 @@ cask "alfred" if MacOS.version < :sonoma
 cask "emacs-app"
 # The last truly open browser
 cask "firefox"
+# Excellent programming font
+cask "font-iosevka"
 # A good terminal emulator
 cask "ghostty"
 # Video player
