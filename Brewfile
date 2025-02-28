@@ -109,6 +109,8 @@ cask "maccy" if MacOS.version >= :sonoma
 cask "moom" if MacOS.version < :sequoia
 # RSS client
 cask "netnewswire"
+# Store SSH keys in the Secure Enclave
+cask "secretive"
 # Synchronize files without the cloud
 cask "syncthing"
 # Anonymous browser
