@@ -22,8 +22,9 @@ help:
 	@echo "Create symlinks:"
 	@echo "   $(COLOR)make install$(NO_COLOR)"
 	@echo
-	@echo "Install applications declared in Brewfile:"
-	@echo "   $(COLOR)make install-apps$(NO_COLOR)"
+	@echo "Install applications from Brewfile:"
+	@echo "   $(COLOR)make install-apps$(NO_COLOR)	Ensure installed apps match Brewfile exactly"
+	@echo "   $(COLOR)make check-apps$(NO_COLOR)	Check whether installed apps match Brewfile"
 	@echo
 	@echo "Maintenance:"
 	@echo "   $(COLOR)make fmt$(NO_COLOR)		Format fish configuration"
@@ -51,6 +52,9 @@ fish:
 
 install-apps:
 	brew bundle install --cleanup
+
+check-apps:
+	brew bundle check --verbose
 
 # Maintenance
 
