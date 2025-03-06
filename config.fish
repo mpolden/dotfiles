@@ -40,13 +40,13 @@ if command -q brew
 end
 
 # Set PATH
-fish_add_path --prepend /usr/local/sbin
-fish_add_path --prepend /usr/local/bin
+fish_add_path --prepend --move /usr/local/sbin
+fish_add_path --prepend --move /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
-fish_add_path --prepend /usr/local/opt/trash/bin
-fish_add_path --prepend "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
-fish_add_path --prepend "$HOME/.local/bin"
-fish_add_path --prepend "$HOME/.cargo/bin"
+fish_add_path --prepend --move /usr/local/opt/trash/bin
+fish_add_path --prepend --move "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
+fish_add_path --prepend --move "$HOME/.local/bin"
+fish_add_path --prepend --move "$HOME/.cargo/bin"
 
 # Set CDPATH
 set -gx CDPATH $HOME $HOME/git
