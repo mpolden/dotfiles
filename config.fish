@@ -246,11 +246,13 @@ if command -q apt
     #
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=727799
     # https://stackoverflow.com/q/58309013/22831
-    abbr --add apt-leaves 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
+    abbr --add pkgls 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
 else if command -q brew
     abbr --add pkgup "brew update && brew upgrade -n"
+    abbr --add pkgls "sort (brew leaves | psub) (brew list --cask | psub)"
 else if command -q rpm-ostree
     abbr --add pkgup "rpm-ostree upgrade --preview"
+    abbr --add pkgls "rpm-ostree status --json | jq -r '.deployments|map(select(.booted))|.[].packages[]' "
 end
 
 ########## Extensions ##########
