@@ -240,16 +240,17 @@ if command -q bfs
     abbr --add find bfs
 end
 if command -q apt
-    abbr --add aptup "sudo apt update && sudo apt upgrade"
+    abbr --add pkgup "sudo apt update && sudo apt upgrade"
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
     #
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=727799
     # https://stackoverflow.com/q/58309013/22831
     abbr --add apt-leaves 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
-end
-if command -q brew
-    abbr --add brewup "brew update && brew upgrade -n"
+else if command -q brew
+    abbr --add pkgup "brew update && brew upgrade -n"
+else if command -q rpm-ostree
+    abbr --add pkgup "rpm-ostree upgrade --preview"
 end
 
 ########## Extensions ##########
