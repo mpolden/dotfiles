@@ -165,26 +165,6 @@ switch $uname
         alias ll "ls $ls_opts -lh"
 end
 
-# Activate or deactivate a virtualenv in the directory venv
-function venv
-    set venv $argv[1]
-    if [ -z "$venv" ]
-        set venv .venv
-    end
-    set venv (realpath $venv)
-    set activate "$venv/bin/activate.fish"
-    if [ -n "$VIRTUAL_ENV" ]
-        echo "venv: deactivating $VIRTUAL_ENV" 1>&2
-        deactivate
-    else if [ -f "$activate" ]
-        echo "venv: activating $venv" 1>&2
-        source "$activate"
-    else
-        echo "venv: $activate not found" 1>&2
-        return 1
-    end
-end
-
 # A shell variant of the locate-dominating-file function found in Emacs
 function locate-dominating-file
     if [ (count $argv) -lt 2 ]
