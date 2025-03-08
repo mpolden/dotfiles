@@ -227,26 +227,26 @@ function cdn
     cd (locate-dominating-file "$PWD" $argv[1])
 end
 
-# Plain aliases
-alias diff "diff --color=auto"
-alias ec "emacsclient -nq"
-alias grep "grep --color=auto"
-alias mg "mg -n"
-alias ta 'tmux new-session -AD -s $LOGNAME'
-alias week "date +%V"
-alias reload "exec fish"
+# Abbreviations (expand when typed)
+abbr --add diff "diff --color=auto"
+abbr --add ec "emacsclient -nq"
+abbr --add grep "grep --color=auto"
+abbr --add mg "mg -n"
+abbr --add ta 'tmux new-session -AD -s $LOGNAME'
+abbr --add week "date +%V"
+abbr --add reload "exec fish"
 if command -q bfs
     # Prefer bfs as find
-    alias find bfs
+    abbr --add find bfs
 end
 if command -q apt
-    alias aptup "sudo apt update; and sudo apt upgrade"
+    abbr --add aptup "sudo apt update; and sudo apt upgrade"
     # This is the most precise method I've found for answering the question
     # "which packages did I install explicitly?"
     #
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=727799
     # https://stackoverflow.com/q/58309013/22831
-    alias apt-leaves 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
+    abbr --add apt-leaves 'sudo grep -oP "Unpacking \K[^: ]+" /var/log/installer/syslog | sort -u | comm -13 /dev/stdin (apt-mark showmanual | sort | psub)'
 end
 
 ########## Extensions ##########
