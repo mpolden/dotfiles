@@ -41,6 +41,12 @@ brew "htop"
 brew "iperf3"
 # Wrangle JSON
 brew "jq"
+# Interactive Kubernetes CLI
+brew "k9s"
+# Run a local Kubernetes cluster
+brew "kind"
+# Standard Kubernetes CLI
+brew "kubectl"
 # CLI for Mac App Store
 brew "mas"
 # A better ssh
