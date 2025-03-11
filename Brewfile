@@ -55,6 +55,8 @@ brew "mosh"
 brew "mtr"
 # Wrangle most compression formats
 brew "p7zip"
+# Convert between many text formats
+brew "pandoc"
 # Wrangle programs distributed as Python packages
 brew "pipx"
 # Wrangle containers
