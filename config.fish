@@ -40,7 +40,6 @@ if command -q brew
 end
 
 # Set PATH
-fish_add_path --prepend --move /usr/local/sbin
 fish_add_path --prepend --move /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
 fish_add_path --prepend --move /usr/local/opt/trash/bin
