@@ -111,8 +111,8 @@ end
 
 ########## Keybindings ##########
 
-# C-o edits command
-bind \co edit_command_buffer
+# C-x C-e edits command
+bind ctrl-x,ctrl-e edit_command_buffer
 
 ########## Aliases ##########
 
