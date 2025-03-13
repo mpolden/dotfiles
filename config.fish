@@ -47,6 +47,7 @@ fish_add_path --prepend --move /usr/local/opt/trash/bin
 fish_add_path --prepend --move "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
 fish_add_path --prepend --move "$HOME/.local/bin"
 fish_add_path --prepend --move "$HOME/.cargo/bin"
+fish_add_path --prepend --move "$HOME/go/bin"
 
 # Set CDPATH
 set -gx CDPATH $HOME $HOME/git
@@ -91,10 +92,7 @@ if command -q mosh-server
 end
 
 # GOPATH
-if [ -d "$HOME/go" ]
-    set -gx GOPATH $HOME/go
-    fish_add_path --prepend $GOPATH/bin
-end
+[ -d "$HOME/go" ] && set -gx GOPATH $HOME/go
 
 # JAVA_HOME
 if [ -x /usr/libexec/java_home ]
