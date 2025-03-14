@@ -208,7 +208,7 @@ end
 
 # Abbreviations (expand when typed)
 abbr --add diff "diff --color=auto"
-abbr --add ec "emacsclient -nq"
+abbr --add ec "emacsclient -n"
 abbr --add grep "grep --color=auto"
 abbr --add mg "mg -n"
 abbr --add ta 'tmux new-session -AD -s $LOGNAME'
