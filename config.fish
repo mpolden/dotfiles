@@ -207,7 +207,7 @@ function cdn
 end
 
 # Abbreviations (expand when typed)
-abbr --add diff "diff --color=auto"
+abbr --add diff "diff -u"
 abbr --add ec "emacsclient -n"
 abbr --add grep "grep --color=auto"
 abbr --add mg "mg -n"
