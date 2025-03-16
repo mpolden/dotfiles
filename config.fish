@@ -214,8 +214,9 @@ abbr --add ta 'tmux new-session -AD -s $LOGNAME'
 abbr --add week "date +%V"
 abbr --add reload "exec fish"
 if command -q bfs
-    # Prefer bfs as find
-    abbr --add find bfs
+    # Prefer bfs as find. This is an alias because bfs is compatible with find
+    # flags, so the alias doesn't hide anything
+    alias find bfs
 end
 if command -q apt
     abbr --add pkgup "sudo apt update && sudo apt upgrade"
