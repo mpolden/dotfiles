@@ -132,17 +132,6 @@ function restic-review
         xargs -r restic diff
 end
 
-# Fuzzy-finding wrapper for brew install, info and uninstall
-function brew-fzf
-    switch $argv[1]
-        case info install uninstall
-            cat (brew formulae | psub) (brew casks | sed "s/^/--cask /" | psub) | fzf --multi | xargs -r brew "$argv[1]"
-        case "*"
-            echo "usage: brew-fzf [ info | install | uninstall ]" 1>&2
-            return 1
-    end
-end
-
 # ls alias
 set -l ls_opts "--group-directories-first --color=auto"
 switch $uname
