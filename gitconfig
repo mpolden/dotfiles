@@ -22,8 +22,6 @@
 	# Disable pager for branch and tag. This restores < 2.15.0 behaviour
 	branch = false
 	tag = false
-[color]
-	ui = auto
 [alias]
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	fzf = "!git lg --no-graph --color=always | fzf --ansi --multi --reverse --no-sort --delimiter=' - ' --nth=2.. --preview='git show --color=always {1}' | cut -f 1 -d ' '"
