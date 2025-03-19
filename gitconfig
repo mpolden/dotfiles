@@ -23,6 +23,7 @@
 	branch = false
 	tag = false
 [alias]
+	# Inspired by https://coderwall.com/p/euwpig/a-better-git-log
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	fzf = "!git lg --no-graph --color=always | fzf --ansi --multi --reverse --no-sort --delimiter=' - ' --nth=2.. --preview='git show --color=always {1}' | cut -f 1 -d ' '"
 	s = status --short --branch
@@ -44,6 +45,11 @@
 	sort = -committerdate
 [tag]
 	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [push]
 	default = simple
 	autoSetupRemote = true
@@ -52,6 +58,7 @@
 	prune = true
 	pruneTags = true
 	all = true
+# </inspiration>
 [branch]
 	autoSetupRebase = always
 [rebase]
@@ -61,11 +68,6 @@
 	lineNumber = true
 [log]
 	follow = true
-[diff]
-	algorithm = histogram
-	colorMoved = plain
-	mnemonicPrefix = true
-	renames = true
 [include]
 	path = .gitconfig.local
 [init]
