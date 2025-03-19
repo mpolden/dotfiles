@@ -19,6 +19,9 @@ keybind = cmd+d=esc:d
 keybind = cmd+f=esc:f
 keybind = cmd+x=esc:x
 
+# Right OPT acts as ALT
+macos-option-as-alt = right
+
 # Copy selection to clipboard
 copy-on-select = clipboard
 
