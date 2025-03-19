@@ -95,6 +95,8 @@ brew "filosottile/musl-cross/musl-cross"
 brew "mvndaemon/mvnd/mvnd@1"
 # A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
+# Make C++ bearable
+cask "clion"
 # The true editor
 cask "emacs-app"
 # The last truly open browser
