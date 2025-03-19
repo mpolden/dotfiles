@@ -20,8 +20,8 @@
 	pager = perl -pe \"s|^(\\e\\[\\d{2,}m)(\\s*)([-+])|\\\"\\$1\\$2\\e[7m\\\" . (' ' x length(\\$3)) . \\\"\\e[27m\\\"|e\" | $PAGER
 [pager]
 	# Disable pager for branch and tag. This restores < 2.15.0 behaviour
-	branch = cat
-	tag = cat
+	branch = false
+	tag = false
 [color]
 	ui = auto
 [alias]
