@@ -109,6 +109,8 @@ cask "ghostty"
 cask "iina"
 # Java IDE
 cask "intellij-idea-ce"
+# Remote development launcher for JetBrains IDEs
+cask "jetbrains-gateway"
 # Password manager
 cask "keepassxc"
 # Run local LLMs
