@@ -223,16 +223,6 @@ else if command -q rpm-ostree
     abbr --add pkgls "rpm-ostree status --json | jq -r '.deployments|map(select(.booted))|.[].packages[]' "
 end
 
-########## Extensions ##########
-
-set -l fzf_ext_brew $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
-set -l fzf_ext_debian /usr/share/doc/fzf/examples/key-bindings.fish
-set -l fzf_ext_fedora /usr/share/fzf/shell/key-bindings.fish
-
-if source $fzf_ext_brew 2>/dev/null || source $fzf_ext_debian 2>/dev/null || source $fzf_ext_fedora 2>/dev/null
-    fzf_key_bindings
-end
-
 ########## Feature flags ##########
 
 # Disable single character glob (this is default since 4.0)
