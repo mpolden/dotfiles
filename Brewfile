@@ -108,7 +108,7 @@ cask "ghostty"
 # Video player
 cask "iina"
 # Java IDE
-cask "intellij-idea-ce"
+cask "intellij-idea"
 # Remote development launcher for JetBrains IDEs
 cask "jetbrains-gateway"
 # Password manager
