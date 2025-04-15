@@ -37,8 +37,6 @@ brew "gopls"
 brew "gping"
 # Package manager for Kubernetes
 brew "helm"
-# Another better top
-brew "htop"
 # Test network throughput
 brew "iperf3"
 # Wrangle JSON
