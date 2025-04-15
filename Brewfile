@@ -35,6 +35,8 @@ brew "go"
 brew "gopls"
 # A better ping, with a graph
 brew "gping"
+# Package manager for Kubernetes
+brew "helm"
 # Another better top
 brew "htop"
 # Test network throughput
