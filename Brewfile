@@ -127,7 +127,5 @@ cask "secretive"
 cask "syncthing"
 # Anonymous browser
 cask "tor-browser"
-# Run virtual machines
-cask "utm"
 # WireGuard client
 mas "WireGuard", id: 1451685025 if system("defaults read MobileMeAccounts Accounts &> /dev/null")
