@@ -5,8 +5,6 @@ tap "mvndaemon/mvnd"
 
 # Easy file encryption
 brew "age"
-# Configuration management
-brew "ansible"
 # Used by Emacs (flyspell)
 brew "aspell"
 # Wrangle AWS
