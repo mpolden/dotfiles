@@ -51,8 +51,6 @@ brew "mas"
 brew "mosh"
 # A better ping, without the graph
 brew "mtr"
-# Wrangle most compression formats
-brew "p7zip"
 # Convert between many text formats
 brew "pandoc"
 # Wrangle programs distributed as Python packages
