@@ -1,5 +1,4 @@
 tap "filosottile/musl-cross"
-tap "homebrew/bundle"
 tap "jimeh/emacs-builds"
 tap "mvndaemon/mvnd"
 
