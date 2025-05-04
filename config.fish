@@ -60,14 +60,6 @@ set -gx CDPATH $HOME $HOME/git
 if command -q less
     set -gx LESS -Ri
     set -gx PAGER less
-    # Add colors to man pages
-    set -gx LESS_TERMCAP_mb (printf "\e[1;32m") # Begins blinking.
-    set -gx LESS_TERMCAP_md (printf "\e[1;32m") # Begins bold.
-    set -gx LESS_TERMCAP_me (printf "\e[0m") # Ends mode.
-    set -gx LESS_TERMCAP_se (printf "\e[0m") # Ends standout-mode.
-    set -gx LESS_TERMCAP_so (printf "\e[1;31m") # Begins standout-mode.
-    set -gx LESS_TERMCAP_ue (printf "\e[0m") # Ends underline.
-    set -gx LESS_TERMCAP_us (printf "\e[4m") # Begins underline.
 end
 
 # Set EDITOR, from most to least preferred
