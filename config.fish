@@ -251,6 +251,8 @@ set -g fish_color_command green
 set -g fish_prompt_pwd_dir_length 0
 # Make autosuggestion text slightly brighter
 set -g fish_color_autosuggestion 8a8a8a
+# Use same color for comments
+set -g fish_color_comment $fish_color_autosuggestion
 
 # Local configuration
 source $HOME/.config/fish/local.fish 2>/dev/null
