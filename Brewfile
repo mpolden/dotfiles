@@ -50,6 +50,8 @@ brew "mas"
 brew "mosh"
 # A better ping, without the graph
 brew "mtr"
+# Runtime for a horrible language
+brew "node"
 # Convert between many text formats
 brew "pandoc"
 # Wrangle programs distributed as Python packages
