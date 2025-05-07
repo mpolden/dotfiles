@@ -114,8 +114,8 @@ cask "keepassxc"
 cask "lm-studio" if Hardware::CPU.arm?
 # Clipboard history. Sonoma is required since 2.x
 cask "maccy" if MacOS.version >= :sonoma
-# Window manager. Sequoia introduced native tiling
-cask "moom" if MacOS.version < :sequoia
+# Window manager
+cask "moom"
 # RSS client
 cask "netnewswire"
 # Store SSH keys in the Secure Enclave
