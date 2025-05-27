@@ -82,6 +82,8 @@ brew "tokei"
 brew "trash" if MacOS.version < :sonoma
 # Pretty-print a directory tree
 brew "tree"
+# Execute a program periodically
+brew "watch"
 # Wrangle VPN configuration
 brew "wireguard-tools"
 # Download YouTube videos
