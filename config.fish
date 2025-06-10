@@ -54,7 +54,7 @@ fish_add_path --prepend --move "$HOME/.cargo/bin"
 fish_add_path --prepend --move "$HOME/go/bin"
 
 # Set CDPATH
-set -gx CDPATH $HOME $HOME/git
+set -gx CDPATH . $HOME $HOME/git
 
 # Configure less
 if command -q less
