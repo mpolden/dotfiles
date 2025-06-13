@@ -3,7 +3,7 @@
 # Set font and theme
 font-family = Iosevka
 font-size = 15
-theme = DoomOne
+theme = Cyberpunk
 
 # Disable all ligatures
 font-feature = -calt
