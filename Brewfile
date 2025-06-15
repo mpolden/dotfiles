@@ -100,7 +100,9 @@ cask "clion"
 cask "emacs-app"
 # The last truly open browser
 cask "firefox"
-# Excellent programming font
+# Customized version of an excellent programming font
+cask "font-aporetic"
+# An excellent programming font
 cask "font-iosevka"
 # A good terminal emulator
 cask "ghostty"
