@@ -1,7 +1,7 @@
 # -*- mode: conf-unix -*-
 
 # Set font and theme
-font-family = Iosevka
+font-family = Aporetic Sans Mono
 font-size = 15
 theme = Cyberpunk
 
