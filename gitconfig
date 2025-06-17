@@ -64,6 +64,8 @@
 [rebase]
 	stat = true
 	autoStash = true
+[pull]
+	rebase = true
 [grep]
 	lineNumber = true
 [log]
