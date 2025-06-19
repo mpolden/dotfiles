@@ -66,6 +66,8 @@
 	autoStash = true
 [pull]
 	rebase = true
+[merge]
+	conflictStyle = zdiff3
 [grep]
 	lineNumber = true
 [log]
