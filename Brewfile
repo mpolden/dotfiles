@@ -96,8 +96,6 @@ brew "mvndaemon/mvnd/mvnd@1"
 cask "alfred" if MacOS.version < :sonoma
 # Make C++ bearable
 cask "clion"
-# The true editor
-cask "emacs-app"
 # The last truly open browser
 cask "firefox"
 # Customized version of an excellent programming font
@@ -112,6 +110,8 @@ cask "iina"
 cask "intellij-idea"
 # Remote development launcher for JetBrains IDEs
 cask "jetbrains-gateway"
+# The true editor
+cask "jimeh/emacs-builds/emacs-app"
 # Password manager
 cask "keepassxc"
 # Run local LLMs
