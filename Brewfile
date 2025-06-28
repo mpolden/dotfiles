@@ -125,7 +125,7 @@ cask "netnewswire"
 # Store SSH keys in the Secure Enclave
 cask "secretive"
 # Synchronize files without the cloud
-cask "syncthing"
+cask "syncthing-app"
 # Anonymous browser
 cask "tor-browser"
 # WireGuard client
