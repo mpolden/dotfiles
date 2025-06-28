@@ -47,18 +47,18 @@ set -l idea_bundles \
     # Toolbox paths \
     "$HOME/Applications/IntelliJ IDEA Community Edition.app" \
     "$HOME/Applications/IntelliJ IDEA Ultimate.app"
-fish_add_path --prepend --move /usr/local/bin
+fish_add_path --global /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
-fish_add_path --prepend --move /usr/local/opt/trash/bin
+fish_add_path --global /usr/local/opt/trash/bin
 for bundle in $idea_bundles
     # Lazy way of getting mvn: Use the one bundled with IDEA
-    fish_add_path --prepend --move "$bundle/Contents/plugins/maven/lib/maven3/bin"
+    fish_add_path --global "$bundle/Contents/plugins/maven/lib/maven3/bin"
     # # Contains 'idea' command, for opening files in IDEA from CLI
-    fish_add_path --prepend --move "$bundle/Contents/MacOS"
+    fish_add_path --global "$bundle/Contents/MacOS"
 end
-fish_add_path --prepend --move "$HOME/.local/bin"
-fish_add_path --prepend --move "$HOME/.cargo/bin"
-fish_add_path --prepend --move "$HOME/go/bin"
+fish_add_path --global "$HOME/.local/bin"
+fish_add_path --global "$HOME/.cargo/bin"
+fish_add_path --global "$HOME/go/bin"
 
 # Set CDPATH
 set -gx CDPATH . $HOME $HOME/git
