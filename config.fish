@@ -40,15 +40,22 @@ if command -q brew
 end
 
 # Set PATH
+set -l idea_bundles \
+    # Homebrew cask paths \
+    "/Applications/IntelliJ IDEA CE.app" \
+    "/Applications/IntelliJ IDEA.app" \
+    # Toolbox paths \
+    "$HOME/Applications/IntelliJ IDEA Community Edition.app" \
+    "$HOME/Applications/IntelliJ IDEA Ultimate.app"
 fish_add_path --prepend --move /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
 fish_add_path --prepend --move /usr/local/opt/trash/bin
-# Lazy way of getting mvn: Use the one bundled with IDEA
-fish_add_path --prepend --move "/Applications/IntelliJ IDEA CE.app/Contents/plugins/maven/lib/maven3/bin"
-fish_add_path --prepend --move "/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin"
-# Contains 'idea' command, for opening files in IDEA from CLI
-fish_add_path --prepend --move "/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
-fish_add_path --prepend --move "/Applications/IntelliJ IDEA.app/Contents/MacOS"
+for bundle in $idea_bundles
+    # Lazy way of getting mvn: Use the one bundled with IDEA
+    fish_add_path --prepend --move "$bundle/Contents/plugins/maven/lib/maven3/bin"
+    # # Contains 'idea' command, for opening files in IDEA from CLI
+    fish_add_path --prepend --move "$bundle/Contents/MacOS"
+end
 fish_add_path --prepend --move "$HOME/.local/bin"
 fish_add_path --prepend --move "$HOME/.cargo/bin"
 fish_add_path --prepend --move "$HOME/go/bin"
