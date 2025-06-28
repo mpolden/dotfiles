@@ -94,8 +94,6 @@ brew "filosottile/musl-cross/musl-cross"
 brew "mvndaemon/mvnd/mvnd@1"
 # A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
-# Make C++ bearable
-cask "clion"
 # The last truly open browser
 cask "firefox"
 # Customized version of an excellent programming font
@@ -106,10 +104,8 @@ cask "font-iosevka"
 cask "ghostty"
 # Video player
 cask "iina"
-# Java IDE
-cask "intellij-idea"
-# Remote development launcher for JetBrains IDEs
-cask "jetbrains-gateway"
+# Package manager for JetBrains IDEs
+cask "jetbrains-toolbox"
 # The true editor
 cask "jimeh/emacs-builds/emacs-app"
 # Password manager
