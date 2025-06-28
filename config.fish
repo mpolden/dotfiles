@@ -49,7 +49,7 @@ set -l idea_bundles \
     "$HOME/Applications/IntelliJ IDEA Ultimate.app"
 fish_add_path --global /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
-fish_add_path --global /usr/local/opt/trash/bin
+fish_add_path --global $HOMEBREW_PREFIX/opt/trash/bin
 for bundle in $idea_bundles
     # Lazy way of getting mvn: Use the one bundled with IDEA
     fish_add_path --global "$bundle/Contents/plugins/maven/lib/maven3/bin"
