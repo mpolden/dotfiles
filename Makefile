@@ -38,6 +38,15 @@ ghostty:
 	mkdir -p ~/.config/ghostty
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/ghostty/config
 
+ghostty-themes:
+	mkdir -p ~/.config/ghostty/themes
+	test -f ~/.config/ghostty/themes/ef-day || \
+		curl -o ~/.config/ghostty/themes/ef-day -fsSL -m 30 \
+		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-day
+	test -f ~/.config/ghostty/themes/ef-night || \
+		curl -o ~/.config/ghostty/themes/ef-night -fsSL -m 30 \
+		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-night
+
 install: $(symlinks) ghostty fish
 
 $(symlinks):

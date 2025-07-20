@@ -3,7 +3,7 @@
 # Set font and theme
 font-family = Aporetic Sans Mono
 font-size = 15
-theme = Cyberpunk
+theme = light:ef-day,dark:ef-night
 
 # Disable all ligatures
 font-feature = -calt
