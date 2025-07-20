@@ -1,3 +1,7 @@
+def app_store_available?
+  system("defaults read MobileMeAccounts Accounts &> /dev/null")
+end
+
 tap "filosottile/musl-cross"
 tap "jimeh/emacs-builds"
 tap "mvndaemon/mvnd"
@@ -123,4 +127,4 @@ cask "syncthing-app"
 # Anonymous browser
 cask "tor-browser"
 # WireGuard client
-mas "WireGuard", id: 1451685025 if system("defaults read MobileMeAccounts Accounts &> /dev/null")
+mas "WireGuard", id: 1451685025 if app_store_available?
