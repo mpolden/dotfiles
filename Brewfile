@@ -1,5 +1,5 @@
 def app_store_available?
-  system("defaults read MobileMeAccounts Accounts &> /dev/null")
+  system("defaults read MobileMeAccounts Accounts > /dev/null 2>&1")
 end
 
 tap "filosottile/musl-cross"
