@@ -36,7 +36,7 @@ help:
 
 ghostty:
 	mkdir -p ~/.config/ghostty
-	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.config/ghostty/config
+	ln $(LN_FLAGS) $(CURDIR)/ghostty ~/.config/ghostty/config
 
 ghostty-themes:
 	mkdir -p ~/.config/ghostty/themes
