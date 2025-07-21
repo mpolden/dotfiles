@@ -34,9 +34,17 @@ help:
 
 # Shell environment and tools
 
+$(symlinks):
+	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
+
 btop:
 	mkdir -p ~/.config/btop
 	ln $(LN_FLAGS) $(CURDIR)/btop.conf ~/.config/btop/btop.conf
+
+fish:
+	mkdir -p ~/.config/fish/functions
+	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
+	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 ghostty:
 	mkdir -p ~/.config/ghostty
@@ -52,14 +60,6 @@ ghostty-themes:
 		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-night
 
 install: $(symlinks) btop ghostty fish
-
-$(symlinks):
-	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
-
-fish:
-	mkdir -p ~/.config/fish/functions
-	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
-	ln $(LN_FLAGS) $(CURDIR)/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # Applications
 
