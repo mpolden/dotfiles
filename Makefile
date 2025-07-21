@@ -9,7 +9,7 @@ symlinks := gitattributes \
 	    sqliterc \
 	    tmux.conf
 
-.PHONY: $(symlinks) fish ghostty
+.PHONY: $(symlinks) btop fish ghostty
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -32,7 +32,11 @@ help:
 	@echo "   $(COLOR)make clean-dead$(NO_COLOR)	Delete dead symlinks"
 	@echo "   $(COLOR)make update$(NO_COLOR)		Alias for git pull"
 
-# Shell environment
+# Shell environment and tools
+
+btop:
+	mkdir -p ~/.config/btop
+	ln $(LN_FLAGS) $(CURDIR)/btop.conf ~/.config/btop/btop.conf
 
 ghostty:
 	mkdir -p ~/.config/ghostty
@@ -47,7 +51,7 @@ ghostty-themes:
 		curl -o ~/.config/ghostty/themes/ef-night -fsSL -m 30 \
 		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-night
 
-install: $(symlinks) ghostty fish
+install: $(symlinks) btop ghostty fish
 
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
