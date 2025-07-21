@@ -102,8 +102,6 @@ cask "alfred" if MacOS.version < :sonoma
 cask "firefox"
 # Customized version of an excellent programming font
 cask "font-aporetic"
-# An excellent programming font
-cask "font-iosevka"
 # A good terminal emulator
 cask "ghostty"
 # Video player
