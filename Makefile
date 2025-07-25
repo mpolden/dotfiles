@@ -1,5 +1,7 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
+GHOSTTY_THEME_LIGHT := ef-day
+GHOSTTY_THEME_DARK := ef-night
 
 symlinks := gitattributes \
 	    gitconfig \
@@ -9,7 +11,7 @@ symlinks := gitattributes \
 	    sqliterc \
 	    tmux.conf
 
-.PHONY: $(symlinks) btop fish ghostty
+.PHONY: $(symlinks) btop fish ghostty ghostty-themes
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -52,12 +54,12 @@ ghostty:
 
 ghostty-themes:
 	mkdir -p ~/.config/ghostty/themes
-	test -f ~/.config/ghostty/themes/ef-day || \
-		curl -o ~/.config/ghostty/themes/ef-day -fsSL -m 30 \
-		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-day
-	test -f ~/.config/ghostty/themes/ef-night || \
-		curl -o ~/.config/ghostty/themes/ef-night -fsSL -m 30 \
-		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/ef-night
+	test -f ~/.config/ghostty/themes/$(GHOSTTY_THEME_LIGHT) || \
+		curl -o ~/.config/ghostty/themes/$(GHOSTTY_THEME_LIGHT) -fsSL -m 30 \
+		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/$(GHOSTTY_THEME_LIGHT)
+	test -f ~/.config/ghostty/themes/$(GHOSTTY_THEME_DARK) || \
+		curl -o ~/.config/ghostty/themes/$(GHOSTTY_THEME_DARK) -fsSL -m 30 \
+		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/$(GHOSTTY_THEME_DARK)
 
 install: $(symlinks) btop ghostty fish
 
