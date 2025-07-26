@@ -237,11 +237,6 @@ if source $fzf_ext_brew 2>/dev/null || source $fzf_ext_debian 2>/dev/null || sou
     fzf_key_bindings
 end
 
-########## Feature flags ##########
-
-# Disable single character glob (this is default since 4.0)
-set -U fish_features qmark-noglob
-
 ########## Appearance ##########
 
 # Remove greeting
