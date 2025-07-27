@@ -23,7 +23,7 @@ MaildirStore fastmail-local
 Channel fastmail
   Far :fastmail-remote:
   Near :fastmail-local:
-  Patterns * !Spam !S&APg-ppelsortering !*@RESTORED !*@RESTORED/*
+  Patterns * !Spam !Søppelsortering !*@RESTORED !*@RESTORED/*
   # Save sync state inside Maildir
   SyncState *
   # Only create missing mailboxes on the slave
