@@ -66,10 +66,10 @@ install: $(symlinks) btop ghostty fish
 # Applications
 
 install-apps:
-	brew bundle install --cleanup
+	brew bundle install --no-upgrade --cleanup
 
 check-apps:
-	brew bundle check --verbose
+	brew bundle check --no-upgrade --verbose
 
 # Maintenance
 
