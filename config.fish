@@ -137,23 +137,25 @@ function restic-review
 end
 
 # ls alias
-set -l ls_opts "--group-directories-first --color=auto"
+set -l ls "ls"
+set -l ls_opts "--color=auto"
+set -l ls_opts_gnu "$ls_opts --group-directories-first"
 switch $uname
-    case Darwin FreeBSD
+    case Darwin
         if command -q gls
-            alias ls "gls $ls_opts"
-            alias ll "gls $ls_opts -lh"
-        else if command -q gnuls
-            alias ls "gnuls $ls_opts"
-            alias ll "gnuls $ls_opts -lh"
-        else
-            alias ls "ls -G"
-            alias ll "ls -Glh"
+            set ls "gls"
+            set ls_opts "$ls_opts_gnu"
         end
-    case "*"
-        alias ls "ls $ls_opts"
-        alias ll "ls $ls_opts -lh"
+    case FreeBSD
+        if command -q gnuls
+            set ls "gnuls"
+            set ls_opts "$ls_opts_gnu"
+        end
+    case Linux
+        set ls_opts "$ls_opts_gnu"
 end
+alias ls "$ls $ls_opts"
+alias ll "$ls $ls_opts -lh"
 
 # A shell variant of the locate-dominating-file function found in Emacs
 function locate-dominating-file
