@@ -155,7 +155,7 @@ switch $uname
         set ls_opts "$ls_opts_gnu"
 end
 alias ls "$ls $ls_opts"
-alias ll "$ls $ls_opts -lh"
+alias ll "$ls $ls_opts -Alh"
 
 # A shell variant of the locate-dominating-file function found in Emacs
 function locate-dominating-file
