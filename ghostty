@@ -25,6 +25,9 @@ macos-option-as-alt = right
 # Copy selection to clipboard
 copy-on-select = clipboard
 
+# Set shell
+command = env -P /opt/homebrew/bin:/usr/local/bin fish -l
+
 # Local configuration (optional)
 # Path is relative to the main configuration file and leading '?' makes it
 # optional
