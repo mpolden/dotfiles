@@ -137,18 +137,18 @@ function restic-review
 end
 
 # ls alias
-set -l ls "ls"
+set -l ls ls
 set -l ls_opts "--color=auto"
 set -l ls_opts_gnu "$ls_opts --group-directories-first"
 switch $uname
     case Darwin
         if command -q gls
-            set ls "gls"
+            set ls gls
             set ls_opts "$ls_opts_gnu"
         end
     case FreeBSD
         if command -q gnuls
-            set ls "gnuls"
+            set ls gnuls
             set ls_opts "$ls_opts_gnu"
         end
     case Linux
