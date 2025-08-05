@@ -208,6 +208,8 @@ abbr --add mg "mg -n"
 abbr --add ta 'tmux new-session -AD -s $LOGNAME'
 abbr --add week "date +%V"
 abbr --add reload "exec fish"
+# Avoid sending LC_TIME. See comment at the start of this file
+abbr --add mosh "env -u LC_TIME mosh"
 if command -q bfs
     # Prefer bfs as find. This is an alias because bfs is compatible with find
     # flags, so the alias doesn't hide anything
