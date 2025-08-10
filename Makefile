@@ -61,6 +61,11 @@ ghostty-themes:
 		curl -o ~/.config/ghostty/themes/$(GHOSTTY_THEME_DARK) -fsSL -m 30 \
 		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/$(GHOSTTY_THEME_DARK)
 
+konsole-themes:
+	mkdir -p ~/.local/share/konsole
+	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-day.colorscheme ~/.local/share/konsole/ef-day.colorscheme
+	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-night.colorscheme ~/.local/share/konsole/ef-night.colorscheme
+
 install: $(symlinks) btop ghostty fish
 
 # Applications
