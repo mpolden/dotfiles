@@ -179,7 +179,6 @@ function locate-dominating-file
         set cur_dir (realpath $cur_dir)
         if [ -e "$cur_dir/$name" ]
             echo "$cur_dir"
-            echo "locate-dominating-file: found $name in $cur_dir" 1>&2
             break
         else if [ "$cur_dir" = / ]
             echo "locate-dominating-file: $name not found in $dir or any of its parents" 1>&2
