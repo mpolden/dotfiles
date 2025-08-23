@@ -1,8 +1,6 @@
 function fish_prompt --description "Write out the prompt"
     set last_status $status
     set normal (set_color normal)
-    set -q fish_color_at
-    or set -U fish_color_at $normal
 
     # Add user@host when connected through SSH or using toolbox/distrobox
     set ssh_prefix
