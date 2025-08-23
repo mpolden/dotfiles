@@ -51,9 +51,7 @@ fish_add_path --global /usr/local/bin
 # Pre-Sonoma macOS lacks trash command
 fish_add_path --global $HOMEBREW_PREFIX/opt/trash/bin
 for bundle in $idea_bundles
-    # Lazy way of getting mvn: Use the one bundled with IDEA
-    fish_add_path --global "$bundle/Contents/plugins/maven/lib/maven3/bin"
-    # # Contains 'idea' command, for opening files in IDEA from CLI
+    # Contains 'idea' command, for opening files in IDEA from CLI
     fish_add_path --global "$bundle/Contents/MacOS"
 end
 fish_add_path --global "$HOME/.local/bin"
