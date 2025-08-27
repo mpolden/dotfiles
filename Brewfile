@@ -62,6 +62,8 @@ brew "pandoc"
 brew "pipx"
 # Wrangle containers
 brew "podman"
+# Protoc plugin for gRPC Java
+brew "protoc-gen-grpc-java"
 # Encode text as a QR code
 brew "qrencode"
 # rsync for cloud storage
