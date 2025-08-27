@@ -72,6 +72,8 @@ brew "rclone"
 brew "restic"
 # A better grep
 brew "ripgrep"
+# Another horrible language
+brew "ruby"
 # Python linter
 brew "ruff"
 # Bash linter
