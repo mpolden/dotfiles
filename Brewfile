@@ -100,6 +100,8 @@ brew "yt-dlp"
 brew "filosottile/musl-cross/musl-cross"
 # A better Maven frontend
 brew "mvndaemon/mvnd/mvnd@1"
+# A decent password manager
+cask "1password"
 # A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
 # The last truly open browser
