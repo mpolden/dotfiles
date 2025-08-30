@@ -207,6 +207,7 @@ abbr --add mg "mg -n"
 abbr --add ta 'tmux new-session -AD -s $LOGNAME'
 abbr --add week "date +%V"
 abbr --add reload "exec fish"
+abbr --add go-linux-amd64 'podman run --rm -v $PWD:/build:ro -v $GOPATH:/go -w /build -e GOARCH=amd64 docker.io/golang:alpine go'
 # Avoid sending LC_TIME. See comment at the start of this file
 abbr --add mosh "env -u LC_TIME mosh"
 if command -q bfs
