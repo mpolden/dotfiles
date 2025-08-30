@@ -2,7 +2,6 @@ def work_machine?
   ENV.fetch("WORK", "").length > 0
 end
 
-tap "filosottile/musl-cross"
 tap "jimeh/emacs-builds"
 tap "mvndaemon/mvnd"
 
@@ -96,8 +95,6 @@ brew "watch"
 brew "wireguard-tools"
 # Download YouTube videos
 brew "yt-dlp"
-# Cross-compile Go code that has C dependencies
-brew "filosottile/musl-cross/musl-cross"
 # A better Maven frontend
 brew "mvndaemon/mvnd/mvnd@1"
 # A decent password manager
