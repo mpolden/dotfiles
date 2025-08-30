@@ -1,5 +1,5 @@
-def app_store_available?
-  system("defaults read MobileMeAccounts Accounts > /dev/null 2>&1")
+def work_machine?
+  ENV.fetch("WORK", "").length > 0
 end
 
 tap "filosottile/musl-cross"
@@ -11,7 +11,7 @@ brew "age"
 # Used by Emacs (flyspell)
 brew "aspell"
 # Wrangle AWS
-brew "awscli"
+brew "awscli" if work_machine?
 # A better find
 brew "bfs"
 # A better top
@@ -37,17 +37,17 @@ brew "gopls"
 # A better ping, with a graph
 brew "gping"
 # Package manager for Kubernetes
-brew "helm"
+brew "helm" if work_machine?
 # Test network throughput
 brew "iperf3"
 # Wrangle JSON
 brew "jq"
 # Interactive Kubernetes CLI
-brew "k9s"
+brew "k9s" if work_machine?
 # Run a local Kubernetes cluster
-brew "kind"
+brew "kind" if work_machine?
 # Standard Kubernetes CLI
-brew "kubectl"
+brew "kubectl" if work_machine?
 # CLI for Mac App Store
 brew "mas"
 # A better ssh
@@ -55,7 +55,7 @@ brew "mosh"
 # A better ping, without the graph
 brew "mtr"
 # Runtime for a horrible language
-brew "node"
+brew "node" if work_machine?
 # Convert between many text formats
 brew "pandoc"
 # Wrangle programs distributed as Python packages
@@ -63,7 +63,7 @@ brew "pipx"
 # Wrangle containers
 brew "podman"
 # Protoc plugin for gRPC Java
-brew "protoc-gen-grpc-java"
+brew "protoc-gen-grpc-java" if work_machine?
 # Encode text as a QR code
 brew "qrencode"
 # rsync for cloud storage
@@ -73,7 +73,7 @@ brew "restic"
 # A better grep
 brew "ripgrep"
 # Another horrible language
-brew "ruby"
+brew "ruby" if work_machine?
 # Python linter
 brew "ruff"
 # Bash linter
@@ -101,7 +101,7 @@ brew "filosottile/musl-cross/musl-cross"
 # A better Maven frontend
 brew "mvndaemon/mvnd/mvnd@1"
 # A decent password manager
-cask "1password"
+cask "1password" if work_machine?
 # A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
 # The last truly open browser
@@ -117,7 +117,7 @@ cask "jetbrains-toolbox"
 # The true editor
 cask "jimeh/emacs-builds/emacs-app"
 # Password manager
-cask "keepassxc"
+cask "keepassxc" unless work_machine?
 # Run local LLMs
 cask "lm-studio" if Hardware::CPU.arm?
 # Clipboard history. Sonoma is required since 2.x
@@ -125,10 +125,10 @@ cask "maccy" if MacOS.version >= :sonoma
 # Window manager
 cask "moom"
 # RSS client
-cask "netnewswire"
+cask "netnewswire" unless work_machine?
 # Synchronize files without the cloud
-cask "syncthing-app"
+cask "syncthing-app" unless work_machine?
 # Anonymous browser
-cask "tor-browser"
+cask "tor-browser" unless work_machine?
 # WireGuard client
-mas "WireGuard", id: 1451685025 if app_store_available?
+mas "WireGuard", id: 1451685025  unless work_machine?
