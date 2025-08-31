@@ -1,5 +1,5 @@
 def work_machine?
-  ENV.fetch("WORK_MACHINE", "0") != "0"
+  File.exist?(File.join(Dir.home, ".work_machine"))
 end
 
 tap "jimeh/emacs-builds"
@@ -128,4 +128,4 @@ cask "syncthing-app" unless work_machine?
 # Anonymous browser
 cask "tor-browser" unless work_machine?
 # WireGuard client
-mas "WireGuard", id: 1451685025  unless work_machine?
+mas "WireGuard", id: 1451685025 unless work_machine?
