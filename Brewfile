@@ -1,5 +1,5 @@
 def work_machine?
-  ENV.fetch("WORK", "").length > 0
+  ENV.fetch("WORK_MACHINE", "0") != "0"
 end
 
 tap "jimeh/emacs-builds"
