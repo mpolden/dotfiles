@@ -71,6 +71,8 @@ brew "rclone"
 brew "restic"
 # A better grep
 brew "ripgrep"
+# The only reasonable way to transfer files
+brew "rsync"
 # Another horrible language
 brew "ruby" if work_machine?
 # Python linter
