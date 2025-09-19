@@ -29,7 +29,7 @@
 	s = status --short --branch
 	co = checkout
 	b = branch
-	prune-branches = "!git branch --merged | grep -Ev '^\\*|  (master|main)$' | xargs git branch --delete"
+	prune-branches = "!git branch --merged | grep -Ev '^[*+]|  (master|main)$' | xargs git branch --delete"
 	sync = "!git remote get-url origin > /dev/null 2>&1 && (git checkout master || git checkout main) && git pull && git prune-branches"
 	sync-here = "!git fetch origin master:master && git prune-branches"
 	wip = "!git add --all && git commit -m wip"
