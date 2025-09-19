@@ -127,6 +127,8 @@ cask "moom"
 cask "netnewswire" unless work_machine?
 # Synchronize files without the cloud
 cask "syncthing-app" unless work_machine?
+# WireGuard with magic sauce
+cask "tailscale-app" if work_machine?
 # Anonymous browser
 cask "tor-browser" unless work_machine?
 # WireGuard client
