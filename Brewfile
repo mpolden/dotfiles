@@ -103,6 +103,8 @@ brew "mvndaemon/mvnd/mvnd@1"
 cask "1password" if work_machine?
 # A better Spotlight and clipboard history
 cask "alfred" if MacOS.version < :sonoma
+# Apple-optimized container support
+cask "container" if MacOS.version >= :tahoe
 # The last truly open browser
 cask "firefox"
 # Customized version of an excellent programming font
