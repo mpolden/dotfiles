@@ -39,7 +39,7 @@
 	latest-tag = "!git tag -l 'v[0-9]*' | sort -rV | head -1"
 	# Clean, but preserve IntelliJ config and Maven build output that appear in
 	# directories which are otherwise still tracked in git
-	clean-java = "!git clean -ndx | sed 's/^Would remove //' | grep -vE '(\\.idea/|/target/)$' | tr '\\n' '\\0' | xargs -r0 git clean -dx"
+	clean-java = "!git clean -ndx | sed 's/^Would remove //' | grep -vE '(\\.idea/|/target/)' | tr '\\n' '\\0' | xargs -r0 git clean -dx"
 # Inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [column]
 	ui = auto
