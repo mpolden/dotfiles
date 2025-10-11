@@ -112,7 +112,7 @@ cask "ghostty"
 # Video player
 cask "iina"
 # Package manager for JetBrains IDEs
-cask "jetbrains-toolbox"
+cask "jetbrains-toolbox" if work_machine?
 # The true editor
 cask "jimeh/emacs-builds/emacs-app"
 # Password manager
