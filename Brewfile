@@ -117,8 +117,6 @@ cask "jetbrains-toolbox"
 cask "jimeh/emacs-builds/emacs-app"
 # Password manager
 cask "keepassxc" unless work_machine?
-# Run local LLMs
-cask "lm-studio" if Hardware::CPU.arm?
 # Clipboard history. Sonoma is required since 2.x
 cask "maccy" if MacOS.version >= :sonoma
 # Window manager
