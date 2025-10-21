@@ -1,133 +1,135 @@
+# frozen_string_literal: true
+
 def work_machine?
-  File.exist?(File.join(Dir.home, ".work_machine"))
+  File.exist?(File.join(Dir.home, '.work_machine'))
 end
 
-tap "jimeh/emacs-builds"
-tap "mvndaemon/mvnd"
+tap 'jimeh/emacs-builds'
+tap 'mvndaemon/mvnd'
 
 # Easy file encryption
-brew "age"
+brew 'age'
 # Used by Emacs (flyspell)
-brew "aspell"
+brew 'aspell'
 # Wrangle AWS
-brew "awscli" if work_machine?
+brew 'awscli' if work_machine?
 # A better find
-brew "bfs"
+brew 'bfs'
 # A better top
-brew "btop"
+brew 'btop'
 # GNU version of ls
-brew "coreutils"
+brew 'coreutils'
 # Print information about the system
-brew "fastfetch"
+brew 'fastfetch'
 # Used by yt-dlp to wrangle videos
-brew "ffmpeg"
+brew 'ffmpeg'
 # Main shell
-brew "fish"
+brew 'fish'
 # Fuzzy-find anything
-brew "fzf"
+brew 'fzf'
 # GitHub CLI
-brew "gh"
+brew 'gh'
 # Used by Emacs (magit) for automatic rebasing
-brew "git-absorb"
+brew 'git-absorb'
 # Probably the best language
-brew "go"
+brew 'go'
 # Language server for the best language
-brew "gopls"
+brew 'gopls'
 # A better ping, with a graph
-brew "gping"
+brew 'gping'
 # Package manager for Kubernetes
-brew "helm" if work_machine?
+brew 'helm' if work_machine?
 # Test network throughput
-brew "iperf3"
+brew 'iperf3'
 # Wrangle JSON
-brew "jq"
+brew 'jq'
 # Interactive Kubernetes CLI
-brew "k9s" if work_machine?
+brew 'k9s' if work_machine?
 # Run a local Kubernetes cluster
-brew "kind" if work_machine?
+brew 'kind' if work_machine?
 # Standard Kubernetes CLI
-brew "kubectl" if work_machine?
+brew 'kubectl' if work_machine?
 # CLI for Mac App Store
-brew "mas"
+brew 'mas'
 # A better ssh
-brew "mosh"
+brew 'mosh'
 # A better ping, without the graph
-brew "mtr"
+brew 'mtr'
 # Runtime for a horrible language
-brew "node" if work_machine?
+brew 'node' if work_machine?
 # Convert between many text formats
-brew "pandoc"
+brew 'pandoc'
 # Wrangle programs distributed as Python packages
-brew "pipx"
+brew 'pipx'
 # Wrangle containers
-brew "podman"
+brew 'podman'
 # Encode text as a QR code
-brew "qrencode"
+brew 'qrencode'
 # rsync for cloud storage
-brew "rclone"
+brew 'rclone'
 # Backup
-brew "restic"
+brew 'restic'
 # A better grep
-brew "ripgrep"
+brew 'ripgrep'
 # The only reasonable way to transfer files
-brew "rsync"
+brew 'rsync'
 # Another horrible language
-brew "ruby" if work_machine?
+brew 'ruby' if work_machine?
 # Python linter
-brew "ruff"
+brew 'ruff'
 # Bash linter
-brew "shellcheck"
+brew 'shellcheck'
 # Bash formatter
-brew "shfmt"
+brew 'shfmt'
 # IP calculator
-brew "sipcalc"
+brew 'sipcalc'
 # Wrangle locally compiled programs
-brew "stow"
+brew 'stow'
 # Count lines of code
-brew "tokei"
+brew 'tokei'
 # Trash files from the command line. Sonoma comes with trash command
-brew "trash" if MacOS.version < :sonoma
+brew 'trash' if MacOS.version < :sonoma
 # Pretty-print a directory tree
-brew "tree"
+brew 'tree'
 # Execute a program periodically
-brew "watch"
+brew 'watch'
 # Wrangle VPN configuration
-brew "wireguard-tools"
+brew 'wireguard-tools'
 # Download YouTube videos
-brew "yt-dlp"
+brew 'yt-dlp'
 # A better Maven frontend
-brew "mvndaemon/mvnd/mvnd@1"
+brew 'mvndaemon/mvnd/mvnd@1'
 # A decent password manager
-cask "1password" if work_machine?
+cask '1password' if work_machine?
 # A better Spotlight and clipboard history
-cask "alfred" if MacOS.version < :sonoma
+cask 'alfred' if MacOS.version < :sonoma
 # Apple-optimized container support
-cask "container" if MacOS.version >= :tahoe
+cask 'container' if MacOS.version >= :tahoe
 # The last truly open browser
-cask "firefox"
+cask 'firefox'
 # Customized version of an excellent programming font
-cask "font-aporetic"
+cask 'font-aporetic'
 # A good terminal emulator
-cask "ghostty"
+cask 'ghostty'
 # Video player
-cask "iina"
+cask 'iina'
 # Package manager for JetBrains IDEs
-cask "jetbrains-toolbox" if work_machine?
+cask 'jetbrains-toolbox' if work_machine?
 # The true editor
-cask "jimeh/emacs-builds/emacs-app"
+cask 'jimeh/emacs-builds/emacs-app'
 # Password manager
-cask "keepassxc" unless work_machine?
+cask 'keepassxc' unless work_machine?
 # Clipboard history. Sonoma is required since 2.x
-cask "maccy" if MacOS.version >= :sonoma
+cask 'maccy' if MacOS.version >= :sonoma
 # Window manager
-cask "moom"
+cask 'moom'
 # RSS client
-cask "netnewswire" unless work_machine?
+cask 'netnewswire' unless work_machine?
 # Synchronize files without the cloud
-cask "syncthing-app" unless work_machine?
+cask 'syncthing-app' unless work_machine?
 # WireGuard with magic sauce
-cask "tailscale-app" if work_machine?
+cask 'tailscale-app' if work_machine?
 # Anonymous browser
-cask "tor-browser" unless work_machine?
+cask 'tor-browser' unless work_machine?
 # WireGuard client
-mas "WireGuard", id: 1451685025 unless work_machine?
+mas 'WireGuard', id: 1_451_685_025 unless work_machine?
