@@ -121,6 +121,8 @@ cask 'jimeh/emacs-builds/emacs-app'
 cask 'keepassxc' unless work_machine?
 # Clipboard history. Sonoma is required since 2.x
 cask 'maccy' if MacOS.version >= :sonoma
+# Adjust brightness of external monitors
+cask 'monitorcontrol'
 # Window manager
 cask 'moom'
 # RSS client
