@@ -56,6 +56,7 @@ for bundle in $idea_bundles
     # Contains 'idea' command, for opening files in IDEA from CLI
     fish_add_path --global "$bundle/Contents/MacOS"
 end
+fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
 fish_add_path --global "$HOME/.gem/ruby/3.4.0/bin"
 fish_add_path --global "$HOME/.local/bin"
 fish_add_path --global "$HOME/.cargo/bin"

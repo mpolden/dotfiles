@@ -56,7 +56,7 @@ brew 'mosh'
 # A better ping, without the graph
 brew 'mtr'
 # Runtime for a horrible language
-brew 'node' if work_machine?
+brew 'node@24' if work_machine?
 # Convert between many text formats
 brew 'pandoc'
 # Wrangle programs distributed as Python packages
