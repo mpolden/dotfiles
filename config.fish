@@ -41,6 +41,14 @@ if command -q brew
 end
 
 # Set PATH
+#
+# System-wide executables not owned by the OS
+fish_add_path --global /usr/local/bin
+# Keg-only formulae
+fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
+fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
+fish_add_path --global "$HOMEBREW_PREFIX/opt/ruby/bin"
+# IntelliJ executables
 set -l idea_bundles \
     # Homebrew cask paths \
     "/Applications/IntelliJ IDEA CE.app" \
@@ -48,19 +56,16 @@ set -l idea_bundles \
     # Toolbox paths \
     "$HOME/Applications/IntelliJ IDEA Community Edition.app" \
     "$HOME/Applications/IntelliJ IDEA Ultimate.app"
-fish_add_path --global /usr/local/bin
-# Pre-Sonoma macOS lacks trash command
-fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
-fish_add_path --global "$HOMEBREW_PREFIX/opt/ruby/bin"
 for bundle in $idea_bundles
     # Contains 'idea' command, for opening files in IDEA from CLI
     fish_add_path --global "$bundle/Contents/MacOS"
 end
-fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
+# Language-specific executables
 fish_add_path --global "$HOME/.gem/ruby/3.4.0/bin"
-fish_add_path --global "$HOME/.local/bin"
 fish_add_path --global "$HOME/.cargo/bin"
 fish_add_path --global "$HOME/go/bin"
+# User-specific executables
+fish_add_path --global "$HOME/.local/bin"
 
 # Set CDPATH
 set -gx CDPATH . $HOME $HOME/git
