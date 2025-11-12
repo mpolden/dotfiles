@@ -95,8 +95,6 @@ brew 'tree'
 brew 'watch'
 # Wrangle VPN configuration
 brew 'wireguard-tools'
-# Download YouTube videos
-brew 'yt-dlp'
 # A better Maven frontend
 brew 'mvndaemon/mvnd/mvnd@1'
 # A decent password manager
