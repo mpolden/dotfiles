@@ -91,6 +91,8 @@ brew 'tokei'
 brew 'trash' if MacOS.version < :sonoma
 # Pretty-print a directory tree
 brew 'tree'
+# Prose linter
+brew 'vale' if work_machine?
 # Execute a program periodically
 brew 'watch'
 # Wrangle VPN configuration
