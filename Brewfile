@@ -17,6 +17,8 @@ brew 'awscli' if work_machine?
 brew 'bfs'
 # A better top
 brew 'btop'
+# Apple-optimized container support
+brew 'container' if MacOS.version >= :tahoe
 # GNU version of ls
 brew 'coreutils'
 # Print information about the system
@@ -103,8 +105,6 @@ brew 'mvndaemon/mvnd/mvnd@1'
 cask '1password' if work_machine?
 # A better Spotlight and clipboard history
 cask 'alfred' if MacOS.version < :sonoma
-# Apple-optimized container support
-cask 'container' if MacOS.version >= :tahoe
 # The last truly open browser
 cask 'firefox'
 # Customized version of an excellent programming font
