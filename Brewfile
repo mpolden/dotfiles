@@ -63,6 +63,8 @@ brew 'node@24' if work_machine?
 brew 'pandoc'
 # Wrangle programs distributed as Python packages
 brew 'pipx'
+# A slightly better npm
+brew 'pnpm' if work_machine?
 # Wrangle containers
 brew 'podman'
 # Encode text as a QR code
