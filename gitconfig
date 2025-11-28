@@ -7,8 +7,6 @@
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
 	autocrlf = input
-	# Improve performance for large repositories
-	fsmonitor = true
 	# This pager removes leading +/- from colored unified diff
 	# Matching:
 	# 1. Color escape characters
