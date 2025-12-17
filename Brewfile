@@ -87,6 +87,8 @@ brew 'shellcheck'
 brew 'shfmt'
 # IP calculator
 brew 'sipcalc'
+# Go linter using static analysis
+brew 'staticcheck'
 # Wrangle locally compiled programs
 brew 'stow'
 # Count lines of code
