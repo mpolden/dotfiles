@@ -72,7 +72,11 @@ set -gx CDPATH . $HOME $HOME/git
 
 # Configure less
 if command -q less
-    set -gx LESS -Ri
+    # -R          : render ANSI escape sequences
+    # -i          : ignore case when searching
+    # -c          : repaint screen from the top
+    # --use-color : use colors in the UI
+    set -gx LESS "-Ric --use-color"
     set -gx PAGER less
 end
 
