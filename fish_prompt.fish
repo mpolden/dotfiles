@@ -21,7 +21,15 @@ function fish_prompt --description "Write out the prompt"
         set symbol (set_color yellow) $symbol $normal
     end
 
+    # Ensure that home directory is always printed as '~'. This is a workaround
+    # for Fedora Kinoite where /home is a symlink to /var/home.
+    set pwd (prompt_pwd)
+    if test -L /home
+        set real_home (realpath "$HOME")
+        set pwd (string replace -r -m 1 "^$real_home" "~" -- "$pwd")
+    end
+
     # Print prompt
-    echo -n -s $ssh_prefix (set_color $fish_color_cwd) (prompt_pwd) \
+    echo -n -s $ssh_prefix (set_color $fish_color_cwd) $pwd \
         $normal (__fish_git_prompt " %s") $normal $symbol " "
 end
