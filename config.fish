@@ -28,11 +28,11 @@ end
 
 # Homebrew
 if [ -x /opt/workbrew/bin/brew ]
-    eval $(/opt/workbrew/bin/brew shellenv)
+    eval $(/opt/workbrew/bin/brew shellenv fish)
 else if [ -x /usr/local/bin/brew ]
-    eval $(/usr/local/bin/brew shellenv)
+    eval $(/usr/local/bin/brew shellenv fish)
 else if [ -x /opt/homebrew/bin/brew ]
-    eval $(/opt/homebrew/bin/brew shellenv)
+    eval $(/opt/homebrew/bin/brew shellenv fish)
 end
 if command -q brew
     set -gx HOMEBREW_NO_ANALYTICS 1
