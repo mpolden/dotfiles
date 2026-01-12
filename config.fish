@@ -45,21 +45,12 @@ end
 # System-wide executables not owned by the OS
 fish_add_path --global /usr/local/bin
 # Keg-only formulae
-fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/ruby/bin"
-# IntelliJ executables
-set -l idea_bundles \
-    # Homebrew cask paths \
-    "/Applications/IntelliJ IDEA CE.app" \
-    "/Applications/IntelliJ IDEA.app" \
-    # Toolbox paths \
-    "$HOME/Applications/IntelliJ IDEA Community Edition.app" \
-    "$HOME/Applications/IntelliJ IDEA Ultimate.app"
-for bundle in $idea_bundles
-    # Contains 'idea' command, for opening files in IDEA from CLI
-    fish_add_path --global "$bundle/Contents/MacOS"
-end
+fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
+# IntelliJ 'idea' command, for opening files from CLI
+fish_add_path --global "$HOME/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS"
+fish_add_path --global "$HOME/Applications/IntelliJ IDEA Ultimate.app/Contents/MacOS"
 # Language-specific executables
 fish_add_path --global "$HOME/.gem/ruby/3.4.0/bin"
 fish_add_path --global "$HOME/.cargo/bin"
