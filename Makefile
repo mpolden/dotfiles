@@ -1,7 +1,5 @@
 HOSTNAME := $(shell hostname -s)
 LN_FLAGS := -sfn
-GHOSTTY_THEME_LIGHT := ef-day
-GHOSTTY_THEME_DARK := ef-night
 
 symlinks := gitattributes \
 	    gitconfig \
@@ -54,12 +52,8 @@ ghostty:
 
 ghostty-themes:
 	mkdir -p ~/.config/ghostty/themes
-	test -f ~/.config/ghostty/themes/$(GHOSTTY_THEME_LIGHT) || \
-		curl -o ~/.config/ghostty/themes/$(GHOSTTY_THEME_LIGHT) -fsSL -m 30 \
-		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/$(GHOSTTY_THEME_LIGHT)
-	test -f ~/.config/ghostty/themes/$(GHOSTTY_THEME_DARK) || \
-		curl -o ~/.config/ghostty/themes/$(GHOSTTY_THEME_DARK) -fsSL -m 30 \
-		https://raw.githubusercontent.com/anhsirk0/ghostty-themes/refs/heads/main/themes/$(GHOSTTY_THEME_DARK)
+	curl -fsSL -m 30 -o - https://github.com/anhsirk0/ghostty-themes/archive/refs/heads/main.tar.gz | \
+		tar -C ~/.config/ghostty/themes --include '*/*/ef-*' --strip-components 2 -xf -
 
 konsole-themes:
 	mkdir -p ~/.local/share/konsole
