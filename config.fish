@@ -52,7 +52,7 @@ fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
 fish_add_path --global "$HOME/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS"
 fish_add_path --global "$HOME/Applications/IntelliJ IDEA Ultimate.app/Contents/MacOS"
 # Language-specific executables
-fish_add_path --global "$HOME/.gem/ruby/3.4.0/bin"
+fish_add_path --global "$HOME/.gem/ruby/4.0.0/bin"
 fish_add_path --global "$HOME/.cargo/bin"
 fish_add_path --global "$HOME/go/bin"
 # User-specific executables
