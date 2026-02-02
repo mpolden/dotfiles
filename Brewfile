@@ -67,6 +67,8 @@ brew 'pipx'
 brew 'pnpm' if work_machine?
 # Wrangle containers
 brew 'podman'
+# A not great, not terrible language
+brew 'python3'
 # Encode text as a QR code
 brew 'qrencode'
 # rsync for cloud storage
