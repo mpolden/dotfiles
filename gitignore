@@ -39,3 +39,6 @@ tmp/
 # Emacs
 \#*\#
 .\#*
+
+# AI tools
+/.claude
