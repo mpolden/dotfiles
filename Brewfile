@@ -135,6 +135,8 @@ cask 'monitorcontrol'
 cask 'moom'
 # RSS client
 cask 'netnewswire' unless work_machine?
+# A streaming service that is more convenient than piracy
+cask 'spotify'
 # Synchronize files without the cloud
 cask 'syncthing-app' unless work_machine?
 # WireGuard with magic sauce
