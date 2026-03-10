@@ -23,8 +23,6 @@ brew 'btop'
 brew 'container' if MacOS.version >= :tahoe
 # GNU version of ls
 brew 'coreutils'
-# Syntax-aware diff
-brew 'difftastic'
 # Print information about the system
 brew 'fastfetch'
 # Used by yt-dlp to wrangle videos
