@@ -232,6 +232,21 @@ else if command -q rpm-ostree
     abbr --add pkgls "rpm-ostree status --json | jq -r '.deployments|map(select(.booted))|.[].packages[]' "
 end
 
+# Send a desktop notification with an optional message.
+#
+# Example:
+#
+# notify
+# notify MESSAGE...
+#
+function notify
+    set msg "Command completed"
+    if [ (count $argv) -ge 1 ]
+        set msg (string join " " $argv[1..])
+    end
+    printf "\e]777;notify;%s;\e\\" "$msg"
+end
+
 ########## Extensions ##########
 
 set -l fzf_ext_brew $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
