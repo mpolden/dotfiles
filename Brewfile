@@ -81,8 +81,6 @@ brew 'ripgrep'
 brew 'rsync'
 # Another horrible language
 brew 'ruby' if work_machine?
-# Python linter
-brew 'ruff'
 # Bash linter
 brew 'shellcheck'
 # Bash formatter
