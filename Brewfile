@@ -130,7 +130,7 @@ cask 'maccy' if MacOS.version >= :sonoma
 # Adjust brightness of external monitors
 cask 'monitorcontrol'
 # Window manager
-cask 'moom'
+cask 'rectangle'
 # RSS client
 cask 'netnewswire' unless work_machine?
 # A streaming service that is more convenient than piracy
