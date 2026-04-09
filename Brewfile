@@ -104,7 +104,7 @@ brew 'watch'
 # Wrangle VPN configuration
 brew 'wireguard-tools'
 # A better Maven frontend
-brew 'mvndaemon/mvnd/mvnd@1'
+brew 'mvndaemon/mvnd/mvnd'
 # A decent password manager
 cask '1password' if work_machine?
 # A better Spotlight and clipboard history
