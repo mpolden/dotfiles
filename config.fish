@@ -107,6 +107,11 @@ if [ -x /usr/libexec/java_home ]
     end
 end
 
+# Disable telemetry for GitHub CLI
+if command -q gh
+    set -gx GH_TELEMETRY false
+end
+
 # Config below is only relevant for interactive use
 if not status is-interactive
     return 0
