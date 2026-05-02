@@ -81,6 +81,8 @@ brew 'ripgrep'
 brew 'rsync'
 # Another horrible language
 brew 'ruby' if work_machine?
+# Unpack most archive formats
+brew 'sevenzip'
 # Bash linter
 brew 'shellcheck'
 # Bash formatter
