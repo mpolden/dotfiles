@@ -11,8 +11,6 @@ tap 'mvndaemon/mvnd'
 brew 'age'
 # Used by Emacs (flyspell)
 brew 'aspell'
-# Structurally search and replace code
-brew 'ast-grep'
 # Wrangle AWS
 brew 'awscli' if work_machine?
 # A better find
