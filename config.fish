@@ -46,6 +46,7 @@ end
 fish_add_path --global /usr/local/bin
 # Keg-only formulae
 fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
+fish_add_path --global "$HOMEBREW_PREFIX/opt/pnpm@10/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/ruby/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
 # IntelliJ 'idea' command, for opening files from CLI
