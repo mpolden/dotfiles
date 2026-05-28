@@ -141,5 +141,9 @@ cask 'syncthing-app' unless work_machine?
 cask 'tailscale-app' if work_machine?
 # Anonymous browser
 cask 'tor-browser' unless work_machine?
+# Office suite
+mas 'Keynote', id: 361_285_480 unless work_machine?
+mas 'Numbers', id: 361_304_891 unless work_machine?
+mas 'Pages', id: 361_309_726 unless work_machine?
 # WireGuard client
 mas 'WireGuard', id: 1_451_685_025 unless work_machine?
