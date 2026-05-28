@@ -9,7 +9,7 @@ symlinks := gitattributes \
 	    sqliterc \
 	    tmux.conf
 
-.PHONY: $(symlinks) btop fish ghostty ghostty-themes
+.PHONY: $(symlinks) fish ghostty ghostty-themes
 
 COLOR := \033[32;01m
 NO_COLOR := \033[0m
@@ -37,10 +37,6 @@ help:
 $(symlinks):
 	test -e $(CURDIR)/$@ && ln $(LN_FLAGS) $(CURDIR)/$@ ~/.$@
 
-btop:
-	mkdir -p ~/.config/btop
-	ln $(LN_FLAGS) $(CURDIR)/btop.conf ~/.config/btop/btop.conf
-
 fish:
 	mkdir -p ~/.config/fish/functions
 	ln $(LN_FLAGS) $(CURDIR)/config.fish ~/.config/fish/config.fish
@@ -60,7 +56,7 @@ konsole-themes:
 	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-day.colorscheme ~/.local/share/konsole/ef-day.colorscheme
 	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-night.colorscheme ~/.local/share/konsole/ef-night.colorscheme
 
-install: $(symlinks) btop ghostty fish
+install: $(symlinks) ghostty fish
 
 # Applications
 
