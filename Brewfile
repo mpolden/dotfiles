@@ -141,6 +141,9 @@ cask 'syncthing-app' unless work_machine?
 cask 'tailscale-app' if work_machine?
 # Anonymous browser
 cask 'tor-browser' unless work_machine?
+# Create and edit movies and music
+mas 'GarageBand', id: 682_658_836 unless work_machine?
+mas 'iMovie', id: 408_981_434 unless work_machine?
 # Office suite
 mas 'Keynote', id: 361_285_480 unless work_machine?
 mas 'Numbers', id: 361_304_891 unless work_machine?
