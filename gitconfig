@@ -41,8 +41,6 @@
 # Inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [column]
 	ui = auto
-[branch]
-	sort = -committerdate
 [tag]
 	sort = version:refname
 [diff]
