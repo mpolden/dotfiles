@@ -33,6 +33,8 @@ brew 'fzf'
 brew 'gh'
 # Used by Emacs (magit) for automatic rebasing
 brew 'git-absorb'
+# Render Markdown in the terminal
+brew 'glow'
 # Probably the best language
 brew 'go'
 # Language server for the best language
