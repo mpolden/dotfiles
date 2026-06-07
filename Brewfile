@@ -15,8 +15,6 @@ brew 'aspell'
 brew 'awscli' if work_machine?
 # A better find
 brew 'bfs'
-# A desperate attempt at mechanical formatting of C/C++
-brew 'clang-format' if work_machine?
 # Apple-optimized container support
 brew 'container' if MacOS.version >= :tahoe
 # GNU version of ls
