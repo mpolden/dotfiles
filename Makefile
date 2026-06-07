@@ -61,7 +61,6 @@ install: $(symlinks) ghostty fish
 # Applications
 
 install-apps:
-	@awk '$$1 == "tap" { print $$2 }' Brewfile | tr -d "'" | xargs -r brew trust
 	brew bundle install --no-upgrade --cleanup --force-cleanup
 
 check-apps:

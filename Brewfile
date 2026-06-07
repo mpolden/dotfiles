@@ -4,8 +4,8 @@ def work_machine?
   File.exist?(File.join(Dir.home, '.work_machine'))
 end
 
-tap 'jimeh/emacs-builds'
-tap 'mvndaemon/mvnd'
+tap 'jimeh/emacs-builds', trusted: true
+tap 'mvndaemon/mvnd', trusted: true
 
 # Easy file encryption
 brew 'age'
