@@ -223,7 +223,7 @@ if command -q bfs
     alias find bfs
 end
 if command -q brew
-    abbr --add pkgup "brew update && brew upgrade -n"
+    abbr --add pkgup "brew update && brew upgrade"
     abbr --add pkgls "sort (brew leaves | psub) (brew list --cask | psub)"
 else if command -q apt
     abbr --add pkgup "sudo apt update && sudo apt upgrade"
