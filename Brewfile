@@ -43,6 +43,8 @@ brew 'gping'
 brew 'helm' if work_machine?
 # Test network throughput
 brew 'iperf3'
+# Language server for a decent language
+brew 'jdtls'
 # Wrangle JSON
 brew 'jq'
 # Interactive Kubernetes CLI
