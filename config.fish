@@ -260,8 +260,6 @@ set -g fish_color_host green
 set -g fish_color_at green
 set -g fish_color_cwd blue
 set -g fish_color_command green
-# Don't shorten working directory in prompt
-set -g fish_prompt_pwd_dir_length 0
 # Make autosuggestion text slightly brighter
 set -g fish_color_autosuggestion 8a8a8a
 # Use same color for comments
