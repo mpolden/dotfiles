@@ -11,6 +11,9 @@
 /mvnvm.properties
 hs_err_pid*
 target/
+.classpath
+.project
+.settings/
 
 # vim
 *.swp
