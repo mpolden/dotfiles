@@ -55,6 +55,8 @@ brew 'k9s' if work_machine?
 brew 'kind' if work_machine?
 # Standard Kubernetes CLI
 brew 'kubectl' if work_machine?
+# Run LLMs locally
+brew 'llama.cpp'
 # CLI for Mac App Store
 brew 'mas'
 # A better ssh
