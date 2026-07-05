@@ -23,6 +23,8 @@ brew 'coreutils'
 brew 'fastfetch'
 # Used by yt-dlp to wrangle videos
 brew 'ffmpeg'
+# Classic game
+brew 'fheroes2' unless work_machine?
 # Main shell
 brew 'fish'
 # Fuzzy-find anything
