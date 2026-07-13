@@ -61,7 +61,7 @@ install: $(symlinks) ghostty fish
 # Applications
 
 install-apps:
-	brew bundle install --no-upgrade --cleanup --force-cleanup
+	brew bundle install --no-upgrade --force-cleanup
 
 check-apps:
 	brew bundle check --no-upgrade --verbose
