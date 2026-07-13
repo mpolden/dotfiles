@@ -4,7 +4,7 @@ def work_machine?
   File.exist?(File.join(Dir.home, '.work_machine'))
 end
 
-tap 'jimeh/emacs-builds', trusted: true
+tap 'd12frosted/emacs-plus', trusted: true
 tap 'mvndaemon/mvnd', trusted: true
 
 # Easy file encryption
@@ -128,7 +128,7 @@ cask 'iina'
 # Package manager for JetBrains IDEs
 cask 'jetbrains-toolbox' if work_machine?
 # The true editor
-cask 'jimeh/emacs-builds/emacs-app'
+cask 'd12frosted/emacs-plus/emacs-plus-app'
 # Password manager
 cask 'keepassxc' unless work_machine?
 # Clipboard history. Sonoma is required since 2.x
