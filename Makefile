@@ -56,11 +56,15 @@ konsole-themes:
 	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-day.colorscheme ~/.local/share/konsole/ef-day.colorscheme
 	ln $(LN_FLAGS) $(CURDIR)/konsole/ef-night.colorscheme ~/.local/share/konsole/ef-night.colorscheme
 
+emacs-plus-icon:
+	mkdir -p ~/.config/emacs-plus
+	test -h ~/.config/emacs-plus/build.yml || ln $(LN_FLAGS) $(CURDIR)/emacs-plus/build.yml ~/.config/emacs-plus/build.yml
+
 install: $(symlinks) ghostty fish
 
 # Applications
 
-install-apps:
+install-apps: emacs-plus-icon
 	brew bundle install --no-upgrade --force-cleanup
 
 check-apps:
