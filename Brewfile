@@ -63,6 +63,8 @@ brew 'mas'
 brew 'mosh'
 # A better ping, without the graph
 brew 'mtr'
+# A better Maven frontend
+brew 'mvndaemon/mvnd/mvnd'
 # Runtime for a horrible language
 brew 'node@24' if work_machine?
 # Convert between many text formats
@@ -109,14 +111,14 @@ brew 'vale' if work_machine?
 brew 'watch'
 # Wrangle VPN configuration
 brew 'wireguard-tools'
-# A better Maven frontend
-brew 'mvndaemon/mvnd/mvnd'
 # A decent password manager
 cask '1password' if work_machine?
 # A better Spotlight and clipboard history
 cask 'alfred' if MacOS.version < :sonoma
 # Overly confident junior developer / assistant
 cask 'claude-code' if work_machine?
+# The true editor
+cask 'd12frosted/emacs-plus/emacs-plus-app'
 # The last truly open browser
 cask 'firefox'
 # Customized version of an excellent programming font
@@ -127,18 +129,16 @@ cask 'ghostty'
 cask 'iina'
 # Package manager for JetBrains IDEs
 cask 'jetbrains-toolbox' if work_machine?
-# The true editor
-cask 'd12frosted/emacs-plus/emacs-plus-app'
 # Password manager
 cask 'keepassxc' unless work_machine?
 # Clipboard history. Sonoma is required since 2.x
 cask 'maccy' if MacOS.version >= :sonoma
 # Adjust brightness of external monitors
 cask 'monitorcontrol'
-# Window manager
-cask 'rectangle'
 # RSS client
 cask 'netnewswire' unless work_machine?
+# Window manager
+cask 'rectangle'
 # A streaming service that is more convenient than piracy
 cask 'spotify'
 # Synchronize files without the cloud
@@ -147,12 +147,15 @@ cask 'syncthing-app' unless work_machine?
 cask 'tailscale-app' if work_machine?
 # Anonymous browser
 cask 'tor-browser' unless work_machine?
-# Create and edit movies and music
+# Create music
 mas 'GarageBand', id: 682_658_836 unless work_machine?
-mas 'iMovie', id: 408_981_434 unless work_machine?
-# Office suite
+# Slides
 mas 'Keynote', id: 361_285_480 unless work_machine?
+# Spreedsheets
 mas 'Numbers', id: 361_304_891 unless work_machine?
+# Documents
 mas 'Pages', id: 361_309_726 unless work_machine?
 # WireGuard client
 mas 'WireGuard', id: 1_451_685_025 unless work_machine?
+# Edit movies
+mas 'iMovie', id: 408_981_434 unless work_machine?
