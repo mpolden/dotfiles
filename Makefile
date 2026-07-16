@@ -74,6 +74,7 @@ check-apps:
 
 fmt:
 	fish_indent -w *.fish
+	go run go/sort_brewfile.go
 
 print-dead:
 	find ~ -maxdepth 1 -name '.*' -type l -exec test ! -e {} \; -print
