@@ -65,7 +65,7 @@ install: $(symlinks) ghostty fish
 # Applications
 
 install-apps: emacs-plus-icon
-	brew bundle cleanup --force
+	brew bundle cleanup --no-mas --force
 	brew bundle install --no-upgrade
 
 check-apps:
