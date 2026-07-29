@@ -99,6 +99,8 @@ brew 'sipcalc'
 brew 'staticcheck'
 # Wrangle locally compiled programs
 brew 'stow'
+# Record the terminal
+brew 't-rec' if work_machine?
 # Count lines of code
 brew 'tokei'
 # Trash files from the command line. Sonoma comes with trash command
