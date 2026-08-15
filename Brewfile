@@ -16,7 +16,7 @@ brew 'awscli' if work_machine?
 # A better find
 brew 'bfs'
 # Apple-optimized container support
-brew 'container' if MacOS.version >= :tahoe
+brew 'container' unless MacOS.version < :tahoe or work_machine?
 # GNU version of ls
 brew 'coreutils'
 # Print information about the system
