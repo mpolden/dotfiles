@@ -45,3 +45,4 @@ tmp/
 
 # AI tools
 .claude/
+.worktreeinclude
