@@ -118,8 +118,6 @@ cask '1password' if work_machine?
 # A better Spotlight and clipboard history
 cask 'alfred' if MacOS.version < :sonoma
 # Overly confident junior developer / assistant
-cask 'claude' if work_machine?
-# Overly confident junior developer / assistant (CLI variant)
 cask 'claude-code' if work_machine?
 # The true editor
 cask 'd12frosted/emacs-plus/emacs-plus-app'
