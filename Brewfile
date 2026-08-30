@@ -67,6 +67,8 @@ brew 'mtr'
 brew 'mvndaemon/mvnd/mvnd'
 # Runtime for a horrible language
 brew 'node@24' if work_machine?
+# Sandboxing made easy
+brew 'nono'
 # Convert between many text formats
 brew 'pandoc'
 # Wrangle programs distributed as Python packages
