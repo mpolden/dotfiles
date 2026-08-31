@@ -97,6 +97,8 @@ brew 'shellcheck'
 brew 'shfmt'
 # IP calculator
 brew 'sipcalc'
+# Test link speed
+brew 'speedtest-go'
 # Go linter using static analysis
 brew 'staticcheck'
 # Wrangle locally compiled programs
