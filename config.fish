@@ -49,9 +49,8 @@ fish_add_path --global "$HOMEBREW_PREFIX/opt/node@24/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/pnpm@10/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/ruby/bin"
 fish_add_path --global "$HOMEBREW_PREFIX/opt/trash/bin"
-# IntelliJ 'idea' command, for opening files from CLI
-fish_add_path --global "$HOME/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS"
-fish_add_path --global "$HOME/Applications/IntelliJ IDEA Ultimate.app/Contents/MacOS"
+# JetBrains wrappers (for example 'idea') for opening files from CLI
+fish_add_path --global "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 # Language-specific executables
 fish_add_path --global "$HOME/.gem/ruby/4.0.0/bin"
 fish_add_path --global "$HOME/.cargo/bin"
