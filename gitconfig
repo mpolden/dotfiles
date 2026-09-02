@@ -70,7 +70,5 @@
 	lineNumber = true
 [log]
 	follow = true
-[include]
-	path = .gitconfig.local
 [init]
 	defaultBranch = master
