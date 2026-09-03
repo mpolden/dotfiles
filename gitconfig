@@ -29,9 +29,10 @@
 	s = status --short --branch
 	co = checkout
 	b = branch
-	prune-branches = "!git branch --merged | grep -Ev '^[*+]|  (master|main)$' | xargs git branch --delete"
-	sync = "!git remote get-url origin > /dev/null 2>&1 && (git checkout master || git checkout main) && git pull origin && git prune-branches"
-	sync-here = "!git fetch origin master:master && git prune-branches"
+	main-branch = "!git branch --format='%(refname:short)' | grep -oE 'master|main'"
+	prune-branches = "!git branch --format='%(refname:short)' --merged | grep -voE 'master|main' | xargs git branch --delete"
+	sync = "!git remote get-url origin > /dev/null 2>&1 && git checkout $(git main-branch) && git pull origin && git prune-branches"
+	sync-here = "!git fetch origin $(git main-branch):$(git main-branch) && git prune-branches"
 	wip = "!git add --all && git commit -m wip"
 	wip-reset = "!git show --no-patch --format=%s HEAD | grep -qE '^wip$' && git reset --soft HEAD~1 || echo 'no wip commit found' 1>&2"
 	latest-tag = "!git tag -l 'v[0-9]*' | sort -rV | head -1"
