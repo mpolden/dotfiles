@@ -44,5 +44,7 @@ tmp/
 .\#*
 
 # AI tools
-.claude/
+.claude/*
+!.claude/rules/
+!.claude/skills/
 .worktreeinclude
