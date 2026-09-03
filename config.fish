@@ -91,6 +91,11 @@ if command -q fzf
     set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 end
 
+# Do not use a pager for GitHub CLI
+if command -q gh
+    set -gx GH_PAGER cat
+end
+
 # Kill mosh-server if it has been inactive for a week
 if command -q mosh-server
     set -gx MOSH_SERVER_NETWORK_TMOUT 604800
