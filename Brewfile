@@ -121,6 +121,8 @@ cask '1password' if work_machine?
 cask 'alfred' if MacOS.version < :sonoma
 # Overly confident junior developer / assistant
 cask 'claude-code' if work_machine?
+# Another overly confident junior developer / assistant
+cask 'codex' if work_machine?
 # The true editor
 cask 'd12frosted/emacs-plus/emacs-plus-app'
 # The last truly open browser
