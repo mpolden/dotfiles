@@ -119,8 +119,6 @@ brew 'wireguard-tools'
 cask '1password' if work_machine?
 # A better Spotlight and clipboard history
 cask 'alfred' if MacOS.version < :sonoma
-# Overly confident junior developer / assistant
-cask 'claude-code' if work_machine?
 # Another overly confident junior developer / assistant
 cask 'codex' if work_machine?
 # The true editor
