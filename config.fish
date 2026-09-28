@@ -219,7 +219,7 @@ function cdt
         echo "cdt: $git_root is not a directory" 1>&2
         return 1
     end
-    set worktree (find "$git_root" -maxdepth 4 -type d -wholename '*/.*/worktrees/*' | \
+    set worktree (find "$git_root" -maxdepth 4 -type d -wholename '*/.claude/worktrees/*' | \
         awk -F / '{print $(NF-3) "\t" $NF "\t" $0}' | \
         column -t | \
         fzf --reverse --height=40% --exit-0 --accept-nth=3)
