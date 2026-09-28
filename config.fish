@@ -231,6 +231,23 @@ function cdt
     end
 end
 
+# Open directory as a magit-status buffer in Emacs
+function magit
+    set repo $argv[1]
+    if [ -z "$repo" ]
+        set repo "."
+    end
+    set git_root (git -C "$repo" rev-parse --show-toplevel 2> /dev/null)
+    if [ $status -ne 0 ]
+        echo "magit: not a git repository: $repo" 1>&2
+        return 1
+    end
+    emacsclient -e "(progn (magit-status \"$git_root\") (delete-other-windows))"
+    if command -q osascript
+        osascript -e "tell application \"Emacs\" to activate"
+    end
+end
+
 # Abbreviations (expand when typed)
 abbr --add diff "diff -u"
 abbr --add ec "emacsclient -n"
