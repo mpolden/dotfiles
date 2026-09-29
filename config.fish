@@ -242,7 +242,7 @@ function magit
         echo "magit: not a git repository: $repo" 1>&2
         return 1
     end
-    emacsclient -e "(progn (magit-status \"$git_root\") (delete-other-windows))"
+    emacsclient -e "(progn (magit-status \"$git_root\") (delete-other-windows))" >/dev/null
     if command -q osascript
         osascript -e "tell application \"Emacs\" to activate"
     end
