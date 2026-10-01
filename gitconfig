@@ -30,7 +30,7 @@
 	co = checkout
 	b = branch
 	main-branch = "!git branch --format='%(refname:short)' | grep -oE 'master|main'"
-	prune-branches = "!git branch --format='%(refname:short)' --merged | grep -vxE 'master|main' | xargs -I{} sh -c 'git worktree remove {}; git branch --delete {}'"
+	prune-branches = "!git branch --format='%(refname:short)' --merged | grep -vxE 'master|main' | xargs git branch --delete"
 	sync = "!git remote get-url origin > /dev/null 2>&1 && git checkout $(git main-branch) && git pull origin && git prune-branches"
 	sync-here = "!git fetch origin $(git main-branch):$(git main-branch) && git prune-branches"
 	wip = "!git add --all && git commit -m wip"
