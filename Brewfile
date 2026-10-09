@@ -69,8 +69,6 @@ brew 'mvndaemon/mvnd/mvnd'
 brew 'node@24' if work_machine?
 # Convert between many text formats
 brew 'pandoc'
-# Wrangle programs distributed as Python packages
-brew 'pipx'
 # A slightly better npm
 brew 'pnpm@10' if work_machine?
 # Wrangle containers
