@@ -147,8 +147,6 @@ cask 'spotify'
 cask 'syncthing-app' unless work_machine?
 # WireGuard with magic sauce
 cask 'tailscale-app' if work_machine?
-# Anonymous browser
-cask 'tor-browser' unless work_machine?
 # Create music
 mas 'GarageBand', id: 682_658_836 unless work_machine?
 # Slides
