@@ -70,7 +70,7 @@ brew 'node@24' if work_machine?
 # Convert between many text formats
 brew 'pandoc'
 # A slightly better npm
-brew 'pnpm@10' if work_machine?
+brew 'pnpm' if work_machine?
 # Wrangle containers
 brew 'podman'
 # Encode text as a QR code
