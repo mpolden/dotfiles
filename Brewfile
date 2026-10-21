@@ -125,6 +125,8 @@ cask 'd12frosted/emacs-plus/emacs-plus-app'
 cask 'firefox'
 # Customized version of an excellent programming font
 cask 'font-aporetic'
+# An open font inspired by Berkeley Mono
+cask 'font-ioskeley-mono'
 # A good terminal emulator
 cask 'ghostty'
 # Video player
