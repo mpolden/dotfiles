@@ -252,6 +252,16 @@ function magit
     end
 end
 
+# Create a new session for the given directory in Claude for Mac
+function cld
+    set dir $argv[1]
+    if [ -z "$dir" ]
+        set dir $PWD
+    end
+    set url_dir (string escape --style=url -- $dir)
+    open "claude://code/new?folder=$url_dir"
+end
+
 # Abbreviations (expand when typed)
 abbr --add diff "diff -u"
 abbr --add ec "emacsclient -n"
