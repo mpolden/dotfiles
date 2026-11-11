@@ -119,6 +119,8 @@ cask '1password' if work_machine?
 cask 'alfred' if MacOS.version < :sonoma
 # Overly confident junior developer / assistant
 cask 'claude' if work_machine?
+# Make C++ bearable
+cask 'clion' if work_machine?
 # The true editor
 cask 'd12frosted/emacs-plus/emacs-plus-app'
 # The last truly open browser
@@ -131,8 +133,8 @@ cask 'font-ioskeley-mono'
 cask 'ghostty'
 # Video player
 cask 'iina'
-# Package manager for JetBrains IDEs
-cask 'jetbrains-toolbox' if work_machine?
+# Java IDE
+cask 'intellij-idea' if work_machine?
 # Password manager
 cask 'keepassxc' unless work_machine?
 # Clipboard history. Sonoma is required since 2.x
